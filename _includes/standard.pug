@@ -1,0 +1,16 @@
+doctype html
+head
+    meta(charset='UTF-8')/
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')/
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css')/
+    script(defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+    title !{ title }
+body
+    .hero.is-dark
+        .hero-body
+            .container
+                h1.title !{ title }
+                img(src="img/deadlands_logo.png", alt="Deadlands Logo")
+    section.section
+        .container
+            .content !{ content }
