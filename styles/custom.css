@@ -1,7 +1,8 @@
 :root {
-    --clr-white: rgba(246, 196, 131, 0.867);
+    --clr-background: rgba(246, 196, 131, 0.867);
     --clr-1: #8C0712;
     --clr-2: #8C6927;
+    --clr-3: rgb(228, 214, 188);
 }
 
 
@@ -10,27 +11,30 @@ html {
 }
 
 body {
-    background-image: url(../img/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
     min-height: 100%;
     font-family: Oldenburg;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, button {
     font-family: 'Oleo Script';
 }
 
 .custom-container {
     border: 1em solid transparent;
     border-radius: 1rem;
-    background: var(--clr-white);
+    background: var(--clr-background);
 }
 
 .custom-container-right {
-    color: var(--clr-1);
+    color: var(--clr-3);
 }
 
 .custom-container-right h3 {
-    color: var(--clr-1);
+    color: var(--clr-3);
+}
+
+.custom-number {
+    color: var(--clr-2);
 }
