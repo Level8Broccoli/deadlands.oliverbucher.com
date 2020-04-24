@@ -34,7 +34,7 @@ _(die, die weder markiert noch gestrichen wurden)_
 _(die, die wir gestrichen haben)_
 
 ### Thema/Stichwort?
-Das kann alles sein, was euch in den Sinn kommt. Wären wir z.B. in einem SciFi-Abenteuer, könnte ich mir Begriffe wie _Aliens_, _Lichtschwerter_, _Ressourcenknappheit_, _Schulden_ etc. vorstellen. Dann würde vielleicht jemand _Aliens_ streichen, da er gerne ohne Ausserirdische spielen möchte.
+Das kann alles sein, was euch in den Sinn kommt. Wären wir z.B. in einem SciFi-Abenteuer, könnte ich mir Begriffe wie _"Aliens"_, _"Lichtschwerter"_, _"Ressourcenknappheit"_, _"Schulden"_ etc. vorstellen. Dann würde vielleicht jemand _"Aliens"_ streichen, da er gerne ohne Ausserirdische spielen möchte.
 
 ## <span class="custom-number">B:</span> Charakterideen
 
