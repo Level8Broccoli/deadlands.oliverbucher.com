@@ -3,5 +3,4 @@ layout: standard
 title: Deadlands RPG
 ---
 
-# Überschrift
-## Überschrift 2
+# Willkommen im Weird West

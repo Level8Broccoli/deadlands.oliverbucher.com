@@ -1,16 +1,24 @@
 doctype html
-head
-    meta(charset='UTF-8')/
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')/
-    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css')/
-    script(defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
-    title !{ title }
-body
-    .hero.is-dark
-        .hero-body
+html
+    head
+        meta(charset='UTF-8')/
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')/
+        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css')/
+        script(defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+        link(rel='stylesheet', href='styles/custom.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Oldenburg&family=Oleo+Script:wght@700&display=swap')
+        title !{ title }
+    body
+        .hero
+            .hero-body
+                .container
+                    img(src='img/deadlands_logo.png', alt='Deadlands Logo')
+        section.section
             .container
-                h1.title !{ title }
-                img(src="img/deadlands_logo.png", alt="Deadlands Logo")
-    section.section
-        .container
-            .content !{ content }
+                .columns
+                    .column.custom-container
+                        .content !{ content }
+                    .column.is-one-quarter.custom-container-right
+                        .content
+                            h3 Termin
+                            p Sonntagnachmittag, 3. April 1879
