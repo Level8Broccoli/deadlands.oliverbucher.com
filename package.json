@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Level8Broccoli/deadlands.oliverbucher.com#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0"
+    "@11ty/eleventy": "^0.10.0",
+    "pug": "^2.0.4"
   }
 }
