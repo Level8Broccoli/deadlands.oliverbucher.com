@@ -58,15 +58,19 @@ Vue.component('attribute', {
             </tr>
             <tr v-for="attribute in attributList">
                 <td><a @click="showDescr(attribute.id)">{{ attribute.name }}</a> <br /> <small v-show="attribute.show">{{ attribute.descr }}</small></td>
-                <td><button class="button is-success" @click="buttonClick(4, attribute.id)">&hearts;</button></td>
+                <td><button class="button is-info" @click="buttonClick(4, attribute.id)">&hearts;</button></td>
                 <td>
-                    {{ charSave.attribute.liste }} {{ attribute.id }}
-                    <span v-if="attributeValues[attribute.id] == 6">True</span>
-                    <button class="button" :class="attributeValues[attribute.id] > 6 ? 'is-success' : 'is-danger'" @click="buttonClick(6, attribute.id)">&times;</button>
+                    <button class="button" :class="checkStatus(6, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(6, attribute.id)" v-html="getButtonContent(6, attribute.id)"></button>
                 </td>
-                <td><button class="button is-danger" @click="buttonClick(8, attribute.id)">&times;</button></td>
-                <td><button class="button is-danger" @click="buttonClick(10, attribute.id)">&times;</button></td>
-                <td><button class="button is-danger" @click="buttonClick(12, attribute.id)">&times;</button></td>
+                <td>
+                    <button class="button" :class="checkStatus(8, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(8, attribute.id)" v-html="getButtonContent(8, attribute.id)"></button>
+                </td>
+                <td>
+                    <button class="button" :class="checkStatus(10, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(10, attribute.id)" v-html="getButtonContent(10, attribute.id)"></button>
+                </td>
+                <td>
+                    <button class="button" :class="checkStatus(12, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(12, attribute.id)" v-html="getButtonContent(12, attribute.id)"></button>
+                </td>
             </tr>
         </table>
     </div>
@@ -75,15 +79,17 @@ Vue.component('attribute', {
     props: ['meta', 'attributList', 'charSave'],
     methods: {
         buttonClick(value, id){
-            this.$emit('button-click', {type: 'attribute', value: value, id: id});
+            this.$emit('button-click', {type: 'attribute', value, id});
         },
         showDescr(id) {
-            this.$emit('show-descr', {type: 'attribute', id: id});
+            this.$emit('show-descr', {type: 'attribute', id});
         },
-        checkButton(value, id) {
+        checkStatus(value, id) {
             const savedValue = this.charSave.attribute.liste[id];
-            console.log(value <= savedValue);
             return value <= savedValue;
+        },
+        getButtonContent(value, id) {
+            return this.checkStatus(value, id) ? '&hearts;' : '&times;';
         },
     },
     computed: {

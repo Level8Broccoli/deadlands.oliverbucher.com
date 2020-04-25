@@ -15,7 +15,20 @@ const app = new Vue({
         </div>
     `,
     data: {
-        charSave: {},
+        charSave: {
+            attribute: {
+                liste: {}
+            },
+            fertigkeiten: {
+                liste: []
+            },
+            talente: {
+                liste: []
+            },
+            handicaps: {
+                liste: []
+            }
+        },
         handicaps: [],
         talents: [],
         attribute: [],
@@ -25,12 +38,19 @@ const app = new Vue({
         changeTab(id) {
             this.currentTab = id;
         },
-        buttonClick({type, id, value}) {
+        buttonClick({
+            type,
+            id,
+            value
+        }) {
             if (type === 'attribute') {
-                this.charSave.attribute.liste[id] = value;
+                this.$set(this.charSave.attribute.liste, id, value);
             }
         },
-        showDescr({type, id}) {
+        showDescr({
+            type,
+            id
+        }) {
             if (type === 'attribute') {
                 let attributeEntry = this.attribute.find(a => a.id === id);
                 attributeEntry.show = !attributeEntry.show;
@@ -46,25 +66,25 @@ const app = new Vue({
                     id: 0,
                     name: 'Attribute',
                     descr: 'Die 5 Attribute beginnen alle bei einem <strong>W4</strong> Würfel. Pro Punkt kannst du ein Attribut um einen Würfel verbessern.<br /><em>Beispiel: W4 -> W8 kostet dich 2 Punkte.</em> ',
-                    value: typeof this.charSave.attribute === 'undefined' ? '': this.charSave.attribute.punkte,
+                    value: this.getAttributPoints,
                     goal: 0
                 },
                 {
                     id: 1,
                     name: 'Fertigkeiten',
-                    value: typeof this.charSave.fertigkeiten === 'undefined' ? '': this.charSave.fertigkeiten.punkte,
+                    value: typeof this.charSave.fertigkeiten === 'undefined' ? '' : this.charSave.fertigkeiten.punkte,
                     goal: 0
                 },
                 {
                     id: 2,
                     name: 'Handicaps',
-                    value: typeof this.charSave.handicaps === 'undefined' ? '': this.charSave.handicaps.punkte,
+                    value: typeof this.charSave.handicaps === 'undefined' ? '' : this.charSave.handicaps.punkte,
                     goal: 0
                 },
                 {
                     id: 3,
                     name: 'Talente',
-                    value: typeof this.charSave.talente === 'undefined' ? '': this.charSave.talente.punkte,
+                    value: typeof this.charSave.talente === 'undefined' ? '' : this.charSave.talente.punkte,
                     goal: 0
                 },
             ];
@@ -94,6 +114,14 @@ const app = new Vue({
                     value: 1
                 }
             ];
+        },
+        getAttributPoints() {
+            const list = this.charSave.attribute.liste;
+            let total = 0;
+            for (let [_, value] of Object.entries(liste)) {
+                total += value - 4;
+            }
+            return 5 - total / 2;
         },
     },
 });
