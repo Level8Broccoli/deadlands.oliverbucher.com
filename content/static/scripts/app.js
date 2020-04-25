@@ -45,12 +45,13 @@ const app = new Vue({
                 },
                 {
                     name: 'Parade/Zielwert',
-                    value: 0,
+                    value: 2,
+                    additional: ' + Kämpfen/2'
                 },
                 {
                     name: 'Robustheit',
                     value: '2 + Kon/2',
-                    additional: '+ Panzerung'
+                    additional: ' + Panzerung'
                 },
                 {
                     name: 'Startkapital',
