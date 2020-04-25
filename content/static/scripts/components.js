@@ -8,17 +8,23 @@ Vue.component('overview', {
             </div>
             <div class="message-body">
                 <div class="field is-grouped is-grouped-multiline">
-                    <div class="control" v-for="entry in overviewList">
+                    <div class="control" v-for="entry in overviewListWithGoals">
                         <div class="tags has-addons">
                             <span class="tag is-dark">{{ entry.name }}</span>
-                            <span class="tag" :class="entry.goal || entry.goal !== entry.value ? 'is-danger' : ''">{{ entry.value }}</span>
+                            <span class="tag" :class="entry.goal !== entry.value ? 'is-danger' : ''">{{ entry.value }}{{ entry.additional }}</span>
+                        </div>
+                    </div>
+                    <div class="control" v-for="entry in overviewListWithoutGoals">
+                        <div class="tags has-addons">
+                            <span class="tag is-dark">{{ entry.name }}</span>
+                            <span class="tag">{{ entry.value }}{{ entry.additional }}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     `,
-    props: ['overviewList']
+    props: ['overviewListWithGoals', 'overviewListWithoutGoals']
 });
 
 Vue.component('tabbar', {

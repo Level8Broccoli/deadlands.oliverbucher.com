@@ -4,7 +4,7 @@ const app = new Vue({
     el: '.app',
     template: `
         <div>
-            <overview :overviewList="overviewList" />
+            <overview :overviewListWithGoals="overviewListWithGoals" :overviewListWithoutGoals="overviewListWithoutGoals" />
             <tabbar :currentTab="currentTab" @change-tab="changeTab" />
         </div>
     `,
@@ -20,7 +20,7 @@ const app = new Vue({
         }
     },
     computed: {
-        overviewList() {
+        overviewListWithGoals() {
             return [{
                     name: 'Attributspunkte',
                     value: 5,
@@ -32,31 +32,36 @@ const app = new Vue({
                     goal: 0
                 },
                 {
-                    name: 'Bewegung',
-                    value: '12 Meter',
-                },
-                {
-                    name: 'Parade/Zielwert',
-                    value: 0,
-                },
-                {
-                    name: 'Robustheit',
-                    value: '2 + Kon/2 + Panzerung'
-                },
-                {
                     name: 'Talente',
                     value: 1,
                     goal: 0
                 },
-                {
-                    name: 'Startkapital',
-                    value: 250
-                },
-                {
-                    name: 'Grit',
-                    value: 1
-                }
             ];
         }
-    }
+    },
+    overviewListWithoutGoals() {
+        return [{
+                name: 'Bewegung',
+                value: '12 Meter',
+            },
+            {
+                name: 'Parade/Zielwert',
+                value: 0,
+            },
+            {
+                name: 'Robustheit',
+                value: '2 + Kon/2',
+                additional: '+ Panzerung'
+            },
+            {
+                name: 'Startkapital',
+                value: 250,
+                additional: '$'
+            },
+            {
+                name: 'Grit',
+                value: 1
+            }
+        ];
+    },
 });
