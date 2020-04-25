@@ -3,7 +3,7 @@
 app.charSave = {
     attribute: {
         punkte: 5,
-        liste: []
+        liste: {}
     },
     fertigkeiten: {
         punkte: 12,

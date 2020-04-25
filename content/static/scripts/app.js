@@ -7,7 +7,8 @@ const app = new Vue({
             <overview :overviewListWithoutGoals="overviewListWithoutGoals" />
             <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
 
-            <attribute v-if="currentTab === 0" :meta="listOfTabs[0]" :attributList="attribute"/>
+            <attribute v-if="currentTab === 0" :meta="listOfTabs[0]" :attributList="attribute" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
+
             <fertigkeiten v-if="currentTab === 1"/>
             <handicaps v-if="currentTab === 2"/>
             <talente v-if="currentTab === 3"/>
@@ -23,7 +24,18 @@ const app = new Vue({
     methods: {
         changeTab(id) {
             this.currentTab = id;
-        }
+        },
+        buttonClick({type, id, value}) {
+            if (type === 'attribute') {
+                this.charSave.attribute.liste[id] = value;
+            }
+        },
+        showDescr({type, id}) {
+            if (type === 'attribute') {
+                let attributeEntry = this.attribute.find(a => a.id === id);
+                attributeEntry.show = !attributeEntry.show;
+            }
+        },
     },
     computed: {
         listOfTabs() {
