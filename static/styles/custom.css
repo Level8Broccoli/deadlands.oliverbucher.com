@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background: url(../images/bg.jpg) no-repeat center center fixed;
   background-size: cover;
     min-height: 100%;
     font-family: Oldenburg;

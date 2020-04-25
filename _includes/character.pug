@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')/
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')/
+        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css')/
+        link(rel='stylesheet', href='/static/styles/custom.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Oldenburg&family=Oleo+Script:wght@700&display=swap')
+        script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+        title !{ title }
+    body
+        .hero
+            .hero-body
+                .container
+                    a(href="/")
+                        img(src='/static/images/deadlands_logo.png', alt='Deadlands Logo')
+        section.section
+            .container
+                .custom-container
+                    a(href="/")
+                        button.button < Startseite
+                    br
+                    br
+                    br
+                    .content !{ content }
+        script(src="/static/scripts/components.js")
+        script(src="/static/scripts/app.js")
+        script(src="/static/scripts/data.js")
