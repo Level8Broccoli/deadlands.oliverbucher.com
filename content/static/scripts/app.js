@@ -24,10 +24,12 @@ const app = new Vue({
             return [{
                     name: 'Attributspunkte',
                     value: 5,
+                    goal: 0
                 },
                 {
                     name: 'Fertigkeitspunkte',
                     value: 12,
+                    goal: 0
                 },
                 {
                     name: 'Bewegung',
