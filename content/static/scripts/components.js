@@ -64,16 +64,16 @@ Vue.component('attribute', {
                     <button class="button is-info" @click="buttonClick(4, attribute.id)">&hearts;</button>
                 </td>
                 <td>
-                    <button class="button" :class="checkStatus(6, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(6, attribute.id)" v-html="getButtonContent(6, attribute.id)"></button>
+                    <button class="button" :class="renderButton(6, attribute.id)" @click="buttonClick(6, attribute.id)" v-html="getButtonContent(6, attribute.id)"></button>
                 </td>
                 <td>
-                    <button class="button" :class="checkStatus(8, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(8, attribute.id)" v-html="getButtonContent(8, attribute.id)"></button>
+                    <button class="button" :class="renderButton(8, attribute.id)" @click="buttonClick(8, attribute.id)" v-html="getButtonContent(8, attribute.id)"></button>
                 </td>
                 <td>
-                    <button class="button" :class="checkStatus(10, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(10, attribute.id)" v-html="getButtonContent(10, attribute.id)"></button>
+                    <button class="button" :class="renderButton(10, attribute.id)" @click="buttonClick(10, attribute.id)" v-html="getButtonContent(10, attribute.id)"></button>
                 </td>
                 <td>
-                    <button class="button" :class="checkStatus(12, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(12, attribute.id)" v-html="getButtonContent(12, attribute.id)"></button>
+                    <button class="button" :class="renderButton(12, attribute.id)" @click="buttonClick(12, attribute.id)" v-html="getButtonContent(12, attribute.id)"></button>
                 </td>
             </tr>
         </table>
@@ -95,12 +95,13 @@ Vue.component('attribute', {
                 id
             });
         },
-        checkStatus(value, id) {
+        renderButton(value, id) {
             const savedValue = this.charSave.attribute.liste[id];
-            return value <= savedValue;
+            return value <= savedValue ? 'is-success' : 'is-light';
         },
         getButtonContent(value, id) {
-            return this.checkStatus(value, id) ? '&hearts;' : '&times;';
+            const savedValue = this.charSave.attribute.liste[id];
+            return value <= savedValue ? '&hearts;' : '&times;';
         },
     },
     computed: {
@@ -128,22 +129,27 @@ Vue.component('fertigkeiten', {
             </tr>
             <tr v-for="fertigkeit in fertigkeitenList">
                 <td>
-                    <a @click="showDescr(fertigkeit.id)">{{ fertigkeit.name }}</a> <small>{{ fertigkeit.attr }}</small> <br /> <small v-show="fertigkeit.show">{{ fertigkeit.descr }}</small>
+                    <a @click="reset(fertigkeit.id)" class="delete is-small"></a>
+                    <a @click="showDescr(fertigkeit.id)">{{ fertigkeit.name }}</a>
+                    <small>{{ fertigkeit.attr }}</small>
+                    <br />
+                    <small v-show="fertigkeit.show">{{ fertigkeit.descr }}</small>
+                </td>
+                <td :class="markDoublePrice(4, fertigkeit.attr)">
+                    <button v-if="fertigkeit.startValue" class="button is-link" @click="buttonClick(4, fertigkeit.id)">&hearts;</button>
+                    <button v-else class="button" :class="checkStatus(4, fertigkeit.id) ? 'is-success' : 'is-light'" @click="buttonClick(4, fertigkeit.id)" v-html="getButtonContent(4, fertigkeit.id)"></button>
+                </td>
+                <td :class="markDoublePrice(6, fertigkeit.attr)">
+                <button class="button" :class="checkStatus(6, fertigkeit.id) ? 'is-success' : 'is-light'" @click="buttonClick(6, fertigkeit.id)" v-html="getButtonContent(6, fertigkeit.id)"></button>
+                </td>
+                <td :class="markDoublePrice(8, fertigkeit.attr)">
+                <button class="button" :class="checkStatus(8, fertigkeit.id) ? 'is-success' : 'is-light'" @click="buttonClick(8, fertigkeit.id)" v-html="getButtonContent(8, fertigkeit.id)"></button>
+                </td>
+                <td :class="markDoublePrice(10, fertigkeit.attr)">
+                <button class="button" :class="checkStatus(10, fertigkeit.id) ? 'is-success' : 'is-light'" @click="buttonClick(10, fertigkeit.id)" v-html="getButtonContent(10, fertigkeit.id)"></button>
                 </td>
                 <td>
-                    <button class="button" :class="checkStatus(4, fertigkeit.id) ? 'is-success' : 'is-danger'" @click="buttonClick(4, fertigkeit.id)" v-html="getButtonContent(4, fertigkeit.id)"></button>
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
+                    <button class="button" :class="checkStatus(12, fertigkeit.id) ? 'is-success' : 'is-light'" @click="buttonClick(12, fertigkeit.id)" v-html="getButtonContent(12, fertigkeit.id)"></button>
                 </td>
             </tr>
         </table>
@@ -171,6 +177,17 @@ Vue.component('fertigkeiten', {
         },
         getButtonContent(value, id) {
             return this.checkStatus(value, id) ? '&hearts;' : '&times;';
+        },
+        reset(id) {
+            this.$emit('reset-fertigkeit', id);
+        },
+        markDoublePrice(value, attr) {
+            const list = this.charSave.attribute.liste;
+            let attrValue = 4;
+            if (typeof list[attr] !== 'undefined') {
+                attrValue = list[attr];
+            }
+            return attrValue < value ? 'is-danger is-light' : '';
         },
     }
 });

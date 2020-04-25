@@ -9,7 +9,7 @@ const app = new Vue({
 
             <attribute v-if="currentTab === 0" :meta="listOfTabs[0]" :attributList="attribute" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
 
-            <fertigkeiten v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
+            <fertigkeiten v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @show-descr="showDescr" @reset-fertigkeit="resetFertigkeit" :charSave="charSave"/>
 
             <handicaps v-if="currentTab === 2"/>
             <talente v-if="currentTab === 3"/>
@@ -68,11 +68,16 @@ const app = new Vue({
             return list.find(f => f.id === id);
         },
         getAttributeValue(attr) {
-            const list = this.charSave.attribute.list;
+            const list = this.charSave.attribute.liste;
+            console.log(list);
             if (typeof list === 'undefined' || typeof list[attr] === 'undefined') {
                 return 4;
             }
             return list[attr];
+        },
+        resetFertigkeit(id) {
+            const list = this.charSave.fertigkeiten.liste;
+            this.$delete(list, id);
         },
     },
     computed: {
@@ -154,19 +159,19 @@ const app = new Vue({
                 const attrValue = this.getAttributeValue(fert.attr);
 
                 let sum = 0;
-
+                console.log(key, value, fert.attr, attrValue);
                 if (attrValue >= value) {
                     sum = value;
                 } else {
                     sum = value + (value - attrValue);
                 }
                 if (typeof fert.startValue !== 'undefined') {
-                    total += sum/2 - 2;
+                    total += sum / 2 - 2;
                 } else {
-                    total += sum/2 - 1;
+                    total += sum / 2 - 1;
                 }
             }
-            return total;
+            return 12 - total;
         },
         fertigkeitenMitStartValue() {
             const list = this.fertigkeiten;
