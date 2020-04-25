@@ -2,7 +2,12 @@
 
 const app = new Vue({
     el: '.app',
-    template: `<tabbar :currentTab="currentTab" @change-tab="changeTab" />`,
+    template: `
+        <div>
+            <overview :overviewList="overviewList" />
+            <tabbar :currentTab="currentTab" @change-tab="changeTab" />
+        </div>
+    `,
     data: {
         charSave: {},
         handicaps: [],
@@ -12,6 +17,45 @@ const app = new Vue({
     methods: {
         changeTab(id) {
             this.currentTab = id;
+        }
+    },
+    computed: {
+        overviewList() {
+            return {
+                [{
+                        name: 'Attributspunkte',
+                        value: 5,
+                    },
+                    {
+                        name: 'Fertigkeitspunkte',
+                        value: 12,
+                    },
+                    {
+                        name: 'Bewegung',
+                        value: '12 Meter',
+                    },
+                    {
+                        name: 'Parade/Zielwert',
+                        value: 0,
+                    },
+                    {
+                        name: 'Robustheit',
+                        value: '2 + Kon/2 + Panzerung'
+                    },
+                    {
+                        name: 'Talente',
+                        value: '1'
+                    },
+                    {
+                        name: 'Startkapital',
+                        value: 250
+                    },
+                    {
+                        name: 'Grit',
+                        value: 1
+                    }
+                ]
+            }
         }
     }
 });
