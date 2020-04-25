@@ -57,8 +57,12 @@ Vue.component('attribute', {
                 <th>W12</th>
             </tr>
             <tr v-for="attribute in attributList">
-                <td><a @click="showDescr(attribute.id)">{{ attribute.name }}</a> <br /> <small v-show="attribute.show">{{ attribute.descr }}</small></td>
-                <td><button class="button is-info" @click="buttonClick(4, attribute.id)">&hearts;</button></td>
+                <td>
+                    <a @click="showDescr(attribute.id)">{{ attribute.name }}</a> <br /> <small v-show="attribute.show">{{ attribute.descr }}</small>
+                </td>
+                <td>
+                    <button class="button is-info" @click="buttonClick(4, attribute.id)">&hearts;</button>
+                </td>
                 <td>
                     <button class="button" :class="checkStatus(6, attribute.id) ? 'is-success' : 'is-danger'" @click="buttonClick(6, attribute.id)" v-html="getButtonContent(6, attribute.id)"></button>
                 </td>
@@ -78,11 +82,18 @@ Vue.component('attribute', {
 `,
     props: ['meta', 'attributList', 'charSave'],
     methods: {
-        buttonClick(value, id){
-            this.$emit('button-click', {type: 'attribute', value, id});
+        buttonClick(value, id) {
+            this.$emit('button-click', {
+                type: 'attribute',
+                value,
+                id
+            });
         },
         showDescr(id) {
-            this.$emit('show-descr', {type: 'attribute', id});
+            this.$emit('show-descr', {
+                type: 'attribute',
+                id
+            });
         },
         checkStatus(value, id) {
             const savedValue = this.charSave.attribute.liste[id];
@@ -98,6 +109,7 @@ Vue.component('attribute', {
         },
     }
 });
+
 Vue.component('fertigkeiten', {
     template: `
     <div>
@@ -108,7 +120,6 @@ Vue.component('fertigkeiten', {
         <table class="table is-striped is-hoverable is-fullwidth">
             <tr>
                 <th><h1 class="subtitle">{{ meta.name }}</h1></th>
-                <th>Attribut</th>
                 <th>W4</th>
                 <th>W6</th>
                 <th>W8</th>
@@ -117,13 +128,10 @@ Vue.component('fertigkeiten', {
             </tr>
             <tr v-for="fertigkeit in fertigkeitenList">
                 <td>
-
+                    <a @click="showDescr(fertigkeit.id)">{{ fertigkeit.name }}</a> <small>{{ fertigkeit.attr }}</small> <br /> <small v-show="fertigkeit.show">{{ fertigkeit.descr }}</small>
                 </td>
                 <td>
-                    {{ fertigkeit.attr }}
-                </td>
-                <td>
-
+                    <button class="button" :class="checkStatus(4, fertigkeit.id) ? 'is-success' : 'is-danger'" @click="buttonClick(4, fertigkeit.id)" v-html="getButtonContent(4, fertigkeit.id)"></button>
                 </td>
                 <td>
 
@@ -143,7 +151,30 @@ Vue.component('fertigkeiten', {
 </div>
     `,
     props: ['meta', 'attributList', 'fertigkeitenList', 'charSave'],
+    methods: {
+        showDescr(id) {
+            this.$emit('show-descr', {
+                type: 'fertigkeit',
+                id
+            });
+        },
+        buttonClick(value, id) {
+            this.$emit('button-click', {
+                type: 'fertigkeit',
+                value,
+                id
+            });
+        },
+        checkStatus(value, id) {
+            const savedValue = this.charSave.fertigkeiten.liste[id];
+            return value <= savedValue;
+        },
+        getButtonContent(value, id) {
+            return this.checkStatus(value, id) ? '&hearts;' : '&times;';
+        },
+    }
 });
+
 Vue.component('handicaps', {
     template: `
 <div>
@@ -151,6 +182,7 @@ Vue.component('handicaps', {
 </div>
     `,
 });
+
 Vue.component('talente', {
     template: `
 <div>

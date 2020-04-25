@@ -33,7 +33,8 @@ const app = new Vue({
         handicaps: [],
         talents: [],
         attribute: [],
-        currentTab: 0
+        fertigkeiten: [],
+        currentTab: 1
     },
     methods: {
         changeTab(id) {
@@ -46,6 +47,8 @@ const app = new Vue({
         }) {
             if (type === 'attribute') {
                 this.$set(this.charSave.attribute.liste, id, value);
+            } else if (type === 'fertigkeit') {
+                this.$set(this.charSave.fertigkeiten.liste, id, value);
             }
         },
         showDescr({
@@ -55,7 +58,21 @@ const app = new Vue({
             if (type === 'attribute') {
                 let attributeEntry = this.attribute.find(a => a.id === id);
                 attributeEntry.show = !attributeEntry.show;
+            } else if (type === 'fertigkeit') {
+                let fertigkeitenEntry = this.fertigkeiten.find(a => a.id === id);
+                fertigkeitenEntry.show = !fertigkeitenEntry.show;
             }
+        },
+        getFertigkeit(id) {
+            const list = this.fertigkeiten;
+            return list.find(f => f.id === id);
+        },
+        getAttributeValue(attr) {
+            const list = this.charSave.attribute.list;
+            if (typeof list === 'undefined' || typeof list[attr] === 'undefined') {
+                return 4;
+            }
+            return list[attr];
         },
     },
     computed: {
@@ -67,13 +84,14 @@ const app = new Vue({
                     id: 0,
                     name: 'Attribute',
                     descr: 'Die 5 Attribute beginnen alle bei einem <strong>W4</strong> Würfel. Pro Punkt kannst du ein Attribut um einen Würfel verbessern.<br /><em>Beispiel: W4 -> W8 kostet dich 2 Punkte.</em> ',
-                    value: this.getAttributPoints,
+                    value: this.getAttributsPunkte,
                     goal: 0
                 },
                 {
                     id: 1,
                     name: 'Fertigkeiten',
-                    value: typeof this.charSave.fertigkeiten === 'undefined' ? '' : this.charSave.fertigkeiten.punkte,
+                    descr: 'Ein paar Fertigkeiten haben einen Startwert (blau markiert) von W4. Du kannst weitere Punkte verteilen, wie bei den Attributen.<br /><strong>Achtung: Die Fertigkeiten sind abhängig von je einem passenden Attribut. Wenn du eine Fertigkeit auf einen Wert steigerst, der den dazugehörigen Attributswert übersteigt, kostet das 2 Punkte!</strong>',
+                    value: this.getFertigkeitenPunkte,
                     goal: 0
                 },
                 {
@@ -96,6 +114,10 @@ const app = new Vue({
                     value: '12 Meter',
                 },
                 {
+                    name: 'Rasse',
+                    value: 'Mensch'
+                },
+                {
                     name: 'Parade/Zielwert',
                     value: 2,
                     additional: ' + Kämpfen/2'
@@ -116,13 +138,43 @@ const app = new Vue({
                 }
             ];
         },
-        getAttributPoints() {
+        getAttributsPunkte() {
             const list = this.charSave.attribute.liste;
             let total = 0;
             for (let [_, value] of Object.entries(list)) {
                 total += value - 4;
             }
             return 5 - total / 2;
+        },
+        getFertigkeitenPunkte() {
+            const list = this.charSave.fertigkeiten.liste;
+            let total = 0;
+            for (let [key, value] of Object.entries(list)) {
+                const fert = this.getFertigkeit(key);
+                const attrValue = this.getAttributeValue(fert.attr);
+
+                let sum = 0;
+
+                if (attrValue >= value) {
+                    sum = value;
+                } else {
+                    sum = value + (value - attrValue);
+                }
+                if (typeof fert.startValue !== 'undefined') {
+                    total += sum/2 - 2;
+                } else {
+                    total += sum/2 - 1;
+                }
+            }
+            return total;
+        },
+        fertigkeitenMitStartValue() {
+            const list = this.fertigkeiten;
+            let total = 0;
+            for (let index in list) {
+                total += typeof list[index].startValue === 'undefined' ? 0 : 1;
+            }
+            return total;
         },
         konstitution() {
             const list = this.charSave.attribute.liste;

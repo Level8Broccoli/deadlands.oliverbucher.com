@@ -37,197 +37,229 @@ app.fertigkeiten = [{
         name: "Allgemeinwissen",
         descr: "Allgemeines Wissen über die Welt eines Charakters.",
         attr: "Verstand",
-        startValue: "4"
+        startValue: "4",
+        show: false,
     },
     {
         id: "Athletik",
         name: "Athletik",
         descr: "Athletische Koordinationsgabe und Können. Klettern, Springen, Balancieren, Ringen, Skifahren, Schwimmen, Werfen und Fangen.",
         attr: "Geschicklichkeit",
-        startValue: "4"
+        startValue: "4",
+        show: false,
     },
     {
         id: "Heimlichkeit",
         name: "Heimlichkeit",
         descr: "Die Fähigkeit zu schleichen und sich zu verstecken.",
         attr: "Geschicklichkeit",
-        startValue: "4"
+        startValue: "4",
+        show: false,
     },
     {
         id: "Überreden",
         name: "Überreden",
         descr: "Die Fähigkeit, andere zu überzeugen, das zu tun, was du willst.",
         attr: "Willenskraft",
-        startValue: "4"
+        startValue: "4",
+        show: false,
     },
     {
         id: "Wahrnehmung",
         name: "Wahrnehmung",
         descr: "Allgemeine Aufmerksamkeit und Sinnesschärfe.",
         attr: "Verstand",
-        startValue: "4"
+        startValue: "4",
+        show: false,
     },
     {
         id: "Darbietung",
         name: "Darbietung",
         descr: "Singen, Tanzen, Schauspielerei und andere Formen öffentlichen Ausdrucks.",
-        attr: "Willenskraft"
+        attr: "Willenskraft",
+        show: false,
     },
     {
         id: "Diebeskunst",
         name: "Diebeskunst",
         descr: "Fingerfertigkeit, Taschendiebstahl, Schlösserknacken und andere typische zwielichtige Taten.",
-        attr: "Geschicklichkeit"
+        attr: "Geschicklichkeit",
+        show: false,
     },
     {
         id: "Einschüchtern",
         name: "Einschüchtern",
         descr: "Die Fähigkeit eines Charakters, andere mit Drohungen dazu zu bringen, das zu tun, was er will.",
-        attr: "Willenskraft"
+        attr: "Willenskraft",
+        show: false,
     },
     {
         id: "Elektronik",
         name: "Elektronik",
         descr: "Die Verwendung von elektronischen Geräten und Systemen.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Fahren",
         name: "Fahren",
         descr: "Die Fähigkeit, Bodenfahrzeuge zu kontrollieren, zu steuern und zu bedienen.",
-        attr: "Geschicklichkeit"
+        attr: "Geschicklichkeit",
+        show: false,
     },
     {
         id: "Fokus",
         name: "Fokus",
         descr: "Die arkane Fertigkeit für den Arkanen Hintergrund (Begabt).",
-        attr: "Willenskraft"
+        attr: "Willenskraft",
+        show: false,
     },
     {
         id: "Geisteswissenschaften",
         name: "Geisteswissenschaften",
         descr: "Wissen über die freien Künste, Sozialwissenschaften, Literatur, Geschichte etc.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Glaube",
         name: "Glaube",
         descr: "Die arkane Fertigkeit für den Arkanen Hintergrund (Wunder).",
-        attr: "Willenskraft"
+        attr: "Willenskraft",
+        show: false,
     },
     {
         id: "Glücksspiel",
         name: "Glücksspiel",
         descr: "Übung und Vertrautheit mit Glückspielen aller Art.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Hacken",
         name: "Hacken",
         descr: "Programmieren und Einbrechen in Computersysteme.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Heilen",
         name: "Heilen",
         descr: "Die Fähigkeit, Wunden und Krankheiten zu behandeln und zu heilen sowie forensische Beweise zu deuten.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Kämpfen",
         name: "Kämpfen",
         descr: "Können im bewaffneten und unbewaffneten Kampf.",
-        attr: "Geschicklichkeit"
+        attr: "Geschicklichkeit",
+        show: false,
     },
     {
         id: "Kriegskunst",
         name: "Kriegskunst",
         descr: "Strategie, Taktik und das Verständnis von militärischen Einsätzen. Wichtig für Massenschlachten.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Mut",
         name: "Mut",
         descr: "Wie schnell wirst du eingeschüchtert?",
-        attr: "Willenskraft"
+        attr: "Willenskraft",
+        show: false,
     },
     {
         id: "Naturwissenschaften",
         name: "Naturwissenschaften",
         descr: "Wissen über wissenschaftliche Felder wie Biologie, Chemie, Geologie, Ingenieurskunst etc.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Okkultismus",
         name: "Okkultismus",
         descr: "Wissen über übernatürliche Ereignisse, Kreaturen, Geschichte und Methoden.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Pilot",
         name: "Pilot",
         descr: "Fähigkeit Fahrzeuge zu lenken, die sich in drei Dimensionen bewegen, wie Flugzeuge, Helikopter, Raumschiffe etc.",
-        attr: "Geschicklichkeit"
+        attr: "Geschicklichkeit",
+        show: false,
     },
     {
         id: "Provozieren",
         name: "Provozieren",
         descr: "Andere beleidigen oder erniedrigen. Fast immer als Herausfordern (siehe Seite 104).",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Psionik",
         name: "Psionik",
         descr: "Die arkane Fertigkeit für den Arkanen Hintergrund (Psionik).",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Recherche",
         name: "Recherche",
         descr: "Schriftliche Informationen in verschiedenen Quellen finden.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Reiten",
         name: "Reiten",
         descr: "Die Fähigkeit des Charakters, auf ein zahmes Tier aufzusteigen, es zu kontrollieren und zu reiten.",
-        attr: "Geschicklichkeit"
+        attr: "Geschicklichkeit",
+        show: false,
     },
     {
         id: "Reparieren",
         name: "Reparieren",
         descr: "Die Fähigkeit, mechanische und elektrische Geräte zu reparieren.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Schiessen",
         name: "Schiessen",
         descr: "Präzision mit allen Arten von Fernkampfwaffen.",
-        attr: "Geschicklichkeit"
+        attr: "Geschicklichkeit",
+        show: false,
     },
     {
         id: "Seefahrt",
         name: "Seefahrt",
         descr: "Die Fähigkeit, ein Boot, Schiff oder anderes Wasserfahrzeug zu steuern.",
-        attr: "Geschicklichkeit"
+        attr: "Geschicklichkeit",
+        show: false,
     },
     {
         id: "Sprache",
         name: "Sprache",
         descr: "Kenntnisse und Sprachfähigkeiten in einer Fremdsprache.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Überleben",
         name: "Überleben",
         descr: "Die Fähigkeit, Nahrung, Wasser oder einen Unterschlupf zu finden und Spuren zu lesen.",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Verrückte Wissenschaft",
         name: "Verrückte Wissenschaft",
         descr: "Die arkane Fertigkeit für den Arkanen Hintergrund (Verrückte Wissenschaft).",
-        attr: "Verstand"
+        attr: "Verstand",
+        show: false,
     },
     {
         id: "Zaubern",

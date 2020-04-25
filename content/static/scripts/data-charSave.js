@@ -7,14 +7,14 @@ app.charSave = {
     },
     fertigkeiten: {
         punkte: 12,
-        liste: []
+        liste: {}
     },
     talente: {
         punkte: 3,
-        liste: []
+        liste: {}
     },
     handicaps: {
         punkte: 4,
-        liste: []
+        liste: {}
     }
 };
