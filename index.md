@@ -42,4 +42,6 @@ Das kann alles sein, was euch in den Sinn kommt. Wären wir z.B. in einem SciFi-
 
 Achtung! Das _Savage Worlds_ Regelwerk ist sehr offen. Ihr werdet schlussendlich aus einer langen Liste von **Eigenschaften** und **Handicaps** auswählen können. Sowas wie Charakterklassen à la _Dungeons & Dragons_ gibt es hier nicht.
 
+[> Zur Charaktererstellung](/hombre)
+
 ## <span class="custom-number">mehr folgt noch...</span>
