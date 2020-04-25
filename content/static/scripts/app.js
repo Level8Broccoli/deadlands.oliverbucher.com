@@ -37,31 +37,31 @@ const app = new Vue({
                     goal: 0
                 },
             ];
-        }
-    },
-    overviewListWithoutGoals() {
-        return [{
-                name: 'Bewegung',
-                value: '12 Meter',
-            },
-            {
-                name: 'Parade/Zielwert',
-                value: 0,
-            },
-            {
-                name: 'Robustheit',
-                value: '2 + Kon/2',
-                additional: '+ Panzerung'
-            },
-            {
-                name: 'Startkapital',
-                value: 250,
-                additional: '$'
-            },
-            {
-                name: 'Grit',
-                value: 1
-            }
-        ];
+        },
+        overviewListWithoutGoals() {
+            return [{
+                    name: 'Bewegung',
+                    value: '12 Meter',
+                },
+                {
+                    name: 'Parade/Zielwert',
+                    value: 0,
+                },
+                {
+                    name: 'Robustheit',
+                    value: '2 + Kon/2',
+                    additional: '+ Panzerung'
+                },
+                {
+                    name: 'Startkapital',
+                    value: 250,
+                    additional: '$'
+                },
+                {
+                    name: 'Grit',
+                    value: 1
+                }
+            ];
+        },
     },
 });
