@@ -3,6 +3,7 @@ module.exports = function (eleventyConfig) {
     "md", "pug", "png", "jpg", "css",
   ]);
   eleventyConfig.addPassthroughCopy("static");
+  eleventyConfig.addPassthroughCopy("**/*.js");
   return {
     dir: {
       input: 'content',
