@@ -9,7 +9,8 @@ const app = new Vue({
 
             <attribute v-if="currentTab === 0" :meta="listOfTabs[0]" :attributList="attribute" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
 
-            <fertigkeiten v-if="currentTab === 1"/>
+            <fertigkeiten v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
+
             <handicaps v-if="currentTab === 2"/>
             <talente v-if="currentTab === 3"/>
         </div>
@@ -101,7 +102,7 @@ const app = new Vue({
                 },
                 {
                     name: 'Robustheit',
-                    value: '2 + Kon/2',
+                    value: 2 + this.konstitution,
                     additional: ' + Panzerung'
                 },
                 {
@@ -118,10 +119,17 @@ const app = new Vue({
         getAttributPoints() {
             const list = this.charSave.attribute.liste;
             let total = 0;
-            for (let [_, value] of Object.entries(liste)) {
+            for (let [_, value] of Object.entries(list)) {
                 total += value - 4;
             }
             return 5 - total / 2;
+        },
+        konstitution() {
+            const list = this.charSave.attribute.liste;
+            if (typeof list.Konstitution === 'undefined') {
+                return 4;
+            }
+            return list.Konstitution;
         },
     },
 });

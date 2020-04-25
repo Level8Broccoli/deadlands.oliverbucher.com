@@ -100,10 +100,49 @@ Vue.component('attribute', {
 });
 Vue.component('fertigkeiten', {
     template: `
-<div>
-    <h2 class="subtitle">Fertigkeiten</h2>
+    <div>
+    <h2>Erklärung:</h2>
+    <p v-html="meta.descr"></p>
+    <br />
+    <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <tr>
+                <th><h1 class="subtitle">{{ meta.name }}</h1></th>
+                <th>Attribut</th>
+                <th>W4</th>
+                <th>W6</th>
+                <th>W8</th>
+                <th>W10</th>
+                <th>W12</th>
+            </tr>
+            <tr v-for="fertigkeit in fertigkeitenList">
+                <td>
+
+                </td>
+                <td>
+                    {{ fertigkeit.attr }}
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
     `,
+    props: ['meta', 'attributList', 'fertigkeitenList', 'charSave'],
 });
 Vue.component('handicaps', {
     template: `
