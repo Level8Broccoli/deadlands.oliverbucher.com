@@ -11,7 +11,7 @@ Vue.component('overview', {
                     <div class="control" v-for="entry in overviewList">
                         <div class="tags has-addons">
                             <span class="tag is-dark">{{ entry.name }}</span>
-                            <span class="tag" :class="entry.goal !== entry.value ? 'is-danger' : ''">{{ entry.value }}</span>
+                            <span class="tag" :class="entry.goal || entry.goal !== entry.value ? 'is-danger' : ''">{{ entry.value }}</span>
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,8 @@ const app = new Vue({
                 },
                 {
                     name: 'Talente',
-                    value: '1'
+                    value: 1,
+                    goal: 0
                 },
                 {
                     name: 'Startkapital',
