@@ -27,25 +27,25 @@ const app = new Vue({
             return [{
                     id: 0,
                     name: 'Attribute',
-                    value: this.charSave.attribute.punkte || 99,
+                    value: typeof this.charSave.attribute === 'undefined' ? '': this.charSave.attribute.punkte,
                     goal: 0
                 },
                 {
                     id: 1,
                     name: 'Fertigkeiten',
-                    value: this.charSave.fertigkeiten.punkte || 99,
+                    value: typeof this.charSave.fertigkeiten === 'undefined' ? '': this.charSave.fertigkeiten.punkte,
                     goal: 0
                 },
                 {
                     id: 2,
                     name: 'Handicaps',
-                    value: this.charSave.handicaps.punkte || 99,
+                    value: typeof this.charSave.handicaps === 'undefined' ? '': this.charSave.handicaps.punkte,
                     goal: 0
                 },
                 {
                     id: 3,
                     name: 'Talente',
-                    value: this.charSave.talente.punkte || 99,
+                    value: typeof this.charSave.talente === 'undefined' ? '': this.charSave.talente.punkte,
                     goal: 0
                 },
             ];

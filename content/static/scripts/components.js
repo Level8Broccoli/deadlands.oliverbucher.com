@@ -26,8 +26,7 @@ Vue.component('tabbar', {
         <div class="tabs">
             <ul>
                 <li v-for="tab in listWithGoals" :class="tab.id == currentTab ? 'is-active' : ''">
-                    <a @click="changeTab(tab.id)">{{ tab.name }}
-                        <span class="tag" :class="tab.goal !== tab.value ? 'is-danger' : 'is-success'">{{ tab.value }}</span>
+                    <a @click="changeTab(tab.id)">{{ tab.name }} &nbsp; <span class="tag" :class="tab.goal !== tab.value ? 'is-danger' : 'is-success'">{{ tab.value }}</span>
                     </a>
                 </li>
             </ul>
