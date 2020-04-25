@@ -21,41 +21,39 @@ const app = new Vue({
     },
     computed: {
         overviewList() {
-            return {
-                [{
-                        name: 'Attributspunkte',
-                        value: 5,
-                    },
-                    {
-                        name: 'Fertigkeitspunkte',
-                        value: 12,
-                    },
-                    {
-                        name: 'Bewegung',
-                        value: '12 Meter',
-                    },
-                    {
-                        name: 'Parade/Zielwert',
-                        value: 0,
-                    },
-                    {
-                        name: 'Robustheit',
-                        value: '2 + Kon/2 + Panzerung'
-                    },
-                    {
-                        name: 'Talente',
-                        value: '1'
-                    },
-                    {
-                        name: 'Startkapital',
-                        value: 250
-                    },
-                    {
-                        name: 'Grit',
-                        value: 1
-                    }
-                ]
-            }
+            return [{
+                    name: 'Attributspunkte',
+                    value: 5,
+                },
+                {
+                    name: 'Fertigkeitspunkte',
+                    value: 12,
+                },
+                {
+                    name: 'Bewegung',
+                    value: '12 Meter',
+                },
+                {
+                    name: 'Parade/Zielwert',
+                    value: 0,
+                },
+                {
+                    name: 'Robustheit',
+                    value: '2 + Kon/2 + Panzerung'
+                },
+                {
+                    name: 'Talente',
+                    value: '1'
+                },
+                {
+                    name: 'Startkapital',
+                    value: 250
+                },
+                {
+                    name: 'Grit',
+                    value: 1
+                }
+            ];
         }
     }
 });
