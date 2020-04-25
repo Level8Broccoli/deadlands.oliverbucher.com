@@ -2,11 +2,16 @@
 
 const app = new Vue({
     el: '.app',
-    template: `<h1>Test</h1>`,
+    template: `<tabbar :currentTab="currentTab" @change-tab="changeTab" />`,
     data: {
         charSave: {},
         handicaps: [],
         talents: [],
         currentTab: 0
+    },
+    methods: {
+        changeTab(id) {
+            this.currentTab = id;
+        }
     }
 });

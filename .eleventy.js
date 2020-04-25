@@ -3,5 +3,4 @@ module.exports = function (eleventyConfig) {
     "md", "pug", "png", "jpg", "css"
   ]);
   eleventyConfig.addPassthroughCopy("js");
-  eleventyConfig.addWatchTarget("./static/");
 };
