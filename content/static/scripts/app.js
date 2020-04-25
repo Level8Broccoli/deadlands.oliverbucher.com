@@ -95,7 +95,7 @@ const app = new Vue({
                 {
                     id: 1,
                     name: 'Fertigkeiten',
-                    descr: 'Ein paar Fertigkeiten haben einen Startwert (blau markiert) von W4. Du kannst weitere Punkte verteilen, wie bei den Attributen.<br /><strong>Achtung: Die Fertigkeiten sind abhängig von je einem passenden Attribut. Wenn du eine Fertigkeit auf einen Wert steigerst, der den dazugehörigen Attributswert übersteigt, kostet das 2 Punkte!</strong>',
+                    descr: 'Ein paar Fertigkeiten haben einen Startwert (blau markiert) von W4. Du kannst weitere Punkte verteilen, wie bei den Attributen.<br /><strong>Achtung: Die Fertigkeiten sind abhängig von je einem passenden Attribut. Wenn du eine Fertigkeit auf einen Wert steigerst, der den dazugehörigen Attributswert übersteigt, kostet das 2 Punkte!</strong> (leicht rot markiert)',
                     value: this.getFertigkeitenPunkte,
                     goal: 0
                 },
