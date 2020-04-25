@@ -24,25 +24,25 @@ const app = new Vue({
             return [{
                     id: 0,
                     name: 'Attribute',
-                    value: this.attribute.punkte,
+                    value: this.charSave.attribute.punkte,
                     goal: 0
                 },
                 {
                     id: 1,
                     name: 'Fertigkeiten',
-                    value: this.fertigkeiten.punkte,
+                    value: this.charSave.fertigkeiten.punkte,
                     goal: 0
                 },
                 {
                     id: 2,
                     name: 'Handicaps',
-                    value: this.handicaps.punkte,
+                    value: this.charSave.handicaps.punkte,
                     goal: 0
                 },
                 {
                     id: 3,
                     name: 'Talente',
-                    value: this.talente.punkte,
+                    value: this.charSave.talente.punkte,
                     goal: 0
                 },
             ];
