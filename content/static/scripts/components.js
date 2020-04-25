@@ -14,7 +14,8 @@ Vue.component('overview', {
                             <span class="tag" :class="entry.goal !== entry.value ? 'is-danger' : 'is-success'">{{ entry.value }}{{ entry.additional }}</span>
                         </div>
                     </div>
-                    <hr />
+                </div>
+                <div class="field is-grouped is-grouped-multiline">
                     <div class="control" v-for="entry in overviewListWithoutGoals">
                         <div class="tags has-addons">
                             <span class="tag is-dark">{{ entry.name }}</span>
