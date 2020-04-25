@@ -5,13 +5,19 @@ const app = new Vue({
     template: `
         <div>
             <overview :overviewListWithoutGoals="overviewListWithoutGoals" />
-            <tabbar :currentTab="currentTab" :listWithGoals="listWithGoals" @change-tab="changeTab" />
+            <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
+
+            <attribute v-if="currentTab === 0" :meta="listOfTabs[0]" :attributList="attribute"/>
+            <fertigkeiten v-if="currentTab === 1"/>
+            <handicaps v-if="currentTab === 2"/>
+            <talente v-if="currentTab === 3"/>
         </div>
     `,
     data: {
         charSave: {},
         handicaps: [],
         talents: [],
+        attribute: [],
         currentTab: 0
     },
     methods: {
@@ -20,13 +26,14 @@ const app = new Vue({
         }
     },
     computed: {
-        listWithGoals() {
+        listOfTabs() {
             if (this.charSave === {}) {
                 return [];
             }
             return [{
                     id: 0,
                     name: 'Attribute',
+                    descr: 'Die 5 Attribute beginnen alle bei einem <strong>W4</strong> Würfel. Pro Punkt kannst du ein Attribut um einen Würfel verbessern.<br /><em>Beispiel: W4 -> W8 kostet dich 2 Punkte.</em> ',
                     value: typeof this.charSave.attribute === 'undefined' ? '': this.charSave.attribute.punkte,
                     goal: 0
                 },
