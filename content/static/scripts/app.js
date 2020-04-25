@@ -22,18 +22,23 @@ const app = new Vue({
     computed: {
         overviewListWithGoals() {
             return [{
-                    name: 'Attributspunkte',
-                    value: 5,
+                    name: 'Attributs-Punkte',
+                    value: this.attribute.punkte,
                     goal: 0
                 },
                 {
-                    name: 'Fertigkeitspunkte',
-                    value: 12,
+                    name: 'Fertigkeits-Punkte',
+                    value: this.fertigkeiten.punkte,
                     goal: 0
                 },
                 {
-                    name: 'Talente',
-                    value: 1,
+                    name: 'Handicap-Punkte',
+                    value: this.handicaps.punkte,
+                    goal: 0
+                },
+                {
+                    name: 'Talent-Punkte',
+                    value: this.talente.punkte,
                     goal: 0
                 },
             ];
