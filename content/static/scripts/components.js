@@ -8,14 +8,6 @@ Vue.component('overview', {
             </div>
             <div class="message-body">
                 <div class="field is-grouped is-grouped-multiline">
-                    <div class="control" v-for="entry in overviewListWithGoals">
-                        <div class="tags has-addons">
-                            <span class="tag is-dark">{{ entry.name }}</span>
-                            <span class="tag" :class="entry.goal !== entry.value ? 'is-danger' : 'is-success'">{{ entry.value }}{{ entry.additional }}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="field is-grouped is-grouped-multiline">
                     <div class="control" v-for="entry in overviewListWithoutGoals">
                         <div class="tags has-addons">
                             <span class="tag is-dark">{{ entry.name }}</span>
@@ -26,40 +18,22 @@ Vue.component('overview', {
             </div>
         </div>
     `,
-    props: ['overviewListWithGoals', 'overviewListWithoutGoals']
+    props: ['overviewListWithoutGoals']
 });
 
 Vue.component('tabbar', {
     template: `
         <div class="tabs">
             <ul>
-                <li v-for="tab in tabs" :class="tab.id == currentTab ? 'is-active' : ''">
-                    <a @click="changeTab(tab.id)">{{ tab.name }}</a>
+                <li v-for="tab in listWithGoals" :class="tab.id == currentTab ? 'is-active' : ''">
+                    <a @click="changeTab(tab.id)">{{ tab.name }}
+                        <span class="tag" :class="tab.goal !== tab.value ? 'is-danger' : 'is-success'">{{ tab.value }}</span>
+                    </a>
                 </li>
             </ul>
         </div>
     `,
-    props: ['currentTab'],
-    data() {
-        return {
-            tabs: [{
-                    id: 0,
-                    name: 'Attribute'
-                },
-                {
-                    id: 1,
-                    name: 'Fertigkeiten'
-                },
-                {
-                    id: 2,
-                    name: 'Handicaps'
-                }, {
-                    id: 3,
-                    name: 'Talente'
-                }
-            ]
-        }
-    },
+    props: ['currentTab', 'listWithGoals'],
     methods: {
         changeTab(id) {
             this.$emit('change-tab', id);

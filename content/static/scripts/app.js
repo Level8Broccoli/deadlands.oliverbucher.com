@@ -4,8 +4,8 @@ const app = new Vue({
     el: '.app',
     template: `
         <div>
-            <overview :overviewListWithGoals="overviewListWithGoals" :overviewListWithoutGoals="overviewListWithoutGoals" />
-            <tabbar :currentTab="currentTab" @change-tab="changeTab" />
+            <overview :overviewListWithoutGoals="overviewListWithoutGoals" />
+            <tabbar :currentTab="currentTab" :listWithGoals="listWithGoals" @change-tab="changeTab" />
         </div>
     `,
     data: {
@@ -20,24 +20,28 @@ const app = new Vue({
         }
     },
     computed: {
-        overviewListWithGoals() {
+        listWithGoals() {
             return [{
-                    name: 'Attributs-Punkte',
+                    id: 0,
+                    name: 'Attribute',
                     value: this.attribute.punkte,
                     goal: 0
                 },
                 {
-                    name: 'Fertigkeits-Punkte',
+                    id: 1,
+                    name: 'Fertigkeiten',
                     value: this.fertigkeiten.punkte,
                     goal: 0
                 },
                 {
-                    name: 'Handicap-Punkte',
+                    id: 2,
+                    name: 'Handicaps',
                     value: this.handicaps.punkte,
                     goal: 0
                 },
                 {
-                    name: 'Talent-Punkte',
+                    id: 3,
+                    name: 'Talente',
                     value: this.talente.punkte,
                     goal: 0
                 },
