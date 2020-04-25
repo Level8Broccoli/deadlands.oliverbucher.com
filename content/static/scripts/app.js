@@ -21,6 +21,9 @@ const app = new Vue({
     },
     computed: {
         listWithGoals() {
+            if (this.charSave === {}) {
+                return [];
+            }
             return [{
                     id: 0,
                     name: 'Attribute',
