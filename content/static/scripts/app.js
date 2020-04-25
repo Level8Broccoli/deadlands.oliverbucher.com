@@ -69,7 +69,6 @@ const app = new Vue({
         },
         getAttributeValue(attr) {
             const list = this.charSave.attribute.liste;
-            console.log(list);
             if (typeof list === 'undefined' || typeof list[attr] === 'undefined') {
                 return 4;
             }
@@ -115,20 +114,19 @@ const app = new Vue({
         },
         overviewListWithoutGoals() {
             return [{
-                    name: 'Bewegung',
-                    value: '12 Meter',
-                },
-                {
                     name: 'Rasse',
                     value: 'Mensch'
                 },
                 {
-                    name: 'Parade/Zielwert',
-                    value: 2,
-                    additional: ' + Kämpfen/2'
+                    name: 'Bewegung',
+                    value: '12 Meter',
                 },
                 {
-                    name: 'Robustheit',
+                    name: 'Parade/Zielwert (Kämpfen)',
+                    value: 2 + this.kaempfen / 2,
+                },
+                {
+                    name: 'Robustheit (Konstitution)',
                     value: 2 + this.konstitution,
                     additional: ' + Panzerung'
                 },
@@ -159,7 +157,6 @@ const app = new Vue({
                 const attrValue = this.getAttributeValue(fert.attr);
 
                 let sum = 0;
-                console.log(key, value, fert.attr, attrValue);
                 if (attrValue >= value) {
                     sum = value;
                 } else {
@@ -187,6 +184,13 @@ const app = new Vue({
                 return 4;
             }
             return list.Konstitution;
+        },
+        kaempfen() {
+            const list = this.charSave.fertigkeiten.liste;
+            if (typeof list.Kaempfen === 'undefined') {
+                return 0;
+            }
+            return list.Kaempfen;
         },
     },
 });

@@ -57,7 +57,7 @@ app.fertigkeiten = [{
         show: false,
     },
     {
-        id: "Überreden",
+        id: "Ueberreden",
         name: "Überreden",
         descr: "Die Fähigkeit, andere zu überzeugen, das zu tun, was du willst.",
         attr: "Willenskraft",
@@ -87,7 +87,7 @@ app.fertigkeiten = [{
         show: false,
     },
     {
-        id: "Einschüchtern",
+        id: "Einschuechtern",
         name: "Einschüchtern",
         descr: "Die Fähigkeit eines Charakters, andere mit Drohungen dazu zu bringen, das zu tun, was er will.",
         attr: "Willenskraft",
@@ -129,7 +129,7 @@ app.fertigkeiten = [{
         show: false,
     },
     {
-        id: "Glücksspiel",
+        id: "Gluecksspiel",
         name: "Glücksspiel",
         descr: "Übung und Vertrautheit mit Glückspielen aller Art.",
         attr: "Verstand",
@@ -150,7 +150,7 @@ app.fertigkeiten = [{
         show: false,
     },
     {
-        id: "Kämpfen",
+        id: "Kaempfen",
         name: "Kämpfen",
         descr: "Können im bewaffneten und unbewaffneten Kampf.",
         attr: "Geschicklichkeit",
@@ -248,14 +248,14 @@ app.fertigkeiten = [{
         show: false,
     },
     {
-        id: "Überleben",
+        id: "Ueberleben",
         name: "Überleben",
         descr: "Die Fähigkeit, Nahrung, Wasser oder einen Unterschlupf zu finden und Spuren zu lesen.",
         attr: "Verstand",
         show: false,
     },
     {
-        id: "Verrückte Wissenschaft",
+        id: "VerrueckteWissenschaft",
         name: "Verrückte Wissenschaft",
         descr: "Die arkane Fertigkeit für den Arkanen Hintergrund (Verrückte Wissenschaft).",
         attr: "Verstand",
