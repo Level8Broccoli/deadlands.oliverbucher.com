@@ -40,7 +40,7 @@ const app = new Vue({
         talents: [],
         attribute: [],
         fertigkeiten: [],
-        currentTab: 4
+        currentTab: 0
     },
     methods: {
         changeTab(id) {
