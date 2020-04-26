@@ -4,7 +4,10 @@ Vue.component('overview', {
     template: `
         <div class="message is-dark">
             <div class="message-header">
-                <p>Übersicht</p>
+                <p>
+                    Übersicht
+                    <span v-if="charSave.name.length > 0"> für {{charSave.name}}</span>
+                </p>
             </div>
             <div class="message-body">
                 <div class="field is-grouped is-grouped-multiline">
@@ -18,7 +21,7 @@ Vue.component('overview', {
             </div>
         </div>
     `,
-    props: ['overviewListWithoutGoals']
+    props: ['overviewListWithoutGoals', 'charSave']
 });
 
 Vue.component('tabbar', {
@@ -26,7 +29,7 @@ Vue.component('tabbar', {
         <div class="tabs">
             <ul>
                 <li v-for="tab in listOfTabs" :class="tab.id == currentTab ? 'is-active' : ''">
-                    <a @click="changeTab(tab.id)">{{ tab.name }} &nbsp; <span class="tag" :class="tab.goal !== tab.value ? 'is-danger' : 'is-success'">{{ tab.value }}</span>
+                    <a @click="changeTab(tab.id)">{{ tab.name }} &nbsp; <span v-if="tab.value" class="tag" :class="tab.goal !== tab.value ? 'is-danger' : 'is-success'">{{ tab.value }}</span>
                     </a>
                 </li>
             </ul>
@@ -38,6 +41,27 @@ Vue.component('tabbar', {
             this.$emit('change-tab', id);
         }
     }
+});
+
+Vue.component('charinfo' , {
+    template: `
+<div>
+    <h2 class="subtitle">{{ meta.name }}</h2>
+    <div class="field">
+        <label class="label">Charaktername</label>
+        <div class="control">
+            <input class="input" type="text" v-model="charSave.name">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Notizen</label>
+        <div class="control">
+            <textarea class="textarea" v-model="charSave.notes" rows="20"></textarea>
+        </div>
+    </div>
+</div>
+    `,
+    props: ['meta', 'charSave'],
 });
 
 Vue.component('attribute', {
@@ -202,14 +226,18 @@ Vue.component('handicaps', {
     template: `
 <div>
     <h2 class="subtitle">Handicaps</h2>
-</div>
+    <div v-for="handicap in handicapListe">{{ handicap.name }}</div>
+    </div>
     `,
+    props: ['handicapListe']
 });
 
 Vue.component('talente', {
     template: `
-<div>
+    <div>
     <h2 class="subtitle">Talente</h2>
+    <div v-for="talent in talentListe">{{ talent.name }}</div>
 </div>
     `,
+    props: ['talentListe']
 });

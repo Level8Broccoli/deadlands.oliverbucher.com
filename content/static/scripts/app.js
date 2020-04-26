@@ -4,15 +4,19 @@ const app = new Vue({
     el: '.app',
     template: `
         <div>
-            <overview :overviewListWithoutGoals="overviewListWithoutGoals" />
+            <overview :overviewListWithoutGoals="overviewListWithoutGoals" :charSave="charSave" />
+
             <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
 
-            <attribute v-if="currentTab === 0" :meta="listOfTabs[0]" :attributList="attribute" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
+            <charinfo v-if="currentTab === 0" :meta="listOfTabs[0]" :charSave="charSave" />
 
-            <fertigkeiten v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @show-descr="showDescr" @reset-fertigkeit="resetFertigkeit" :charSave="charSave"/>
+            <attribute v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
 
-            <handicaps v-if="currentTab === 2"/>
-            <talente v-if="currentTab === 3"/>
+            <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @show-descr="showDescr" @reset-fertigkeit="resetFertigkeit" :charSave="charSave"/>
+
+            <handicaps v-if="currentTab === 3" :handicapListe="handicaps"/>
+
+            <talente v-if="currentTab === 4" :talentListe="talents" />
         </div>
     `,
     data: {
@@ -28,13 +32,15 @@ const app = new Vue({
             },
             handicaps: {
                 liste: []
-            }
+            },
+            name: '',
+            notes: ''
         },
         handicaps: [],
         talents: [],
         attribute: [],
         fertigkeiten: [],
-        currentTab: 1
+        currentTab: 3
     },
     methods: {
         changeTab(id) {
@@ -86,26 +92,31 @@ const app = new Vue({
             }
             return [{
                     id: 0,
+                    name: 'Allgemein',
+                    descr: '',
+                },
+                {
+                    id: 1,
                     name: 'Attribute',
                     descr: 'Die 5 Attribute beginnen alle bei einem <strong>W4</strong> Würfel. Pro Punkt kannst du ein Attribut um einen Würfel verbessern.<br /><em>Beispiel: W4 -> W8 kostet dich 2 Punkte.</em> ',
                     value: this.getAttributsPunkte,
                     goal: 0
                 },
                 {
-                    id: 1,
+                    id: 2,
                     name: 'Fertigkeiten',
                     descr: 'Ein paar Fertigkeiten haben einen Startwert (blau markiert) von W4. Du kannst weitere Punkte verteilen, wie bei den Attributen.<br /><strong>Achtung: Die Fertigkeiten sind abhängig von je einem passenden Attribut. Wenn du eine Fertigkeit auf einen Wert steigerst, der den dazugehörigen Attributswert übersteigt, kostet das 2 Punkte!</strong> (leicht rot markiert)',
                     value: this.getFertigkeitenPunkte,
                     goal: 0
                 },
                 {
-                    id: 2,
+                    id: 3,
                     name: 'Handicaps',
                     value: typeof this.charSave.handicaps === 'undefined' ? '' : this.charSave.handicaps.punkte,
                     goal: 0
                 },
                 {
-                    id: 3,
+                    id: 4,
                     name: 'Talente',
                     value: typeof this.charSave.talente === 'undefined' ? '' : this.charSave.talente.punkte,
                     goal: 0
