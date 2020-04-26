@@ -11,11 +11,11 @@ homepage: true
 ## <span class="custom-number">A:</span> Themen-Brainstorming
 
 ### beste Ideen
-* Einteilerpyjamasmithinterluckenöffnung
-* Sekte
-* Pfarrer mit sexueller Vorliebe für Nonnen
-* Antike Tempel
-* En traumatisierte Sheriff mit Suchtproblem
+* **Einteilerpyjamasmithinterluckenöffnung**
+* **Sekte**
+* **Pfarrer mit sexueller Vorliebe für Nonnen**
+* **Antike Tempel**
+* **En traumatisierte Sheriff mit Suchtproblem**
 
 ### weitere Ideen
 * Galge
@@ -25,11 +25,11 @@ homepage: true
 * Heilige Friedenspfeife
 
 ### gestrichene Ideen
-* En Saloon mit me Ross als Chälner
-* Revolverheld mit Wiskey Sucht
-* Moonshiner
-* En chinesischi ex- schenebauerin wo jetzt en seriekillerin esch
-* Inzest im Sumpf
+* ~~En Saloon mit me Ross als Chälner~~
+* ~~Revolverheld mit Wiskey Sucht~~
+* ~~Moonshiner~~
+* ~~En chinesischi ex- schenebauerin wo jetzt en seriekillerin esch~~
+* ~~Inzest im Sumpf~~
 
 ## <span class="custom-number">B:</span> Charakterideen
 
