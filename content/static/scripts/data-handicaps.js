@@ -64,8 +64,8 @@ app.handicaps = [{
         descr: "Jeder kleine Schnitt und jede Schramme bringt Ihren Cowboy zum Schreien nach Mama. Solange er mindestens eine Wunde hat, erleidet er eine zusätzliche Strafe von -1 für alle seine Handlungen (ein Held mit 2 Wunden würde also z.B. eine -3 erleiden)."
     },
     {
-        id: "Gesucht",
-        name: "Gesucht",
+        id: "Wanted",
+        name: "Wanted",
         points: [1, 2],
         tags: ["deadlands"],
         descr: "Unabhängig davon, ob Ihr Cowboy etwas falsch gemacht hat oder nicht, das Gesetz denkt, er hat es getan! Sein Gesicht ist auf Plakaten in der ganzen Region zu sehen, und vielleicht auch noch weiter weg. Die Art des Verbrechens und der Sinn des Marschalls für 'Sport' bestimmen, wie weit und breit die Anklagen in Umlauf gebracht wurden, aber irgendwo sucht jemand nach Ihnen. Auf Ihren Hombre ist nicht nur jemand hinter ihm her, sondern es ist auch ein Kopfgeld auf ihn ausgesetzt. Für die Minor-Version gibt es eine Belohnung von 1d6 x $100. Bei der Major-Hindernis-Version erhöht sich die Belohnung auf verlockende 1d6 x $1.000. Der Spieler und der Marschall sollten vereinbaren, wo das Kopfgeld eingesammelt werden kann."

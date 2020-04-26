@@ -4,40 +4,47 @@ app.talents = [{
         id: "Auserwaehlter",
         name: "Auserwählter",
         req: ["Willenskraft W8+", "Kämpfen W6+"],
+        tags: ['macht'],
         descr: "Auserwählte sind heilige (oder unheilige) Männer und Frauen, die auserkoren wurden, für eine Gottheit oder Religion zu kämpfen. Die meisten sind fromme Seelen und bereit, ihr Leben für eine grössere Sache zu opfern, doch einige wurden vielleicht in die Rolle hineingeboren und folgen ihrem Pfad eher zögerlich. Auserwählte bekämpfen die Kräfte der Dunkelheit (oder des Lichts). Sie addieren +2 Schaden, wenn sie übernatürlich böse (oder gute, wenn sie böse sind) Kreaturen angreifen. Der Bonus gilt auf Flächenschaden, Fernkampfangriffe, Mächte etc. Die SL muss entscheiden, auf welche Feinde dieser Bonus gilt, doch grundsätzlich sind es alle bösen (oder guten!) Kreaturen, die aus Magie entstanden sind oder übernatürliche Fähigkeiten haben."
     },
     {
         id: "Heiler",
         name: "Heiler",
         req: ["Willenskraft W8+"],
+        tags: ['macht'],
         descr: "Ein Held mit diesem Talent addiert +2 auf alle Heilenproben, egal ob sie natürlicher oder magischer Natur sind."
     },
     {
         id: "MutinFlaschen",
         name: "Mut in Flaschen",
         req: ["Konstitution W8+"],
+        tags: ['macht'],
         descr: "Dieser gesellige Charakter verarbeitet Alkohol ganz anders als die meisten. In der ersten Runde, nachdem er sich einen hinter die Binde gekippt hat (ungefähr 200 ml starker Schnaps oder etwas entsprechendes) steigt seine Konstitution um einen Würfeltyp (was auch seine Robustheit erhöht). Der Trinker kann ausserdem eine Stufe Wundabzüge ignorieren (was mit anderen Fähigkeiten, die diesen Effekt haben, kumulativ ist). Verstand, Geschicklichkeit und alle verknüpften Fertigkeiten erleiden aber für die Wirkungsdauer einen Abzug von –1. Der Effekt hält eine Stunde lang an, dann erleidet der Trinker für die nächsten vier Stunden eine Stufe Erschöpfung."
     },
     {
         id: "Sammler",
         name: "Sammler",
         req: ["Glück"],
+        tags: ['macht'],
         descr: "Einmal pro Begegnung kann der Held ein Ausrüstungsteil, eine Handvoll Munition oder einen anderen nützlichen Gegenstand finden, beziehungsweise „erinnert er sich“, dass er ihn die ganze Zeit schon dabei hatte. Die Spielleiterin entscheidet, was als Begegnung zählt, und hat das letzte Wort darüber, was „entdeckt“ werden kann und was nicht."
     },
     {
         id: "SechsterSinn",
         name: "Sechster Sinn",
+        tags: ['macht'],
         descr: "Dein Held kann spüren, wenn Gefahr droht. Wenn er auf Überraschung (Seite 107) würfelt, addiert er +2 auf seine Wahrnehmungsprobe, die entscheidet, ob er in der ersten Runde handeln darf. Bei einer Steigerung beginnt er die Begegnung mit einem aufgesparten Zug. In anderen Situationen, die nicht von den Überraschungsregeln abgewickelt werden (ein Heckenschütze, eine Grubenfalle, ein vergiftetes Getränk und so weiter) erlaubt Sechster Sinn eine Wahrnehmungsprobe mit –2 (oder +2, wenn normalerweise auch eine Wahrnehmungsprobe erlaubt wäre), um die Gefahr zu entdecken und entsprechend zu handeln. Wenn dies ein Angriff ist, und der Held seine Wahrnehmungsprobe schafft, erhält der Gegner keinen Überraschungsangriff-Bonus."
     },
     {
         id: "Tierempathie",
         name: "Tierempathie",
+        tags: ['macht'],
         descr: "Manche haben eine starke Bindung zu ihren Tiergefährten. Diese Charaktere können ihre eigenen Bennys für Tiere unter ihrer Kontrolle ausgeben. Dazu gehören Reittiere, Haustiere, Vertraute und so weiter."
     },
     {
         id: "Tiermeister",
         name: "Tiermeister",
         req: ["Willenskraft W8+"],
+        tags: ['macht'],
         descr: "Tiere gewöhnen sich schnell und ohne grosse Mühe an deinen Charakter. Sie greifen ihn nicht an, wenn er sie nicht zuvor irgendwie gegen sich aufgebracht hat. Die tierische Anziehungskraft des Tiermeisters ist so gross, dass ihm ausserdem ein loyales Tier folgt. Es ist normalerweise ein Tier von Grösse 0 oder kleiner, nach Zustimmung der Spielleiterin. Das Tier ist ein Statist und erhält keine Aufstiege. Wenn das Haustier weggeschickt oder getötet wird, findet der Held innerhalb von 1W4 Tagen einen Ersatz. Mächtigere Gefährten: Tiermeister kann mehr als einmal gewählt werden. Wähle jedes Mal einen der Effekte unten, wenn das Talent ausgewählt wird. • Du erhältst ein zusätzliches Haustier. • Erhöhe eine Eigenschaft des Tiers um einen Würfeltyp (nur eine Eigenschaft pro Tier). • Erhöhe die maximale Grösse, die dein Tier haben kann, um +1, auf ein Maximum von 3. • Mach ein Tier zur Wildcard. (Der Held muss mindestens Heroisch sein)."
     },
     {
@@ -426,7 +433,7 @@ app.talents = [{
     {
         id: "Akrobat",
         name: "Akrobat",
-        req: ["GeschicklichkeitW8+", "Athletik W8+"],
+        req: ["Geschicklichkeit W8+", "Athletik W8+"],
         tags: ["experte"],
         descr: "Der Akrobat kann Proben auf Athletik einmal kostenlos wiederholen, die sich um Gleichgewicht, Abrollen oder Ringen drehen. Das hat keinen Einfluss auf Proben, um Aktionen zu unterbrechen, zu klettern, zu schwimmen oder zu werfen."
     },
@@ -501,110 +508,110 @@ app.talents = [{
         descr: "Professionelle Soldaten sind daran gewöhnt, schwere Lasten zu tragen und raue Bedingungen zu ertragen. Nach einigen Tagen, um sich an ihre Ausrüstung zu gewöhnen (Entscheidung der SL), behandeln sie ihre Stärke als um einen Würfeltyp höher, wenn es um die Berechnung von Belastung (siehe Seite 67) und Mindeststärke für Rüstung, Waffen und Ausrüstung geht (Seite 66). (Dies ist kumulativ zum Talent Kräftig). Sie erhalten auch eine freie Wiederholung für Konstitutionsproben, um Umweltgefahren zu überstehen (siehe Gefahren, Seite 101)."
     },
     {
-        id: "ArcaneBackground(Magic)",
-        name: "Arcane Background (Magic)",
+        id: "ArkanerHintergrundMagie",
+        name: "Arkaner Hintergrund (Magie)",
         tags: ["deadlands", "hintergrund"],
-        descr: "Magic in the Weird West is not to be taken lightly. Those who practice sorcery must often wrestle their powers from the dark spirits of the Weird West, who are rarely willing to give up easily. Hucksters envision these duels of will as card games, and the best are capable of amazing powers. It is rumored that others tread even darker paths, and harness the power of blood magic. If you choose to take this Edge, be sure to read the appropriate details in No Man’s Land, where you’ll find additional Edges available only to Hucksters (see page 91)."
+        descr: "Die Magie im Wilden Westen ist nicht auf die leichte Schulter zu nehmen. Diejenigen, die Zauberei praktizieren, müssen ihre Kräfte oft den dunklen Geistern des Wilden Westens abtrotzen, die selten bereit sind, leicht aufzugeben. Hucksters stellen sich diese Willensduelle als Kartenspiele vor, und die Besten sind zu erstaunlichen Kräften fähig. Es geht das Gerücht, dass andere noch dunklere Wege beschreiten und sich die Kraft der Blutmagie zunutze machen. Wenn Sie sich für diese Kante entscheiden, lesen Sie unbedingt die entsprechenden Einzelheiten in No Man's Land, wo Sie zusätzliche Kanten finden, die nur Hucksters zur Verfügung stehen (siehe Seite 91)."
     },
     {
-        id: "ArcaneBackground(Miracles)",
-        name: "Arcane Background (Miracles)",
+        id: "ArkanerHintergrundWunder",
+        name: "Arkaner Hintergrund (Wunter)",
         tags: ["deadlands", "hintergrund"],
-        descr: "Certain characters can call upon the power of their deity (or deities) for aid. In the Weird West, these pious souls are called the blessed. Blessed are nuns, priests, or even average but (relatively) pure-hearted folks blessed by a divine entity. Though rare in the Weird West, there are also blessed imams, Buddhist monks, and others of faith running around with higher powers covering their holy backsides. When these folks behave themselves, they can sometimes invoke miracles to help them fight the evils of the Weird West. For details on playing one of these crusaders, see page 82, where you’ll find some extra Edges available only to the Blessed."
+        descr: "Bestimmte Charaktere können die Macht ihrer Gottheit (oder ihrer Gottheiten) um Hilfe anrufen. Im Merkwürdigen Westen werden diese frommen Seelen die Seligen genannt. Gesegnet sind Nonnen, Priester oder auch durchschnittliche, aber (relativ) reinherzige Menschen, die von einem göttlichen Wesen gesegnet sind. Obwohl sie im Wilden Westen selten sind, gibt es auch gesegnete Imame, buddhistische Mönche und andere Gläubige, die mit höheren Mächten umherlaufen, die ihren heiligen Hintern bedecken. Wenn diese Leute sich benehmen, können sie manchmal Wunder beschwören, die ihnen helfen, die Übel des Wilden Westens zu bekämpfen. Einzelheiten dazu, wie man einen dieser Kreuzfahrer spielt, finden Sie auf Seite 82, wo Sie einige zusätzliche Kanten finden, die nur den Gesegneten zur Verfügung stehen."
     },
     {
-        id: "ArcaneBackground(Shamanism)",
-        name: "Arcane Background (Shamanism)",
+        id: "ArkanerHintergrundShamanismus",
+        name: "Arkaner Hintergrund (Shamanismus)",
         tags: ["deadlands", "hintergrund"],
-        descr: "Shamans are Indian holy men and women, and keepers of tribal medicine. Their power comes from bargains with the demanding spirits of the natural world. When these medicine men honor the nature spirits, they can accomplish amazing feats that make even the most doubting Thomas tremble. For details on playing a shaman, along with some extra Edges, see page 92."
+        descr: "Schamanen sind indische heilige Männer und Frauen und Bewahrer der Stammesmedizin. Ihre Macht kommt aus den Verhandlungen mit den anspruchsvollen Geistern der natürlichen Welt. Wenn diese Medizinmänner die Naturgeister ehren, können sie erstaunliche Kunststücke vollbringen, die selbst den zweifelndsten Thomas erzittern lassen. Einzelheiten über das Spielen eines Schamanen, zusammen mit einigen zusätzlichen Talenten, finden Sie auf Seite 92."
     },
     {
-        id: "ArcaneBackground(ChiMastery)",
-        name: "Arcane Background (Chi Mastery)",
+        id: "ArkanerHintergrundChiMeisterung",
+        name: "Arkaner Hintergrund (Chi Meisterung)",
         req: ["Martial Arts"],
         tags: ["deadlands", "hintergrund"],
-        descr: "A few folks in the Weird West have studied the ancient oriental fighting arts. A very few of these supremely skilled fighters have achieved spiritual discipline necessary to channel supernatural force through their own bodies, called chi. These enlightened fighters use the Arcane Background (Chi Mastery) Edge to reflect their astonishing abilities. For details on playing one of these enlightened warriors, as well as a new Edge that opens up different martial arts fighting styles, see page 99."
+        descr: "Einige wenige Menschen im Wilden Westen haben die altorientalischen Kampfkünste studiert. Nur sehr wenige dieser überaus fähigen Kämpfer haben die spirituelle Disziplin erlangt, die notwendig ist, um übernatürliche Kräfte durch ihren eigenen Körper, Chi genannt, zu kanalisieren. Diese erleuchteten Kämpfer nutzen den Rand des Arkanen Hintergrunds (Chi-Meisterschaft), um ihre erstaunlichen Fähigkeiten widerzuspiegeln. Einzelheiten zum Spiel eines dieser erleuchteten Krieger sowie eine neue Kante, die verschiedene Kampfkunst-Kampfstile eröffnet, finden Sie auf Seite 99."
     },
     {
-        id: "ArcaneBackground(WeirdScience)",
-        name: "Arcane Background (Weird Science)",
+        id: "ArkanerHintergrundWeirdScience",
+        name: "Arkaner Hintergrund (Weird Science)",
         tags: ["deadlands", "hintergrund"],
-        descr: "Adherents to the principles of New Science (called Mad Scientists by most) build weird and wonderful devices, machines which often seem to defy the very laws of reality. Most every such inventor (or at least the successful ones) rely on ghost rock to power their inventions in some fashion. For the scoop on these crackpot inventors and their bizarre gizmos, see page 96."
+        descr: "Die Anhänger der Prinzipien der Neuen Wissenschaft (von den meisten als verrückte Wissenschaftler bezeichnet) bauen seltsame und wunderbare Geräte, Maschinen, die oft den Gesetzen der Realität zu trotzen scheinen. Die meisten dieser Erfinder (oder zumindest die erfolgreichen) verlassen sich auf Ghost Rock, um ihre Erfindungen in irgendeiner Weise anzutreiben. Für den Knüller über diese verrückten Erfinder und ihre bizarren Gizmos siehe Seite 96."
     },
     {
-        id: "Veterano’theWeirdWest",
-        name: "Veteran o’ the Weird West",
+        id: "VeteranDesWeirdWest",
+        name: "Veteran des Weird West",
         req: ["Mut W6+", "Okkultismus W6+"],
         tags: ["deadlands", "hintergrund"],
-        descr: "So you want to be a hero, huh? A big, tough, experienced hero? No problem. Just check your sanity at the door, because those who have already been around the cactus a few times have seen things that would stop most men’s tickers. As a result, they ain’t the same as they used to be! Veterans o’ the Weird West begin play at Seasoned (or one Rank higher than the rest of the cowpokes in your campaign), which means they gain 20 Experience Points to begin the game with. Go ahead and advance your hero normally, as described in the Savage Worlds rules. There’s a price, though. If you take this Edge, you must draw a single card from the action deck once you’re done creating your cowpoke. Show it to your Marshal and he’ll check the table in the Marshal’s Handbook to see just what kind of bad luck your hombre wandered into on his path to studliness. If you draw a Joker, draw again and tell your Marshal whether you drew a black card or a red card (or another Joker). Beware—the results can be quite extreme, from maiming to insanity. Your Marshal has the details. You’ve been warned!"
+        descr: "Sie wollen also ein Held sein, hm? Ein grosser, zäher, erfahrener Held? Kein Problem. Prüfen Sie einfach an der Tür Ihren Verstand, denn wer schon ein paar Mal um den Kaktus herum war, hat Dinge gesehen, die den Ticker der meisten Männer stoppen würden. Infolgedessen sind sie nicht mehr die gleichen wie früher! Veteranen des 'Wilden Westens' beginnen das Spiel bei Seasoned (oder einen Rang höher als der Rest der Kuhhirten in Ihrer Kampagne), was bedeutet, dass sie 20 Erfahrungspunkte erhalten, mit denen sie das Spiel beginnen können. Machen Sie weiter und rücken Sie Ihren Helden ganz normal vor, wie in den Regeln von Savage Worlds beschrieben. Allerdings gibt es einen Preis. Wenn Sie dieses Talent nehmen, müssen Sie eine einzige Karte aus dem Aktionssatz ziehen, sobald du deinen Charakter erstellt hast. Zeige sie dem Marschall, und er wird die Tabelle im Marschall-Handbuch überprüfen, um zu sehen, in welche Art von Pech dein Hombre auf seinem Weg zur Studliness geraten ist. Wenn Sie einen Joker ziehen, ziehen Sie noch einmal und sagen Sie Ihrem Marshal, ob Sie eine schwarze oder eine rote Karte (oder einen anderen Joker) gezogen haben. Vorsicht - die Ergebnisse können ziemlich extrem sein, von Verstümmelung bis zum Wahnsinn. Ihr Marschall kennt die Einzelheiten. Sie sind gewarnt worden!"
     },
     {
-        id: "Duelist",
-        name: "Duelist",
+        id: "Duellant",
+        name: "Duellant",
         req: ["Schiessen W6+"],
         tags: ["deadlands", "kampf"],
-        descr: "Your hombre is a deadly gunfighter, and anyone foolish enough to face him at High Noon winds up in the boneyard by sunset. In a duel, this hero receives an extra hole card for each point of Grit he has. Rules for dueling can be found on page 68."
+        descr: "Ihr Hombre ist ein tödlicher Revolverheld, und jeder, der dumm genug ist, ihm am Mittag gegenüberzutreten, landet bei Sonnenuntergang auf dem Friedhof. In einem Duell erhält dieser Held für jeden Grit-Punkt, den er hat, eine zusätzliche 'Hole Card'. Die Regeln für das Duell finden Sie auf Seite 68."
     },
     {
         id: "MartialArts",
         name: "Martial Arts",
         req: ["Kämpfen W6+"],
         tags: ["deadlands", "kampf"],
-        descr: "You’ve trained in martial arts or boxing, or learned to street fight really dirty. Your character’s body is a finely honed weapon, so even when your hero fights unarmed, he is considered armed. In addition, opponents in melee combat never benefit from any gang up bonus against your hero."
+        descr: "Sie haben in Kampfsportarten oder Boxen trainiert oder gelernt, wirklich schmutzig auf der Strasse zu kämpfen. Der Körper Ihres Charakters ist eine fein geschliffene Waffe. Selbst wenn Ihr Held unbewaffnet kämpft, gilt er als bewaffnet. Darüber hinaus profitieren Gegner im Nahkampf niemals von einem Bandenbonus gegen Ihren Helden."
     },
     {
         id: "RebelYell",
         name: "Rebel Yell",
         req: ["Held muss zu den Konföderierten (CSA) gehören."],
         tags: ["deadlands", "kampf"],
-        descr: "The blood-curdling Rebel Yell has terrified Yankees and emboldened Confederates from Manassas on. Sure, the shooting has mostly stopped now, but feelings run pretty deep on both sides and when the blood is up, this war cry can still elicit the same responses. When used, the Reb may make an Intimidation roll against all targets in an area (as opposed to a single victim as usual). Place a Large Burst Template adjacent to the character (a 6” area of effect, with the edge adjacent to the cowpoke). Every creature within the circle must roll Spirit against the character’s Intimidation total."
+        descr: "Der blutrünstige Rebel Yell ('Schrei der Rebellen') hat die Yankees in Angst und Schrecken versetzt und die Konföderierten von Manassas an ermutigt. Sicher, die Schiesserei hat jetzt weitgehend aufgehört, aber die Gefühle gehen auf beiden Seiten ziemlich tief, und wenn das Blut in Wallung ist, kann dieser Kriegsschrei immer noch dieselben Reaktionen hervorrufen. Wenn er eingesetzt wird, kann der Rebell eine Einschüchterungsrolle gegen alle Ziele in einem Gebiet ausführen (im Gegensatz zu einem einzelnen Opfer wie üblich). Platzieren Sie eine Schablone für grosse Ausbrüche neben dem Charakter (ein 6-Zoll-Wirkbereich, wobei der Rand an den Charakter angrenzt). Jede Kreatur innerhalb des Kreises muss Geist gegen die Einschüchterungssumme des Charakters würfeln."
     },
     {
-        id: "CardSharp",
-        name: "Card Sharp",
+        id: "Falschspieler",
+        name: "Falschspieler",
         req: ["Glücksspiel W6+ "],
         tags: ["deadlands", "sozial"],
-        descr: "Your hero has a way with a deck and never feels more at home than when he’s shuffling cards. He’s learned a whole heap of ways to cut, shuffle, and deal that give him an edge in a game. A gambler with this Edge only gets caught cheating on a roll of snake eyes. What’s more, if your hero’s a Huckster, folks get a –2 to Notice rolls when trying to spot a hex being cast."
+        descr: "Ihr Held kann gut mit einem Kartenspiel umgehen und fühlt sich nie mehr zu Hause als beim Mischen der Karten. Er hat eine ganze Reihe von Methoden zum Schneiden, Mischen und Austeilen gelernt, die ihm in einem Spiel einen Vorteil verschaffen. Ein Spieler mit diesem Edge wird nur beim Betrügen mit einer Rolle Schlangenaugen erwischt. Und wenn Ihr Held ein Huckster ist, bekommen die Leute ein -2, um Würfe zu bemerken, wenn sie versuchen, ein geworfenes Feld zu erkennen."
     },
     {
         id: "TrueGrit",
         name: "True Grit",
         req: ["Willenskraft W8+"],
         tags: ["deadlands", "sozial"],
-        descr: "Some folks just seem to exude toughness, and your hero is one of them. The horrors of life in the Weird West don’t faze this hombre. He’s got gravel in his gut and ice water running through his veins. Your hero’s cool demeanor gives him +1 Grit."
+        descr: "Manche Leute scheinen einfach Härte auszustrahlen, und Ihr Held ist einer von ihnen. Die Schrecken des Lebens im Schrägen Westen lassen diesen Hombre nicht kalt. Er hat Kies in seinen Eingeweiden und Eiswasser, das durch seine Adern fliesst. Das kühle Auftreten Ihres Helden verleiht ihm +1 Grit."
     },
     {
-        id: "Scout",
-        name: "Scout",
+        id: "Aufklaerer",
+        name: "Aufklärer",
         req: ["Wahrnehmung W6+", "Überleben W6+"],
         tags: ["deadlands", "experte"],
-        descr: "Scouts have learned to watch the signs and trust their instincts when it comes to navigating the vast wilderness. Any time the Marshal draws a face card while traveling (indicating a random encounter has occurred), a scout may make a Notice roll (–2). If successful, the scout detects the hazard, creature, or situation at the earliest opportunity, likely giving his party time to avoid it or at least attack it on their own terms. Don’t forget to remind the Marshal you have this Edge if your posse’s going to be traveling. Scouts also gain +2 to Notice rolls made to avoid surprise in tactical situations."
+        descr: "Aufklärer haben gelernt, auf die Zeichen zu achten und ihren Instinkten zu vertrauen, wenn es darum geht, sich in der weiten Wildnis zurechtzufinden. Jedes Mal, wenn der Marschall während seiner Reise eine Bildkarte zieht (die auf eine zufällige Begegnung hinweist), darf ein Späher einen Hinweiswurf (-2) machen. Bei Erfolg erkennt der Späher die Gefahr, die Kreatur oder die Situation zum frühestmöglichen Zeitpunkt und gibt seiner Gruppe wahrscheinlich Zeit, ihr auszuweichen oder sie zumindest zu ihren eigenen Bedingungen anzugreifen. Vergessen Sie nicht, den Marschall daran zu erinnern, dass Sie diese Kante haben, wenn Ihre Truppe unterwegs ist. Aufklärer erhalten ausserdem +2, um Würfe zu bemerken, die gemacht wurden, um Überraschungen in taktischen Situationen zu vermeiden."
     },
     {
-        id: "SnakeoilSalesman",
-        name: "Snakeoil Salesman",
+        id: "Quacksalber",
+        name: "Quacksalber",
         req: ["Verstand W6+", "Willenskraft W6+", "Überreden W8+"],
         tags: ["deadlands", "experte"],
-        descr: "With honey-dewed lips that weave lies and fabrications like they were the Gospel truth, this smooth talker could sell salt to the Mormons and buffalo hides to Indians. The character gains a +2 bonus to noncombat Persuasion rolls. He can also use his forked tongue to initiate a Persuasion Test of Will, opposed by the target’s Smarts."
+        descr: "Mit honigsüssen Lippen, die Lügen und Erfindungen weben, als wären sie die Wahrheit des Evangeliums, konnte dieser geschmeidige Redner Salz an die Mormonen und Büffelhäute an die Indianer verkaufen. Der Charakter erhält einen Bonus von +2 auf kampflose Überzeugungsrollen. Er kann auch seine gespaltene Zunge benutzen, um einen Persuasion Test of Will zu initiieren, dem die Smarts des Ziels entgegenwirken."
     },
     {
-        id: "TaleTeller",
-        name: "Tale Teller",
+        id: "Geschichtenerzaehler",
+        name: "Geschichtenerzähler",
         req: ["Überreden W8+"],
         tags: ["deadlands", "experte"],
-        descr: "A good storyteller not only entertains, he gives hope and comfort as well. Sodbusters and saddletramps in the Weird West can use all the hope and comfort they can find. We don’t want to say too much, but good tale tellers are critical to saving the world. What? The world needs saving? You bet it does. You’ll discover why eventually. In the meantime, know that spreading the tales of your posse’s derring-do is far more important in the grand scheme of things than the ability to fire a gun or ride. So if you do something amazing, bucko, tell people about it! The Marshal’s Handbook has the skinny on all this, but you need to know what the Edge does, so we’ll share this much with you now. When making a Persuasion roll to tell a tale of his posse’s exploits, an orator with this Edge gains a +2 bonus. Furthermore, where most tale tellers bungle the story when they roll a 1 on the Persuasion die (regardless of the result of the Wild Die), your hero does so only on a roll of snake eyes. When a tale teller with this Edge successfully lowers a Fear Level, he gets a one-time, one-use Legend Chip all his own (it doesn’t go into the players’ pot like other Fate Chips do, it goes straight to the player). Talk to the Marshal about this, amigo. We’ve already told you more than we should."
+        descr: "Ein guter Geschichtenerzähler unterhält nicht nur, er gibt auch Hoffnung und Trost. Sodbuster und Sattelschlepper im Wilden Westen können alle Hoffnung und allen Trost gebrauchen, die sie finden können. Wir wollen nicht zu viel sagen, aber gute Geschichtenerzähler sind entscheidend für die Rettung der Welt. Wie bitte? Die Welt braucht Rettung? Und ob sie das braucht. Sie werden irgendwann herausfinden, warum. In der Zwischenzeit sollten Sie wissen, dass es im Grossen und Ganzen weitaus wichtiger ist, die Geschichten über die Heldentaten Ihrer Truppe zu verbreiten als die Fähigkeit, eine Waffe abzufeuern oder zu reiten. Wenn Sie also etwas Erstaunliches tun, Bucko, erzählen Sie den Leuten davon! Das Marshal's Handbook ist in dieser Hinsicht sehr dürftig, aber Sie müssen wissen, was der Edge tut, und deshalb werden wir Ihnen jetzt viel davon erzählen. Wenn ein Redner mit diesem Edge eine Überredungsrolle macht, um von den Heldentaten seiner Truppe zu erzählen, erhält er einen Bonus von +2. Wo die meisten Geschichtenerzähler die Geschichte vermasseln, wenn sie eine 1 auf den Überredungswürfel würfeln (unabhängig vom Ergebnis des Wilden Würfels), tut Ihr Held dies ausserdem nur mit einem Wurf von Schlangenaugen. Wenn ein Geschichtenerzähler mit diesem Edge erfolgreich einen Fear-Level senkt, erhält er einen einmaligen Legendenchip, den er selbst einmal verwendet (er geht nicht wie andere Schicksals-Chips in den Pott der Spieler, sondern direkt an den Spieler). Sprechen Sie mit dem Marshall darüber, amigo. Wir haben Ihnen bereits mehr gesagt, als wir sollten."
     },
     {
-        id: "WildernessMan",
-        name: "Wilderness Man",
+        id: "Wilder",
+        name: "Wilder",
         req: ["Verstand W8+", "Konstitution W6+", "Wahrnehmung W8+", "Überleben W6+"],
         tags: ["deadlands", "experte"],
-        descr: "Whether they live in the high Rockies, the Great Plains, or the deserts, wilderness men are used to the rigors of nature and take extremes of weather in stride. They gain +2 to Survival and Tracking. In addition, lifetimes of exposure to nature’s fury give them a +2 bonus to Vigor rolls to resist Fatigue from Heat or Cold (see Savage Worlds)."
+        descr: "Ob sie in den hohen Rocky Mountains, den Great Plains oder den Wüsten leben, die Menschen in der Wildnis sind an die Unbilden der Natur gewöhnt und nehmen extreme Wetterbedingungen gelassen hin. Sie gewinnen +2 zum Überleben und zum Verfolgen. Darüber hinaus erhalten sie, wenn sie lebenslang der Wut der Natur ausgesetzt sind, einen Bonus von +2 auf Kräftigungsrollen, um der Ermüdung durch Hitze oder Kälte zu widerstehen (siehe Wilde Welten)."
     },
     {
-        id: "Knack",
-        name: "Knack",
+        id: "Gabe",
+        name: "Gabe",
         tags: ["deadlands", "macht"],
-        descr: "This Edge should only be taken during character creation (unless there is a good reason for the hero to “discover” his latent powers at a later date). The Weird West is a superstitious place, where rumors and old wives’ tales abound. Just occasionally, though, these folktales contain a germ of truth. A knack is just that—folklore come true. Well, now you get to choose one of the special events that coincided with the time of your birth. Each one gives you access to a special ability, which you can activate by using a Fate Chip (of any color). If you don’t have a Fate Chip to spare, you can’t use your knack. Bastard: Well, that’s what your hero is. Not the mean ornery kind, but the fatherless kind. A child born out of wedlock is said to be able to see the unseen. Discard a Fate Chip to be able to see invisible critters, or those that supernaturally blend in with their surroundings. Born on All Hallow’s Eve: They say the King of Halloween favors those born on his day of mischief, and grants them a greater understanding of the arcane world. As one of these rascals, your hero can only choose Magic and Weird Science Arcane Backgrounds. If you’ve already set your heart on a different Arcane Background, you’ll have to choose another knack. A Weird Scientist with this knack can discard a Fate Chip and make a successful Spirit roll to avoid dementia as a result of taking the New Powers Edge (see page 98). A huckster with this knack can discard a Fate Chip and make a successful Spirit roll to avoid Backfire after making a poker hand to cast a hex (see page 91). With a success he is just Shaken as if by Backlash, and with a raise, he avoids it completely. Born on Christmas: A babe born on Christmas is particularly resistant to arcane effects powered by evil spirits. As such, your hero can only use Miracles and Shamanism Arcane Backgrounds. If you wanted to take a different Arcane Background, this isn’t the knack for you. When targeted by a power from any other Arcane Background, a hero with this knack can discard a Fate Chip to negate the effect and force the caster to make a Spirit roll (–4) or be Shaken. Breech Birth: A baby born butt-first is said to have the uncanny ability to heal injuries. Your hero is just such a person and can spend a Fate Chip to use the greater healing power. He doesn’t need to roll, he automatically gets a single success (thus healing one wound). Seventh Son: Your hero is fated for greatness; his legend will loom large in the Weird West. This hombre has the ability to control fate. Any time a Fate Chip is used in his presence, he can discard a like-colored chip to negate its effect."
+        descr: "Dieses Talent sollte nur während der Charaktererstellung genommen werden (es sei denn, es gibt einen guten Grund für den Helden, seine latenten Kräfte zu einem späteren Zeitpunkt zu 'entdecken'). Der schräge Westen ist ein abergläubischer Ort, wo Gerüchte und Altweibergeschichten im Überfluss vorhanden sind. Nur gelegentlich enthalten diese Volksmärchen jedoch einen Keim der Wahrheit. Ein Kniff ist nur, dass sich die Volksmärchen bewahrheiten. Nun, jetzt können Sie sich eines der besonderen Ereignisse aussuchen, das mit der Zeit Ihrer Geburt zusammenfiel. Jedes dieser Ereignisse gibt Ihnen Zugang zu einer besonderen Fähigkeit, die Sie mit Hilfe eines Schicksalschips (beliebiger Farbe) aktivieren können. Wenn Sie keinen Schicksalschip zur Verfügung haben, können Sie Ihre Fähigkeit nicht einsetzen. Mistkerl: Nun, das ist Ihr Held. Nicht die gemeine, störrische Art, sondern die vaterlose Art. Man sagt, dass ein uneheliches Kind in der Lage ist, das Unsichtbare zu sehen. Werfen Sie einen Schicksalschip weg, um unsichtbare Wesen oder solche, die sich auf übernatürliche Weise in ihre Umgebung einfügen, sehen zu können. Geboren am Vorabend von Allerheiligen: Man sagt, der König von Halloween bevorzugt diejenigen, die an seinem Unheilstag geboren wurden, und gewährt ihnen ein besseres Verständnis der geheimnisvollen Welt. Als einer dieser Lausbuben kann Ihr Held nur magische und seltsame wissenschaftliche Arkane Hintergründe wählen. Wenn Sie Ihr Herz bereits auf einen anderen arkanen Hintergrund eingestellt haben, müssen Sie einen anderen Trick wählen. Ein merkwürdiger Wissenschaftler mit dieser Fähigkeit kann einen Schicksalschip wegwerfen und einen erfolgreichen Geisterwurf machen, um Demenz als Folge der Einnahme des New Powers Edge zu vermeiden (siehe Seite 98). Ein Verhökerer mit dieser Fähigkeit kann einen Schicksalschip ablegen und einen erfolgreichen Geisterwurf machen, um eine Fehlzündung zu vermeiden, nachdem er eine Pokerhand zum Ausspielen eines Sechsecks gespielt hat (siehe Seite 91). Bei einem Erfolg wird er einfach wie durch einen Backlash geschüttelt, und mit einer Erhöhung vermeidet er ihn vollständig. Geboren an Weihnachten: Ein an Weihnachten geborener Säugling ist besonders resistent gegen arkane Effekte, die von bösen Geistern angetrieben werden. Als solcher kann Ihr Held nur Wunder und schamanistische arkane Hintergründe nutzen. Wenn Sie einen anderen Arkanen Hintergrund verwenden wollten, ist dies nicht das richtige Händchen für Sie. Wenn ein Held mit diesem Talent von einer Macht aus einem anderen Arkanen Hintergrund angegriffen wird, kann er einen Schicksalschip abwerfen, um den Effekt aufzuheben und den Wirker zu einem Geisterwurf (-4) oder einer Erschütterung zu zwingen. Steissgeburt: Ein Baby, das mit dem Hintern zuerst geboren wird, soll die unheimliche Fähigkeit haben, Verletzungen zu heilen. Ihr Held ist genau so ein Mensch und kann einen Schicksalschip ausgeben, um die grössere Heilkraft zu nutzen. Er braucht nicht zu rollen, er hat automatisch einen einzigen Erfolg (und heilt damit eine Wunde). Siebter Sohn: Ihr Held ist zu grosser Grösse verdammt; seine Legende wird im Wilden Westen eine grosse Rolle spielen. Dieser Hombre hat die Fähigkeit, das Schicksal zu lenken. Jedes Mal, wenn ein Schicksalschip in seiner Gegenwart verwendet wird, kann er einen gleichfarbigen Chip wegwerfen, um seine Wirkung zu negieren."
     }
 ];

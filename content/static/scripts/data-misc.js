@@ -136,6 +136,13 @@ app.fertigkeiten = [{
         show: false,
     },
     {
+        id: "Guts",
+        name: "Guts",
+        descr: "Umso taffer, umso mehr brauchts, um dich einzuschüchtern.",
+        attr: "Willenskraft",
+        show: false,
+    },
+    {
         id: "Hacken",
         name: "Hacken",
         descr: "Programmieren und Einbrechen in Computersysteme.",
@@ -161,13 +168,6 @@ app.fertigkeiten = [{
         name: "Kriegskunst",
         descr: "Strategie, Taktik und das Verständnis von militärischen Einsätzen. Wichtig für Massenschlachten.",
         attr: "Verstand",
-        show: false,
-    },
-    {
-        id: "Mut",
-        name: "Mut",
-        descr: "Wie schnell wirst du eingeschüchtert?",
-        attr: "Willenskraft",
         show: false,
     },
     {

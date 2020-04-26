@@ -14,9 +14,9 @@ const app = new Vue({
 
             <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @show-descr="showDescr" @reset-fertigkeit="resetFertigkeit" :charSave="charSave"/>
 
-            <handicaps v-if="currentTab === 3" :handicapListe="handicaps"/>
+            <handicaps v-if="currentTab === 3" :handicapListe="handicaps" :meta="listOfTabs[3]" :charSave="charSave" @button-click="buttonClick"/>
 
-            <talente v-if="currentTab === 4" :talentListe="talents" />
+            <talente v-if="currentTab === 4" :talentListe="talents" :meta="listOfTabs[4]" :charSave="charSave" @button-click="buttonClick"/>
         </div>
     `,
     data: {
@@ -25,12 +25,12 @@ const app = new Vue({
                 liste: {}
             },
             fertigkeiten: {
-                liste: []
-            },
-            talente: {
-                liste: []
+                liste: {}
             },
             handicaps: {
+                liste: {}
+            },
+            talente: {
                 liste: []
             },
             name: '',
@@ -40,7 +40,7 @@ const app = new Vue({
         talents: [],
         attribute: [],
         fertigkeiten: [],
-        currentTab: 3
+        currentTab: 4
     },
     methods: {
         changeTab(id) {
@@ -55,6 +55,20 @@ const app = new Vue({
                 this.$set(this.charSave.attribute.liste, id, value);
             } else if (type === 'fertigkeit') {
                 this.$set(this.charSave.fertigkeiten.liste, id, value);
+            } else if (type === 'handicap') {
+                const list = this.charSave.handicaps.liste;
+                if (list[id] === value) {
+                    this.$delete(list, id);
+                } else {
+                    this.$set(list, id, value);
+                }
+            } else if (type === 'talent') {
+                const list = this.charSave.talente.liste;
+                if (list.includes(id)) {
+                    list.splice(list.indexOf(id), 1);
+                } else {
+                    list.push(id);
+                }
             }
         },
         showDescr({
@@ -93,7 +107,6 @@ const app = new Vue({
             return [{
                     id: 0,
                     name: 'Allgemein',
-                    descr: '',
                 },
                 {
                     id: 1,
@@ -112,13 +125,14 @@ const app = new Vue({
                 {
                     id: 3,
                     name: 'Handicaps',
-                    value: typeof this.charSave.handicaps === 'undefined' ? '' : this.charSave.handicaps.punkte,
+                    descr: 'Wähle hier deine Handicaps. Leichte Handicaps sind 1 Punkt Wert; Schwere Handicaps 2.',
+                    value: this.getHandicapPunkte,
                     goal: 0
                 },
                 {
                     id: 4,
                     name: 'Talente',
-                    value: typeof this.charSave.talente === 'undefined' ? '' : this.charSave.talente.punkte,
+                    value: this.getTalentPunkte,
                     goal: 0
                 },
             ];
@@ -180,6 +194,17 @@ const app = new Vue({
                 }
             }
             return 12 - total;
+        },
+        getHandicapPunkte() {
+            const list = this.charSave.handicaps.liste;
+            let total = 0;
+            for (let [_, value] of Object.entries(list)) {
+                total += value;
+            }
+            return 4 - total;
+        },
+        getTalentPunkte() {
+            return 3 - this.charSave.talente.liste.length;
         },
         fertigkeitenMitStartValue() {
             const list = this.fertigkeiten;
