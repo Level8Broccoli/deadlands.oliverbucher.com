@@ -42,6 +42,26 @@ const app = new Vue({
         fertigkeiten: [],
         currentTab: 0
     },
+    mounted() {
+        if (localStorage.getItem('charSave')) {
+            try {
+                this.charSave = JSON.parse(localStorage.getItem('charSave'));
+            } catch (error) {
+                console.error(error);
+                console.error(localStorage.getItem('charSave'));
+            }
+        }
+    },
+    watch: {
+        charSave: {
+            handler() {
+                const parsed = JSON.stringify(this.charSave);
+                console.log(parsed);
+                localStorage.setItem('charSave', parsed);
+            },
+            deep: true,
+        },
+    },
     methods: {
         changeTab(id) {
             this.currentTab = id;
