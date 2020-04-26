@@ -10,9 +10,9 @@ const app = new Vue({
 
             <charinfo v-if="currentTab === 0" :meta="listOfTabs[0]" :charSave="charSave" />
 
-            <attribute v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" @button-click="buttonClick" @show-descr="showDescr" :charSave="charSave"/>
+            <attribute v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" @button-click="buttonClick" :charSave="charSave"/>
 
-            <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @show-descr="showDescr" @reset-fertigkeit="resetFertigkeit" :charSave="charSave"/>
+            <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" :charSave="charSave"/>
 
             <handicaps v-if="currentTab === 3" :handicapListe="handicaps" :meta="listOfTabs[3]" :charSave="charSave" @button-click="buttonClick"/>
 
@@ -56,7 +56,6 @@ const app = new Vue({
         charSave: {
             handler() {
                 const parsed = JSON.stringify(this.charSave);
-                console.log(parsed);
                 localStorage.setItem('charSave', parsed);
             },
             deep: true,
@@ -89,18 +88,6 @@ const app = new Vue({
                 } else {
                     list.push(id);
                 }
-            }
-        },
-        showDescr({
-            type,
-            id
-        }) {
-            if (type === 'attribute') {
-                let attributeEntry = this.attribute.find(a => a.id === id);
-                attributeEntry.show = !attributeEntry.show;
-            } else if (type === 'fertigkeit') {
-                let fertigkeitenEntry = this.fertigkeiten.find(a => a.id === id);
-                fertigkeitenEntry.show = !fertigkeitenEntry.show;
             }
         },
         getFertigkeit(id) {
