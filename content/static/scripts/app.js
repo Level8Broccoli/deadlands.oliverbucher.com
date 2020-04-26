@@ -132,6 +132,7 @@ const app = new Vue({
                 {
                     id: 4,
                     name: 'Talente',
+                    descr: 'Suche dir die Talente aus, die deinen Charakter zu etwas ganz besonderem machen. Achte dabei jedoch auf die Spalte Voraussetzung!',
                     value: this.getTalentPunkte,
                     goal: 0
                 },
