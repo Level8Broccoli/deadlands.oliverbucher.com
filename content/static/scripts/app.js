@@ -6,7 +6,7 @@ const app = new Vue({
         <div>
             <overview :overviewListWithoutGoals="overviewListWithoutGoals" :charSave="charSave" />
 
-            <button-legend />
+            <button-legend v-if="currentTab !== 0" />
 
             <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
 
