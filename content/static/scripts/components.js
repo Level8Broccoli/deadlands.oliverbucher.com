@@ -32,8 +32,8 @@ Vue.component('overview', {
 
 Vue.component('button-legend', {
     template: `
-<div>
-    <p><strong>Legende</strong></p>
+<div class="box">
+    <p class="has-text-centered"><strong>Legende</strong></p>
 
     <nav class="level is-mobile">
         <div class="level-item has-text-centered">
