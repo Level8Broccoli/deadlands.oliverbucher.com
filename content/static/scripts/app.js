@@ -6,8 +6,6 @@ const app = new Vue({
         <div>
             <overview :overviewListWithoutGoals="overviewListWithoutGoals" :charSave="charSave" />
 
-            <button-legend v-if="currentTab !== 0" />
-
             <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
 
             <charinfo v-if="currentTab === 0" :meta="listOfTabs[0]" :charSave="charSave" />
@@ -19,6 +17,8 @@ const app = new Vue({
             <handicaps v-if="currentTab === 3" :handicapListe="handicaps" :meta="listOfTabs[3]" :charSave="charSave" @button-click="buttonClick"/>
 
             <talente v-if="currentTab === 4" :talentListe="talents" :meta="listOfTabs[4]" :charSave="charSave" @button-click="buttonClick"/>
+
+            <button-legend v-if="currentTab !== 0" />
         </div>
     `,
     data: {
