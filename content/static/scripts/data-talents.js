@@ -515,7 +515,7 @@ app.talents = [{
     },
     {
         id: "ArkanerHintergrundWunder",
-        name: "Arkaner Hintergrund (Wunter)",
+        name: "Arkaner Hintergrund (Wunder)",
         tags: ["deadlands", "hintergrund"],
         descr: "Bestimmte Charaktere können die Macht ihrer Gottheit (oder ihrer Gottheiten) um Hilfe anrufen. Im Merkwürdigen Westen werden diese frommen Seelen die Seligen genannt. Gesegnet sind Nonnen, Priester oder auch durchschnittliche, aber (relativ) reinherzige Menschen, die von einem göttlichen Wesen gesegnet sind. Obwohl sie im Wilden Westen selten sind, gibt es auch gesegnete Imame, buddhistische Mönche und andere Gläubige, die mit höheren Mächten umherlaufen, die ihren heiligen Hintern bedecken. Wenn diese Leute sich benehmen, können sie manchmal Wunder beschwören, die ihnen helfen, die Übel des Wilden Westens zu bekämpfen. Einzelheiten dazu, wie man einen dieser Kreuzfahrer spielt, finden Sie auf Seite 82, wo Sie einige zusätzliche Kanten finden, die nur den Gesegneten zur Verfügung stehen."
     },
