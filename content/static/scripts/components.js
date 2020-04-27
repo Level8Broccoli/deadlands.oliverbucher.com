@@ -33,12 +33,7 @@ Vue.component('overview', {
 Vue.component('button-legend', {
     template: `
 <div class="box">
-    <nav class="level is-mobile">
-        <div class="level-item has-text-centered">
-        <div>
-            <p class="heading has-text-weight-bold">Legende</p>
-        </div>
-        </div>        
+    <nav class="level is-mobile">        
         <div class="level-item has-text-centered">
         <div>
             <p class="heading">Standardwert</p>
@@ -49,6 +44,11 @@ Vue.component('button-legend', {
         <div>
             <p class="heading">Ausgewählt</p>
             <p class="title"><button class="button is-success">♥</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="title has-text-weight-bold">Legende</p>
         </div>
         </div>
         <div class="level-item has-text-centered">
