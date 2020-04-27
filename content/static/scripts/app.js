@@ -18,6 +18,8 @@ const app = new Vue({
 
             <talente v-if="currentTab === 4" :talentListe="talents" :meta="listOfTabs[4]" :charSave="charSave" @button-click="buttonClick"/>
 
+            <br />
+
             <button-legend v-if="currentTab !== 0" />
         </div>
     `,
