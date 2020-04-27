@@ -38,7 +38,7 @@ Vue.component('button-legend', {
     <nav class="level is-mobile">
         <div class="level-item has-text-centered">
         <div>
-            <p class="heading">Standartwert</p>
+            <p class="heading">Standardwert</p>
             <p class="title"><button class="button is-info">♥</button></p>
         </div>
         </div>
@@ -50,13 +50,13 @@ Vue.component('button-legend', {
         </div>
         <div class="level-item has-text-centered">
         <div>
-            <p class="heading">Kostet 1 Punkt.</p>
+            <p class="heading">1 Punkt</p>
             <p class="title"><button class="button is-light">×</button></p>
         </div>
         </div>
         <div class="level-item has-text-centered">
         <div>
-            <p class="heading">Kostet 2 Punkte.</p>
+            <p class="heading">2 Punkte</p>
             <p class="title"><button class="button is-danger is-light">×</button></p>
         </div>
         </div>
