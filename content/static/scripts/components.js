@@ -30,6 +30,41 @@ Vue.component('overview', {
 
 });
 
+Vue.component('button-legend', {
+    template: `
+<div>
+    <p><strong>Legende</strong></p>
+
+    <nav class="level is-mobile">
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Standartwert</p>
+            <p class="title"><button class="button is-info">♥</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Ausgewählt</p>
+            <p class="title"><button class="button is-success">♥</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Kostet 1 Punkt.</p>
+            <p class="title"><button class="button is-light">×</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Kostet 2 Punkte.</p>
+            <p class="title"><button class="button is-danger is-light">×</button></p>
+        </div>
+        </div>
+    </nav>
+</div>
+    `,
+});
+
 Vue.component('tabbar', {
     template: `
         <div class="tabs">

@@ -6,6 +6,8 @@ const app = new Vue({
         <div>
             <overview :overviewListWithoutGoals="overviewListWithoutGoals" :charSave="charSave" />
 
+            <button-legend />
+
             <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
 
             <charinfo v-if="currentTab === 0" :meta="listOfTabs[0]" :charSave="charSave" />
