@@ -151,7 +151,7 @@ const app = new Vue({
                 comment
             });
 
-            if(currentTab != 5) {
+            if(this.currentTab != 5) {
                 this.showLastRoll = true;
             }
         },
