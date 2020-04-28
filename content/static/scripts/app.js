@@ -10,9 +10,9 @@ const app = new Vue({
 
             <charinfo v-if="currentTab === 0" :meta="listOfTabs[0]" :charSave="charSave" />
 
-            <attribute v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" @button-click="buttonClick" :charSave="charSave"/>
+            <attribute v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" @button-click="buttonClick" :charSave="charSave" @roll-dice="rollDice"/>
 
-            <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" :charSave="charSave"/>
+            <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" :charSave="charSave" @roll-dice="rollDice"/>
 
             <handicaps v-if="currentTab === 3" :handicapListe="handicaps" :meta="listOfTabs[3]" :charSave="charSave" @button-click="buttonClick"/>
 
@@ -22,7 +22,9 @@ const app = new Vue({
 
             <br />
 
-            <button-legend v-if="currentTab !== 0 || currentTab !== 5" />
+            <button-legend v-if="currentTab !== 0 && currentTab !== 5" />
+
+            <last-dice-roll :lastRoll="diceHistory[0]" @roll-dice="rollDice" v-model="showLastRoll" v-if="showLastRoll" @close-popup="showLastRoll = false" />
         </div>
     `,
     data: {
@@ -47,6 +49,7 @@ const app = new Vue({
         attribute: [],
         fertigkeiten: [],
         diceHistoryArray: [],
+        showLastRoll: false,
         currentTab: 5
     },
     mounted() {
@@ -70,7 +73,7 @@ const app = new Vue({
     },
     methods: {
         clearDiceHistory() {
-            this.diceHistory.splice(0,this.diceHistory.length);
+            this.diceHistory.splice(0, this.diceHistory.length);
         },
         rollDice({
             comment,
@@ -112,10 +115,12 @@ const app = new Vue({
                 }
             }
 
-            const biggerTotal = Math.max(totalNormal, totalWild);
-
-            for (let mod in modifications) {
-                biggerTotal += mod.value;
+            let biggerTotal = Math.max(totalNormal, totalWild);
+            if (modifications) {
+                for (let i = 0; i < modifications.length; i++) {
+                    const mod = modifications[i];
+                    biggerTotal += mod.value;
+                }
             }
 
             let result = {
@@ -134,6 +139,8 @@ const app = new Vue({
                 result,
                 comment
             });
+
+            this.showLastRoll = true;
         },
         changeTab(id) {
             this.currentTab = id;
@@ -268,18 +275,20 @@ const app = new Vue({
             let total = 0;
             for (let [key, value] of Object.entries(list)) {
                 const fert = this.getFertigkeit(key);
-                const attrValue = this.getAttributeValue(fert.attr);
+                if (typeof fert !== 'undefined') {
+                    const attrValue = this.getAttributeValue(fert.attr);
 
-                let sum = 0;
-                if (attrValue >= value) {
-                    sum = value;
-                } else {
-                    sum = value + (value - attrValue);
-                }
-                if (typeof fert.startValue !== 'undefined') {
-                    total += sum / 2 - 2;
-                } else {
-                    total += sum / 2 - 1;
+                    let sum = 0;
+                    if (attrValue >= value) {
+                        sum = value;
+                    } else {
+                        sum = value + (value - attrValue);
+                    }
+                    if (typeof fert.startValue !== 'undefined') {
+                        total += sum / 2 - 2;
+                    } else {
+                        total += sum / 2 - 1;
+                    }
                 }
             }
             return 12 - total;

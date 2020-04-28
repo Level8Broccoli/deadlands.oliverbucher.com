@@ -75,6 +75,9 @@ Vue.component('attribute-entry', {
 <tbody>
     <tr>
         <td>
+            <button :title="'Würfle ' + attribute.name" class="button is-info is-light is-small" @click="rollDice(attribute)">&#9850;</button>
+        </td>
+        <td>
             <a @click="show = !show">{{ attribute.name }}</a>
         </td>
         <td>
@@ -120,6 +123,15 @@ Vue.component('attribute-entry', {
             const savedValue = this.charSave.attribute.liste[id];
             return value <= savedValue ? '&hearts;' : '&times;';
         },
+        rollDice(attribute) {
+            const id = attribute.id;
+            const savedValue = this.charSave.attribute.liste[id] || 4;
+            this.$emit('roll-dice', {
+                comment: `${attribute.name} (W${savedValue})`,
+                dice: savedValue,
+                wild: true
+            });
+        },
     },
 });
 
@@ -132,6 +144,7 @@ Vue.component('attribute', {
     <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth">
             <tr>
+                <th></th>
                 <th><h1 class="subtitle">{{ meta.name }}</h1></th>
                 <th>W4</th>
                 <th>W6</th>
@@ -139,7 +152,7 @@ Vue.component('attribute', {
                 <th>W10</th>
                 <th>W12</th>
             </tr>
-            <attribute-entry v-for="attribute in attributList" :attribute="attribute" :key="attribute.id" :charSave="charSave" @button-click="buttonClick"/>
+            <attribute-entry v-for="attribute in attributList" :attribute="attribute" :key="attribute.id" :charSave="charSave" @button-click="buttonClick" @roll-dice="rollDice" />
         </table>
     </div>
 </div>
@@ -149,6 +162,9 @@ Vue.component('attribute', {
         buttonClick(input) {
             this.$emit('button-click', input);
         },
+        rollDice(obj) {
+            this.$emit('roll-dice', obj);
+        }
     },
 });
 
@@ -156,6 +172,9 @@ Vue.component('fertigkeiten-entry', {
     template: `
 <tbody>
     <tr>
+        <td>
+            <button class="button is-info is-light is-small" :title="'Würfle ' + fertigkeit.name" @click="rollDice(fertigkeit)">&#9850;</button>
+        </td>
         <td>
             <a @click="reset(fertigkeit.id)" class="delete is-small"></a>
             <a @click="show = !show">{{ fertigkeit.name }}</a>
@@ -221,6 +240,27 @@ Vue.component('fertigkeiten-entry', {
                 return 'is-light';
             }
         },
+        rollDice(fertigkeit) {
+            const id = fertigkeit.id;
+            let savedValue = this.charSave.fertigkeiten.liste[id];
+            let modifications = [];
+            if (!savedValue && fertigkeit.startValue) {
+                savedValue = 4;
+            }
+            if (!savedValue) {
+                modifications.push({
+                    name: 'Ungeübt',
+                    value: -2
+                });
+                savedValue = 4;
+            }
+            this.$emit('roll-dice', {
+                comment: `${fertigkeit.name} (W${savedValue})`,
+                dice: savedValue,
+                wild: true,
+                modifications,
+            });
+        },
     },
 });
 
@@ -233,6 +273,7 @@ Vue.component('fertigkeiten', {
     <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth">
             <tr>
+                <th></th>
                 <th><h1 class="subtitle">{{ meta.name }}</h1></th>
                 <th>W4</th>
                 <th>W6</th>
@@ -240,7 +281,7 @@ Vue.component('fertigkeiten', {
                 <th>W10</th>
                 <th>W12</th>
             </tr>
-            <fertigkeiten-entry v-for="fertigkeit in fertigkeitenList" :fertigkeit="fertigkeit" :key="fertigkeit.id" :charSave="charSave" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit"/>
+            <fertigkeiten-entry v-for="fertigkeit in fertigkeitenList" :fertigkeit="fertigkeit" :key="fertigkeit.id" :charSave="charSave" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" @roll-dice="rollDice"/>
         </table>
     </div>
 </div>
@@ -253,6 +294,9 @@ Vue.component('fertigkeiten', {
         resetFertigkeit(input) {
             this.$emit('reset-fertigkeit', input);
         },
+        rollDice(obj) {
+            this.$emit('roll-dice', obj);
+        }
     },
 
 });
@@ -534,7 +578,7 @@ Vue.component('dice-history-entry', {
             const rerollPrefix = '[Reroll]';
             const comment = roll.comment.includes(rerollPrefix) ? roll.comment : `${rerollPrefix} ${roll.comment}`;
             const dice = roll.rollNormal[0].dice;
-            const wild = roll.rollWild.lenght > 0;
+            const wild = roll.rollWild.length > 0;
             const modifications = roll.modifications;
 
             this.$emit('roll-dice', {
@@ -566,6 +610,12 @@ Vue.component('dice-history', {
                 <th></th>
             </tr>
             <dice-history-entry v-for="(dice, index) in diceHistory" :dice="dice" :key="index" @roll-dice="rollDice"/>
+            <tr v-if="diceHistory.length === 0">
+                <td></td>
+                <td colspan="6">
+                    <span class="is-italic">Würfelchronik leer</span>
+                </td>
+            </tr>
         </table>
     </div>
 </div>
@@ -617,4 +667,52 @@ Vue.component('button-legend', {
     </nav>
 </div>
     `,
+});
+
+
+Vue.component('last-dice-roll', {
+    template: `
+<article class="message" :class="colorMessage()" v-show="value">
+    <div class="message-header">
+        <p>Letzter Wurf</p>
+        <button class="delete" aria-lable="delete" @click="closeDicePopUp"></button>
+    </div>
+    <div class="message-body">
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <tr>
+                <th></th>
+                <th>Beschreibung</th>
+                <th>Wurf</th>
+                <th>Wild Die (W6)</th>
+                <th>Modifikationen</th>
+                <th>Ergebnis</th>
+                <th></th>
+            </tr>
+            <dice-history-entry v-if="lastRoll" :dice="lastRoll" @roll-dice="rollDice"/>
+        </table>
+    </div>
+</article>
+    `,
+    props: ['lastRoll', 'value'],
+    methods: {
+        rollDice(obj) {
+            this.$emit('roll-dice', obj);
+        },
+        colorMessage() {
+            const result = this.lastRoll.result;
+            if (result.raise > 0) {
+                return 'is-primary';
+            }
+            if (result.success) {
+                return 'is-success';
+            }
+            if (result.critFailure) {
+                return 'is-danger';
+            }
+            return 'is-warning';
+        },
+        closeDicePopUp() {
+            this.$emit('close-popup');
+        },
+    }
 });
