@@ -1,12 +1,12 @@
 <template>
   <div>
-    <NavLogo />
+    <HeaderLogo />
     <section class="section">
       <div class="container">
         <div class="custom-container">
-          <BigTitle />
+          <HeaderTitle title="Willkommen im Weird West" />
           <CharacterOverview />
-          <NavTabs />
+          <NavTabs :tab-list="tabList" />
           <nuxt />
         </div>
       </div>
@@ -15,13 +15,54 @@
 </template>
 
 <script>
-import NavLogo from '~/components/NavLogo'
-import BigTitle from '~/components/BigTitle'
+import HeaderLogo from '~/components/HeaderLogo'
+import HeaderTitle from '~/components/HeaderTitle'
 import CharacterOverview from '~/components/CharacterOverview'
 import NavTabs from '~/components/NavTabs'
 
 export default {
-  components: { NavLogo, BigTitle, CharacterOverview, NavTabs }
+  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs },
+  computed: {
+    tabList() {
+      return [
+        {
+          id: 0,
+          name: 'Allgemein',
+          link: '/'
+        },
+        {
+          id: 1,
+          name: 'Attribute',
+          link: '/attribute',
+          points: 5
+        },
+        {
+          id: 2,
+          name: 'Fertigkeiten',
+          link: '/fertigkeiten',
+          points: 12
+        },
+        {
+          id: 3,
+          name: 'Handicaps',
+          link: '/handicaps',
+          points: 4
+        },
+        {
+          id: 4,
+          name: 'Talente',
+          link: '/talente',
+          points: 3
+        },
+        {
+          id: 5,
+          name: 'Würfelchronik',
+          link: '/wuerfelchronik',
+          notification: true
+        }
+      ]
+    }
+  }
 }
 </script>
 
