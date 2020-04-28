@@ -18,9 +18,11 @@ const app = new Vue({
 
             <talente v-if="currentTab === 4" :talentListe="talents" :meta="listOfTabs[4]" :charSave="charSave" @button-click="buttonClick"/>
 
+            <dice-history v-if="currentTab === 5" :meta="listOfTabs[5]" @roll-dice="rollDice" :diceHistory="diceHistory"/>
+
             <br />
 
-            <button-legend v-if="currentTab !== 0" />
+            <button-legend v-if="currentTab !== 0 || currentTab !== 5" />
         </div>
     `,
     data: {
@@ -44,7 +46,25 @@ const app = new Vue({
         talents: [],
         attribute: [],
         fertigkeiten: [],
-        currentTab: 0
+        diceHistoryArray: [{
+            timestamp: "xxx",
+            rolls: [{
+                dice: 10,
+                rolled: 5
+            }, {
+                dice: 8,
+                rolled: 8
+            }],
+            comment: "Kommentar"
+        }, {
+            timestamp: "pp",
+            rolls: [{
+                dice: 6,
+                rolled: 2
+            }],
+            comment: "Kommentar 2"
+        }],
+        currentTab: 5
     },
     mounted() {
         if (localStorage.getItem('charSave')) {
@@ -66,6 +86,18 @@ const app = new Vue({
         },
     },
     methods: {
+        rollDice(dice) {
+            const rolled = Math.ceil(Math.random() * dice);
+            const now = new Date();
+            const timestamp = `${now.getDate()}. ${now.getMonth()+1}, ${now.getHours()}.${now.getMinutes()} Uhr (${now.getSeconds()})`;
+            this.diceHistoryArray.push({
+                rolls: [{
+                    dice,
+                    rolled
+                }],
+                timestamp
+            });
+        },
         changeTab(id) {
             this.currentTab = id;
         },
@@ -111,6 +143,9 @@ const app = new Vue({
         },
     },
     computed: {
+        diceHistory() {
+            return this.diceHistoryArray.reverse();
+        },
         listOfTabs() {
             if (this.charSave === {}) {
                 return [];
@@ -146,6 +181,11 @@ const app = new Vue({
                     descr: 'Suche dir die Talente aus, die deinen Charakter zu etwas ganz besonderem machen. Achte dabei jedoch auf die Spalte Voraussetzung!',
                     value: this.getTalentPunkte,
                     goal: 0
+                },
+                {
+                    id: 5,
+                    name: 'Würfelchronik',
+                    descr: 'Hier findest du deine letzten Würfelwürfe.',
                 },
             ];
         },

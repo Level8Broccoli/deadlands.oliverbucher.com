@@ -30,44 +30,6 @@ Vue.component('overview', {
 
 });
 
-Vue.component('button-legend', {
-    template: `
-<div class="box">
-    <nav class="level is-mobile">        
-        <div class="level-item has-text-centered">
-        <div>
-            <p class="heading">Standardwert</p>
-            <p class="title"><button class="button is-info">♥</button></p>
-        </div>
-        </div>
-        <div class="level-item has-text-centered">
-        <div>
-            <p class="heading">Ausgewählt</p>
-            <p class="title"><button class="button is-success">♥</button></p>
-        </div>
-        </div>
-        <div class="level-item has-text-centered">
-        <div>
-            <p class="title has-text-weight-bold">Legende</p>
-        </div>
-        </div>
-        <div class="level-item has-text-centered">
-        <div>
-            <p class="heading">1 Punkt</p>
-            <p class="title"><button class="button is-light">×</button></p>
-        </div>
-        </div>
-        <div class="level-item has-text-centered">
-        <div>
-            <p class="heading">2 Punkte</p>
-            <p class="title"><button class="button is-danger is-light">×</button></p>
-        </div>
-        </div>
-    </nav>
-</div>
-    `,
-});
-
 Vue.component('tabbar', {
     template: `
         <div class="tabs">
@@ -457,4 +419,125 @@ Vue.component('talente', {
             this.$emit('button-click', input);
         },
     }
+});
+
+Vue.component('custom-dice', {
+    template: `
+<nav class="level is-mobile">
+    <div class="level-item has-text-centered">
+    <div>
+        <p class="title"><button class="button is-info is-light" @click="rollDice(4)">W 4</button></p>
+    </div>
+    </div>
+    <div class="level-item has-text-centered">
+    <div>
+        <p class="title"><button class="button is-success is-light" @click="rollDice(6)">W 6</button></p>
+    </div>
+    </div>
+    <div class="level-item has-text-centered">
+    <div>
+        <p class="title"><button class="button is-danger is-light" @click="rollDice(8)">W 8</button></p>
+    </div>
+    </div>
+    <div class="level-item has-text-centered">
+    <div>
+        <p class="title"><button class="button is-warning is-light" @click="rollDice(10)">W 10</button></p>
+    </div>
+    </div>
+    <div class="level-item has-text-centered">
+    <div>
+        <p class="title"><button class="button is-primary is-light" @click="rollDice(12)">W 12</button></p>
+    </div>
+    </div>
+</nav>
+    `,
+    methods: {
+        rollDice(num) {
+            this.$emit('roll-dice', num);
+        },
+    },
+});
+
+Vue.component('dice-history-entry', {
+    template: `
+<tr>
+    <td>
+        {{ dice.comment }}
+        <div class="has-text-weight-bold"><small>{{ dice.timestamp }}</small></div>
+    </td>
+    <td>
+        <div class="buttons">
+            <button v-for="die in dice.rolls" class="button" :class="die.rolled === die.dice ? 'is-danger' : 'is-dark'">{{ die.rolled }}</button>
+        </div>
+    </td>
+    <td>
+    </td>
+</tr>
+    `,
+    props: ['dice']
+});
+
+Vue.component('dice-history', {
+    template: `
+<div>
+    <h2>Erklärung:</h2>
+    <p v-html="meta.descr"></p>
+    <br />
+    <div class="table-container">
+        <custom-dice @roll-dice="rollDice"/>
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <tr>
+                <th><h1 class="subtitle">{{ meta.name }}</h1></th>
+                <th>Wurf</th>
+                <th>Wild Dice</th>
+            </tr>
+            <dice-history-entry v-for="(dice, index) in diceHistory" :dice="dice" :key="index" />
+        </table>
+    </div>
+</div>
+    `,
+    props: ['meta', 'diceHistory'],
+    methods: {
+        rollDice(num) {
+            this.$emit('roll-dice', num);
+        },
+    }
+});
+
+Vue.component('button-legend', {
+    template: `
+<div class="box">
+    <nav class="level is-mobile">
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Standardwert</p>
+            <p class="title"><button class="button is-info">♥</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Ausgewählt</p>
+            <p class="title"><button class="button is-success">♥</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="title has-text-weight-bold">Legende</p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">1 Punkt</p>
+            <p class="title"><button class="button is-light">×</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">2 Punkte</p>
+            <p class="title"><button class="button is-danger is-light">×</button></p>
+        </div>
+        </div>
+    </nav>
+</div>
+    `,
 });
