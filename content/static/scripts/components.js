@@ -672,26 +672,28 @@ Vue.component('button-legend', {
 
 Vue.component('last-dice-roll', {
     template: `
-<article class="message" :class="colorMessage()" v-show="value">
-    <div class="message-header">
-        <p>Letzter Wurf</p>
-        <button class="delete" aria-lable="delete" @click="closeDicePopUp"></button>
-    </div>
-    <div class="message-body">
-        <table class="table is-striped is-hoverable is-fullwidth">
-            <tr>
-                <th></th>
-                <th>Beschreibung</th>
-                <th>Wurf</th>
-                <th>Wild Die (W6)</th>
-                <th>Modifikationen</th>
-                <th>Ergebnis</th>
-                <th></th>
-            </tr>
-            <dice-history-entry v-if="lastRoll" :dice="lastRoll" @roll-dice="rollDice"/>
-        </table>
-    </div>
-</article>
+<div class="container custom-roll-popup">
+    <article class="message" :class="colorMessage()" v-show="value">
+        <div class="message-header">
+            <p>Letzter Wurf</p>
+            <button class="delete" aria-lable="delete" @click="closeDicePopUp"></button>
+        </div>
+        <div class="message-body">
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th></th>
+                    <th>Beschreibung</th>
+                    <th>Wurf</th>
+                    <th>Wild Die (W6)</th>
+                    <th>Modifikationen</th>
+                    <th>Ergebnis</th>
+                    <th></th>
+                </tr>
+                <dice-history-entry v-if="lastRoll" :dice="lastRoll" @roll-dice="rollDice"/>
+            </table>
+        </div>
+    </article>
+</div>
     `,
     props: ['lastRoll', 'value'],
     methods: {
