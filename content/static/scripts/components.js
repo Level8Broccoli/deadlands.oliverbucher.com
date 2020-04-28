@@ -544,7 +544,7 @@ Vue.component('dice-history-entry', {
     </td>
     <td>
         <div v-if="dice.result.success" class="has-text-success">Erfolg!</div>
-        <div v-else-if="dice.result.critFailure" class="has-text-danger">Kritischer Fehlschlag!</div>
+        <div v-else-if="dice.result.critFailure" class="has-text-danger">Snake Eyes!</div>
         <div v-else class="has-text-warning">Fehlschlag</div>
         <div v-if="dice.result.raise === 1" class="has-text-info">1 Steigerung</div>
         <div v-if="dice.result.raise > 1" class="has-text-info">{{ dice.result.raise }} Steigerungen</div>
@@ -676,7 +676,7 @@ Vue.component('last-dice-roll', {
     <article class="message" :class="colorMessage()" v-show="value">
         <div class="message-header">
             <p>Letzter Wurf</p>
-            <button class="delete" aria-lable="delete" @click="closeDicePopUp"></button>
+            <button class="delete" aria-label="delete" @click="closeDicePopUp"></button>
         </div>
         <div class="message-body">
             <table class="table is-striped is-hoverable is-fullwidth">
@@ -691,6 +691,11 @@ Vue.component('last-dice-roll', {
                 </tr>
                 <dice-history-entry v-if="lastRoll" :dice="lastRoll" @roll-dice="rollDice"/>
             </table>
+            <div class="has-text-right">
+                <a @click="switchToHistory">
+                    <span class="tag">zur Würfelchronik &rarr;</span>
+                </a>
+            </div>
         </div>
     </article>
 </div>
@@ -716,5 +721,8 @@ Vue.component('last-dice-roll', {
         closeDicePopUp() {
             this.$emit('close-popup');
         },
+        switchToHistory() {
+            this.$emit('switch-to-history');
+        }
     }
 });
