@@ -31,7 +31,7 @@ button {
     border: 1em solid transparent;
     border-radius: 1rem;
     background: var(--clr-background);
-    margin-bottom: 15rem;
+    margin-bottom: 20rem;
 }
 
 .custom-container-right {

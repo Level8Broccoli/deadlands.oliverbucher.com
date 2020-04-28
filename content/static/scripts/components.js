@@ -637,6 +637,11 @@ Vue.component('button-legend', {
     <nav class="level is-mobile">
         <div class="level-item has-text-centered">
         <div>
+            <p class="title has-text-weight-bold">Legende</p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
             <p class="heading">Standardwert</p>
             <p class="title"><button class="button is-info">♥</button></p>
         </div>
@@ -649,11 +654,6 @@ Vue.component('button-legend', {
         </div>
         <div class="level-item has-text-centered">
         <div>
-            <p class="title has-text-weight-bold">Legende</p>
-        </div>
-        </div>
-        <div class="level-item has-text-centered">
-        <div>
             <p class="heading">1 Punkt</p>
             <p class="title"><button class="button is-light">×</button></p>
         </div>
@@ -662,6 +662,12 @@ Vue.component('button-legend', {
         <div>
             <p class="heading">2 Punkte</p>
             <p class="title"><button class="button is-danger is-light">×</button></p>
+        </div>
+        </div>
+        <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Würfeln</p>
+            <p class="title"><button class="button is-info is-light">&#9850;</button></p>
         </div>
         </div>
     </nav>
