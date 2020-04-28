@@ -24,7 +24,7 @@ const app = new Vue({
 
             <button-legend v-if="currentTab !== 0 && currentTab !== 5" />
 
-            <last-dice-roll :lastRoll="diceHistory[0]" @roll-dice="rollDice" v-model="showLastRoll" v-if="showLastRoll" @close-popup="showLastRoll = false" />
+            <last-dice-roll :lastRoll="diceHistory[0]" @roll-dice="rollDice" v-model="showLastRoll" v-if="showLastRoll" @close-popup="showLastRoll = false" @switch-to-history="currentTab = 5" />
         </div>
     `,
     data: {
@@ -50,7 +50,7 @@ const app = new Vue({
         fertigkeiten: [],
         diceHistoryArray: [],
         showLastRoll: false,
-        currentTab: 5
+        currentTab: 0
     },
     mounted() {
         if (localStorage.getItem('charSave')) {
