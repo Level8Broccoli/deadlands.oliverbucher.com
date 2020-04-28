@@ -18,7 +18,7 @@ const app = new Vue({
 
             <talente v-if="currentTab === 4" :talentListe="talents" :meta="listOfTabs[4]" :charSave="charSave" @button-click="buttonClick"/>
 
-            <dice-history v-if="currentTab === 5" :meta="listOfTabs[5]" @roll-dice="rollDice" :diceHistory="diceHistory"/>
+            <dice-history v-if="currentTab === 5" :meta="listOfTabs[5]" @roll-dice="rollDice" @clear-dice-history="clearDiceHistory" :diceHistory="diceHistory"/>
 
             <br />
 
@@ -69,6 +69,9 @@ const app = new Vue({
         },
     },
     methods: {
+        clearDiceHistory() {
+            this.diceHistory.splice(0,this.diceHistory.length);
+        },
         rollDice({
             comment,
             dice,
@@ -91,8 +94,6 @@ const app = new Vue({
                     break;
                 }
             }
-
-            wild = !wild;
 
             const WILD_DICE = 6;
             let rollWild = [];

@@ -426,27 +426,32 @@ Vue.component('custom-dice', {
 <nav class="level is-mobile">
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button title="Wirf einen W4 Würfel" class="button is-info is-light" @click="rollDice(4)">W 4</button></p>
+        <p class="title"><button title="Wirf einen W4 Würfel" class="button is-light" @click="rollDice(4)">W 4</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button title="Wirf einen W6 Würfel" class="button is-success is-light" @click="rollDice(6)">W 6</button></p>
+        <p class="title"><button title="Wirf einen W6 Würfel" class="button is-info is-light" @click="rollDice(6)">W 6</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button title="Wirf einen W8 Würfel" class="button is-danger is-light" @click="rollDice(8)">W 8</button></p>
+        <p class="title"><button title="Wirf einen W8 Würfel" class="button is-primary is-light" @click="rollDice(8)">W 8</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button title="Wirf einen W10 Würfel" class="button is-warning is-light" @click="rollDice(10)">W 10</button></p>
+        <p class="title"><button title="Wirf einen W10 Würfel" class="button is-success is-light" @click="rollDice(10)">W 10</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button title="Wirf einen W12 Würfel" class="button is-primary is-light" @click="rollDice(12)">W 12</button></p>
+        <p class="title"><button title="Wirf einen W12 Würfel" class="button is-warning is-light" @click="rollDice(12)">W 12</button></p>
+    </div>
+    </div>
+    <div class="level-item has-text-centered">
+    <div>
+        <p class="title"><button title="Lösche die Würfelchronik" class="button is-danger is-light" @click="clearHistory">Chronik löschen</button></p>
     </div>
     </div>
 </nav>
@@ -459,6 +464,9 @@ Vue.component('custom-dice', {
                 wild: false
             });
         },
+        clearHistory() {
+            this.$emit('clear-dice-history');
+        }
     },
 });
 
@@ -546,7 +554,7 @@ Vue.component('dice-history', {
     <p v-html="meta.descr"></p>
     <br />
     <div class="table-container">
-        <custom-dice @roll-dice="rollDice"/>
+        <custom-dice @roll-dice="rollDice" @clear-dice-history="clearDiceHistory"/>
         <table class="table is-striped is-hoverable is-fullwidth">
             <tr>
                 <th></th>
@@ -567,6 +575,9 @@ Vue.component('dice-history', {
         rollDice(obj) {
             this.$emit('roll-dice', obj);
         },
+        clearDiceHistory() {
+            this.$emit('clear-dice-history');
+        }
     }
 });
 
