@@ -1,4 +1,4 @@
-# deadlands
+# Deadlands
 
 > Online Tool for Deadlands RPG
 

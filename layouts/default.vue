@@ -1,55 +1,88 @@
 <template>
   <div>
-    <nuxt />
+    <NavLogo />
+    <section class="section">
+      <div class="container">
+        <div class="custom-container">
+          <BigTitle />
+          <CharacterOverview />
+          <NavTabs />
+          <nuxt />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
+<script>
+import NavLogo from '~/components/NavLogo'
+import BigTitle from '~/components/BigTitle'
+import CharacterOverview from '~/components/CharacterOverview'
+import NavTabs from '~/components/NavTabs'
+
+export default {
+  components: { NavLogo, BigTitle, CharacterOverview, NavTabs }
+}
+</script>
+
 <style>
+:root {
+  --clr-background: rgba(246, 196, 131, 0.867);
+  --clr-1: #8c0712;
+  --clr-2: #8c6927;
+  --clr-3: rgb(228, 214, 188);
+}
+
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+  height: 100%;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
+body {
+  background: url(~assets/images/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100%;
+  font-family: Oldenburg;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: 'Oleo Script';
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.custom-container {
+  border: 1em solid transparent;
+  border-radius: 1rem;
+  background: var(--clr-background);
+  margin-bottom: 20rem;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.custom-container-right {
+  color: var(--clr-3);
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.custom-container-right h3 {
+  color: var(--clr-3);
+}
+
+.custom-number {
+  color: var(--clr-2);
+}
+
+.custom-roll-popup {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  padding: 1em;
+}
+
+.custom-roll-popup .message {
+  -webkit-box-shadow: 0px 0px 16px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 16px 5px rgba(0, 0, 0, 0.3);
 }
 </style>
