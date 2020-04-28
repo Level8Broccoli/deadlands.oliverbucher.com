@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import HeaderLogo from '~/components/HeaderLogo'
-import HeaderTitle from '~/components/HeaderTitle'
-import CharacterOverview from '~/components/CharacterOverview'
-import NavTabs from '~/components/NavTabs'
+import HeaderLogo from '~/components/header/HeaderLogo'
+import HeaderTitle from '~/components/header/HeaderTitle'
+import CharacterOverview from '~/components/meta/CharacterOverview'
+import NavTabs from '~/components/navigation/NavTabs'
 
 export default {
   components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs },

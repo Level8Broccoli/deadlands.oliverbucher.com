@@ -3,6 +3,7 @@
     <div>
       <div>
         <h2 class="subtitle">Allgemein</h2>
+        <GameButton button-type="roll" />
         <div class="field">
           <label class="label">Charaktername</label>
           <div class="control">
@@ -21,7 +22,10 @@
 </template>
 
 <script>
+import GameButton from '~/components/common/GameButton'
+
 export default {
+  components: { GameButton },
   computed: {
     name: {
       get() {
