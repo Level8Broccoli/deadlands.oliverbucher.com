@@ -3,29 +3,39 @@
 const app = new Vue({
     el: '.app',
     template: `
-        <div>
-            <overview :overviewListWithoutGoals="overviewListWithoutGoals" :charSave="charSave" />
-
-            <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
-
-            <charinfo v-if="currentTab === 0" :meta="listOfTabs[0]" :charSave="charSave" />
-
-            <attribute v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" @button-click="buttonClick" :charSave="charSave" @roll-dice="rollDice"/>
-
-            <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" :charSave="charSave" @roll-dice="rollDice"/>
-
-            <handicaps v-if="currentTab === 3" :handicapListe="handicaps" :meta="listOfTabs[3]" :charSave="charSave" @button-click="buttonClick"/>
-
-            <talente v-if="currentTab === 4" :talentListe="talents" :meta="listOfTabs[4]" :charSave="charSave" @button-click="buttonClick"/>
-
-            <dice-history v-if="currentTab === 5" :meta="listOfTabs[5]" @roll-dice="rollDice" @clear-dice-history="clearDiceHistory" :diceHistory="diceHistory"/>
-
-            <br />
-
-            <button-legend v-if="currentTab !== 0 && currentTab !== 5" />
-
-            <last-dice-roll :lastRoll="diceHistory[0]" @roll-dice="rollDice" v-model="showLastRoll" v-if="showLastRoll" @close-popup="showLastRoll = false" @switch-to-history="currentTab = 5" />
+<div>
+    <div class="level">
+        <div class="level-left">
+            <h1 class="title">Erstelle deinen Hombre</h1>
         </div>
+        <div class="level-right">
+            <button class="button" :class="classSorted" @click="sorted = !sorted">Sortierung: {{ typeSorted }}</button>
+        </div>
+    </div>
+
+    <overview :overviewListWithoutGoals="overviewListWithoutGoals" :charSave="charSave" />
+
+
+    <tabbar :currentTab="currentTab" :listOfTabs="listOfTabs" @change-tab="changeTab" />
+
+    <charinfo v-if="currentTab === 0" :meta="listOfTabs[0]" :charSave="charSave" />
+
+    <attribute v-if="currentTab === 1" :meta="listOfTabs[1]" :attributList="attribute" @button-click="buttonClick" :charSave="charSave" @roll-dice="rollDice"/>
+
+    <fertigkeiten v-if="currentTab === 2" :meta="listOfTabs[2]" :attributList="attribute" :fertigkeitenList="fertigkeiten" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" :charSave="charSave" @roll-dice="rollDice" :sorted="sorted"/>
+
+    <handicaps v-if="currentTab === 3" :handicapListe="handicaps" :meta="listOfTabs[3]" :charSave="charSave" @button-click="buttonClick" :sorted="sorted"/>
+
+    <talente v-if="currentTab === 4" :talentListe="talents" :meta="listOfTabs[4]" :charSave="charSave" @button-click="buttonClick" :sorted="sorted" />
+
+    <dice-history v-if="currentTab === 5" :meta="listOfTabs[5]" @roll-dice="rollDice" @clear-dice-history="clearDiceHistory" :diceHistory="diceHistory"/>
+
+    <br />
+
+    <button-legend v-if="currentTab !== 0 && currentTab !== 5" />
+
+    <last-dice-roll :lastRoll="diceHistory[0]" @roll-dice="rollDice" v-model="showLastRoll" v-if="showLastRoll" @close-popup="showLastRoll = false" @switch-to-history="currentTab = 5" />
+</div>
     `,
     data: {
         charSave: {
@@ -50,6 +60,7 @@ const app = new Vue({
         fertigkeiten: [],
         diceHistoryArray: [],
         showLastRoll: false,
+        sorted: false,
         currentTab: 0
     },
     mounted() {
@@ -187,6 +198,17 @@ const app = new Vue({
         },
     },
     computed: {
+        classSorted() {
+            if (this.sorted) {
+                return 'is-link';
+            }
+        },
+        typeSorted() {
+            if (this.sorted) {
+                return 'Sortiert';
+            }
+            return 'Default';
+        },
         diceHistory() {
             return this.diceHistoryArray.sort((a, b) => a.time < b.time);
         },

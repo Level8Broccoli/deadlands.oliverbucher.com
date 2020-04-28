@@ -32,7 +32,7 @@ Vue.component('overview', {
 
 Vue.component('tabbar', {
     template: `
-        <div class="tabs">
+        <div class="tabs is-fullwidth">
             <ul>
                 <li v-for="tab in listOfTabs" :class="tab.id == currentTab ? 'is-active' : ''">
                     <a @click="changeTab(tab.id)">{{ tab.name }} &nbsp; <span v-if="!isNaN(tab.value)" class="tag" :class="tab.goal !== tab.value ? 'is-danger' : 'is-success'">{{ tab.value }}</span>
@@ -271,7 +271,7 @@ Vue.component('fertigkeiten', {
     <p v-html="meta.descr"></p>
     <br />
     <div class="table-container">
-        <table class="table is-striped is-hoverable is-fullwidth">
+        <table class="table is-striped is-hoverable is-fullwidth" v-if="!sorted">
             <tr>
                 <th></th>
                 <th><h1 class="subtitle">{{ meta.name }}</h1></th>
@@ -283,10 +283,36 @@ Vue.component('fertigkeiten', {
             </tr>
             <fertigkeiten-entry v-for="fertigkeit in fertigkeitenList" :fertigkeit="fertigkeit" :key="fertigkeit.id" :charSave="charSave" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" @roll-dice="rollDice"/>
         </table>
+        <div v-else>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th></th>
+                    <th><h1 class="subtitle">{{ meta.name }} geübt</h1></th>
+                    <th>W4</th>
+                    <th>W6</th>
+                    <th>W8</th>
+                    <th>W10</th>
+                    <th>W12</th>
+                </tr>
+                <fertigkeiten-entry v-for="fertigkeit in fertigkeitenListGeubt" :fertigkeit="fertigkeit" :key="fertigkeit.id" :charSave="charSave" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" @roll-dice="rollDice"/>
+            </table>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th></th>
+                    <th><h1 class="subtitle">{{ meta.name }} ungeübt</h1></th>
+                    <th>W4</th>
+                    <th>W6</th>
+                    <th>W8</th>
+                    <th>W10</th>
+                    <th>W12</th>
+                </tr>
+                <fertigkeiten-entry v-for="fertigkeit in fertigkeitenListUngeuebt" :fertigkeit="fertigkeit" :key="fertigkeit.id" :charSave="charSave" @button-click="buttonClick" @reset-fertigkeit="resetFertigkeit" @roll-dice="rollDice"/>
+            </table>
+        </div>
     </div>
 </div>
     `,
-    props: ['meta', 'attributList', 'fertigkeitenList', 'charSave'],
+    props: ['meta', 'attributList', 'fertigkeitenList', 'charSave', 'sorted'],
     methods: {
         buttonClick(input) {
             this.$emit('button-click', input);
@@ -298,7 +324,36 @@ Vue.component('fertigkeiten', {
             this.$emit('roll-dice', obj);
         }
     },
-
+    computed: {
+        fertigkeitenListGeubt() {
+            return this.fertigkeitenList.filter(fert => {
+                if (fert.startValue) {
+                    return true;
+                }
+                let savedValue = this.charSave.fertigkeiten.liste[fert.id];
+                if (savedValue) {
+                    return true;
+                }
+                return false;
+            }).sort((a, b) => {
+                return a.id > b.id;
+            });
+        },
+        fertigkeitenListUngeuebt() {
+            return this.fertigkeitenList.filter(fert => {
+                if (fert.startValue) {
+                    return false;
+                }
+                let savedValue = this.charSave.fertigkeiten.liste[fert.id];
+                if (savedValue) {
+                    return false;
+                }
+                return true;
+            }).sort((a, b) => {
+                return a.id > b.id;
+            });
+        },
+    },
 });
 
 Vue.component('handicap-entry', {
@@ -364,7 +419,7 @@ Vue.component('handicaps', {
     <p v-html="meta.descr"></p>
     <br />
     <div class="table-container">
-        <table class="table is-striped is-hoverable is-fullwidth">
+        <table class="table is-striped is-hoverable is-fullwidth" v-if="!sorted">
             <tr>
                 <th><h1 class="subtitle">{{ meta.name }}</h1></th>
                 <th>Tags</th>
@@ -373,10 +428,30 @@ Vue.component('handicaps', {
             </tr>
             <handicap-entry v-for="handicap in handicapListe" :handicap="handicap" :key="handicap.id" :charSave="charSave" @button-click="buttonClick"/>
         </table>
+        <div v-else>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th><h1 class="subtitle">ausgewählte {{ meta.name }}</h1></th>
+                    <th>Tags</th>
+                    <th>Leicht</th>
+                    <th>Schwer</th>
+                </tr>
+                <handicap-entry v-for="handicap in handicapListeChoosen" :handicap="handicap" :key="handicap.id" :charSave="charSave" @button-click="buttonClick"/>
+            </table>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th><h1 class="subtitle">weitere {{ meta.name }}</h1></th>
+                    <th>Tags</th>
+                    <th>Leicht</th>
+                    <th>Schwer</th>
+                </tr>
+                <handicap-entry v-for="handicap in handicapListeNotChoosen" :handicap="handicap" :key="handicap.id" :charSave="charSave" @button-click="buttonClick"/>
+            </table>
+        </div>
     </div>
 </div>
     `,
-    props: ['handicapListe', 'meta', 'charSave'],
+    props: ['handicapListe', 'meta', 'charSave', 'sorted'],
     methods: {
         showDescr(id) {
             this.$emit('show-descr', {
@@ -388,6 +463,32 @@ Vue.component('handicaps', {
             this.$emit('button-click', input);
         },
     },
+    computed: {
+        handicapListeChoosen() {
+            return this.handicapListe.filter(handicap => {
+                const savedValue = this.charSave.handicaps.liste[handicap.id];
+                if (savedValue) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }).sort((a, b) => {
+                return a.id > b.id;
+            });
+        },
+        handicapListeNotChoosen() {
+            return this.handicapListe.filter(handicap => {
+                const savedValue = this.charSave.handicaps.liste[handicap.id];
+                if (savedValue) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }).sort((a, b) => {
+                return a.id > b.id;
+            });
+        },
+    }
 });
 
 Vue.component('talent-entry', {
@@ -445,7 +546,7 @@ Vue.component('talente', {
     <p v-html="meta.descr"></p>
     <br />
     <div class="table-container">
-        <table class="table is-striped is-hoverable is-fullwidth">
+        <table class="table is-striped is-hoverable is-fullwidth" v-if="!sorted">
             <tr>
                 <th></th>
                 <th><h1 class="subtitle">{{ meta.name }}</h1></th>
@@ -454,13 +555,59 @@ Vue.component('talente', {
             </tr>
             <talent-entry v-for="talent in talentListe" :talent="talent" :key="talent.id" :charSave="charSave" @button-click="buttonClick"/>
         </table>
+        <div v-else>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th></th>
+                    <th><h1 class="subtitle">ausgewählte {{ meta.name }}</h1></th>
+                    <th>Tags</th>
+                    <th>Voraussetzungen</th>
+                </tr>
+                <talent-entry v-for="talent in talentListeChoosen" :talent="talent" :key="talent.id" :charSave="charSave" @button-click="buttonClick"/>
+            </table>
+            <table class="table is-striped is-hoverable is-fullwidth">
+                <tr>
+                    <th></th>
+                    <th><h1 class="subtitle">weitere {{ meta.name }}</h1></th>
+                    <th>Tags</th>
+                    <th>Voraussetzungen</th>
+                </tr>
+                <talent-entry v-for="talent in talentListeNotChoosen" :talent="talent" :key="talent.id" :charSave="charSave" @button-click="buttonClick"/>
+            </table>
+        </div>
     </div>
 </div>
     `,
-    props: ['talentListe', 'meta', 'charSave'],
+    props: ['talentListe', 'meta', 'charSave', 'sorted'],
     methods: {
         buttonClick(input) {
             this.$emit('button-click', input);
+        },
+    },
+    computed: {
+        talentListeChoosen() {
+            return this.talentListe.filter(talent => {
+                const savedValue = this.charSave.talente.liste.includes(talent.id);
+                if (savedValue) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }).sort((a, b) => {
+                return a.id > b.id;
+            });
+        },
+        talentListeNotChoosen() {
+            return this.talentListe.filter(talent => {
+                const savedValue = this.charSave.talente.liste.includes(talent.id);
+                if (savedValue) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }).sort((a, b) => {
+                return a.id > b.id;
+            });
         },
     }
 });
