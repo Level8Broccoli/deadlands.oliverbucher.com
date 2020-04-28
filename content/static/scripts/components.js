@@ -654,13 +654,13 @@ Vue.component('button-legend', {
         </div>
         <div class="level-item has-text-centered">
         <div>
-            <p class="heading">1 Punkt</p>
+            <p class="heading">kostet 1 Punkt</p>
             <p class="title"><button class="button is-light">×</button></p>
         </div>
         </div>
         <div class="level-item has-text-centered">
         <div>
-            <p class="heading">2 Punkte</p>
+            <p class="heading">kostet 2 Punkte</p>
             <p class="title"><button class="button is-danger is-light">×</button></p>
         </div>
         </div>
