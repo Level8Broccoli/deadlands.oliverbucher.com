@@ -46,24 +46,7 @@ const app = new Vue({
         talents: [],
         attribute: [],
         fertigkeiten: [],
-        diceHistoryArray: [{
-            timestamp: "xxx",
-            rolls: [{
-                dice: 10,
-                rolled: 5
-            }, {
-                dice: 8,
-                rolled: 8
-            }],
-            comment: "Kommentar"
-        }, {
-            timestamp: "pp",
-            rolls: [{
-                dice: 6,
-                rolled: 2
-            }],
-            comment: "Kommentar 2"
-        }],
+        diceHistoryArray: [],
         currentTab: 5
     },
     mounted() {
@@ -86,16 +69,69 @@ const app = new Vue({
         },
     },
     methods: {
-        rollDice(dice) {
-            const rolled = Math.ceil(Math.random() * dice);
-            const now = new Date();
-            const timestamp = `${now.getDate()}. ${now.getMonth()+1}, ${now.getHours()}.${now.getMinutes()} Uhr (${now.getSeconds()})`;
-            this.diceHistoryArray.push({
-                rolls: [{
+        rollDice({
+            comment,
+            dice,
+            wild,
+            modifications
+        }) {
+            const time = new Date();
+            const timestamp = `${time.getHours()}.${time.getMinutes()} Uhr (${time.getSeconds()}.${time.getMilliseconds()})`;
+
+            let rollNormal = [];
+            let totalNormal = 0;
+            while (true) {
+                const rolled = Math.ceil(Math.random() * dice);
+                totalNormal += rolled;
+                rollNormal.push({
                     dice,
                     rolled
-                }],
-                timestamp
+                });
+                if (rolled !== dice) {
+                    break;
+                }
+            }
+
+            wild = !wild;
+
+            const WILD_DICE = 6;
+            let rollWild = [];
+            let totalWild = 0;
+            if (wild) {
+                while (true) {
+                    const rolled = Math.ceil(Math.random() * WILD_DICE);
+                    totalWild += rolled;
+                    rollWild.push({
+                        dice: WILD_DICE,
+                        rolled
+                    });
+                    if (rolled !== WILD_DICE) {
+                        break;
+                    }
+                }
+            }
+
+            const biggerTotal = Math.max(totalNormal, totalWild);
+
+            for (let mod in modifications) {
+                biggerTotal += mod.value;
+            }
+
+            let result = {
+                value: biggerTotal,
+                success: biggerTotal >= 4,
+                critFailure: totalNormal === 1 && totalWild === 1,
+                raise: Math.floor(biggerTotal / 4) - 1
+            };
+
+            this.diceHistoryArray.push({
+                time,
+                timestamp,
+                rollNormal,
+                rollWild,
+                modifications,
+                result,
+                comment
             });
         },
         changeTab(id) {
@@ -144,7 +180,7 @@ const app = new Vue({
     },
     computed: {
         diceHistory() {
-            return this.diceHistoryArray.reverse();
+            return this.diceHistoryArray.sort((a, b) => a.time < b.time);
         },
         listOfTabs() {
             if (this.charSave === {}) {

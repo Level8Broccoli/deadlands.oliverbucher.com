@@ -426,34 +426,38 @@ Vue.component('custom-dice', {
 <nav class="level is-mobile">
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button class="button is-info is-light" @click="rollDice(4)">W 4</button></p>
+        <p class="title"><button title="Wirf einen W4 Würfel" class="button is-info is-light" @click="rollDice(4)">W 4</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button class="button is-success is-light" @click="rollDice(6)">W 6</button></p>
+        <p class="title"><button title="Wirf einen W6 Würfel" class="button is-success is-light" @click="rollDice(6)">W 6</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button class="button is-danger is-light" @click="rollDice(8)">W 8</button></p>
+        <p class="title"><button title="Wirf einen W8 Würfel" class="button is-danger is-light" @click="rollDice(8)">W 8</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button class="button is-warning is-light" @click="rollDice(10)">W 10</button></p>
+        <p class="title"><button title="Wirf einen W10 Würfel" class="button is-warning is-light" @click="rollDice(10)">W 10</button></p>
     </div>
     </div>
     <div class="level-item has-text-centered">
     <div>
-        <p class="title"><button class="button is-primary is-light" @click="rollDice(12)">W 12</button></p>
+        <p class="title"><button title="Wirf einen W12 Würfel" class="button is-primary is-light" @click="rollDice(12)">W 12</button></p>
     </div>
     </div>
 </nav>
     `,
     methods: {
         rollDice(num) {
-            this.$emit('roll-dice', num);
+            this.$emit('roll-dice', {
+                comment: `Manueller Wurf (W${num})`,
+                dice: num,
+                wild: false
+            });
         },
     },
 });
@@ -462,19 +466,77 @@ Vue.component('dice-history-entry', {
     template: `
 <tr>
     <td>
+        <button title="Wurf wiederholen" class="button is-light is-info" @click="reroll(dice)">&#9850;</button>
+    </td>
+    <td>
         {{ dice.comment }}
         <div class="has-text-weight-bold"><small>{{ dice.timestamp }}</small></div>
     </td>
     <td>
         <div class="buttons">
-            <button v-for="die in dice.rolls" class="button" :class="die.rolled === die.dice ? 'is-danger' : 'is-dark'">{{ die.rolled }}</button>
+            <button v-for="die in dice.rollNormal" class="button is-light" :class="renderDice(die.rolled, die.dice)">{{ die.rolled }}</button>
         </div>
     </td>
     <td>
+        <div class="buttons">
+            <button v-for="die in dice.rollWild" class="button is-light" :class="renderDice(die.rolled, die.dice)">{{ die.rolled }}</button>
+        </div>
+    </td>
+    <td>
+        <div class="buttons">
+            <button v-for="mod in dice.modifications" class="button is-light" :class="mod.value < 0 ? 'is-danger' : 'is-success'">{{ mod.name }} {{ mod.value }}</button>
+        </div>
+    </td>
+    <td>
+        <button class="button" :class="renderResult(dice.result)">{{ dice.result.value }}</button>
+    </td>
+    <td>
+        <div v-if="dice.result.success" class="has-text-success">Erfolg!</div>
+        <div v-else-if="dice.result.critFailure" class="has-text-danger">Kritischer Fehlschlag!</div>
+        <div v-else class="has-text-warning">Fehlschlag</div>
+        <div v-if="dice.result.raise === 1" class="has-text-info">1 Steigerung</div>
+        <div v-if="dice.result.raise > 1" class="has-text-info">{{ dice.result.raise }} Steigerungen</div>
     </td>
 </tr>
     `,
-    props: ['dice']
+    props: ['dice'],
+    methods: {
+        renderDice(result, die) {
+            if (result === 1) {
+                return 'is-danger';
+            }
+            if (result === die) {
+                return 'is-success';
+            }
+            return '';
+        },
+        renderResult(result) {
+            if (result.raise > 0) {
+                return 'is-primary';
+            }
+            if (result.success) {
+                return 'is-success';
+            }
+            if (result.critFailure) {
+                return 'is-danger';
+            }
+            return 'is-warning';
+        },
+        reroll(roll) {
+            const rerollPrefix = '[Reroll]';
+            const comment = roll.comment.includes(rerollPrefix) ? roll.comment : `${rerollPrefix} ${roll.comment}`;
+            const dice = roll.rollNormal[0].dice;
+            const wild = roll.rollWild.lenght > 0;
+            const modifications = roll.modifications;
+
+            this.$emit('roll-dice', {
+                comment,
+                dice,
+                wild,
+                modifications
+            });
+        },
+    },
 });
 
 Vue.component('dice-history', {
@@ -487,19 +549,23 @@ Vue.component('dice-history', {
         <custom-dice @roll-dice="rollDice"/>
         <table class="table is-striped is-hoverable is-fullwidth">
             <tr>
+                <th></th>
                 <th><h1 class="subtitle">{{ meta.name }}</h1></th>
                 <th>Wurf</th>
-                <th>Wild Dice</th>
+                <th>Wild Die (W6)</th>
+                <th>Modifikationen</th>
+                <th>Ergebnis</th>
+                <th></th>
             </tr>
-            <dice-history-entry v-for="(dice, index) in diceHistory" :dice="dice" :key="index" />
+            <dice-history-entry v-for="(dice, index) in diceHistory" :dice="dice" :key="index" @roll-dice="rollDice"/>
         </table>
     </div>
 </div>
     `,
     props: ['meta', 'diceHistory'],
     methods: {
-        rollDice(num) {
-            this.$emit('roll-dice', num);
+        rollDice(obj) {
+            this.$emit('roll-dice', obj);
         },
     }
 });
