@@ -25,13 +25,7 @@
       </td>
       <td>
         <div v-if="talent.req" class="tags">
-          <span
-            v-for="tag in talent.req"
-            :key="tag"
-            class="tag"
-            :class="tag.includes('+') ? 'is-info is-light' : ''"
-            >{{ tag }}</span
-          >
+          <GameTag v-for="tag in talent.req" :key="tag.id" :tag="tag" />
         </div>
       </td>
     </tr>
@@ -43,10 +37,11 @@
 
 <script>
 import GameButton from '~/components/common/GameButton'
+import GameTag from '~/components/common/GameTag'
 
 export default {
   name: 'TalentEntry',
-  components: { GameButton },
+  components: { GameButton, GameTag },
   props: {
     talent: {
       type: Object,

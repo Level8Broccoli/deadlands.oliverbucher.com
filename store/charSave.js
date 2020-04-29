@@ -14,64 +14,64 @@ export const mutations = {
   setNotes(state, notes) {
     state.notes = notes
   },
-  clickAttribute(state, entry) {
+  clickAttribute(state, payload) {
     const list = state.attributeList
-    const currentEntry = list.find((e) => e.id === entry.id)
+    const currentEntry = list.find((e) => e.id === payload.id)
     if (currentEntry) {
-      if (currentEntry.value === entry.value) {
+      if (currentEntry.value === payload.value) {
         list.splice(
-          list.findIndex((e) => e.id === entry.id),
+          list.findIndex((e) => e.id === payload.id),
           1
         )
       } else {
-        currentEntry.value = entry.value
+        currentEntry.value = payload.value
       }
     } else {
-      list.push(entry)
+      list.push(payload)
     }
   },
-  clickSkill(state, entry) {
+  clickSkill(state, payload) {
     const list = state.skillList
-    const currentEntry = list.find((e) => e.id === entry.id)
+    const currentEntry = list.find((e) => e.id === payload.id)
     if (currentEntry) {
-      if (currentEntry.value === entry.value) {
+      if (currentEntry.value === payload.value) {
         list.splice(
-          list.findIndex((e) => e.id === entry.id),
+          list.findIndex((e) => e.id === payload.id),
           1
         )
       } else {
-        currentEntry.value = entry.value
+        currentEntry.value = payload.value
       }
     } else {
-      list.push(entry)
+      list.push(payload)
     }
   },
-  clickHandicap(state, entry) {
+  clickHandicap(state, payload) {
     const list = state.handicapList
-    const currentEntry = list.find((e) => e.id === entry.id)
+    const currentEntry = list.find((e) => e.id === payload.id)
     if (currentEntry) {
-      if (currentEntry.value === entry.value) {
+      if (currentEntry.value === payload.value) {
         list.splice(
-          list.findIndex((e) => e.id === entry.id),
+          list.findIndex((e) => e.id === payload.id),
           1
         )
       } else {
-        currentEntry.value = entry.value
+        currentEntry.value = payload.value
       }
     } else {
-      list.push(entry)
+      list.push(payload)
     }
   },
-  clickTalent(state, entry) {
+  clickTalent(state, payload) {
     const list = state.talentList
-    const currentEntry = list.find((e) => e.id === entry.id)
+    const currentEntry = list.find((e) => e.id === payload.id)
     if (currentEntry) {
       list.splice(
-        list.findIndex((e) => e.id === entry.id),
+        list.findIndex((e) => e.id === payload.id),
         1
       )
     } else {
-      list.push(entry)
+      list.push(payload)
     }
   }
 }

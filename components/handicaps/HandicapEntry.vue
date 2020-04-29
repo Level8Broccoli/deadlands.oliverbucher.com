@@ -18,15 +18,15 @@
       <td>
         <GameButton
           v-if="handicap.points.includes(1)"
-          :button-type="buttonType(handicap, 1)"
-          @button-click="clickHandicap(handicap, 1)"
+          :button-type="buttonType(1)"
+          @button-click="clickHandicap(1)"
         />
       </td>
       <td>
         <GameButton
           v-if="handicap.points.includes(2)"
-          :button-type="buttonType(handicap, 2)"
-          @button-click="clickHandicap(handicap, 2)"
+          :button-type="buttonType(2)"
+          @button-click="clickHandicap(2)"
         />
       </td>
     </tr>
@@ -66,7 +66,7 @@ export default {
     }
   },
   methods: {
-    buttonType(handicap, value) {
+    buttonType(value) {
       if (this.currentValue === value) {
         return 'checked'
       } else if (value === 1) {
@@ -75,9 +75,9 @@ export default {
         return 'point2'
       }
     },
-    clickHandicap(handicap, value) {
+    clickHandicap(value) {
       this.$store.commit('charSave/clickHandicap', {
-        id: handicap.id,
+        id: this.handicap.id,
         value
       })
     }

@@ -3,7 +3,20 @@ export const state = () => ({
     {
       id: 'Auserwaehlter',
       name: 'Auserwählter',
-      req: ['Willenskraft W8+', 'Kämpfen W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 6
+        }
+      ],
       tags: ['Macht'],
       descr:
         'Auserwählte sind heilige (oder unheilige) Männer und Frauen, die auserkoren wurden, für eine Gottheit oder Religion zu kämpfen. Die meisten sind fromme Seelen und bereit, ihr Leben für eine grössere Sache zu opfern, doch einige wurden vielleicht in die Rolle hineingeboren und folgen ihrem Pfad eher zögerlich. Auserwählte bekämpfen die Kräfte der Dunkelheit (oder des Lichts). Sie addieren +2 Schaden, wenn sie übernatürlich böse (oder gute, wenn sie böse sind) Kreaturen angreifen. Der Bonus gilt auf Flächenschaden, Fernkampfangriffe, Mächte etc. Die SL muss entscheiden, auf welche Feinde dieser Bonus gilt, doch grundsätzlich sind es alle bösen (oder guten!) Kreaturen, die aus Magie entstanden sind oder übernatürliche Fähigkeiten haben.'
@@ -11,7 +24,9 @@ export const state = () => ({
     {
       id: 'Heiler',
       name: 'Heiler',
-      req: ['Willenskraft W8+'],
+      req: [
+        { type: 'dynamic', depends: 'attribute', id: 'Willenskraft', value: 8 }
+      ],
       tags: ['Macht'],
       descr:
         'Ein Held mit diesem Talent addiert +2 auf alle Heilenproben, egal ob sie natürlicher oder magischer Natur sind.'
@@ -19,7 +34,9 @@ export const state = () => ({
     {
       id: 'MutinFlaschen',
       name: 'Mut in Flaschen',
-      req: ['Konstitution W8+'],
+      req: [
+        { type: 'dynamic', depends: 'attribute', id: 'Konstitution', value: 8 }
+      ],
       tags: ['Macht'],
       descr:
         'Dieser gesellige Charakter verarbeitet Alkohol ganz anders als die meisten. In der ersten Runde, nachdem er sich einen hinter die Binde gekippt hat (ungefähr 200 ml starker Schnaps oder etwas entsprechendes) steigt seine Konstitution um einen Würfeltyp (was auch seine Robustheit erhöht). Der Trinker kann ausserdem eine Stufe Wundabzüge ignorieren (was mit anderen Fähigkeiten, die diesen Effekt haben, kumulativ ist). Verstand, Geschicklichkeit und alle verknüpften Fertigkeiten erleiden aber für die Wirkungsdauer einen Abzug von –1. Der Effekt hält eine Stunde lang an, dann erleidet der Trinker für die nächsten vier Stunden eine Stufe Erschöpfung.'
@@ -27,7 +44,9 @@ export const state = () => ({
     {
       id: 'Sammler',
       name: 'Sammler',
-      req: ['Glück'],
+      req: [
+        { type: 'dynamic', depends: 'talent', id: 'Glück', label: 'Glück' }
+      ],
       tags: ['Macht'],
       descr:
         'Einmal pro Begegnung kann der Held ein Ausrüstungsteil, eine Handvoll Munition oder einen anderen nützlichen Gegenstand finden, beziehungsweise „erinnert er sich“, dass er ihn die ganze Zeit schon dabei hatte. Die Spielleiterin entscheidet, was als Begegnung zählt, und hat das letzte Wort darüber, was „entdeckt“ werden kann und was nicht.'
@@ -49,7 +68,9 @@ export const state = () => ({
     {
       id: 'Tiermeister',
       name: 'Tiermeister',
-      req: ['Willenskraft W8+'],
+      req: [
+        { type: 'dynamic', depends: 'attribute', id: 'Willenskraft', value: 8 }
+      ],
       tags: ['Macht'],
       descr:
         'Tiere gewöhnen sich schnell und ohne grosse Mühe an deinen Charakter. Sie greifen ihn nicht an, wenn er sie nicht zuvor irgendwie gegen sich aufgebracht hat. Die tierische Anziehungskraft des Tiermeisters ist so gross, dass ihm ausserdem ein loyales Tier folgt. Es ist normalerweise ein Tier von Grösse 0 oder kleiner, nach Zustimmung der Spielleiterin. Das Tier ist ein Statist und erhält keine Aufstiege. Wenn das Haustier weggeschickt oder getötet wird, findet der Held innerhalb von 1W4 Tagen einen Ersatz. Mächtigere Gefährten: Tiermeister kann mehr als einmal gewählt werden. Wähle jedes Mal einen der Effekte unten, wenn das Talent ausgewählt wird. • Du erhältst ein zusätzliches Haustier. • Erhöhe eine Eigenschaft des Tiers um einen Würfeltyp (nur eine Eigenschaft pro Tier). • Erhöhe die maximale Grösse, die dein Tier haben kann, um +1, auf ein Maximum von 3. • Mach ein Tier zur Wildcard. (Der Held muss mindestens Heroisch sein).'
@@ -57,7 +78,13 @@ export const state = () => ({
     {
       id: 'Bedrohlich',
       name: 'Bedrohlich',
-      req: ['entweder Blutrünstig, Fies, Skrupellos oder Hässlich'],
+      req: [
+        {
+          type: 'text',
+          label: 'entweder Blutrünstig, Fies, Skrupellos oder Hässlich',
+          id: 'entwederBlutrünstigFiesSkrupellosoderHässlich'
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Es ist nicht immer ein Nachteil, ein ungehobelter Klotz zu sein, wenn man weiss, wie man es einsetzen kann. Bedrohlich erlaubt es einem Charakter, sein übles Aussehen oder seine noch üblere Einstellung auszunutzen. Der Charakter erhält +2 auf Einschüchternproben.'
@@ -72,7 +99,14 @@ export const state = () => ({
     {
       id: 'Ermutigen',
       name: 'Ermutigen',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Einen Feind zu erniedrigen kann auch einen Verbündeten ermutigen. Wenn dieser Charakter erfolgreich einen Gegner herausfordert, kann er zusätzliche den Zustand Abgelenkt oder Verwundbar (siehe Seite 97) von einem seiner Verbündeten entfernen.'
@@ -80,7 +114,14 @@ export const state = () => ({
     {
       id: 'Erniedrigen',
       name: 'Erniedrigen',
-      req: ['Provozieren W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Provozieren',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Wer viel Übung darin hat, fiese Sprüche zu klopfen, kann das Ego eines Rivalen mit einer einzigen Bemerkung oder bedeutungsvollen Geste regelrecht zerstören. Dein Held erhält eine freie Wiederholung für Provozierenproben.'
@@ -88,7 +129,14 @@ export const state = () => ({
     {
       id: 'Erzürnen',
       name: 'Erzürnen',
-      req: ['Provozieren W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Provozieren',
+          value: 6
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Clevere Charaktere können ihre Feinde manipulieren und ihre Aufmerksamkeit auf sich lenken, um ihre Freunde zu unterstützen. Einmal pro Zug kann dein Held, wenn er eine Provozieren-Herausforderung verwendet und eine Steigerung erzielt (siehe Herausfordern, Seite 104), einen Feind „erzürnen“. Neben den üblichen Effekten eines Erfolgs mit Steigerung erleidet der Gegner einen Abzug von –2, wenn er Ziele ausser dem Charakter, der ihn erzürnt hat, beeinflussen will. Dies gilt zusätzlich zu Abgelenkt, kann aber nicht mit weiteren Anwendungen von Erzürnen kombiniert werden. Erzürnen hält an, bis ein Joker gezogen wird, jemand anderes Erzürnen gegen das Ziel verwendet, oder die Begegnung endet. Erzürnen kann mehrere Ziele beeinflussen indem es mit Aufwiegler kombiniert wird.'
@@ -96,7 +144,14 @@ export const state = () => ({
     {
       id: 'Gassenwissen',
       name: 'Gassenwissen',
-      req: ['Verstand W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 6
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Charaktere, die dieses Talent besitzen, wissen, wie sie den örtlichen Schwarzmarkt finden, gestohlene Güter verhökern, den örtlichen Gesetzeshütern (oder den Verbrechern!) ausweichen können, sich bedeckt halten, wenn es brenzlig wird, illegale Waffen erwerben oder herausfinden können, welcher „Boss“ Schläger anheuert und so weiter. Charaktere mit diesem Talent addieren +2 auf Proben mit Einschüchtern oder Überreden zur Informationsbeschaffung (siehe Seite 120), sofern diese zwielichtige oder kriminelle Elemente involvieren. Sie addieren ausserdem +2 auf Allgemeinwissenproben, die mit zwielichtigen Aktivitäten (wie weiter oben beschrieben) zu tun haben.'
@@ -104,7 +159,14 @@ export const state = () => ({
     {
       id: 'Konter',
       name: 'Konter',
-      req: ['Provozieren W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Provozieren',
+          value: 6
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Wer sich mit diesem spitzzüngigen Sprücheklopfer anlegt bekommt seine dummen Sprüche direkt selbst wieder um die Ohren gehauen. Wenn ein Charakter mit Konter eine Steigerung erzielt, wenn er einer Einschüchtern- oder Provozieren- Herausforderung widersteht, wird sein Gegner Abgelenkt.'
@@ -112,7 +174,14 @@ export const state = () => ({
     {
       id: 'Rampensau',
       name: 'Rampensau',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Die Worte deines Helden inspirieren nicht nur jene, an die sie gerichtet sind, sondern oft auch Leute in der Umgebung. Einmal pro Zug kannst du Rampensau verwenden, um einen zusätzlichen Fertigkeitswürfel zu werfen, wenn du mit Darbietung oder Überreden unterstützt. Der zusätzliche Würfel unterstützt einen weiteren Verbündeten, der den Helden sehen oder hören kann, und gilt für seine nächste Aktion, egal was diese auch sein mag.'
@@ -120,7 +189,14 @@ export const state = () => ({
     {
       id: 'Selbstlos',
       name: 'Selbstlos',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Selbstlose Helden und entschlossene Anführer wissen, dass ihre grösste Stärke oft von ihren Gefährten kommt, und sind bereit, einen Teil ihres Glücks oder Schicksals mit ihnen zu teilen. Ein Charakter mit diesem Talent kann seine Bennys jedem anderen Charakter geben, mit dem er kommunizieren kann. Der Spieler sollte erklären, wie das genau aussieht: Von einem kurzen ermunternden Ausruf bis hin zu einem freundlichen Schulterklopfen ist so einiges möglich.'
@@ -128,7 +204,14 @@ export const state = () => ({
     {
       id: 'StarkerWille',
       name: 'Starker Wille',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Selbstvertrauen ist eine starke Rüstung gegen jene, die diese Person kleinreden wollen. Sie addiert +2 auf ihr Gesamtergebnis, wenn sie Herausfordern mit Verstand oder Willenskraft widersteht.'
@@ -136,7 +219,14 @@ export const state = () => ({
     {
       id: 'EisernerWille',
       name: 'Eiserner Wille',
-      req: ['Starker Wille'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'StarkerWille',
+          label: 'Starker Wille'
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Wenige Dinge bringen diesen Charakter aus dem Gleichgewicht. Der Starker Wille-Bonus gilt nun für Verstand- und Willenskraftproben, um Mächten zu widerstehen und sich von ihren Auswirkungen zu erholen. Dieser Bonus ist nicht kumulativ mit dem Bonus von Mutig. Er wird ausserdem nicht auf Folgeproben angewendet, zum Beispiel auf solche, um sich von einem Angeschlagen-Zustand zu erholen, den man durch eine schadenzufügende Macht, Furcht oder ähnliches erhalten hat.'
@@ -144,7 +234,14 @@ export const state = () => ({
     {
       id: 'Verlaesslich',
       name: 'Verlässlich',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
       descr:
         'Die Leute wissen, dass sie sich auf deinen Helden verlassen können, wenn sie Hilfe brauchen. Er erhält eine freie Wiederholung bei allen Unterstützen-Würfen, die er ablegt.'
@@ -152,7 +249,18 @@ export const state = () => ({
     {
       id: 'Energieschub',
       name: 'Energieschub',
-      req: ['Arkaner Hintergrund (beliebig)', 'arkane Fertigkeit W8+'],
+      req: [
+        {
+          type: 'text',
+          id: 'ArkanerHintergrund',
+          label: 'Arkaner Hintergrund (beliebig)'
+        },
+        {
+          type: 'text',
+          id: 'arkaneFertigkeit',
+          label: 'arkane Fertigkeit W8+'
+        }
+      ],
       tags: ['Macht'],
       descr:
         'Der Charakter erhält 10 Machtpunkte zurück, wenn seine Aktionskarte ein Joker ist. Dabei kann er sein Maximum nicht übersteigen.'
@@ -160,7 +268,13 @@ export const state = () => ({
     {
       id: 'Machtpunkte',
       name: 'Machtpunkte',
-      req: ['Arkaner Hintergrund (beliebig)'],
+      req: [
+        {
+          type: 'text',
+          id: 'ArkanerHintergrund',
+          label: 'Arkaner Hintergrund (beliebig)'
+        }
+      ],
       tags: ['Macht'],
       descr:
         'Magier, verrückte Wissenschaftler und andere arkane Charaktere wollen immer mehr Macht. Dieses Talent gewährt ihnen 5 zusätzliche Machtpunkte. Machtpunkte kann mehr als einmal gewählt werden, aber nur einmal pro Rang. Es kann auf dem Legendären Rang beliebig oft gewählt werden, gewährt aber nur jeweils 2 zusätzliche Machtpunkte.'
@@ -168,7 +282,13 @@ export const state = () => ({
     {
       id: 'NeueMaechte',
       name: 'Neue Mächte',
-      req: ['Arkaner Hintergrund (beliebig)'],
+      req: [
+        {
+          type: 'text',
+          id: 'ArkanerHintergrund',
+          label: 'Arkaner Hintergrund (beliebig)'
+        }
+      ],
       tags: ['Macht'],
       descr:
         'Ein arkaner Charakter kann zwei neue Mächte erlernen, indem er dieses Talent erwirbt (das er mehrere Male auswählen kann). Er kann Mächte für seinen Rang und darunter auswählen, die normalerweise für seinen Arkanen Hintergrund verfügbar sind. Ein Charakter kann, statt einer neuen Macht, auch eine neue Ausprägung für eine Macht wählen, die er schon besitzt. Er könnte zum Beispiel eine Eis- Ausprägung, zusätzlich zu seinem Feuer-Geschoss, erlenen und dann je nach Bedarf zwischen der Feuer und der Eis-Ausprägung wählen.'
@@ -176,7 +296,14 @@ export const state = () => ({
     {
       id: 'BeidhaendigerFernkampf',
       name: 'Beidhändiger Fernkampf',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Beidhändiger Fernkampf funktioniert genau wie Beidhändiger Kampf, sodass du mit verschiedenen Aktionen eine Waffe in jeder Hand abfeuern oder werfen kannst, ohne einen Mehrfachaktionsabzug auszulösen. Wenn der Charakter ausserdem Beidhändiger Kampf besitzt, darf der zweite Angriff auch ein Nahkampfangriff sein.'
@@ -184,7 +311,14 @@ export const state = () => ({
     {
       id: 'BeidhaendigerKampf',
       name: 'Beidhändiger Kampf',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Wenn ein Charakter einen Kämpfen-Angriff mit einer Aktion und einen weiteren Kämpfen-Angriff mit einer anderen Hand in einer späteren Aktion ausführt, verursacht der zweite Angriff keinen Mehrfachaktionsabzug. Der Abzug für Angriffe mit der falschen Hand gilt allerdings schon, es sei denn, der Charakter ist Beidhändig (Seite 59). Wenn der Charakter ausserdem Beidhändiger Fernkampf besitzt, darf der zweite Angriff auch ein Fernkampfangriff sein.'
@@ -192,7 +326,14 @@ export const state = () => ({
     {
       id: 'Berechnend',
       name: 'Berechnend',
-      req: ['Verstand W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Wenn dein Held ein paar Augenblicke hat, seine Feinde unter die Lupe zu nehmen, bringt ihm das einen enormen Vorteil ein. Wenn seine Aktionskarte eine 5 oder weniger ist, ignoriert er bis zu 2 Punkte an Abzügen auf eine Aktion in diesem Zug, was Abzüge für Mehrfachaktionen, Deckung, Entfernung und sogar Wundabzüge sein können.'
@@ -200,7 +341,14 @@ export const state = () => ({
     {
       id: 'Eisenkiefer',
       name: 'Eisenkiefer',
-      req: ['Konstitution W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Der Held kann auch extreme Treffer abschütteln. Er addiert +2 auf Schaden wegstecken und Konstitutionsproben, um K.O.-Schläge (siehe Seite 107) zu vermeiden.'
@@ -208,7 +356,14 @@ export const state = () => ({
     {
       id: 'Erstschlag',
       name: 'Erstschlag',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Einmal pro Runde erhält der Held, solange er nicht Angeschlagen oder Betäubt ist, einen freien Kämpfen- Angriff gegen einen Feind unmittelbar nachdem sich dieser in seine Reichweite bewegt hat. (Siehe Freie Angriffe auf Seite 102.'
@@ -216,7 +371,14 @@ export const state = () => ({
     {
       id: 'Finte',
       name: 'Finte',
-      req: ['Kämpfen W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Wenn du deinen Gegner mit der Kämpfen-Fertigkeit herausforderst (siehe Seite 104), kannst du den Feind den Widerstandswurf mit Verstand anstelle von Geschicklichkeit würfeln lassen.'
@@ -224,7 +386,14 @@ export const state = () => ({
     {
       id: 'Kampfkünstler',
       name: 'Kampfkünstler',
-      req: ['Kämpfen W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 6
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Der Kämpfer hat die Grundlagen einer Kampfkunst erlernt. Seine Fäuste und Füsse sind Waffen (siehe Natürliche Waffen, Seite 105) und somit gilt er immer als bewaffnet. Er addiert +1 bei Kämpfen-Angriffen mit ihnen und verursacht Stärke + W4 Schaden. Wenn er bereits einen Stärke-Schadenswürfel durch die Volkseigenart Klauen (siehe Seite 19) oder das Talent Raufbold erhält, erhöhe den Schadenswürfel um einen Würfeltyp. Kampfkünstler addieren keinen Schaden auf andere Natürliche Waffen wie Fänge oder Hörner.'
@@ -232,7 +401,13 @@ export const state = () => ({
     {
       id: 'Lieblingswaffe',
       name: 'Lieblingswaffe',
-      req: ['Fertigkeit mit der gewählten Waffe auf W8+'],
+      req: [
+        {
+          type: 'text',
+          id: 'Lieblingswaffe',
+          label: 'Fertigkeit mit der gewählten Waffe auf W8+'
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Der Held kennt eine einzigartige Waffe (Excalibur, Old Betsy, Stich) sehr genau. Wenn er sie verwendet, addiert er +1 auf seine Proben mit Athletik (Werfen), Kämpfen oder Schiessen, und erhält +1 Parade, wenn er die Waffe bereitgemacht hat (selbst bei einer Fernkampfwaffe). Ein Kämpfer kann dieses Talent mehrere Male wählen und jedes Mal für eine andere Waffe verwenden. Wenn eine Lieblingswaffe verloren geht, kann sie ersetzt werden, doch die Vorteile treten erst nach ein paar Tagen wieder in Kraft (solange wie die SL für angemessen hält).'
@@ -240,7 +415,14 @@ export const state = () => ({
     {
       id: 'MaechtigerHieb',
       name: 'Mächtiger Hieb',
-      req: ['Kämpfen W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Wenn deine Aktionskarte ein Joker ist, verdopple den Gesamtschaden deines ersten erfolgreichen Kämpfen- Angriffs in dieser Runde.'
@@ -248,7 +430,20 @@ export const state = () => ({
     {
       id: 'Parkour',
       name: 'Parkour',
-      req: ['Geschicklichkeit W8+', 'Athletik W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Athletik',
+          value: 6
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Dein Charakter geht der Sportart „Parkour“ nach, oder ist einfach sehr geschickt darin, zu rennen, zu springen, zu schwingen, Wände emporzukrabbeln und über Hindernisse zu kommen. Solange es Hindernisse gibt, auf die er springen, von denen er abprallen oder an denen er sich schwingen kann, bewegt er sich auf dem Boden mit voller Bewegungsweite durch Schwieriges Gelände, wenn er zu Fuss ist. Er addiert ausserdem +2 auf Athletikproben, sofern es etwas mit Klettern zu tun hat, und in Verfolgungsjagden zu Fuss (siehe Verfolgungsjagden & Fahrzeuge, Seite 135).'
@@ -256,7 +451,20 @@ export const state = () => ({
     {
       id: 'Raufbold',
       name: 'Raufbold',
-      req: ['Stärke W8+', 'Konstitution W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Staerke',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Seine Fäuste schlagen ein wie Hämmer, seine Klauen schneiden wie eine Sense. Sein Körper fühlt sich an, als würde er aus Stein bestehen. Raufbolde erhöhen ihre Robustheit um 1 und verursachen Stärke + W4 Schaden, wenn sie mit ihren Fäusten oder Füssen angreifen (oder Klauen, wenn sie welche haben). Wenn sie bereits Schaden durch Klauen (siehe Seite 19) verursachen, das Talent Kampfkünstler besitzen, etc., erhöhe den Schadenswürfel um einen Schritt. Das Talent Raufbold lässt die Fäuste des Charakters nicht zu Natürlichen Waffen (Seite 105) werden.'
@@ -264,7 +472,14 @@ export const state = () => ({
     {
       id: 'Rückzug',
       name: 'Rückzug',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Wenn sich ein Charakter aus dem Nahkampf zurückzieht, erhalten angrenzende Charaktere einen freien Kämpfen-Angriff gegen ihn (siehe Zurückziehen aus dem Nahkampf auf Seite 109). Dies ist für die meisten sehr gefährlich, aber nicht für deinen gewieften Recken. Wenn du dich von angrenzenden Gegnern wegbewegst, erhält einer von ihnen (Wahl des Spielers) keinen freien Angriff.'
@@ -272,7 +487,14 @@ export const state = () => ({
     {
       id: 'RuhigeHaende',
       name: 'Ruhige Hände',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Es ist schwierig, vom Rücken eines Pferdes oder einem sich bewegenden Fahrzeug aus zu schiessen, aber dein Held weiss, wie es geht. Er ignoriert den Abzug für Unsicheren Grund (siehe Seite 108). Dies hilft auch, wenn er sprintet, sodass der übliche Abzug fürs Sprinten von –2 auf –1 sinkt (siehe Bewegung, Seite 142).'
@@ -280,7 +502,20 @@ export const state = () => ({
     {
       id: 'Rundumschlag',
       name: 'Rundumschlag',
-      req: ['Stärke W8+', 'Kämpfen W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Staerke',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Rundumschlag erlaubt es dem Charakter, einen Kämpfen-Angriff mit –2 auszuführen und das Ergebnis gegen alle Gegner innerhalb seiner Reichweite (Freund und Feind) anzuwenden. Ermittle den Schaden für jeden getroffenen Gegner einzeln. Ein Kämpfer kann nur einen Rundumschlag pro Zug durchführen. Er kann nicht mit Schneller Angriff kombiniert werden.'
@@ -288,7 +523,14 @@ export const state = () => ({
     {
       id: 'Schmerzresistenz',
       name: 'Schmerzresistenz',
-      req: ['Konstitution W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Dein Held hat gelernt, trotz extremer Schmerzen weiterzukämpfen. Er kann 1 Punkt Wundabzüge ignorieren.'
@@ -296,14 +538,28 @@ export const state = () => ({
     {
       id: 'StaerkereSchmerzresistenz',
       name: 'Stärkere Schmerzresistenz',
-      req: ['Schmerzresistenz'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'Schmerzresistenz',
+          label: 'Schmerzresistenz'
+        }
+      ],
       tags: ['Kampf'],
       descr: 'Dieser Held ignoriert 2 Punkte Wundabzüge.'
     },
     {
       id: 'Schwerzutoeten',
       name: 'Schwer zu töten',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Dieser Abenteurer hat mehr Leben als eine Herde Katzen. Er kann seine Wundabzüge ignorieren, wenn er Konstitutionsproben ablegt, um nicht zu Verbluten (siehe Seite 95).'
@@ -311,7 +567,26 @@ export const state = () => ({
     {
       id: 'Volltreffer',
       name: 'Volltreffer',
-      req: ['Athletik oder Schiessen W8+'],
+      req: [
+        {
+          type: 'or',
+          label: 'Athletik oder Schiessen W8+',
+          elements: [
+            {
+              type: 'dynamic',
+              depends: 'skill',
+              id: 'Athletik',
+              value: 8
+            },
+            {
+              type: 'dynamic',
+              depends: 'skill',
+              id: 'Schiessen',
+              value: 8
+            }
+          ]
+        }
+      ],
       tags: ['Kampf'],
       descr:
         'Wenn deine Aktionskarte ein Joker ist, verdopple den Gesamtschaden deines ersten erfolgreichen Angriffs mit Athletik (Werfen) oder Schiessen in dieser Runde.'
@@ -326,7 +601,14 @@ export const state = () => ({
     {
       id: 'ArkaneResistenz',
       name: 'Arkane Resistenz',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Magie und übernatürliche Kräfte haben wenig Einfluss auf diesen Charakter. Egal ob es an seinem Wesen, seiner Abstammung oder einer besonderen Ausbildung liegt, auf jeden Fall ist der Charakter besonders resistent gegen Magie, Psionik und andere übernatürliche Energien. Arkane Fertigkeiten, die den Helden als Ziel haben, erleiden einen Abzug von –2 (auch wenn sie von Verbündeten verwendet werden!), und magischer Schaden wird um –2 Punkte verringert.'
@@ -334,7 +616,14 @@ export const state = () => ({
     {
       id: 'StarkeArkaneResistenz',
       name: 'Starke Arkane Resistenz',
-      req: ['Arkane Resistenz'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'ArkaneResistenz',
+          label: 'Arkane Resistenz'
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Wie oben, doch steigt der Abzug auf arkane Fertigkeitswürfe und Schaden auf –4.'
@@ -349,7 +638,14 @@ export const state = () => ({
     {
       id: 'Attraktiv',
       name: 'Attraktiv',
-      req: ['Konstitution W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 6
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Es ist kein Geheimnis, dass Leute hilfsbereiter sind, wenn sie ihr Gegenüber körperlich anziehend finden. Dein Charakter addiert +1 auf Würfe mit Darbietung und Überreden, wenn das Ziel ihn generell anziehend findet (in Bezug auf Geschlecht, Spezies und so weiter).'
@@ -357,7 +653,14 @@ export const state = () => ({
     {
       id: 'SehrAttraktiv',
       name: 'Sehr Attraktiv',
-      req: ['Attraktiv'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'Attraktiv',
+          label: 'Attraktiv'
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Dein Held ist atemberaubend. Er erhöht den Bonus auf Darbietung und Überreden auf +2.'
@@ -372,7 +675,14 @@ export const state = () => ({
     {
       id: 'Beidhaendig',
       name: 'Beidhändig',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Dein Krieger ist mit der linken Hand so geschickt wie mit der rechten. Er ignoriert den Abzug für Angriffe mit der falschen Hand (siehe Seite 97). Wenn beidhändige Charaktere in jeder Hand eine Waffe halten, dürfen sie die Parade-Boni beider Waffen addieren (wenn beide einen haben).'
@@ -394,7 +704,14 @@ export const state = () => ({
     {
       id: 'Charismatisch',
       name: 'Charismatisch',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Dein Held ist aus irgendeinem Grund sehr sympathisch. Er ist vielleicht vertrauenserweckend oder freundlich, oder strahlt einfach Selbstvertrauen und guten Willen aus. Du darfst Überredenproben einmal wiederholen (siehe Wiederholung auf Seite 89).'
@@ -402,7 +719,14 @@ export const state = () => ({
     {
       id: 'Elan',
       name: 'Elan',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Elan bedeutet Begeisterung oder Wille. Wer dieses Talent hat, läuft zur Höchstform auf, wenn es hart auf hart kommt. Wenn du einen Benny ausgibst, um eine Eigenschaftsprobe zu wiederholen, addiere +2 auf das Gesamtergebnis. Der Bonus gilt nur auf den wiederholten Wurf. Er gilt nicht für Schadenswürfe (da sie keine Eigenschaftsproben sind), und auch nicht beim Schaden wegstecken, wenn du nicht zusätzlich einen Benny verwendest, um die Konstitutionsprobe zu widerholen.'
@@ -410,7 +734,14 @@ export const state = () => ({
     {
       id: 'Flink',
       name: 'Flink',
-      req: ['Geschicklichkeit W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 6
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Die Bewegungsweite des Helden steigt um +2, und sein Sprintwürfel wird um einen Typ verbessert (ein W6 wird beispielsweise ein W8).'
@@ -425,7 +756,9 @@ export const state = () => ({
     {
       id: 'GrossesGlück',
       name: 'Grosses Glück',
-      req: ['Glück'],
+      req: [
+        { type: 'dynamic', depends: 'talent', id: 'Glück', label: 'Glück' }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Der Spieler zieht zu Beginn einer jeden Sitzung zwei zusätzliche Bennys statt einem.'
@@ -433,7 +766,20 @@ export const state = () => ({
     {
       id: 'Kraeftig',
       name: 'Kräftig',
-      req: ['Stärke W6+', 'Konstitution W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Staerke',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 6
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Dein Charakter ist sehr gross oder sehr fit. Seine Grösse steigt um +1 (und somit auch seine Robustheit), und er behandelt seine Stärke als um einen Würfeltyp höher, wenn es um die Ermittlung von Behinderung (siehe Seite 67) und Mindeststärke geht, damit Rüstungen, Waffen und Ausrüstungsgegenstände ohne Abzug verwendet werden können. Kräftig kann die Grösse eines Charakters nicht über +3 anheben.'
@@ -441,7 +787,14 @@ export const state = () => ({
     {
       id: 'Linguist',
       name: 'Linguist',
-      req: ['Verstand W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 6
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Dieser weitgereiste Charakter hat ein Ohr für Sprachen. Er beginnt das Spiel mit einer Anzahl von Sprache-Fertigkeiten gleich seinem halbem Verstand- Würfel auf einem Wert von W6 (siehe die Fertigkeit Sprache auf Seite 34).'
@@ -449,7 +802,14 @@ export const state = () => ({
     {
       id: 'Mutig',
       name: 'Mutig',
-      req: ['Willenskraft W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 6
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Charaktere mit diesem Talent haben gelernt, ihre Furcht zu meistern, oder sie haben so viele grauenvolle Dinge gesehen, dass sie abgestumpft sind. Diese tapferen Entdecker addieren +2 auf Furchtproben und ziehen –2 von Ergebnissen auf der Furchttabelle (siehe Seite 114) ab.'
@@ -464,7 +824,14 @@ export const state = () => ({
     {
       id: 'Stinkreich',
       name: 'Stinkreich',
-      req: ['Reich'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'Reich',
+          label: 'Reich'
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Dieser glückliche Charakter hat wirklich sehr viel Geld. Verfünffache das Startkapital für das Setting bei der Charaktererschaffung, und wenn es angemessen erscheint, erhält der Charakter ein Jahreseinkommen, das etwa modernen $500.000 entspricht. Es mag noch reichere Charaktere geben, doch solange das keinen Spieleffekt hat, ist es nicht so wichtig. Details hierfür sollten mit der SL ausgearbeitet werden und gleichzeitig viele weitere Ressourcen sowie lästige Verantwortung mit sich bringen.'
@@ -472,7 +839,20 @@ export const state = () => ({
     {
       id: 'Rohling',
       name: 'Rohling',
-      req: ['Stärke W6+', 'Konstitution W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Staerke',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 6
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Rohlinge konzentrieren sich mehr auf Stärke und Fitness als auf Koordination und Flexibilität. Für sie ist Athletik mit Stärke verknüpft, nicht mit Geschicklichkeit, wenn es um Aufstiege geht. Der Charakter kann Athletikproben auch mit Stärke widerstehen, wenn er das möchte. Ausserdem erhöhen Rohlinge die kurze Entfernung von geworfenen Gegenständen um +1. Verdopple den Bonus, um die angepasste mittlere Entfernung zu erhalten, und noch einmal für die weite Entfernung. Wenn die Fernkampfreichweite eines geworfenen Gegenstands beispielsweise 3/6/12 beträgt, ist die Fernkampfreichweite des Rohlings 4/8/16.'
@@ -480,7 +860,14 @@ export const state = () => ({
     {
       id: 'Schnell',
       name: 'Schnell',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Schnelle Charaktere haben blitzschnelle Reflexe und die Ruhe weg. Wenn du eine Aktionskarte von 5 oder weniger ausgeteilt bekommst, kannst du sie abwerfen und neu ziehen, bis du eine Karte erhältst, die höher ist als 5. Charaktere mit Kühler Kopf und Schnell ziehen zuerst ihre zusätzliche Karte und entscheiden dann, welche sie nehmen. Wenn diese Karte eine 5 oder darunter ist, können sie dann das Talent Schnell verwenden, um eine Ersatzkarte zu ziehen, bis sie auf 6 oder höher kommen.'
@@ -488,7 +875,14 @@ export const state = () => ({
     {
       id: 'SchnelleHeilung',
       name: 'Schnelle Heilung',
-      req: ['Konstitution W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 8
+        }
+      ],
       tags: ['Hintergrund'],
       descr:
         'Charaktere mit diesem Talent addieren +2 auf Konstitutionproben für Natürliche Heilung und würfeln alle drei Tage, nicht nur alle fünf (siehe Heilung, Seite 96).'
@@ -496,7 +890,20 @@ export const state = () => ({
     {
       id: 'Akrobat',
       name: 'Akrobat',
-      req: ['Geschicklichkeit W8+', 'Athletik W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Athletik',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Der Akrobat kann Proben auf Athletik einmal kostenlos wiederholen, die sich um Gleichgewicht, Abrollen oder Ringen drehen. Das hat keinen Einfluss auf Proben, um Aktionen zu unterbrechen, zu klettern, zu schwimmen oder zu werfen.'
@@ -504,7 +911,14 @@ export const state = () => ({
     {
       id: 'Alleskoenner',
       name: 'Alleskönner',
-      req: ['Verstand W10+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 10
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Durch eine gute Ausbildung, Bücherwissen, computerverbesserte Fertigkeitenprogramme oder einfach unglaubliche intuitive Auffassungsgabe hat dein Held ein Talent dafür entwickelt, spontan Fertigkeiten aufzuschnappen. Es gibt wenig, was er nicht mit ein bisschen Zeit und einer Prise Glück verstehen kann. Nachdem er eine bestimmte Fertigkeit beobachtet oder studiert hat, legt der Charakter eine Verstandsprobe als seine Aktion ab. Bei einem Erfolg erhält er einen W4 in der Fertigkeit, bei einer Steigerung einen W6. Er kann es nach einer weiteren Stunde Studien und Herumprobieren oder Vertiefung in das Thema noch einmal versuchen, wenn der Wurf misslungen ist, oder er es auf eine Steigerung abgesehen hat. Dieser Effekt hält an, bis der Charakter versucht ein anderes Thema zu lernen, egal ob erfolgreich oder nicht.'
@@ -512,7 +926,14 @@ export const state = () => ({
     {
       id: 'AssamSteuer',
       name: 'Ass am Steuer',
-      req: ['Geschicklichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Ein Ass am Steuer ist ein Pilot oder Fahrer mit einer besonderen Affinität für sein Auto, Boot, Flugzeug oder anderes Fahrzeug. Er ignoriert zwei Punkte Abzüge auf alle Proben mit Fahren, Pilot oder Seefahrt und kann Bennys ausgeben, um damit Schaden wegstecken für Fahrzeuge anzuwenden, die er lenkt oder kommandiert, jeweils mit der passenden Fertigkeit Fahren, Pilot oder Seefahrt anstelle von Konstitution. Ein Erfolg und jede Steigerung negieren eine Wunde.'
@@ -520,7 +941,26 @@ export const state = () => ({
     {
       id: 'Assassine',
       name: 'Assassine',
-      req: ['Geschicklichkeit W8+', 'Kämpfen W6+', 'Heimlichkeit W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Heimlichkeit',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Assassinen sind ausgebildete Mörder, die wissen, wie man auch die härtesten Gegner um die Ecke bringt. Sie addieren +2 auf Schadenswürfe, wenn ihre Gegner Verwundbar sind oder sie einen Überraschungsangriff ausführen.'
@@ -528,7 +968,26 @@ export const state = () => ({
     {
       id: 'Dieb',
       name: 'Dieb',
-      req: ['Geschicklichkeit W8+', 'Heimlichkeit W6+', 'Diebeskunst W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Heimlichkeit',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Diebeskunst',
+          value: 6
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Diebe sind spezialisiert auf Täuschung, Verrat und Akrobatik. Sie sind unabdingbar, wenn es gilt, Fallen zu entdecken, Wände zu erklimmen und Schlösser zu knacken. Diebe wissen, wie sie Vorsprünge an Wänden und Fenstersimsen verwenden können, um die höchsten Gebäude zu erklimmen und wie Katzen durch Strassen und Gassen zu huschen. Sie addieren +1 auf Athletikproben, um in urbanen Gebieten zu klettern. Diebe wissen auch, wie man sich in der Dunkelheit zwischen Strassenlaternen bewegt, und addieren +1 auf Heimlichkeitsproben in urbanen Umgebungen. Ausserdem sind diese Schurken sehr geschickt, wenn es um Diebeskunst geht, und addieren in allen Umständen +1 auf entsprechende Proben.'
@@ -536,7 +995,20 @@ export const state = () => ({
     {
       id: 'Ermittler',
       name: 'Ermittler',
-      req: ['Verstand W8+', 'Recherche W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Recherche',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Ermittler verbringen viel Zeit damit, über alte Legenden zu forschen, sich auf der Strasse umzuhören oder teuflische Mysterien zu entschlüsseln. Einige dieser Helden sind tatsächlich Privatermittler, andere sind Magier-Detektive in Fantasywelten oder neugierige Collegeprofessoren, die auf Dinge stossen, die die Menschheit niemals wissen sollte. Ermittler addieren +2 auf Recherche und auf Wahrnehmung, sofern sie auf einem Schreibtisch nach bedeutsamen Papieren suchen, einen Stapel Werbepost nach etwas Wichtigem durchwühlen oder versteckte Gegenstände in einem Haufen Schrott oder Schutt entdecken wollen.'
@@ -544,7 +1016,14 @@ export const state = () => ({
     {
       id: 'Gelehrter',
       name: 'Gelehrter',
-      req: ['Recherche W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Recherche',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Gebildete Professoren, hingebungsvolle Studenten und enthusiastische Amateure verwenden viel Zeit und Energie auf das Studium eines bestimmten Themas. Sie werden Experten in diesem Feld, und nur selten fehlen ihnen Antworten, wenn es um eine Frage aus ihrem Fachgebiet geht. Wähle eine der folgenden Fertigkeiten aus: Geisteswissenschaften, Kriegsführung, Naturwissenschaften, Okkultismus oder eine auf Verstand basierende „Wissensfertigkeit“, die in deinem Setting erlaubt ist. Du kannst +2 addieren, wenn die Fertigkeit verwendet wird. Das Talent kann mehr als einmal gewählt werden, um verschiedene Fertigkeiten abzudecken.'
@@ -552,7 +1031,26 @@ export const state = () => ({
     {
       id: 'McGyver',
       name: 'McGyver',
-      req: ['Verstand W6+', 'Wahrnehmung W8+', 'Reparieren W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Wahrnehmung',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Reparieren',
+          value: 6
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Ein McGyver kann ein Gerät aus leicht verfügbaren Ressourcen improvisieren, wenn es nötig ist. Mit ein paar einfachen Gegenständen kann er eine Reparierenprobe ablegen, um improvisierte Waffen, Sprengstoffe oder Werkzeuge herzustellen, die bis zu ihrem Einsatz oder bis zum Ende der Begegnung halten (Entscheidung der SL). Dies erfordert einen ganzen Zug, und er kann sich nicht bewegen und keine anderen Aktionen ausführen, während er das Gerät konstruiert. Ein Fehlschlag bedeutet, dass das Gerät nicht fertig ist. Ein Kritischer Fehlschlag bedeutet, dass ihm die richtigen Materialien fehlen und er das Gerät in dieser Begegnung nicht bauen kann. Mit einem Erfolg kann er einen kleineren Sprengsatz (2W4 Explosionsschaden in einer kleinen Flächenschablone), eine Projektilwaffe mit einem Schuss (FRW 5/10/20, Schaden 2W6), ein wackliges Floss, eine Stromquelle oder ähnliches herstellen. Mit einer Steigerung baut er einen grösseren Sprengsatz (2W6 in einer mittleren Flächenschablone oder 2W4 in einer grossen), eine bessere Fernkampfwaffe (fünf Schuss, 2W8 Schaden, FRW 10/20/40), ein stabileres Floss, eine stärkere Batterie und so weiter. Die Qualität seiner Schöpfung liegt in den Händen der Spielleiterin, doch Kreativität sollte belohnt werden, besonders in schwierigen und dramatischen Situationen.'
@@ -560,7 +1058,20 @@ export const state = () => ({
     {
       id: 'Naturbursche',
       name: 'Naturbursche',
-      req: ['Willenskraft W6+', 'Überleben W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Ueberleben',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Naturburschen sind Waldläufer, Kundschafter und Jäger, die sich in der Wildnis wohler fühlen als in urbanen Gebieten. Sie sind geschickte Fährtenleser und Kundschafter, und wissen, wie man über Monate in der Wildnis überlebt. Naturburschen addieren +2 auf Überlebensproben und Heimlichkeitsproben in der Wildnis (nicht in Städten, Ruinen oder unter der Erde).'
@@ -568,7 +1079,14 @@ export const state = () => ({
     {
       id: 'Reparaturgenie',
       name: 'Reparaturgenie',
-      req: ['Reparieren W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Reparieren',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Der Mechaniker addiert +2 auf Reparierenproben. Mit einer Steigerung halbiert er die Zeit, die normalerweise nötig ist, um etwas zu reparieren. Das bedeutet, dass ein Reparaturgenie, wenn bei einer bestimmten Reparatur angegeben ist, dass sie bei einer Steigerung in der Hälfte der Zeit gelingt, sie in einem Viertel der Zeit erledigt ist, wenn er eine Steigerung erzielt.'
@@ -576,7 +1094,20 @@ export const state = () => ({
     {
       id: 'Soldat',
       name: 'Soldat',
-      req: ['Stärke W6+', 'Konstitution W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Staerke',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 6
+        }
+      ],
       tags: ['Experte'],
       descr:
         'Professionelle Soldaten sind daran gewöhnt, schwere Lasten zu tragen und raue Bedingungen zu ertragen. Nach einigen Tagen, um sich an ihre Ausrüstung zu gewöhnen (Entscheidung der SL), behandeln sie ihre Stärke als um einen Würfeltyp höher, wenn es um die Berechnung von Belastung (siehe Seite 67) und Mindeststärke für Rüstung, Waffen und Ausrüstung geht (Seite 66). (Dies ist kumulativ zum Talent Kräftig). Sie erhalten auch eine freie Wiederholung für Konstitutionsproben, um Umweltgefahren zu überstehen (siehe Gefahren, Seite 101).'
@@ -605,7 +1136,14 @@ export const state = () => ({
     {
       id: 'ArkanerHintergrundChiMeisterung',
       name: 'Arkaner Hintergrund (Chi Meisterung)',
-      req: ['Martial Arts'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'MartialArts',
+          label: 'Martial Arts'
+        }
+      ],
       tags: ['Deadlands', 'Hintergrund'],
       descr:
         'Einige wenige Menschen im Wilden Westen haben die altorientalischen Kampfkünste studiert. Nur sehr wenige dieser überaus fähigen Kämpfer haben die spirituelle Disziplin erlangt, die notwendig ist, um übernatürliche Kräfte durch ihren eigenen Körper, Chi genannt, zu kanalisieren. Diese erleuchteten Kämpfer nutzen den Rand des Arkanen Hintergrunds (Chi-Meisterschaft), um ihre erstaunlichen Fähigkeiten widerzuspiegeln. Einzelheiten zum Spiel eines dieser erleuchteten Krieger sowie eine neue Kante, die verschiedene Kampfkunst-Kampfstile eröffnet, finden Sie auf Seite 99.'
@@ -620,7 +1158,20 @@ export const state = () => ({
     {
       id: 'VeteranDesWeirdWest',
       name: 'Veteran des Weird West',
-      req: ['Mut W6+', 'Okkultismus W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Guts',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Okkultismus',
+          value: 6
+        }
+      ],
       tags: ['Deadlands', 'Hintergrund'],
       descr:
         "Sie wollen also ein Held sein, hm? Ein grosser, zäher, erfahrener Held? Kein Problem. Prüfen Sie einfach an der Tür Ihren Verstand, denn wer schon ein paar Mal um den Kaktus herum war, hat Dinge gesehen, die den Ticker der meisten Männer stoppen würden. Infolgedessen sind sie nicht mehr die gleichen wie früher! Veteranen des 'Wilden Westens' beginnen das Spiel bei Seasoned (oder einen Rang höher als der Rest der Kuhhirten in Ihrer Kampagne), was bedeutet, dass sie 20 Erfahrungspunkte erhalten, mit denen sie das Spiel beginnen können. Machen Sie weiter und rücken Sie Ihren Helden ganz normal vor, wie in den Regeln von Savage Worlds beschrieben. Allerdings gibt es einen Preis. Wenn Sie dieses Talent nehmen, müssen Sie eine einzige Karte aus dem Aktionssatz ziehen, sobald du deinen Charakter erstellt hast. Zeige sie dem Marschall, und er wird die Tabelle im Marschall-Handbuch überprüfen, um zu sehen, in welche Art von Pech dein Hombre auf seinem Weg zur Studliness geraten ist. Wenn Sie einen Joker ziehen, ziehen Sie noch einmal und sagen Sie Ihrem Marshal, ob Sie eine schwarze oder eine rote Karte (oder einen anderen Joker) gezogen haben. Vorsicht - die Ergebnisse können ziemlich extrem sein, von Verstümmelung bis zum Wahnsinn. Ihr Marschall kennt die Einzelheiten. Sie sind gewarnt worden!"
@@ -628,7 +1179,14 @@ export const state = () => ({
     {
       id: 'Duellant',
       name: 'Duellant',
-      req: ['Schiessen W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Schiessen',
+          value: 6
+        }
+      ],
       tags: ['Deadlands', 'Kampf'],
       descr:
         "Ihr Hombre ist ein tödlicher Revolverheld, und jeder, der dumm genug ist, ihm am Mittag gegenüberzutreten, landet bei Sonnenuntergang auf dem Friedhof. In einem Duell erhält dieser Held für jeden Grit-Punkt, den er hat, eine zusätzliche 'Hole Card'. Die Regeln für das Duell finden Sie auf Seite 68."
@@ -636,7 +1194,14 @@ export const state = () => ({
     {
       id: 'MartialArts',
       name: 'Martial Arts',
-      req: ['Kämpfen W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 6
+        }
+      ],
       tags: ['Deadlands', 'Kampf'],
       descr:
         'Sie haben in Kampfsportarten oder Boxen trainiert oder gelernt, wirklich schmutzig auf der Strasse zu kämpfen. Der Körper Ihres Charakters ist eine fein geschliffene Waffe. Selbst wenn Ihr Held unbewaffnet kämpft, gilt er als bewaffnet. Darüber hinaus profitieren Gegner im Nahkampf niemals von einem Bandenbonus gegen Ihren Helden.'
@@ -644,7 +1209,13 @@ export const state = () => ({
     {
       id: 'RebelYell',
       name: 'Rebel Yell',
-      req: ['Held muss zu den Konföderierten (CSA) gehören.'],
+      req: [
+        {
+          type: 'text',
+          id: 'CSA',
+          label: 'Held muss zu den Konföderierten (CSA) gehören.'
+        }
+      ],
       tags: ['Deadlands', 'Kampf'],
       descr:
         "Der blutrünstige Rebel Yell ('Schrei der Rebellen') hat die Yankees in Angst und Schrecken versetzt und die Konföderierten von Manassas an ermutigt. Sicher, die Schiesserei hat jetzt weitgehend aufgehört, aber die Gefühle gehen auf beiden Seiten ziemlich tief, und wenn das Blut in Wallung ist, kann dieser Kriegsschrei immer noch dieselben Reaktionen hervorrufen. Wenn er eingesetzt wird, kann der Rebell eine Einschüchterungsrolle gegen alle Ziele in einem Gebiet ausführen (im Gegensatz zu einem einzelnen Opfer wie üblich). Platzieren Sie eine Schablone für grosse Ausbrüche neben dem Charakter (ein 6-Zoll-Wirkbereich, wobei der Rand an den Charakter angrenzt). Jede Kreatur innerhalb des Kreises muss Geist gegen die Einschüchterungssumme des Charakters würfeln."
@@ -652,7 +1223,14 @@ export const state = () => ({
     {
       id: 'Falschspieler',
       name: 'Falschspieler',
-      req: ['Glücksspiel W6+ '],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Gluecksspiel',
+          value: 6
+        }
+      ],
       tags: ['Deadlands', 'Sozial'],
       descr:
         'Ihr Held kann gut mit einem Kartenspiel umgehen und fühlt sich nie mehr zu Hause als beim Mischen der Karten. Er hat eine ganze Reihe von Methoden zum Schneiden, Mischen und Austeilen gelernt, die ihm in einem Spiel einen Vorteil verschaffen. Ein Spieler mit diesem Edge wird nur beim Betrügen mit einer Rolle Schlangenaugen erwischt. Und wenn Ihr Held ein Huckster ist, bekommen die Leute ein -2, um Würfe zu bemerken, wenn sie versuchen, ein geworfenes Feld zu erkennen.'
@@ -660,7 +1238,14 @@ export const state = () => ({
     {
       id: 'TrueGrit',
       name: 'True Grit',
-      req: ['Willenskraft W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Deadlands', 'Sozial'],
       descr:
         'Manche Leute scheinen einfach Härte auszustrahlen, und Ihr Held ist einer von ihnen. Die Schrecken des Lebens im Schrägen Westen lassen diesen Hombre nicht kalt. Er hat Kies in seinen Eingeweiden und Eiswasser, das durch seine Adern fliesst. Das kühle Auftreten Ihres Helden verleiht ihm +1 Grit.'
@@ -668,7 +1253,20 @@ export const state = () => ({
     {
       id: 'Aufklaerer',
       name: 'Aufklärer',
-      req: ['Wahrnehmung W6+', 'Überleben W6+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Wahrnehmung',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Ueberleben',
+          value: 6
+        }
+      ],
       tags: ['Deadlands', 'Experte'],
       descr:
         'Aufklärer haben gelernt, auf die Zeichen zu achten und ihren Instinkten zu vertrauen, wenn es darum geht, sich in der weiten Wildnis zurechtzufinden. Jedes Mal, wenn der Marschall während seiner Reise eine Bildkarte zieht (die auf eine zufällige Begegnung hinweist), darf ein Späher einen Hinweiswurf (-2) machen. Bei Erfolg erkennt der Späher die Gefahr, die Kreatur oder die Situation zum frühestmöglichen Zeitpunkt und gibt seiner Gruppe wahrscheinlich Zeit, ihr auszuweichen oder sie zumindest zu ihren eigenen Bedingungen anzugreifen. Vergessen Sie nicht, den Marschall daran zu erinnern, dass Sie diese Kante haben, wenn Ihre Truppe unterwegs ist. Aufklärer erhalten ausserdem +2, um Würfe zu bemerken, die gemacht wurden, um Überraschungen in taktischen Situationen zu vermeiden.'
@@ -676,7 +1274,26 @@ export const state = () => ({
     {
       id: 'Quacksalber',
       name: 'Quacksalber',
-      req: ['Verstand W6+', 'Willenskraft W6+', 'Überreden W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Ueberreden',
+          value: 8
+        }
+      ],
       tags: ['Deadlands', 'Experte'],
       descr:
         'Mit honigsüssen Lippen, die Lügen und Erfindungen weben, als wären sie die Wahrheit des Evangeliums, konnte dieser geschmeidige Redner Salz an die Mormonen und Büffelhäute an die Indianer verkaufen. Der Charakter erhält einen Bonus von +2 auf kampflose Überzeugungsrollen. Er kann auch seine gespaltene Zunge benutzen, um einen Persuasion Test of Will zu initiieren, dem die Smarts des Ziels entgegenwirken.'
@@ -684,7 +1301,14 @@ export const state = () => ({
     {
       id: 'Geschichtenerzaehler',
       name: 'Geschichtenerzähler',
-      req: ['Überreden W8+'],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Ueberreden',
+          value: 8
+        }
+      ],
       tags: ['Deadlands', 'Experte'],
       descr:
         "Ein guter Geschichtenerzähler unterhält nicht nur, er gibt auch Hoffnung und Trost. Sodbuster und Sattelschlepper im Wilden Westen können alle Hoffnung und allen Trost gebrauchen, die sie finden können. Wir wollen nicht zu viel sagen, aber gute Geschichtenerzähler sind entscheidend für die Rettung der Welt. Wie bitte? Die Welt braucht Rettung? Und ob sie das braucht. Sie werden irgendwann herausfinden, warum. In der Zwischenzeit sollten Sie wissen, dass es im Grossen und Ganzen weitaus wichtiger ist, die Geschichten über die Heldentaten Ihrer Truppe zu verbreiten als die Fähigkeit, eine Waffe abzufeuern oder zu reiten. Wenn Sie also etwas Erstaunliches tun, Bucko, erzählen Sie den Leuten davon! Das Marshal's Handbook ist in dieser Hinsicht sehr dürftig, aber Sie müssen wissen, was der Edge tut, und deshalb werden wir Ihnen jetzt viel davon erzählen. Wenn ein Redner mit diesem Edge eine Überredungsrolle macht, um von den Heldentaten seiner Truppe zu erzählen, erhält er einen Bonus von +2. Wo die meisten Geschichtenerzähler die Geschichte vermasseln, wenn sie eine 1 auf den Überredungswürfel würfeln (unabhängig vom Ergebnis des Wilden Würfels), tut Ihr Held dies ausserdem nur mit einem Wurf von Schlangenaugen. Wenn ein Geschichtenerzähler mit diesem Edge erfolgreich einen Fear-Level senkt, erhält er einen einmaligen Legendenchip, den er selbst einmal verwendet (er geht nicht wie andere Schicksals-Chips in den Pott der Spieler, sondern direkt an den Spieler). Sprechen Sie mit dem Marshall darüber, amigo. Wir haben Ihnen bereits mehr gesagt, als wir sollten."
@@ -693,10 +1317,30 @@ export const state = () => ({
       id: 'Wilder',
       name: 'Wilder',
       req: [
-        'Verstand W8+',
-        'Konstitution W6+',
-        'Wahrnehmung W8+',
-        'Überleben W6+'
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Wahrnehmung',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Ueberleben',
+          value: 6
+        }
       ],
       tags: ['Deadlands', 'Experte'],
       descr:
