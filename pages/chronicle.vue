@@ -10,6 +10,7 @@
       <custom-dice
         @roll-dice="rollDice"
         @clear-dice-history="clearDiceHistory"
+        @button-click="clickAttribute(attribute, die)"
       />
       <table class="table is-striped is-hoverable is-fullwidth">
         <tr>
@@ -23,11 +24,10 @@
           <th>Ergebnis</th>
           <th></th>
         </tr>
-        <dice-history-entry
-          v-for="(dice, index) in chronicleList"
+        <ChronicleEntry
+          v-for="(entry, index) in chronicleList"
           :key="index"
-          :dice="dice"
-          @roll-dice="rollDice"
+          :entry="entry"
         />
         <tr v-if="chronicleList.length === 0">
           <td></td>
@@ -42,9 +42,10 @@
 
 <script>
 import DiceBag from '~/components/chronicle/DiceBag'
+import ChronicleEntry from '~/components/chronicle/ChronicleEntry'
 
 export default {
-  components: { DiceBag },
+  components: { DiceBag, ChronicleEntry },
   computed: {
     chronicleList() {
       return this.$store.state.chronicle.list

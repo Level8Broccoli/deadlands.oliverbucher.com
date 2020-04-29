@@ -25,7 +25,7 @@
       </td>
       <td>
         <div v-if="talent.req" class="tags">
-          <GameTag v-for="tag in talent.req" :key="tag.id" :tag="tag" />
+          <GameTag v-for="(tag, index) in talent.req" :key="index" :tag="tag" />
         </div>
       </td>
     </tr>

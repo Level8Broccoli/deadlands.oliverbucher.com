@@ -8,6 +8,7 @@
             button-type="text"
             :button-text="die"
             button-styles="['info']"
+            @button-click="rollDice(die)"
           />
         </p>
       </div>
@@ -24,6 +25,11 @@ export default {
   computed: {
     dice() {
       return this.$store.state.dice
+    }
+  },
+  methods: {
+    rollDice(die) {
+      // TODO
     }
   }
 }
