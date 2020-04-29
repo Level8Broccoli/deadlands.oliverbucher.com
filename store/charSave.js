@@ -61,5 +61,17 @@ export const mutations = {
     } else {
       list.push(entry)
     }
+  },
+  clickTalent(state, entry) {
+    const list = state.talentList
+    const currentEntry = list.find((e) => e.id === entry.id)
+    if (currentEntry) {
+      list.splice(
+        list.findIndex((e) => e.id === entry.id),
+        1
+      )
+    } else {
+      list.push(entry)
+    }
   }
 }

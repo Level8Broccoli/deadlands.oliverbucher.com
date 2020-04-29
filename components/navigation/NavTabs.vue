@@ -81,6 +81,10 @@ export default {
         total += handicap.value
       }
       return total
+    },
+    talentPoints() {
+      const talentListActive = this.$store.state.charSave.talentList
+      return talentListActive.length
     }
   },
   methods: {
@@ -105,6 +109,8 @@ export default {
         return tab.points - this.skillPoints
       } else if (tab.id === 'handicaps') {
         return tab.points - this.handicapPoints
+      } else if (tab.id === 'talents') {
+        return tab.points - this.talentPoints
       } else {
         return null
       }
