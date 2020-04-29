@@ -7,47 +7,11 @@
       <td>
         <a @click="show = !show">{{ attribute.name }}</a>
       </td>
-      <td>
-        <GameButton button-type="fixed" />
-        <!-- <button class="button is-info" @click="buttonClick(4, attribute.id)">
-          &hearts;
-        </button> -->
-      </td>
-      <td>
-        <GameButton button-type="point1" />
-        <!-- <button
-          class="button"
-          :class="renderButton(6, attribute.id)"
-          @click="buttonClick(6, attribute.id)"
-          v-html="getButtonContent(6, attribute.id)"
-        ></button> -->
-      </td>
-      <td>
-        <GameButton button-type="point1" />
-        <!-- <button
-          class="button"
-          :class="renderButton(8, attribute.id)"
-          @click="buttonClick(8, attribute.id)"
-          v-html="getButtonContent(8, attribute.id)"
-        ></button> -->
-      </td>
-      <td>
-        <GameButton button-type="point1" />
-        <!-- <button
-          class="button"
-          :class="renderButton(10, attribute.id)"
-          @click="buttonClick(10, attribute.id)"
-          v-html="getButtonContent(10, attribute.id)"
-        ></button> -->
-      </td>
-      <td>
-        <GameButton button-type="point1" />
-        <!-- <button
-          class="button"
-          :class="renderButton(12, attribute.id)"
-          @click="buttonClick(12, attribute.id)"
-          v-html="getButtonContent(12, attribute.id)"
-        ></button> -->
+      <td v-for="die in dice" :key="die">
+        <GameButton
+          :button-type="buttonType(attribute, die)"
+          @button-click="clickAttribute(attribute, die)"
+        />
       </td>
     </tr>
     <tr v-if="show">
@@ -71,7 +35,7 @@ export default {
     }
   },
   data() {
-    return { show: false }
+    return { show: false, dice: [4, 6, 8, 10, 12] }
   },
   methods: {
     rollDice() {},
@@ -79,6 +43,13 @@ export default {
       if (obj.defaultValue >= value) {
         return 'fixed'
       }
+      return 'point1'
+    },
+    clickAttribute(attribute, value) {
+      this.$store.commit('charSave/clickAttribute', {
+        id: attribute.id,
+        value
+      })
     }
   }
 }
