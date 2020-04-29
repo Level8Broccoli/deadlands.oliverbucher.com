@@ -32,24 +32,36 @@ export default {
       default() {
         return {}
       }
+    },
+    dice: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   data() {
-    return { show: false, dice: [4, 6, 8, 10, 12] }
+    return { show: false }
+  },
+  computed: {
+    currentValue() {
+      const list = this.$store.state.charSave.attributesList
+      const attributeSaved = list.find((e) => e.id === this.attribute.id)
+      if (typeof attributeSaved !== 'undefined') {
+        return attributeSaved.value
+      }
+      return 0
+    }
   },
   methods: {
-    savedValue(attribute) {
-      const list = this.$store.state.charSave.attributesList
-      return list.find((e) => e.id === attribute.id)
+    rollDice(attribute) {
+      // TODO
     },
-    rollDice() {},
     buttonType(attribute, value) {
       if (attribute.defaultValue >= value) {
         return 'fixed'
-      } else if (
-        this.savedValue(attribute) &&
-        this.savedValue(attribute).value >= value
-      ) {
+      }
+      if (this.currentValue >= value) {
         return 'checked'
       }
       return 'point1'

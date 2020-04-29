@@ -15,19 +15,14 @@
           <th>
             <h1 class="subtitle">Attribute</h1>
           </th>
-          <th>W4</th>
-          <th>W6</th>
-          <th>W8</th>
-          <th>W10</th>
-          <th>W12</th>
+          <th v-for="die in dice" :key="die">W{{ die }}</th>
         </tr>
         <AttributeEntry
           v-for="attribute in attributesList"
           :key="attribute.id"
           :attribute="attribute"
+          :dice="dice"
         />
-        <!-- @button-click="buttonClick"
-          @roll-dice="rollDice" -->
       </table>
     </div>
     <ButtonLegend />
@@ -40,6 +35,11 @@ import ButtonLegend from '~/components/meta/ButtonLegend'
 
 export default {
   components: { AttributeEntry, ButtonLegend },
+  data() {
+    return {
+      dice: [4, 6, 8, 10, 12]
+    }
+  },
   computed: {
     attributesList() {
       return this.$store.getters['attributes/getList']
