@@ -1,9 +1,15 @@
 <template>
   <div>
-    <button class="button" :class="buttonClass" @click="buttonClick">
-      <span class="icon">
+    <button
+      class="button"
+      :class="buttonClass"
+      :title="title"
+      @click="buttonClick"
+    >
+      <span v-if="buttonType !== 'text'" class="icon">
         <font-awesome-icon :icon="['fas', buttonSymbol]" />
       </span>
+      <span v-else>{{ buttonText }}</span>
     </button>
   </div>
 </template>
@@ -16,21 +22,44 @@ export default {
       type: String,
       default: 'point1',
       validator(value) {
-        return ['point1', 'point2', 'checked', 'fixed', 'roll'].includes(value)
+        return [
+          'point1',
+          'point2',
+          'checked',
+          'fixed',
+          'roll',
+          'text'
+        ].includes(value)
       }
     },
+    buttonText: { type: String, default: '' },
     size: {
       type: String,
       default: 'normal'
+    },
+    buttonStyles: {
+      type: Array,
+      default() {
+        return ['']
+      }
+    },
+    title: {
+      type: String,
+      default: ''
     }
   },
   computed: {
     buttonClass() {
       return {
-        'is-light': this.buttonType === 'point1',
-        'is-danger is-light': this.buttonType === 'point2',
-        'is-success': this.buttonType === 'checked',
-        'is-info': this.buttonType === 'fixed',
+        'is-light':
+          this.buttonType === 'point1' || this.buttonStyles.includes('light'),
+        'is-danger is-light':
+          this.buttonType === 'point2' || this.buttonStyles.includes('danger'),
+        'is-success':
+          this.buttonType === 'checked' ||
+          this.buttonStyles.includes('success'),
+        'is-info':
+          this.buttonType === 'fixed' || this.buttonStyles.includes('info'),
         'is-info is-light': this.buttonType === 'roll',
         'is-small': this.size === 'small'
       }

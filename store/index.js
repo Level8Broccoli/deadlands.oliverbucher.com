@@ -31,9 +31,9 @@ export const state = () => ({
       points: 3
     },
     {
-      id: 'history',
+      id: 'chronicle',
       name: 'Würfelchronik',
-      link: '/history',
+      link: '/chronicle',
       notification: true
     }
   ]
