@@ -16,7 +16,10 @@ export const mutations = {
     const currentEntry = list.find((e) => e.id === entry.id)
     if (currentEntry) {
       if (currentEntry.value === entry.value) {
-        list.splice(list.indexOf(entry), 1)
+        list.splice(
+          list.findIndex((e) => e.id === entry.id),
+          1
+        )
       } else {
         currentEntry.value = entry.value
       }

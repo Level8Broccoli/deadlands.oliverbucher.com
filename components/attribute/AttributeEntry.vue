@@ -38,10 +38,19 @@ export default {
     return { show: false, dice: [4, 6, 8, 10, 12] }
   },
   methods: {
+    savedValue(attribute) {
+      const list = this.$store.state.charSave.attributesList
+      return list.find((e) => e.id === attribute.id)
+    },
     rollDice() {},
-    buttonType(obj, value) {
-      if (obj.defaultValue >= value) {
+    buttonType(attribute, value) {
+      if (attribute.defaultValue >= value) {
         return 'fixed'
+      } else if (
+        this.savedValue(attribute) &&
+        this.savedValue(attribute).value >= value
+      ) {
+        return 'checked'
       }
       return 'point1'
     },

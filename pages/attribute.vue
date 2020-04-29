@@ -42,7 +42,7 @@ export default {
   components: { AttributeEntry, ButtonLegend },
   computed: {
     attributesList() {
-      return this.$store.state.attributes.list
+      return this.$store.getters['attributes/getList']
     }
   }
 }
