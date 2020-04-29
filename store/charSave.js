@@ -2,7 +2,9 @@ export const state = () => ({
   name: '',
   notes: '',
   attributeList: [],
-  skillList: []
+  skillList: [],
+  handicapList: [],
+  talentList: []
 })
 
 export const mutations = {

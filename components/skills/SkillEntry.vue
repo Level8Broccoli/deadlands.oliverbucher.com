@@ -52,6 +52,14 @@ export default {
         return skillSaved.value
       }
       return 0
+    },
+    currentValueOfAttribute() {
+      const list = this.$store.state.charSave.attributeList
+      const attributeSaved = list.find((e) => e.id === this.skill.attr)
+      if (typeof attributeSaved !== 'undefined') {
+        return attributeSaved.value
+      }
+      return 4
     }
   },
   methods: {
@@ -61,11 +69,13 @@ export default {
     buttonType(skill, value) {
       if (skill.defaultValue >= value) {
         return 'fixed'
-      }
-      if (this.currentValue >= value) {
+      } else if (this.currentValue >= value) {
         return 'checked'
+      } else if (this.currentValueOfAttribute < value) {
+        return 'point2'
+      } else {
+        return 'point1'
       }
-      return 'point1'
     },
     clickSkill(skill, value) {
       this.$store.commit('charSave/clickSkill', {
