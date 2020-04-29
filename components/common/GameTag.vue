@@ -15,27 +15,17 @@ export default {
   },
   computed: {
     tagClass() {
-      if (this.tag.type !== 'dynamic') {
+      if (this.tag.type === 'text') {
         return ''
-      }
-      if (this.tag.depends === 'attribute') {
-        const attributeListActive = this.$store.state.charSave.attributeList
-        const attribute = attributeListActive.find((e) => e.id === this.tag.id)
-        if (attribute && attribute.value >= this.tag.value) {
-          return 'is-success is-light'
+      } else if (this.tag.type === 'or') {
+        const requirements = this.tag.elements
+        for (let i = 0; i < requirements.length; i++) {
+          if (this.isRequirementMet(requirements[i])) {
+            return 'is-success is-light'
+          }
         }
-      } else if (this.tag.depends === 'skill') {
-        const skillListActive = this.$store.state.charSave.skillList
-        const skill = skillListActive.find((e) => e.id === this.tag.id)
-        if (skill && skill.value >= this.tag.value) {
-          return 'is-success is-light'
-        }
-      } else if (this.tag.depends === 'talent') {
-        const talentListActive = this.$store.state.charSave.talentList
-        const talent = talentListActive.find((e) => e.id === this.tag.id)
-        if (talent) {
-          return 'is-success is-light'
-        }
+      } else if (this.isRequirementMet(this.tag)) {
+        return 'is-success is-light'
       }
       return 'is-danger is-light'
     },
@@ -47,6 +37,24 @@ export default {
       } else {
         return 'FEHLENDES LABEL'
       }
+    }
+  },
+  methods: {
+    isRequirementMet({ depends, id, value }) {
+      if (depends === 'attribute') {
+        const attributeListActive = this.$store.state.charSave.attributeList
+        const attribute = attributeListActive.find((e) => e.id === id)
+        return !!attribute && attribute.value >= value
+      } else if (depends === 'skill') {
+        const skillListActive = this.$store.state.charSave.skillList
+        const skill = skillListActive.find((e) => e.id === id)
+        return !!skill && skill.value >= value
+      } else if (depends === 'talent') {
+        const talentListActive = this.$store.state.charSave.talentList
+        const talent = talentListActive.find((e) => e.id === id)
+        return !!talent
+      }
+      return false
     }
   }
 }
