@@ -7,11 +7,14 @@
         :class="tab.link === $route.path ? 'is-active' : ''"
       >
         <NuxtLink :to="tab.link">
-          {{ tab.name }} &nbsp;
-          <span v-if="tab.points && tab.points !== 0" class="tag is-danger">{{
-            tab.points
-          }}</span>
-          <span v-if="tab.notification" class="tag is-success">&#9964;</span>
+          {{ tab.name }}
+          &nbsp;
+          <NotificationBadge
+            v-if="showBadge(tab)"
+            :badge-type="badgeType(tab)"
+            :badge-value="badgeValue(tab)"
+            :badge-icon="badgeIcon(tab)"
+          />
         </NuxtLink>
       </li>
     </ul>
@@ -19,13 +22,87 @@
 </template>
 
 <script>
+import NotificationBadge from '~/components/common/NotificationBadge'
+
 export default {
   name: 'NavTabs',
-  props: {
-    tabList: {
-      type: Array,
-      default() {
-        return []
+  components: { NotificationBadge },
+  computed: {
+    tabList() {
+      return this.$store.state.tabList
+    },
+    attributePoints() {
+      const attributeListActive = this.$store.state.charSave.attributeList
+      let total = 0
+      for (let i = 0; i < attributeListActive.length; i++) {
+        const attribute = attributeListActive[i]
+        total += attribute.value - 4
+      }
+      return total / 2
+    },
+    skillPoints() {
+      const skillListActive = this.$store.state.charSave.skillList
+      const attributeListActive = this.$store.state.charSave.attributeList
+      const skillList = this.$store.getters['skills/getList']
+
+      let total = 0
+
+      for (let i = 0; i < skillListActive.length; i++) {
+        const skillValue = skillListActive[i].value
+        const skill = skillList.find((e) => e.id === skillListActive[i].id)
+        const attribute = attributeListActive.find((e) => e.id === skill.attr)
+        const attributeValue = attribute ? attribute.value : 4
+
+        let singleCost = 0
+        let doubleCost = 0
+
+        if (attributeValue >= skillValue) {
+          singleCost = skillValue
+        } else {
+          singleCost = attributeValue
+          doubleCost = skillValue - attributeValue
+        }
+
+        if (skill.defaultValue) {
+          singleCost -= skill.defaultValue
+        } else {
+          singleCost -= 2
+        }
+
+        total += (singleCost + 2 * doubleCost) / 2
+      }
+      return total
+    }
+  },
+  methods: {
+    showBadge(tab) {
+      return (
+        (this.badgeValue(tab) && this.badgeValue(tab) !== 0) || tab.notification
+      )
+    },
+    badgeType(tab) {
+      if (tab.points) {
+        return 'danger'
+      } else if (tab.notification) {
+        return 'success'
+      } else {
+        return ''
+      }
+    },
+    badgeValue(tab) {
+      if (tab.id === 'attributes') {
+        return tab.points - this.attributePoints
+      } else if (tab.id === 'skills') {
+        return tab.points - this.skillPoints
+      } else {
+        return null
+      }
+    },
+    badgeIcon(tab) {
+      if (tab.notification) {
+        return 'bell'
+      } else {
+        return ''
       }
     }
   }

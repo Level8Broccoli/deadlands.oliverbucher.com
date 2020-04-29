@@ -6,7 +6,7 @@
         <div class="custom-container">
           <HeaderTitle title="Willkommen im Weird West" />
           <CharacterOverview />
-          <NavTabs :tab-list="tabList" />
+          <NavTabs />
           <nuxt />
         </div>
       </div>
@@ -21,48 +21,7 @@ import CharacterOverview from '~/components/meta/CharacterOverview'
 import NavTabs from '~/components/navigation/NavTabs'
 
 export default {
-  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs },
-  computed: {
-    tabList() {
-      return [
-        {
-          id: 0,
-          name: 'Allgemein',
-          link: '/'
-        },
-        {
-          id: 1,
-          name: 'Attribute',
-          link: '/attributes',
-          points: 5
-        },
-        {
-          id: 2,
-          name: 'Fertigkeiten',
-          link: '/skills',
-          points: 12
-        },
-        {
-          id: 3,
-          name: 'Handicaps',
-          link: '/handicaps',
-          points: 4
-        },
-        {
-          id: 4,
-          name: 'Talente',
-          link: '/talents',
-          points: 3
-        },
-        {
-          id: 5,
-          name: 'Würfelchronik',
-          link: '/wuerfelchronik',
-          notification: true
-        }
-      ]
-    }
-  }
+  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs }
 }
 </script>
 

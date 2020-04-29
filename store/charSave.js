@@ -7,6 +7,18 @@ export const state = () => ({
   talentList: []
 })
 
+export const getters = {
+  getAttributePoints: (state) => {
+    const attributeListActive = state.attributeList
+    let total = 0
+    for (let i = 0; i < attributeListActive.length; i++) {
+      const attribute = attributeListActive[i]
+      total += attribute.value - 4
+    }
+    return total / 2
+  }
+}
+
 export const mutations = {
   setName(state, name) {
     state.name = name

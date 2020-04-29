@@ -18,7 +18,7 @@
           <th v-for="die in dice" :key="die">W{{ die }}</th>
         </tr>
         <AttributeEntry
-          v-for="attribute in attributesList"
+          v-for="attribute in attributeList"
           :key="attribute.id"
           :attribute="attribute"
           :dice="dice"
@@ -36,7 +36,7 @@ import ButtonLegend from '~/components/meta/ButtonLegend'
 export default {
   components: { AttributeEntry, ButtonLegend },
   computed: {
-    attributesList() {
+    attributeList() {
       return this.$store.getters['attributes/getList']
     },
     dice() {
