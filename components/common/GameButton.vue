@@ -1,8 +1,9 @@
 <template>
   <div>
     <button class="button" :class="buttonClass" @click="buttonClick">
-      {{ buttonContent }}
-      <font-awesome-icon :icon="['fas', 'coffee']" />
+      <span class="icon">
+        <font-awesome-icon :icon="['fas', buttonSymbol]" />
+      </span>
     </button>
   </div>
 </template>
@@ -15,10 +16,12 @@ export default {
       type: String,
       default: 'point1',
       validator(value) {
-        return ['point1', 'point2', 'checked', 'standard', 'roll'].includes(
-          value
-        )
+        return ['point1', 'point2', 'checked', 'fixed', 'roll'].includes(value)
       }
+    },
+    size: {
+      type: String,
+      default: 'normal'
     }
   },
   computed: {
@@ -27,17 +30,18 @@ export default {
         'is-light': this.buttonType === 'point1',
         'is-danger is-light': this.buttonType === 'point2',
         'is-success': this.buttonType === 'checked',
-        'is-info': this.buttonType === 'standard',
-        'is-info is-light': this.buttonType === 'roll'
+        'is-info': this.buttonType === 'fixed',
+        'is-info is-light': this.buttonType === 'roll',
+        'is-small': this.size === 'small'
       }
     },
-    buttonContent() {
+    buttonSymbol() {
       return {
-        point1: 'point1',
-        point2: 'point2',
-        checked: 'checked',
-        standard: 'standard',
-        roll: 'roll'
+        point1: 'times',
+        point2: 'times',
+        checked: 'check',
+        fixed: 'check-double',
+        roll: 'recycle'
       }[this.buttonType]
     }
   },

@@ -5,7 +5,8 @@ export default {
    */
   head: {
     title: 'Deadlands',
-    meta: [{
+    meta: [
+      {
         charset: 'utf-8'
       },
       {
@@ -18,14 +19,18 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    }, {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Oldenburg&family=Oleo+Script:wght@700&display=swap'
-    }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Oldenburg&family=Oleo+Script:wght@700&display=swap'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -53,17 +58,22 @@ export default {
    */
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma', ['nuxt-fontawesome', {
-      imports: [{
-          set: '@fortawesome/free-solid-svg-icons',
-          icons: ['fas']
-        },
-        {
-          set: '@fortawesome/free-brands-svg-icons',
-          icons: ['fab']
-        }
-      ]
-    }]
+    '@nuxtjs/bulma',
+    [
+      'nuxt-fontawesome',
+      {
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['fas']
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['fab']
+          }
+        ]
+      }
+    ]
   ],
   /*
    ** Build configuration

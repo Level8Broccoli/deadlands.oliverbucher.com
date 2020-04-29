@@ -22,22 +22,28 @@
           <th>W12</th>
         </tr>
         <AttributeEntry
-          v-for="attribute in attributList"
+          v-for="attribute in attributesList"
           :key="attribute.id"
           :attribute="attribute"
-          @button-click="buttonClick"
-          @roll-dice="rollDice"
         />
+        <!-- @button-click="buttonClick"
+          @roll-dice="rollDice" -->
       </table>
     </div>
+    <ButtonLegend />
   </div>
 </template>
 
 <script>
 import AttributeEntry from '~/components/attribute/AttributeEntry'
+import ButtonLegend from '~/components/meta/ButtonLegend'
+
 export default {
-  components: { AttributeEntry }
+  components: { AttributeEntry, ButtonLegend },
+  computed: {
+    attributesList() {
+      return this.$store.state.attributes.list
+    }
+  }
 }
 </script>
-
-<style></style>

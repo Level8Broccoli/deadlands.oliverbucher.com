@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="title custom-title">{{ title }}</h1>
+    <h1 class="title custom-title">
+      {{ title }}<span v-if="characterName">, {{ characterName }}</span>
+    </h1>
   </div>
 </template>
 
@@ -9,6 +11,11 @@ export default {
   name: 'HeaderTitle',
   props: {
     title: { type: String, default: '' }
+  },
+  computed: {
+    characterName() {
+      return this.$store.state.charSave.name
+    }
   }
 }
 </script>

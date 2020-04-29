@@ -3,7 +3,6 @@
     <div>
       <div>
         <h2 class="subtitle">Allgemein</h2>
-        <GameButton button-type="roll" />
         <div class="field">
           <label class="label">Charaktername</label>
           <div class="control">
@@ -22,17 +21,14 @@
 </template>
 
 <script>
-import GameButton from '~/components/common/GameButton'
-
 export default {
-  components: { GameButton },
   computed: {
     name: {
       get() {
         return this.$store.state.charSave.name
       },
       set(value) {
-        this.$store.commit('setName', value)
+        this.$store.commit('charSave/setName', value)
       }
     },
     notes: {
@@ -40,7 +36,7 @@ export default {
         return this.$store.state.charSave.notes
       },
       set(value) {
-        this.$store.commit('setNotes', value)
+        this.$store.commit('charSave/setNotes', value)
       }
     }
   }
