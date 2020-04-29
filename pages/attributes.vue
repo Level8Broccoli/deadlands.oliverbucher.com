@@ -30,19 +30,17 @@
 </template>
 
 <script>
-import AttributeEntry from '~/components/attribute/AttributeEntry'
+import AttributeEntry from '~/components/attributes/AttributeEntry'
 import ButtonLegend from '~/components/meta/ButtonLegend'
 
 export default {
   components: { AttributeEntry, ButtonLegend },
-  data() {
-    return {
-      dice: [4, 6, 8, 10, 12]
-    }
-  },
   computed: {
     attributesList() {
       return this.$store.getters['attributes/getList']
+    },
+    dice() {
+      return this.$store.state.dice
     }
   }
 }

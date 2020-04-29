@@ -33,13 +33,13 @@ export default {
         {
           id: 1,
           name: 'Attribute',
-          link: '/attribute',
+          link: '/attributes',
           points: 5
         },
         {
           id: 2,
           name: 'Fertigkeiten',
-          link: '/fertigkeiten',
+          link: '/skills',
           points: 12
         },
         {
@@ -51,7 +51,7 @@ export default {
         {
           id: 4,
           name: 'Talente',
-          link: '/talente',
+          link: '/talents',
           points: 3
         },
         {

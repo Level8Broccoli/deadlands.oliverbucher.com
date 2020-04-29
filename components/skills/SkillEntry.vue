@@ -2,20 +2,21 @@
   <tbody>
     <tr>
       <td>
-        <GameButton button-type="roll" @button-click="rollDice(attribute)" />
+        <GameButton button-type="roll" @button-click="rollDice(skill)" />
       </td>
       <td>
-        <a @click="show = !show">{{ attribute.name }}</a>
+        <a @click="show = !show">{{ skill.name }}</a>
+        <small>{{ skill.attr }}</small>
       </td>
       <td v-for="die in dice" :key="die">
         <GameButton
-          :button-type="buttonType(attribute, die)"
-          @button-click="clickAttribute(attribute, die)"
+          :button-type="buttonType(skill, die)"
+          @button-click="clickSkill(skill, die)"
         />
       </td>
     </tr>
     <tr v-if="show">
-      <td colspan="6">{{ attribute.descr }}</td>
+      <td colspan="6">{{ skill.descr }}</td>
     </tr>
   </tbody>
 </template>
@@ -24,10 +25,10 @@
 import GameButton from '~/components/common/GameButton'
 
 export default {
-  name: 'AttributeEntry',
+  name: 'SkillEntry',
   components: { GameButton },
   props: {
-    attribute: {
+    skill: {
       type: Object,
       default() {
         return {}
@@ -45,20 +46,20 @@ export default {
   },
   computed: {
     currentValue() {
-      const list = this.$store.state.charSave.attributesList
-      const attributeSaved = list.find((e) => e.id === this.attribute.id)
-      if (typeof attributeSaved !== 'undefined') {
-        return attributeSaved.value
+      const list = this.$store.state.charSave.skillList
+      const skillSaved = list.find((e) => e.id === this.skill.id)
+      if (typeof skillSaved !== 'undefined') {
+        return skillSaved.value
       }
       return 0
     }
   },
   methods: {
-    rollDice(attribute) {
+    rollDice(skill) {
       // TODO
     },
-    buttonType(attribute, value) {
-      if (attribute.defaultValue >= value) {
+    buttonType(skill, value) {
+      if (skill.defaultValue >= value) {
         return 'fixed'
       }
       if (this.currentValue >= value) {
@@ -66,9 +67,9 @@ export default {
       }
       return 'point1'
     },
-    clickAttribute(attribute, value) {
-      this.$store.commit('charSave/clickAttribute', {
-        id: attribute.id,
+    clickSkill(skill, value) {
+      this.$store.commit('charSave/clickSkill', {
+        id: skill.id,
         value
       })
     }
