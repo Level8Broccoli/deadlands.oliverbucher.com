@@ -72,6 +72,15 @@ export default {
         total += (singleCost + 2 * doubleCost) / 2
       }
       return total
+    },
+    handicapPoints() {
+      const handicapListActive = this.$store.state.charSave.handicapList
+      let total = 0
+      for (let i = 0; i < handicapListActive.length; i++) {
+        const handicap = handicapListActive[i]
+        total += handicap.value
+      }
+      return total
     }
   },
   methods: {
@@ -94,6 +103,8 @@ export default {
         return tab.points - this.attributePoints
       } else if (tab.id === 'skills') {
         return tab.points - this.skillPoints
+      } else if (tab.id === 'handicaps') {
+        return tab.points - this.handicapPoints
       } else {
         return null
       }
