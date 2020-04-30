@@ -52,6 +52,7 @@ export default {
         console.error(localStorage.getItem('charSaveV2'))
       }
     } else if (localStorage.getItem('charSave')) {
+      // convert old save -> TODO delete next week
       try {
         const charSave = JSON.parse(localStorage.getItem('charSave'))
         this.$store.commit('charSave/loadFromOldSave', charSave)
