@@ -29,10 +29,11 @@ export const mutations = {
 
 export const actions = {
   commitOwnAction({ commit, rootState }, { meta, payload }) {
-    const time = new Date()
-    const timestamp = `${time.getHours()}.${('0' + time.getMinutes()).slice(
+    const now = new Date()
+    const timestamp = `${now.getHours()}.${('0' + now.getMinutes()).slice(
       -2
     )} Uhr`
+    const time = now.getTime()
     const author = rootState.charSave.id
     meta = { ...meta, time, timestamp, author }
     commit('addToChronicle', { meta, payload })
