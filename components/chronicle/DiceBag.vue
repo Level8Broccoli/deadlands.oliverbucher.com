@@ -6,8 +6,8 @@
           <GameButton
             :title="'Wirf einen ' + die + ' Würfel'"
             button-type="text"
-            :button-text="die.toString()"
-            :button-styles="['info']"
+            :button-text="'W ' + die"
+            :button-styles="['info', 'light']"
             @button-click="rollDice(die)"
           />
         </p>

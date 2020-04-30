@@ -35,7 +35,7 @@ export const state = () => ({
       id: 'chronicle',
       name: 'Chronik',
       link: '/chronicle',
-      notification: true
+      notification: false
     }
   ]
 })

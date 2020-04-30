@@ -1,6 +1,6 @@
 <template>
   <div class="container custom-roll-popup">
-    <article class="message">
+    <article class="message" :class="colorOfResult">
       <div class="message-header">
         <p>Letzter Wurf</p>
         <button
@@ -50,6 +50,19 @@ export default {
     },
     lastRoll() {
       return this.$store.getters['chronicle/getLastRoll']
+    },
+    colorOfResult() {
+      const result = this.lastRoll.payload.diceRoll.result
+      if (result.raise > 0) {
+        return 'is-primary'
+      }
+      if (result.success) {
+        return 'is-success'
+      }
+      if (result.critFailure) {
+        return 'is-danger'
+      }
+      return 'is-warning'
     }
   }
 }

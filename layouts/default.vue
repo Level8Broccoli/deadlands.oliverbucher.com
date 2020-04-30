@@ -30,6 +30,20 @@ export default {
       const showLastRoll = this.$store.state.chronicle.showLastRoll
       return showLastRoll && typeof lastRoll !== 'undefined'
     }
+  },
+  mounted() {
+    if (localStorage.getItem('charSave')) {
+      try {
+        const charSave = JSON.parse(localStorage.getItem('charSave'))
+        if (charSave.version === 2) {
+        } else {
+          this.$store.commit('charSave/loadFromOldSave', charSave)
+        }
+      } catch (error) {
+        console.error(error)
+        console.error(localStorage.getItem('charSave'))
+      }
+    }
   }
 }
 </script>

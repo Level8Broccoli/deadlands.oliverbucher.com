@@ -9,6 +9,53 @@ export const state = () => ({
 })
 
 export const mutations = {
+  loadFromOldSave(state, charSave) {
+    if (charSave.name.length > 0) {
+      state.name = charSave.name
+    }
+    if (charSave.notes.length > 0) {
+      state.notes = charSave.notes
+    }
+    if (
+      Object.keys(charSave.attribute.liste).length !== 0 ||
+      charSave.attribute.liste.constructor !== Object
+    ) {
+      for (const [id, value] of Object.entries(charSave.attribute.liste)) {
+        state.attributeList.push({
+          id,
+          value
+        })
+      }
+    }
+    if (
+      Object.keys(charSave.fertigkeiten.liste).length !== 0 ||
+      charSave.fertigkeiten.liste.constructor !== Object
+    ) {
+      for (const [id, value] of Object.entries(charSave.fertigkeiten.liste)) {
+        state.skillList.push({
+          id,
+          value
+        })
+      }
+    }
+    if (
+      Object.keys(charSave.handicaps.liste).length !== 0 ||
+      charSave.handicaps.liste.constructor !== Object
+    ) {
+      for (const [id, value] of Object.entries(charSave.handicaps.liste)) {
+        state.handicapList.push({
+          id,
+          value
+        })
+      }
+    }
+    if (charSave.talente.liste.length !== 0) {
+      for (let index = 0; index < charSave.talente.liste.length; index++) {
+        const element = charSave.talente.liste[index]
+        state.talentList.push({ id: element })
+      }
+    }
+  },
   setName(state, name) {
     state.name = name
   },
