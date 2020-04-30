@@ -9,64 +9,66 @@
         />
       </td>
       <td>
-        {{ diceRoll.comment }}
+        {{ diceRoll.config.comment }}
         <div class="has-text-weight-bold">
           <small>{{ meta.timestamp }}</small>
         </div>
       </td>
       <td>
-        <!-- <div class="buttons">
+        <div class="buttons">
           <button
-            v-for="die in entry.rollNormal"
-            :key="die"
+            v-for="(die, index) in diceRoll.rollNormal"
+            :key="index"
             class="button is-light"
             :class="renderDice(die.rolled, die.dice)"
           >
             {{ die.rolled }}
           </button>
-        </div> -->
+        </div>
       </td>
       <td>
-        <!-- <div class="buttons">
+        <div class="buttons">
           <button
-            v-for="die in entry.rollWild"
-            :key="die"
+            v-for="(die, index) in diceRoll.rollWild"
+            :key="index"
             class="button is-light"
             :class="renderDice(die.rolled, die.dice)"
           >
             {{ die.rolled }}
           </button>
-        </div> -->
+        </div>
       </td>
       <td>
-        <!-- <div class="buttons">
+        <div class="buttons">
           <button
-            v-for="mod in entry.modifications"
-            :key="mod"
+            v-for="(mod, index) in diceRoll.config.modifications"
+            :key="index"
             class="button is-light"
             :class="mod.value < 0 ? 'is-danger' : 'is-success'"
           >
             {{ mod.name }} {{ mod.value }}
           </button>
-        </div> -->
+        </div>
       </td>
       <td>
-        <!-- <button class="button" :class="renderResult(entry.result)">
-          {{ entry.result.value }}
-        </button> -->
+        <button class="button" :class="renderResult(diceRoll.result)">
+          {{ diceRoll.result.value }}
+        </button>
       </td>
       <td>
-        <!-- <div v-if="entry.result.success" class="has-text-success">Erfolg!</div>
-        <div v-else-if="entry.result.critFailure" class="has-text-danger">
+        <div v-if="diceRoll.result.success" class="has-text-success">
+          Erfolg!
+        </div>
+        <div v-else-if="diceRoll.result.critFailure" class="has-text-danger">
           Snake Eyes!
         </div>
         <div v-else class="has-text-warning">Fehlschlag</div>
-        <div v-if="entry.result.raise === 1" class="has-text-info">
+        <div v-if="diceRoll.result.raise === 1" class="has-text-info">
           1 Steigerung
         </div>
-        <div v-if="entry.result.raise > 1" class="has-text-info">
-          {{ entry.result.raise }} Steigerungen
-        </div> -->
+        <div v-if="diceRoll.result.raise > 1" class="has-text-info">
+          {{ diceRoll.result.raise }} Steigerungen
+        </div>
       </td>
     </tr>
   </tbody>
@@ -97,12 +99,33 @@ export default {
   methods: {
     rerollDice(dice) {
       const REROLL_PREFIX = '[Reroll]'
-      const reroll = { ...dice }
-      reroll.comment = dice.comment.includes(REROLL_PREFIX)
-        ? dice.comment
-        : `${REROLL_PREFIX} ${dice.comment}`
+      const reroll = { ...dice.config }
+      reroll.comment = dice.config.comment.includes(REROLL_PREFIX)
+        ? dice.config.comment
+        : `${REROLL_PREFIX} ${dice.config.comment}`
       reroll.showLastRoll = this.$route.name !== 'chronicle'
       this.$store.dispatch('chronicle/rollDice', reroll)
+    },
+    renderResult(result) {
+      if (result.raise > 0) {
+        return 'is-primary'
+      }
+      if (result.success) {
+        return 'is-success'
+      }
+      if (result.critFailure) {
+        return 'is-danger'
+      }
+      return 'is-warning'
+    },
+    renderDice(result, die) {
+      if (result === 1) {
+        return 'is-danger'
+      }
+      if (result === die) {
+        return 'is-success'
+      }
+      return ''
     }
   }
 }
