@@ -43,7 +43,7 @@ export default {
   components: { DiceBag, DiceRollResultEntry },
   computed: {
     chronicleList() {
-      return this.$store.state.chronicle.list
+      return this.$store.getters['chronicle/getList']
     }
   },
   head() {

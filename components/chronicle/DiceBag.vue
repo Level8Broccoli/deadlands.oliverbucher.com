@@ -30,9 +30,8 @@ export default {
   methods: {
     rollDice(die) {
       this.$store.dispatch('chronicle/rollDice', {
-        comment: `Manueller Wurf (W${die})`,
-        dice: die,
-        showLastRoll: true
+        comment: 'Manueller Wurf',
+        dice: die
       })
     }
   }

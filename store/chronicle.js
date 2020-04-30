@@ -1,7 +1,16 @@
 export const state = () => ({
   list: [],
-  showLastRoll: true
+  showLastRoll: false
 })
+
+export const getters = {
+  getLastRoll: (state) => {
+    return [...state.list].sort((a, b) => a.id < b.id)
+  },
+  getList: (state) => {
+    return [...state.list].sort((a, b) => a.meta.time < b.meta.time)
+  }
+}
 
 export const mutations = {
   addToChronicle(state, payload) {
@@ -14,19 +23,21 @@ export const mutations = {
 }
 
 export const actions = {
-  commitOwnAction({ commit, state, rootState }, payload) {
+  commitOwnAction({ commit, rootState }, { meta, payload }) {
     const time = new Date()
-    const timestamp = `${time.getHours()}.${time.getMinutes()} Uhr`
+    const timestamp = `${time.getHours()}.${('0' + time.getMinutes()).slice(
+      -2
+    )} Uhr`
     const author = rootState.charSave.id
-    const meta = { time, timestamp, author }
+    meta = { ...meta, time, timestamp, author }
     commit('addToChronicle', { meta, payload })
   },
   commitOtherAction({ commit }) {
-    // TODO
+    // TODO Websocket
   },
   rollDice(
     { commit, dispatch },
-    { comment, dice, wild, modifications, showLastRoll }
+    { comment, dice, wild, modifications, showLastRoll, tags }
   ) {
     const rollNormal = []
     let totalNormal = 0
@@ -79,11 +90,14 @@ export const actions = {
     }
 
     dispatch('commitOwnAction', {
-      dicePool: { comment, dice, wild, modifications, showLastRoll },
-      diceRoll: {
-        rollNormal,
-        rollWild,
-        result
+      meta: { type: 'diceRoll' },
+      payload: {
+        dicePool: { comment, dice, wild, modifications, showLastRoll, tags },
+        diceRoll: {
+          rollNormal,
+          rollWild,
+          result
+        }
       }
     })
   }

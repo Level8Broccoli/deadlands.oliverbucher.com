@@ -51,6 +51,9 @@ export default {
       if (typeof skillSaved !== 'undefined') {
         return skillSaved.value
       }
+      if (this.skill.defaultValue) {
+        return 4
+      }
       return 0
     },
     currentValueOfAttribute() {
@@ -64,7 +67,27 @@ export default {
   },
   methods: {
     rollDice(skill) {
-      // TODO
+      const comment = `${skill.name}`
+      const modifications = []
+      let dice = this.currentValue
+      const wild = true
+      const showLastRoll = true
+
+      if (this.currentValue === 0) {
+        modifications.push({
+          name: 'Ungeübt',
+          value: -2
+        })
+        dice = 4
+      }
+
+      this.$store.dispatch('chronicle/rollDice', {
+        comment,
+        dice,
+        wild,
+        modifications,
+        showLastRoll
+      })
     },
     buttonType(skill, value) {
       if (skill.defaultValue >= value) {

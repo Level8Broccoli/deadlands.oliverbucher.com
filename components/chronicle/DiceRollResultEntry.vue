@@ -9,9 +9,12 @@
         />
       </td>
       <td>
-        {{ dicePool.comment }}
+        {{ dicePool.comment }} (W{{ dicePool.dice }})
         <div class="has-text-weight-bold">
           <small>{{ meta.timestamp }}</small>
+        </div>
+        <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
+          <span class="tag is-rounded">{{ tag }}</span>
         </div>
       </td>
       <td>
@@ -101,11 +104,12 @@ export default {
   },
   methods: {
     rerollDice(dice) {
-      const REROLL_PREFIX = '[Reroll]'
+      const REROLL_TAG = 'Reroll'
       const reroll = { ...this.dicePool }
-      reroll.comment = reroll.comment.includes(REROLL_PREFIX)
-        ? reroll.comment
-        : `${REROLL_PREFIX} ${reroll.comment}`
+      reroll.tags = reroll.tags ? [...reroll.tags] : []
+      if (!reroll.tags.includes(REROLL_TAG)) {
+        reroll.tags.push(REROLL_TAG)
+      }
       reroll.showLastRoll = this.$route.name !== 'chronicle'
       this.$store.dispatch('chronicle/rollDice', reroll)
     },

@@ -50,12 +50,17 @@ export default {
       if (typeof attributeSaved !== 'undefined') {
         return attributeSaved.value
       }
-      return 0
+      return 4
     }
   },
   methods: {
     rollDice(attribute) {
-      // TODO
+      this.$store.dispatch('chronicle/rollDice', {
+        comment: `${attribute.name}`,
+        dice: this.currentValue,
+        wild: true,
+        showLastRoll: true
+      })
     },
     buttonType(attribute, value) {
       if (attribute.defaultValue >= value) {
