@@ -4,8 +4,8 @@ export const state = () => ({
 })
 
 export const getters = {
-  getLastRoll: (state) => {
-    return [...state.list].sort((a, b) => a.id < b.id)
+  getLastRoll: (state, getters) => {
+    return getters.getList.find((e) => e.meta.type === 'diceRoll')
   },
   getList: (state) => {
     return [...state.list].sort((a, b) => a.meta.time < b.meta.time)

@@ -1,6 +1,6 @@
 <template>
   <div class="container custom-roll-popup">
-    <article v-show="showLastRoll" class="message">
+    <article class="message">
       <div class="message-header">
         <p>Letzter Wurf</p>
         <button
@@ -20,7 +20,7 @@
             <th>Ergebnis</th>
             <th></th>
           </tr>
-          <ChronicleEntry v-if="lastRoll" :dice="lastRoll" />
+          <DiceRollResultEntry :entry="lastRoll" />
         </table>
 
         <div class="has-text-right">
@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import ChronicleEntry from '~/components/chronicle/ChronicleEntry'
+import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
 
 export default {
   name: 'LastRoll',
-  components: { ChronicleEntry },
+  components: { DiceRollResultEntry },
   computed: {
     showLastRoll: {
       get() {
@@ -49,7 +49,7 @@ export default {
       }
     },
     lastRoll() {
-      return this.$store.state.chronicle.showLastRoll[0]
+      return this.$store.getters['chronicle/getLastRoll']
     }
   }
 }

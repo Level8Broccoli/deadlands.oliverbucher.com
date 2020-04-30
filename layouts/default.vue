@@ -8,7 +8,7 @@
           <CharacterOverview />
           <NavTabs />
           <nuxt />
-          <LastRoll />
+          <LastRoll v-if="showLastRoll" />
         </div>
       </div>
     </section>
@@ -23,7 +23,14 @@ import NavTabs from '~/components/navigation/NavTabs'
 import LastRoll from '~/components/common/LastRoll'
 
 export default {
-  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs, LastRoll }
+  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs, LastRoll },
+  computed: {
+    showLastRoll() {
+      const lastRoll = this.$store.getters['chronicle/getLastRoll']
+      const showLastRoll = this.$store.state.chronicle.showLastRoll
+      return showLastRoll && typeof lastRoll !== 'undefined'
+    }
+  }
 }
 </script>
 
