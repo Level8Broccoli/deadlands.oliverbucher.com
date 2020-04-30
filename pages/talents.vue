@@ -37,6 +37,11 @@ export default {
     talentList() {
       return this.$store.getters['talents/getList']
     }
+  },
+  head() {
+    return {
+      title: 'Talente | ' + this.$store.state.title
+    }
   }
 }
 </script>

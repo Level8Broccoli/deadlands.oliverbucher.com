@@ -79,6 +79,14 @@
 import GameButton from '~/components/common/GameButton'
 export default {
   name: 'ChronicleEntry',
-  components: { GameButton }
+  components: { GameButton },
+  props: {
+    dice: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  }
 }
 </script>

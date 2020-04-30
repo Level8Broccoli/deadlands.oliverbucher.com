@@ -1,5 +1,6 @@
 export const state = () => ({
   dice: [4, 6, 8, 10, 12],
+  title: 'Deadlands RPG',
   tabList: [
     {
       id: 'general',
@@ -32,7 +33,7 @@ export const state = () => ({
     },
     {
       id: 'chronicle',
-      name: 'Würfelchronik',
+      name: 'Chronik',
       link: '/chronicle',
       notification: true
     }

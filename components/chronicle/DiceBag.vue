@@ -29,7 +29,11 @@ export default {
   },
   methods: {
     rollDice(die) {
-      // TODO
+      this.$store.commit('chronicle/rollDice', {
+        comment: `Manueller Wurf (W${die})`,
+        dice: die,
+        wild: false
+      })
     }
   }
 }

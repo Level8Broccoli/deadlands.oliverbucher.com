@@ -35,12 +35,18 @@ import ButtonLegend from '~/components/meta/ButtonLegend'
 
 export default {
   components: { AttributeEntry, ButtonLegend },
+
   computed: {
     attributeList() {
       return this.$store.getters['attributes/getList']
     },
     dice() {
       return this.$store.state.dice
+    }
+  },
+  head() {
+    return {
+      title: 'Attribute | ' + this.$store.state.title
     }
   }
 }

@@ -8,6 +8,7 @@
           <CharacterOverview />
           <NavTabs />
           <nuxt />
+          <LastRoll />
         </div>
       </div>
     </section>
@@ -19,9 +20,10 @@ import HeaderLogo from '~/components/header/HeaderLogo'
 import HeaderTitle from '~/components/header/HeaderTitle'
 import CharacterOverview from '~/components/meta/CharacterOverview'
 import NavTabs from '~/components/navigation/NavTabs'
+import LastRoll from '~/components/common/LastRoll'
 
 export default {
-  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs }
+  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs, LastRoll }
 }
 </script>
 

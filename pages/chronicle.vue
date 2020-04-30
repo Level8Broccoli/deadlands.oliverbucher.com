@@ -7,11 +7,6 @@
     </p>
     <DiceBag />
     <div class="table-container">
-      <custom-dice
-        @roll-dice="rollDice"
-        @clear-dice-history="clearDiceHistory"
-        @button-click="clickAttribute(attribute, die)"
-      />
       <table class="table is-striped is-hoverable is-fullwidth">
         <tr>
           <th></th>
@@ -49,6 +44,11 @@ export default {
   computed: {
     chronicleList() {
       return this.$store.state.chronicle.list
+    }
+  },
+  head() {
+    return {
+      title: 'Chronik | ' + this.$store.state.title
     }
   }
 }

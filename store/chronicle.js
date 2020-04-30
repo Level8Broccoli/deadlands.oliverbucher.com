@@ -1,9 +1,10 @@
 export const state = () => ({
-  list: []
+  list: [],
+  showLastRoll: true
 })
 
 export const mutations = {
-  rollDice(state, { comment, dice, wild, modifications }) {
+  rollDice(state, { comment, dice, wild, modifications, showLastRoll }) {
     const time = new Date()
     const timestamp = `${time.getHours()}.${time.getMinutes()} Uhr (${time.getSeconds()}.${time.getMilliseconds()})`
 
@@ -63,8 +64,11 @@ export const mutations = {
       comment
     })
 
-    // if (this.currentTab !== 5) {
-    //   this.showLastRoll = true
-    // }
+    if (showLastRoll) {
+      state.showLastRoll = true
+    }
+  },
+  setShowLastRoll(state, boolean) {
+    state.showLastRoll = boolean
   }
 }

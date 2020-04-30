@@ -39,6 +39,11 @@ export default {
         this.$store.commit('charSave/setNotes', value)
       }
     }
+  },
+  head() {
+    return {
+      title: this.$store.state.title
+    }
   }
 }
 </script>

@@ -33,9 +33,15 @@ import ButtonLegend from '~/components/meta/ButtonLegend'
 
 export default {
   components: { HandicapEntry, ButtonLegend },
+
   computed: {
     handicapList() {
       return this.$store.getters['handicaps/getList']
+    }
+  },
+  head() {
+    return {
+      title: 'Handicaps | ' + this.$store.state.title
     }
   }
 }

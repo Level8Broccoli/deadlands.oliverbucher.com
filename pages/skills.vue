@@ -40,12 +40,18 @@ import ButtonLegend from '~/components/meta/ButtonLegend'
 
 export default {
   components: { SkillEntry, ButtonLegend },
+
   computed: {
     skillList() {
       return this.$store.getters['skills/getList']
     },
     dice() {
       return this.$store.state.dice
+    }
+  },
+  head() {
+    return {
+      title: 'Fertigkeiten | ' + this.$store.state.title
     }
   }
 }
