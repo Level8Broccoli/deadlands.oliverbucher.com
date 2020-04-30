@@ -61,6 +61,7 @@ export default {
         console.error(localStorage.getItem('charSave'))
       }
     }
+    this.$store.dispatch('charSave/uniqueId')
   }
 }
 </script>

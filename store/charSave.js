@@ -76,6 +76,9 @@ export const mutations = {
   setNotes(state, notes) {
     state.notes = notes
   },
+  setId(state, id) {
+    state.id = id
+  },
   clickAttribute(state, payload) {
     const list = state.attributeList
     const currentEntry = list.find((e) => e.id === payload.id)
@@ -134,6 +137,17 @@ export const mutations = {
       )
     } else {
       list.push(payload)
+    }
+  }
+}
+export const actions = {
+  uniqueId({ commit, rootState }) {
+    const currentId = rootState.charSave.id
+    if (currentId === 0) {
+      const uid = Math.random()
+        .toString(36)
+        .substr(2, 12)
+      commit('setId', uid)
     }
   }
 }
