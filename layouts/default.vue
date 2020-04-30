@@ -17,6 +17,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import SockJS from 'sockjs-client'
 import HeaderLogo from '~/components/header/HeaderLogo'
 import HeaderTitle from '~/components/header/HeaderTitle'
 import CharacterOverview from '~/components/meta/CharacterOverview'
@@ -62,6 +63,7 @@ export default {
       }
     }
     this.$store.dispatch('charSave/uniqueId')
+    this.$store.dispatch('chronicle/setUpWebsocket', SockJS)
   }
 }
 </script>

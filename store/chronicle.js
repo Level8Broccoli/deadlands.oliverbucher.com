@@ -101,5 +101,18 @@ export const actions = {
         }
       }
     })
+  },
+  setUpWebsocket({ commit, state }, SockJS) {
+    const sockjs = new SockJS(state.websocketUrl)
+
+    sockjs.onopen = function() {
+      console.log('[*] open', sockjs.protocol)
+    }
+    sockjs.onmessage = function(e) {
+      console.log('[.] message', e.data)
+    }
+    sockjs.onclose = function() {
+      console.log('[*] close')
+    }
   }
 }
