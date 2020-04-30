@@ -41,6 +41,9 @@ import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
 
 export default {
   components: { DiceBag, DiceRollResultEntry },
+  data() {
+    return { wsClient: null }
+  },
   computed: {
     chronicleList() {
       return this.$store.getters['chronicle/getList']

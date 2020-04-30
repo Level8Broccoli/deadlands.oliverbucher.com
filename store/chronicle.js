@@ -1,5 +1,6 @@
+import websocketPlugin from '~/plugins/websocketPlugin'
+
 export const state = () => ({
-  websocketUrl: 'https://deadlands-echo.herokuapp.com/echo',
   list: [],
   showLastRoll: false
 })
@@ -17,7 +18,6 @@ export const mutations = {
   addToChronicle(state, payload) {
     state.list.push(payload)
   },
-
   setShowLastRoll(state, boolean) {
     state.showLastRoll = boolean
   }
@@ -101,18 +101,7 @@ export const actions = {
         }
       }
     })
-  },
-  setUpWebsocket({ commit, state }, SockJS) {
-    const sockjs = new SockJS(state.websocketUrl)
-
-    sockjs.onopen = function() {
-      console.log('[*] open', sockjs.protocol)
-    }
-    sockjs.onmessage = function(e) {
-      console.log('[.] message', e.data)
-    }
-    sockjs.onclose = function() {
-      console.log('[*] close')
-    }
   }
 }
+
+export const plugins = [websocketPlugin]

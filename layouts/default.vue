@@ -6,6 +6,7 @@
         <div class="custom-container">
           <HeaderTitle title="Willkommen im Weird West" />
           <CharacterOverview />
+          <button class="button" @click="sendMessage('test')" />
           <NavTabs />
           <nuxt />
           <LastRoll v-if="showLastRoll" />
@@ -17,15 +18,23 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import SockJS from 'sockjs-client'
 import HeaderLogo from '~/components/header/HeaderLogo'
 import HeaderTitle from '~/components/header/HeaderTitle'
 import CharacterOverview from '~/components/meta/CharacterOverview'
 import NavTabs from '~/components/navigation/NavTabs'
 import LastRoll from '~/components/common/LastRoll'
 
+const sendMessage = (msg) => {}
+
 export default {
   components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs, LastRoll },
+  data() {
+    return {
+      sendMessagex() {
+        return null
+      }
+    }
+  },
   computed: {
     showLastRoll() {
       const lastRoll = this.$store.getters['chronicle/getLastRoll']
@@ -44,26 +53,54 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.getItem('charSaveV2')) {
-      try {
-        const charSave = JSON.parse(localStorage.getItem('charSaveV2'))
-        this.$store.commit('charSave/loadFromSave', charSave)
-      } catch (error) {
-        console.error(error)
-        console.error(localStorage.getItem('charSaveV2'))
-      }
-    } else if (localStorage.getItem('charSave')) {
-      // convert old save -> TODO delete next week
-      try {
-        const charSave = JSON.parse(localStorage.getItem('charSave'))
-        this.$store.commit('charSave/loadFromOldSave', charSave)
-      } catch (error) {
-        console.error(error)
-        console.error(localStorage.getItem('charSave'))
+    const getSaveFromLocalStorge = () => {
+      if (localStorage.getItem('charSaveV2')) {
+        try {
+          const charSave = JSON.parse(localStorage.getItem('charSaveV2'))
+          this.$store.commit('charSave/loadFromSave', charSave)
+        } catch (error) {
+          console.error(error)
+          console.error(localStorage.getItem('charSaveV2'))
+        }
+      } else if (localStorage.getItem('charSave')) {
+        // convert old save -> TODO delete next week
+        try {
+          const charSave = JSON.parse(localStorage.getItem('charSave'))
+          this.$store.commit('charSave/loadFromOldSave', charSave)
+        } catch (error) {
+          console.error(error)
+          console.error(localStorage.getItem('charSave'))
+        }
       }
     }
+    getSaveFromLocalStorge()
+
     this.$store.dispatch('charSave/uniqueId')
-    this.$store.dispatch('chronicle/setUpWebsocket', SockJS)
+
+    // const initalizeWebsocket = () => {
+    //   const wsClient = new SockJS('https://deadlands-echo.herokuapp.com/echo')
+    //   wsClient.onopen = function() {
+    //     console.log('[WS] Connection opened')
+    //     console.log(this.sendMessage)
+    //     sendMessage = (msg) => {
+    //       console.log(msg)
+    //       wsClient.send(msg)
+    //     }
+    //   }
+    //   wsClient.onmessage = function(e) {
+    //     console.log('[WS] Message: ', e.data)
+    //   }
+    //   wsClient.onclose = function() {
+    //     console.log('[WS] Connection closed')
+    //   }
+    // }
+    // initalizeWebsocket()
+    sendMessage('test')
+  },
+  methods: {
+    sendMessage(msg) {
+      sendMessage(msg)
+    }
   }
 }
 </script>
