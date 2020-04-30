@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HeaderLogo from '~/components/header/HeaderLogo'
 import HeaderTitle from '~/components/header/HeaderTitle'
 import CharacterOverview from '~/components/meta/CharacterOverview'
@@ -29,16 +30,31 @@ export default {
       const lastRoll = this.$store.getters['chronicle/getLastRoll']
       const showLastRoll = this.$store.state.chronicle.showLastRoll
       return showLastRoll && typeof lastRoll !== 'undefined'
+    },
+    ...mapGetters({ charSave: 'charSave/charSave' })
+  },
+  watch: {
+    charSave: {
+      handler(charSave) {
+        const parsed = JSON.stringify(this.charSave)
+        localStorage.setItem('charSaveV2', parsed)
+      },
+      deep: true
     }
   },
   mounted() {
-    if (localStorage.getItem('charSave')) {
+    if (localStorage.getItem('charSaveV2')) {
+      try {
+        const charSave = JSON.parse(localStorage.getItem('charSaveV2'))
+        this.$store.commit('charSave/loadFromSave', charSave)
+      } catch (error) {
+        console.error(error)
+        console.error(localStorage.getItem('charSaveV2'))
+      }
+    } else if (localStorage.getItem('charSave')) {
       try {
         const charSave = JSON.parse(localStorage.getItem('charSave'))
-        if (charSave.version === 2) {
-        } else {
-          this.$store.commit('charSave/loadFromOldSave', charSave)
-        }
+        this.$store.commit('charSave/loadFromOldSave', charSave)
       } catch (error) {
         console.error(error)
         console.error(localStorage.getItem('charSave'))

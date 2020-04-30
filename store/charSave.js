@@ -8,7 +8,20 @@ export const state = () => ({
   talentList: []
 })
 
+export const getters = {
+  charSave: (state) => {
+    return state
+  }
+}
+
 export const mutations = {
+  loadFromSave(state, charSave) {
+    for (const [key, value] of Object.entries(charSave)) {
+      if (typeof value !== 'undefined' && value.length > 0) {
+        state[key] = value
+      }
+    }
+  },
   loadFromOldSave(state, charSave) {
     if (charSave.name.length > 0) {
       state.name = charSave.name
