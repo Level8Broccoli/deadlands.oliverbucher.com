@@ -79,10 +79,12 @@ export const actions = {
     }
 
     dispatch('commitOwnAction', {
-      config: { comment, dice, wild, modifications, showLastRoll },
-      rollNormal,
-      rollWild,
-      result
+      dicePool: { comment, dice, wild, modifications, showLastRoll },
+      diceRoll: {
+        rollNormal,
+        rollWild,
+        result
+      }
     })
   }
 }

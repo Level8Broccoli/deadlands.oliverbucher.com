@@ -9,7 +9,7 @@
         />
       </td>
       <td>
-        {{ diceRoll.config.comment }}
+        {{ dicePool.comment }}
         <div class="has-text-weight-bold">
           <small>{{ meta.timestamp }}</small>
         </div>
@@ -41,7 +41,7 @@
       <td>
         <div class="buttons">
           <button
-            v-for="(mod, index) in diceRoll.config.modifications"
+            v-for="(mod, index) in dicePool.modifications"
             :key="index"
             class="button is-light"
             :class="mod.value < 0 ? 'is-danger' : 'is-success'"
@@ -92,17 +92,20 @@ export default {
     meta() {
       return this.entry.meta
     },
+    dicePool() {
+      return this.entry.payload.dicePool
+    },
     diceRoll() {
-      return this.entry.payload
+      return this.entry.payload.diceRoll
     }
   },
   methods: {
     rerollDice(dice) {
       const REROLL_PREFIX = '[Reroll]'
-      const reroll = { ...dice.config }
-      reroll.comment = dice.config.comment.includes(REROLL_PREFIX)
-        ? dice.config.comment
-        : `${REROLL_PREFIX} ${dice.config.comment}`
+      const reroll = { ...this.dicePool }
+      reroll.comment = reroll.comment.includes(REROLL_PREFIX)
+        ? reroll.comment
+        : `${REROLL_PREFIX} ${reroll.comment}`
       reroll.showLastRoll = this.$route.name !== 'chronicle'
       this.$store.dispatch('chronicle/rollDice', reroll)
     },
