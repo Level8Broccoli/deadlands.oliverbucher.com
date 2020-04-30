@@ -23,6 +23,7 @@ export const mutations = {
     }
   },
   loadFromOldSave(state, charSave) {
+    // convert old save -> TODO delete next week
     if (charSave.name.length > 0) {
       state.name = charSave.name
     }
