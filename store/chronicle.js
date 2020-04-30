@@ -37,8 +37,10 @@ export const actions = {
     meta = { ...meta, time, timestamp, author }
     commit('addToChronicle', { meta, payload })
   },
-  commitOtherAction({ commit }) {
-    // TODO Websocket
+  commitOtherAction({ commit, rootState }, { meta, payload }) {
+    if (meta.author !== rootState.charSave.id) {
+      commit('addToChronicle', { meta, payload })
+    }
   },
   rollDice(
     { commit, dispatch },

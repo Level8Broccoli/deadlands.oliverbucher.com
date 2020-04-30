@@ -1,6 +1,6 @@
 <template>
   <tbody>
-    <tr>
+    <tr :class="myEntry">
       <td>
         <GameButton
           button-type="roll"
@@ -100,6 +100,11 @@ export default {
     },
     diceRoll() {
       return this.entry.payload.diceRoll
+    },
+    myEntry() {
+      return this.entry.meta.author === this.$store.state.charSave.id
+        ? 'custom-is-own-row'
+        : ''
     }
   },
   methods: {
@@ -137,3 +142,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.custom-is-own-row {
+  background-color: hsl(0, 0%, 96%);
+}
+</style>

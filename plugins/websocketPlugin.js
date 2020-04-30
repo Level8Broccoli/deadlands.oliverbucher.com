@@ -12,16 +12,19 @@ export default function websocketPlugin({ store }) {
     sendMessage = (msg) => socket.send(msg)
   }
   socket.onmessage = function(e) {
-    console.log('[WS] Message:', e.data)
+    const parse = JSON.parse(e.data)
+    store.dispatch('chronicle/commitOtherAction', parse)
   }
   socket.onclose = function() {
     store.commit('chronicle/setWsConnection', false)
     console.log('[WS] Connection closed')
   }
   store.subscribe((mutation, state) => {
-    if (mutation.type === 'chronicle/addToChronicle') {
-      console.log(JSON.stringify(mutation.payload))
-      sendMessage('added to Chronicle')
+    if (
+      mutation.type === 'chronicle/addToChronicle' &&
+      mutation.payload.meta.author === state.charSave.id
+    ) {
+      sendMessage(JSON.stringify(mutation.payload))
     }
   })
 }
