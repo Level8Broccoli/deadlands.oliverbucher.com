@@ -31,6 +31,13 @@
           </td>
         </tr>
       </table>
+
+      <div class="has-text-right">
+        <small>
+          {{ wsState }}
+          <font-awesome-icon :icon="['fas', wsSymbol]" />
+        </small>
+      </div>
     </div>
   </div>
 </template>
@@ -41,12 +48,17 @@ import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
 
 export default {
   components: { DiceBag, DiceRollResultEntry },
-  data() {
-    return { wsClient: null }
-  },
   computed: {
     chronicleList() {
       return this.$store.getters['chronicle/getList']
+    },
+    wsState() {
+      const wsState = this.$store.state.chronicle.wsConnection
+      return wsState ? 'verbunden' : 'Verbindung geschlossen'
+    },
+    wsSymbol() {
+      const wsState = this.$store.state.chronicle.wsConnection
+      return wsState ? 'signal' : 'ban'
     }
   },
   head() {

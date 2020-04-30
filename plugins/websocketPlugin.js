@@ -1,25 +1,27 @@
 import SockJS from 'sockjs-client'
 
+const WS_ENDPOINT = 'https://deadlands-echo.herokuapp.com/echo'
+
 export default function websocketPlugin({ store }) {
-  console.log('plugin loaded')
-  const socket = new SockJS('https://deadlands-echo.herokuapp.com/echo')
+  let sendMessage = (msg) => {}
+
+  const socket = new SockJS(WS_ENDPOINT)
   socket.onopen = function() {
+    store.commit('chronicle/setWsConnection', true)
     console.log('[WS] Connection opened')
+    sendMessage = (msg) => socket.send(msg)
   }
   socket.onmessage = function(e) {
     console.log('[WS] Message:', e.data)
   }
   socket.onclose = function() {
+    store.commit('chronicle/setWsConnection', false)
     console.log('[WS] Connection closed')
   }
   store.subscribe((mutation, state) => {
-    // console.log(mutation)
-    // console.log(state)
-    // console.log('mutation', mutation)
-    // console.log('payload', state.payload)
-  })
-  store.subscribeAction((action, state) => {
-    // console.log(action)
-    // console.log(state)
+    if (mutation.type === 'chronicle/addToChronicle') {
+      console.log(JSON.stringify(mutation.payload))
+      sendMessage('added to Chronicle')
+    }
   })
 }

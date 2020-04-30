@@ -2,7 +2,8 @@ import websocketPlugin from '~/plugins/websocketPlugin'
 
 export const state = () => ({
   list: [],
-  showLastRoll: false
+  showLastRoll: false,
+  wsConnection: false
 })
 
 export const getters = {
@@ -20,6 +21,9 @@ export const mutations = {
   },
   setShowLastRoll(state, boolean) {
     state.showLastRoll = boolean
+  },
+  setWsConnection(state, boolean) {
+    state.wsConnection = boolean
   }
 }
 
