@@ -5,14 +5,14 @@
         <GameButton
           button-type="roll"
           title="Wurf wiederholen"
-          @button-click="rollDice(entry)"
+          @button-click="rerollDice(diceRoll)"
         />
       </td>
       <td>
-        <!-- {{ entry.comment }}
+        {{ diceRoll.comment }}
         <div class="has-text-weight-bold">
-          <small>{{ entry.timestamp }}</small>
-        </div> -->
+          <small>{{ meta.timestamp }}</small>
+        </div>
       </td>
       <td>
         <!-- <div class="buttons">
@@ -74,8 +74,9 @@
 
 <script>
 import GameButton from '~/components/common/GameButton'
+
 export default {
-  name: 'ChronicleEntry',
+  name: 'DiceRollResultEntry',
   components: { GameButton },
   props: {
     entry: {
@@ -85,9 +86,23 @@ export default {
       }
     }
   },
+  computed: {
+    meta() {
+      return this.entry.meta
+    },
+    diceRoll() {
+      return this.entry.payload
+    }
+  },
   methods: {
-    rollDice(entry) {
-      // TODO
+    rerollDice(dice) {
+      const REROLL_PREFIX = '[Reroll]'
+      const reroll = { ...dice }
+      reroll.comment = dice.comment.includes(REROLL_PREFIX)
+        ? dice.comment
+        : `${REROLL_PREFIX} ${dice.comment}`
+      reroll.showLastRoll = this.$route.name !== 'chronicle'
+      this.$store.dispatch('chronicle/rollDice', reroll)
     }
   }
 }

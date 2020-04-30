@@ -19,7 +19,7 @@
           <th>Ergebnis</th>
           <th></th>
         </tr>
-        <ChronicleEntry
+        <DiceRollResultEntry
           v-for="(entry, index) in chronicleList"
           :key="index"
           :entry="entry"
@@ -37,10 +37,10 @@
 
 <script>
 import DiceBag from '~/components/chronicle/DiceBag'
-import ChronicleEntry from '~/components/chronicle/ChronicleEntry'
+import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
 
 export default {
-  components: { DiceBag, ChronicleEntry },
+  components: { DiceBag, DiceRollResultEntry },
   computed: {
     chronicleList() {
       return this.$store.state.chronicle.list

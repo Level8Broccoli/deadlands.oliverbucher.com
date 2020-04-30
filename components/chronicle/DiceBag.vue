@@ -6,8 +6,8 @@
           <GameButton
             :title="'Wirf einen ' + die + ' Würfel'"
             button-type="text"
-            :button-text="die"
-            button-styles="['info']"
+            :button-text="die.toString()"
+            :button-styles="['info']"
             @button-click="rollDice(die)"
           />
         </p>
@@ -29,10 +29,10 @@ export default {
   },
   methods: {
     rollDice(die) {
-      this.$store.commit('chronicle/rollDice', {
+      this.$store.dispatch('chronicle/rollDice', {
         comment: `Manueller Wurf (W${die})`,
         dice: die,
-        wild: false
+        showLastRoll: true
       })
     }
   }

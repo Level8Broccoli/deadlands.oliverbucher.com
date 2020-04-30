@@ -4,10 +4,30 @@ export const state = () => ({
 })
 
 export const mutations = {
-  rollDice(state, { comment, dice, wild, modifications, showLastRoll }) {
-    const time = new Date()
-    const timestamp = `${time.getHours()}.${time.getMinutes()} Uhr (${time.getSeconds()}.${time.getMilliseconds()})`
+  addToChronicle(state, payload) {
+    state.list.push(payload)
+  },
 
+  setShowLastRoll(state, boolean) {
+    state.showLastRoll = boolean
+  }
+}
+
+export const actions = {
+  commitOwnAction({ commit, state, rootState }, payload) {
+    const time = new Date()
+    const timestamp = `${time.getHours()}.${time.getMinutes()} Uhr`
+    const author = rootState.charSave.id
+    const meta = { time, timestamp, author }
+    commit('addToChronicle', { meta, payload })
+  },
+  commitOtherAction({ commit }) {
+    // TODO
+  },
+  rollDice(
+    { commit, dispatch },
+    { comment, dice, wild, modifications, showLastRoll }
+  ) {
     const rollNormal = []
     let totalNormal = 0
     while (true) {
@@ -54,21 +74,16 @@ export const mutations = {
       raise: Math.floor(biggerTotal / 4) - 1
     }
 
-    state.list.push({
-      time,
-      timestamp,
+    if (showLastRoll) {
+      commit('setShowLastRoll', true)
+    }
+
+    dispatch('commitOwnAction', {
       rollNormal,
       rollWild,
       modifications,
       result,
       comment
     })
-
-    if (showLastRoll) {
-      state.showLastRoll = true
-    }
-  },
-  setShowLastRoll(state, boolean) {
-    state.showLastRoll = boolean
   }
 }

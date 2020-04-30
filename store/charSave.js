@@ -1,4 +1,5 @@
 export const state = () => ({
+  id: 0,
   name: '',
   notes: '',
   attributeList: [],

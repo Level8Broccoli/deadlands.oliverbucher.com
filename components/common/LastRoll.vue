@@ -1,6 +1,6 @@
 <template>
   <div class="container custom-roll-popup">
-    <article v-show="showLastRoll" class="message" :class="colorMessage">
+    <article v-show="showLastRoll" class="message">
       <div class="message-header">
         <p>Letzter Wurf</p>
         <button
