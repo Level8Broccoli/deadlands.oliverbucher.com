@@ -1,0 +1,111 @@
+<template>
+  <tbody>
+    <tr>
+      <td>
+        <GameButton button-type="roll" @button-click="rollDice(skill)" />
+      </td>
+      <td>
+        <a @click="show = !show">{{ skill.name }}</a>
+        <small>{{ skill.attr }}</small>
+      </td>
+      <td v-for="die in dice" :key="die">
+        <GameButton
+          :button-type="buttonType(skill, die)"
+          @button-click="clickSkill(skill, die)"
+        />
+      </td>
+    </tr>
+    <tr v-if="show">
+      <td colspan="6">{{ skill.descr }}</td>
+    </tr>
+  </tbody>
+</template>
+
+<script>
+import GameButton from '~/components/common/GameButton'
+
+export default {
+  name: 'SkillEntry',
+  components: { GameButton },
+  props: {
+    skill: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+    dice: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  data() {
+    return { show: false }
+  },
+  computed: {
+    currentValue() {
+      const list = this.$store.state.charSave.skillList
+      const skillSaved = list.find((e) => e.id === this.skill.id)
+      if (typeof skillSaved !== 'undefined') {
+        return skillSaved.value
+      }
+      if (this.skill.defaultValue) {
+        return 4
+      }
+      return 0
+    },
+    currentValueOfAttribute() {
+      const list = this.$store.state.charSave.attributeList
+      const attributeSaved = list.find((e) => e.id === this.skill.attr)
+      if (typeof attributeSaved !== 'undefined') {
+        return attributeSaved.value
+      }
+      return 4
+    }
+  },
+  methods: {
+    rollDice(skill) {
+      const comment = `${skill.name}`
+      const modifications = []
+      let dice = this.currentValue
+      const wild = true
+      const showLastRoll = true
+
+      if (this.currentValue === 0) {
+        modifications.push({
+          name: 'Ungeübt',
+          value: -2
+        })
+        dice = 4
+      }
+
+      this.$store.dispatch('chronicle/rollDice', {
+        comment,
+        dice,
+        wild,
+        modifications,
+        showLastRoll
+      })
+    },
+    buttonType(skill, value) {
+      if (skill.defaultValue >= value) {
+        return 'fixed'
+      } else if (this.currentValue >= value) {
+        return 'checked'
+      } else if (this.currentValueOfAttribute < value) {
+        return 'point2'
+      } else {
+        return 'point1'
+      }
+    },
+    clickSkill(skill, value) {
+      this.$store.commit('charSave/clickSkill', {
+        id: skill.id,
+        value
+      })
+    }
+  }
+}
+</script>
