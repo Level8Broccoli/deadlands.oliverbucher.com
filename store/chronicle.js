@@ -1,4 +1,5 @@
 export const state = () => ({
+  websocketUrl: 'https://deadlands-echo.herokuapp.com/echo',
   list: [],
   showLastRoll: false
 })

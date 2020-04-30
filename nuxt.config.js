@@ -5,6 +5,7 @@ export default {
    */
   head: {
     title: 'Deadlands',
+    script: [{ src: 'https://cdn.jsdelivr.net/sockjs/1.0.1/sockjs.min.js' }],
     meta: [
       {
         charset: 'utf-8'
