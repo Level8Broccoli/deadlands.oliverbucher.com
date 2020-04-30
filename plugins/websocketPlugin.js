@@ -2,7 +2,7 @@ import SockJS from 'sockjs-client'
 
 export default function websocketPlugin({ store }) {
   console.log('plugin loaded')
-  const socket = new SockJS('https://deadlands-echo.herokuapp.com//echo')
+  const socket = new SockJS('https://deadlands-echo.herokuapp.com/echo')
   socket.onopen = function() {
     console.log('[WS] Connection opened')
   }
