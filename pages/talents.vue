@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import ButtonLegend from '~/components/meta/ButtonLegend'
+import ButtonLegend from '~/components/common/ButtonLegend'
 import TalentEntry from '~/components/talents/TalentEntry'
 
 export default {

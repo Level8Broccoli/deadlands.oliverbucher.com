@@ -36,7 +36,7 @@
 
 <script>
 import SkillEntry from '~/components/skills/SkillEntry'
-import ButtonLegend from '~/components/meta/ButtonLegend'
+import ButtonLegend from '~/components/common/ButtonLegend'
 
 export default {
   components: { SkillEntry, ButtonLegend },

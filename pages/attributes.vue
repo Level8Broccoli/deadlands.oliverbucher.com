@@ -31,7 +31,7 @@
 
 <script>
 import AttributeEntry from '~/components/attributes/AttributeEntry'
-import ButtonLegend from '~/components/meta/ButtonLegend'
+import ButtonLegend from '~/components/common/ButtonLegend'
 
 export default {
   components: { AttributeEntry, ButtonLegend },

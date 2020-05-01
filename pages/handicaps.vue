@@ -29,7 +29,7 @@
 
 <script>
 import HandicapEntry from '~/components/handicaps/HandicapEntry'
-import ButtonLegend from '~/components/meta/ButtonLegend'
+import ButtonLegend from '~/components/common/ButtonLegend'
 
 export default {
   components: { HandicapEntry, ButtonLegend },
