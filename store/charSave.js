@@ -14,33 +14,47 @@ export const getters = {
     return state
   },
   getGearList: (state) => {
-    return [...state.gearList]
-      .filter((e) => e.count > 0)
-      .sort((a, b) => {
-        if (a.id < b.id) {
-          return -1
-        } else if (a.id > b.id) {
-          return 1
-        }
-        return 0
-      })
+    return [...state.gearList].sort((a, b) => {
+      if (a.id < b.id) {
+        return -1
+      } else if (a.id > b.id) {
+        return 1
+      }
+      return 0
+    })
+  },
+  getGearTotal: (state, getters) => {
+    return [...getters.getGearList].reduce(
+      (prev, curr) => prev + curr.value * curr.count,
+      0
+    )
   }
 }
 
 export const mutations = {
-  saveGear(state, gear) {
-    gear.id = gear.name
-    const savedGear = state.gearList.find((e) => (e.id = gear.id))
-    if (savedGear) {
-      console.log('override')
-
+  removeGear(state, gear) {
+    const list = state.gearList
+    const existingGear = list.find((e) => e.id === gear.id)
+    if (existingGear) {
+      list.splice(
+        list.findIndex((e) => e.id === gear.id),
+        1
+      )
+    }
+  },
+  addGear(state, gear) {
+    state.gearList.push(gear)
+  },
+  updateGear(state, gear) {
+    const list = state.gearList
+    const existingGear = list.find((e) => e.id === gear.id)
+    if (existingGear) {
+      gear.id = gear.name
       for (const [key, value] of Object.entries(gear)) {
-        if (typeof value !== 'undefined' && value.length > 0) {
-          savedGear[key] = value
+        if (typeof value !== 'undefined') {
+          existingGear[key] = value
         }
       }
-    } else {
-      state.gearList.push(gear)
     }
   },
   loadFromSave(state, charSave) {
@@ -169,6 +183,20 @@ export const mutations = {
   }
 }
 export const actions = {
+  modifyGear({ commit, rootState }, gear) {
+    console.log('modify', gear)
+    gear.id = gear.id || gear.name
+    const existingGear = rootState.charSave.gearList.find(
+      (e) => e.id === gear.id
+    )
+    if (gear.count === 0 || gear.count === '0') {
+      commit('removeGear', gear)
+    } else if (existingGear) {
+      commit('updateGear', gear)
+    } else {
+      commit('addGear', gear)
+    }
+  },
   uniqueId({ commit, rootState }) {
     const currentId = rootState.charSave.id
     if (currentId === 0) {

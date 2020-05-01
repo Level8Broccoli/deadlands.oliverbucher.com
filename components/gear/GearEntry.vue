@@ -1,85 +1,26 @@
 <template>
   <tbody>
-    <tr v-if="modeUpdated === 'read' && gearUpdated.count !== '0'">
+    <tr>
       <td>{{ gearUpdated.count }}</td>
       <td>
-        <a @click="show = !show">{{ gearUpdated.name }}</a>
+        <a v-if="gearUpdated.descr !== ''" @click="show = !show">{{
+          gearUpdated.name
+        }}</a>
+        <span v-else>
+          {{ gearUpdated.name }}
+        </span>
       </td>
-      <td>{{ gearUpdated.value }}</td>
-      <td></td>
-      <td>
-        <GameButton button-type="edit" @button-click="modeUpdated = 'edit'" />
+      <td class="has-text-right">
+        <span v-if="gearUpdated.count > 1"> {{ gearUpdated.value }}$/# </span>
       </td>
-    </tr>
-    <tr v-if="modeUpdated === 'read' && show && gearUpdated.count !== '0'">
-      <td></td>
-      <td colspan="2">{{ gearUpdated.descr }}</td>
-      <td></td>
-    </tr>
-    <tr v-if="modeUpdated !== 'read'">
-      <td>
-        <div class="field">
-          <label class="label">Anzahl</label>
-          <div class="control">
-            <input
-              v-model="gearUpdated.count"
-              class="input"
-              type="number"
-              min="0"
-              :class="{ 'is-danger': errors.countError }"
-            />
-          </div>
-        </div>
-      </td>
-      <td colspan="2">
-        <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input
-              v-model="gearUpdated.name"
-              class="input"
-              type="text"
-              placeholder="Bezeichnung"
-              :class="{ 'is-danger': errors.nameError }"
-            />
-          </div>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <label class="label">Stückpreis</label>
-          <div class="control">
-            <input v-model="gearUpdated.value" class="input" type="number" />
-          </div>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <label class="label">Aktionen</label>
-          <div class="field is-grouped">
-            <div class="control">
-              <GameButton button-type="checked" @button-click="addToList" />
-            </div>
-            <div class="control">
-              <GameButton button-type="point2" @button-click="exitEdit" />
-            </div>
-          </div>
-        </div>
+      <td class="has-text-right">{{ totalValue }}$</td>
+      <td class="has-text-right">
+        <GameButton button-type="edit" @button-click="editGear" />
       </td>
     </tr>
-    <tr v-if="modeUpdated !== 'read'">
+    <tr v-if="show">
       <td></td>
-      <td colspan="3">
-        <div class="field">
-          <div class="control">
-            <textarea
-              v-model="gearUpdated.descr"
-              class="textarea"
-              placeholder="Beschreibung, Details ..."
-            ></textarea>
-          </div>
-        </div>
-      </td>
+      <td colspan="3">{{ gearUpdated.descr }}</td>
       <td></td>
     </tr>
   </tbody>
@@ -92,7 +33,6 @@ export default {
   name: 'GearEntry',
   components: { GameButton },
   props: {
-    mode: { type: String, default: 'read' },
     gear: {
       type: Object,
       default() {
@@ -106,11 +46,7 @@ export default {
     }
   },
   data() {
-    return {
-      show: false,
-      modeUpdated: this.mode,
-      gearUpdated: { ...this.gear }
-    }
+    return { show: false }
   },
   computed: {
     errors() {
@@ -118,20 +54,17 @@ export default {
         countError: this.gearUpdated.count < 0,
         nameError: this.gearUpdated.name === ''
       }
+    },
+    totalValue() {
+      return this.gearUpdated.count * this.gearUpdated.value
+    },
+    gearUpdated() {
+      return { ...this.gear }
     }
   },
   methods: {
-    addToList() {
-      if (!this.errors.countError && !this.errors.nameError) {
-        this.$store.commit('charSave/saveGear', this.gearUpdated)
-        this.modeUpdated = 'read'
-      }
-    },
-    exitEdit() {
-      if (!this.gearUpdated.id) {
-        this.$emit('close-form')
-      }
-      this.modeUpdated = 'read'
+    editGear() {
+      this.$emit('edit-gear')
     }
   }
 }
