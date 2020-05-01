@@ -145,6 +145,11 @@ export default {
 
 <style scoped>
 .custom-is-own-row {
-  background-color: hsl(0, 0%, 96%);
+  background: hsla(171, 100%, 41%, 0.2);
+  background: linear-gradient(
+    90deg,
+    hsla(171, 100%, 41%, 0.2) 0%,
+    hsl(0, 0%, 100%) 100%
+  );
 }
 </style>
