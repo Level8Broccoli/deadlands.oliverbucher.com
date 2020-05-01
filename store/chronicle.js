@@ -11,7 +11,7 @@ export const getters = {
     return getters.getList.find((e) => e.meta.type === 'diceRoll')
   },
   getList: (state) => {
-    return [...state.list].sort((a, b) => a.meta.time - b.meta.time)
+    return [...state.list].sort((a, b) => b.meta.time - a.meta.time)
   }
 }
 
