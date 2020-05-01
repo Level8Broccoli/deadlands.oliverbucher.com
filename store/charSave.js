@@ -5,16 +5,44 @@ export const state = () => ({
   attributeList: [],
   skillList: [],
   handicapList: [],
-  talentList: []
+  talentList: [],
+  gearList: []
 })
 
 export const getters = {
   charSave: (state) => {
     return state
+  },
+  getGearList: (state) => {
+    return [...state.gearList]
+      .filter((e) => e.count > 0)
+      .sort((a, b) => {
+        if (a.id < b.id) {
+          return -1
+        } else if (a.id > b.id) {
+          return 1
+        }
+        return 0
+      })
   }
 }
 
 export const mutations = {
+  saveGear(state, gear) {
+    gear.id = gear.name
+    const savedGear = state.gearList.find((e) => (e.id = gear.id))
+    if (savedGear) {
+      console.log('override')
+
+      for (const [key, value] of Object.entries(gear)) {
+        if (typeof value !== 'undefined' && value.length > 0) {
+          savedGear[key] = value
+        }
+      }
+    } else {
+      state.gearList.push(gear)
+    }
+  },
   loadFromSave(state, charSave) {
     for (const [key, value] of Object.entries(charSave)) {
       if (typeof value !== 'undefined' && value.length > 0) {

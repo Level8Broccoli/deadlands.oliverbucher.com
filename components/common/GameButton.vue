@@ -28,6 +28,8 @@ export default {
           'checked',
           'fixed',
           'roll',
+          'edit',
+          'plus',
           'text'
         ].includes(value)
       }
@@ -52,11 +54,14 @@ export default {
     buttonClass() {
       return {
         'is-light':
-          this.buttonType === 'point1' || this.buttonStyles.includes('light'),
+          this.buttonType === 'point1' ||
+          this.buttonType === 'edit' ||
+          this.buttonStyles.includes('light'),
         'is-danger is-light':
           this.buttonType === 'point2' || this.buttonStyles.includes('danger'),
         'is-success':
           this.buttonType === 'checked' ||
+          this.buttonType === 'plus' ||
           this.buttonStyles.includes('success'),
         'is-info':
           this.buttonType === 'fixed' || this.buttonStyles.includes('info'),
@@ -70,7 +75,9 @@ export default {
         point2: 'times',
         checked: 'check',
         fixed: 'check-double',
-        roll: 'recycle'
+        roll: 'recycle',
+        edit: 'edit',
+        plus: 'plus'
       }[this.buttonType]
     }
   },
