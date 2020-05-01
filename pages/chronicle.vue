@@ -6,6 +6,7 @@
       <em>(wird nicht gespeichert)</em>.
     </p>
     <DiceBag />
+    <ChatForm />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
         <tr>
@@ -45,9 +46,10 @@
 <script>
 import DiceBag from '~/components/chronicle/DiceBag'
 import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
+import ChatForm from '~/components/chronicle/ChatForm'
 
 export default {
-  components: { DiceBag, DiceRollResultEntry },
+  components: { DiceBag, DiceRollResultEntry, ChatForm },
   computed: {
     chronicleList() {
       return this.$store.getters['chronicle/getList']

@@ -2,6 +2,7 @@ import websocketPlugin from '~/plugins/websocketPlugin'
 
 export const state = () => ({
   list: [],
+  chronicleLimit: 25,
   showLastRoll: false,
   wsConnection: false
 })
@@ -13,7 +14,11 @@ export const getters = {
       .find((e) => e.meta.author === rootState.charSave.id)
   },
   getList: (state) => {
-    return [...state.list].sort((a, b) => b.meta.time - a.meta.time)
+    const list = [...state.list].sort((a, b) => b.meta.time - a.meta.time)
+    if (!isNaN(state.chronicleLimit)) {
+      return list.slice(0, state.chronicleLimit)
+    }
+    return list
   }
 }
 
@@ -26,6 +31,9 @@ export const mutations = {
   },
   setWsConnection(state, boolean) {
     state.wsConnection = boolean
+  },
+  setChronicleLimit(state, value) {
+    state.chronicleLimit = value
   }
 }
 
