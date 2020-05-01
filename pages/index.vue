@@ -1,20 +1,16 @@
 <template>
   <div>
-    <div>
-      <div>
-        <h2 class="subtitle">Allgemein</h2>
-        <div class="field">
-          <label class="label">Charaktername</label>
-          <div class="control">
-            <input v-model="name" type="text" class="input" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Notizen</label>
-          <div class="control">
-            <textarea v-model="notes" rows="20" class="textarea"></textarea>
-          </div>
-        </div>
+    <h2 class="subtitle">Allgemein</h2>
+    <div class="field">
+      <label class="label">Charaktername</label>
+      <div class="control">
+        <input v-model="name" type="text" class="input" />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Notizen</label>
+      <div class="control">
+        <textarea v-model="notes" rows="20" class="textarea"></textarea>
       </div>
     </div>
   </div>

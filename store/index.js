@@ -32,6 +32,11 @@ export const state = () => ({
       points: 3
     },
     {
+      id: 'gear',
+      name: 'Ausrüstung',
+      link: '/gear'
+    },
+    {
       id: 'chronicle',
       name: 'Chronik',
       link: '/chronicle',
