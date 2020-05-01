@@ -5,6 +5,7 @@
       Hier befindet sich die Chronik der aktuellen Spielrunde
       <em>(wird nicht gespeichert)</em>.
     </p>
+    <br />
     <DiceBag />
     <ChatForm />
     <div class="table-container">
@@ -20,11 +21,20 @@
           <th>Ergebnis</th>
           <th></th>
         </tr>
-        <DiceRollResultEntry
+        <tbody
           v-for="(entry, index) in chronicleList"
           :key="index"
           :entry="entry"
-        />
+        >
+          <DiceRollResultEntry
+            v-if="entry.meta.type === 'diceRoll'"
+            :entry="entry"
+          />
+          <ChatEntry
+            v-else-if="entry.meta.type === 'chatEntry'"
+            :entry="entry"
+          />
+        </tbody>
         <tr v-if="chronicleList.length === 0">
           <td></td>
           <td colspan="6">
@@ -47,9 +57,10 @@
 import DiceBag from '~/components/chronicle/DiceBag'
 import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
 import ChatForm from '~/components/chronicle/ChatForm'
+import ChatEntry from '~/components/chronicle/ChatEntry'
 
 export default {
-  components: { DiceBag, DiceRollResultEntry, ChatForm },
+  components: { DiceBag, DiceRollResultEntry, ChatForm, ChatEntry },
   computed: {
     chronicleList() {
       return this.$store.getters['chronicle/getList']
@@ -73,3 +84,22 @@ export default {
   }
 }
 </script>
+
+<style>
+.custom-is-own-row {
+  background: hsla(171, 100%, 41%, 0.2);
+  background: linear-gradient(
+    90deg,
+    hsla(171, 100%, 41%, 0.2) 0%,
+    hsl(0, 0%, 100%) 100%
+  );
+}
+.custom-is-own-row-chat {
+  background: hsla(48, 100%, 67%, 0.2);
+  background: linear-gradient(
+    90deg,
+    hsla(48, 100%, 67%, 0.2) 0%,
+    hsl(0, 0%, 100%) 100%
+  );
+}
+</style>

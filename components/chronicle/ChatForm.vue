@@ -48,7 +48,13 @@ export default {
   },
   methods: {
     sendChatMessage(e) {
-      console.log('send', this.chatText)
+      if (this.chatText.length > 0 && this.chatText.length < 500) {
+        this.$store.dispatch('chronicle/commitOwnAction', {
+          meta: { type: 'chatEntry' },
+          payload: { message: this.chatText }
+        })
+        this.chatText = ''
+      }
       e.preventDefault()
     }
   }

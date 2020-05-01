@@ -1,85 +1,83 @@
 <template>
-  <tbody>
-    <tr :class="myEntry">
-      <td>
-        <GameButton
-          button-type="roll"
-          title="Wurf wiederholen"
-          @button-click="rerollDice(diceRoll)"
-        />
-      </td>
-      <td>
-        {{ dicePool.comment }} (W{{ dicePool.dice }})
-        <div>
-          <small>
-            <span v-if="authorName !== ''" class="has-text-weight-bold">
-              {{ authorName }} |
-            </span>
-            {{ meta.timestamp }}
-          </small>
-        </div>
-        <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
-          <span class="tag is-rounded">{{ tag }}</span>
-        </div>
-      </td>
-      <td>
-        <div class="buttons">
-          <button
-            v-for="(die, index) in diceRoll.rollNormal"
-            :key="index"
-            class="button is-light"
-            :class="renderDice(die.rolled, die.dice)"
-          >
-            {{ die.rolled }}
-          </button>
-        </div>
-      </td>
-      <td>
-        <div class="buttons">
-          <button
-            v-for="(die, index) in diceRoll.rollWild"
-            :key="index"
-            class="button is-light"
-            :class="renderDice(die.rolled, die.dice)"
-          >
-            {{ die.rolled }}
-          </button>
-        </div>
-      </td>
-      <td>
-        <div class="buttons">
-          <button
-            v-for="(mod, index) in dicePool.modifications"
-            :key="index"
-            class="button is-light"
-            :class="mod.value < 0 ? 'is-danger' : 'is-success'"
-          >
-            {{ mod.name }} {{ mod.value }}
-          </button>
-        </div>
-      </td>
-      <td>
-        <button class="button" :class="renderResult(diceRoll.result)">
-          {{ diceRoll.result.value }}
+  <tr :class="myEntry">
+    <td>
+      <GameButton
+        button-type="roll"
+        title="Wurf wiederholen"
+        @button-click="rerollDice(diceRoll)"
+      />
+    </td>
+    <td>
+      {{ dicePool.comment }} (W{{ dicePool.dice }})
+      <div>
+        <small>
+          <span v-if="authorName !== ''" class="has-text-weight-bold">
+            {{ authorName }} |
+          </span>
+          {{ meta.timestamp }}
+        </small>
+      </div>
+      <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
+        <span class="tag is-rounded">{{ tag }}</span>
+      </div>
+    </td>
+    <td>
+      <div class="buttons">
+        <button
+          v-for="(die, index) in diceRoll.rollNormal"
+          :key="index"
+          class="button is-light"
+          :class="renderDice(die.rolled, die.dice)"
+        >
+          {{ die.rolled }}
         </button>
-      </td>
-      <td>
-        <div v-if="diceRoll.result.success" class="has-text-success">
-          Erfolg!
-        </div>
-        <div v-else-if="diceRoll.result.critFailure" class="has-text-danger">
-          Snake Eyes!
-        </div>
-        <div v-else class="has-text-warning">Fehlschlag</div>
-        <div v-if="diceRoll.result.raise === 1" class="has-text-info">
-          1 Steigerung
-        </div>
-        <div v-if="diceRoll.result.raise > 1" class="has-text-info">
-          {{ diceRoll.result.raise }} Steigerungen
-        </div>
-      </td>
-    </tr>
-  </tbody>
+      </div>
+    </td>
+    <td>
+      <div class="buttons">
+        <button
+          v-for="(die, index) in diceRoll.rollWild"
+          :key="index"
+          class="button is-light"
+          :class="renderDice(die.rolled, die.dice)"
+        >
+          {{ die.rolled }}
+        </button>
+      </div>
+    </td>
+    <td>
+      <div class="buttons">
+        <button
+          v-for="(mod, index) in dicePool.modifications"
+          :key="index"
+          class="button is-light"
+          :class="mod.value < 0 ? 'is-danger' : 'is-success'"
+        >
+          {{ mod.name }} {{ mod.value }}
+        </button>
+      </div>
+    </td>
+    <td>
+      <button class="button" :class="renderResult(diceRoll.result)">
+        {{ diceRoll.result.value }}
+      </button>
+    </td>
+    <td>
+      <div v-if="diceRoll.result.success" class="has-text-success">
+        Erfolg!
+      </div>
+      <div v-else-if="diceRoll.result.critFailure" class="has-text-danger">
+        Snake Eyes!
+      </div>
+      <div v-else class="has-text-warning">Fehlschlag</div>
+      <div v-if="diceRoll.result.raise === 1" class="has-text-info">
+        1 Steigerung
+      </div>
+      <div v-if="diceRoll.result.raise > 1" class="has-text-info">
+        {{ diceRoll.result.raise }} Steigerungen
+      </div>
+    </td>
+  </tr>
 </template>
 
 <script>
@@ -153,14 +151,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.custom-is-own-row {
-  background: hsla(171, 100%, 41%, 0.2);
-  background: linear-gradient(
-    90deg,
-    hsla(171, 100%, 41%, 0.2) 0%,
-    hsl(0, 0%, 100%) 100%
-  );
-}
-</style>
