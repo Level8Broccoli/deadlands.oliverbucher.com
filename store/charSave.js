@@ -184,7 +184,6 @@ export const mutations = {
 }
 export const actions = {
   modifyGear({ commit, rootState }, gear) {
-    console.log('modify', gear)
     gear.id = gear.id || gear.name
     const existingGear = rootState.charSave.gearList.find(
       (e) => e.id === gear.id
