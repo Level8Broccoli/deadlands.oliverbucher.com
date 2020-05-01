@@ -7,8 +7,10 @@ export const state = () => ({
 })
 
 export const getters = {
-  getLastRoll: (state, getters) => {
-    return getters.getList.find((e) => e.meta.type === 'diceRoll')
+  getLastRoll: (state, getters, rootState) => {
+    return getters.getList
+      .filter((e) => e.meta.type === 'diceRoll')
+      .find((e) => e.meta.author === rootState.charSave.id)
   },
   getList: (state) => {
     return [...state.list].sort((a, b) => b.meta.time - a.meta.time)
