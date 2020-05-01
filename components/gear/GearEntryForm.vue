@@ -104,8 +104,10 @@ export default {
   },
   methods: {
     saveGear() {
-      this.$emit('save-gear', this.gearUpdated)
-      this.$emit('exit-form')
+      if ((!this.errors.countError, !this.errors.nameError)) {
+        this.$emit('save-gear', this.gearUpdated)
+        this.$emit('exit-form')
+      }
     },
     exitForm() {
       this.$emit('exit-form')
