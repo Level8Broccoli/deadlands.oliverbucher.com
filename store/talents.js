@@ -1358,6 +1358,13 @@ export const state = () => ({
 
 export const getters = {
   getList: (state) => {
-    return [...state.list].sort((a, b) => a.id - b.id)
+    return [...state.list].sort((a, b) => {
+      if (a.id < b.id) {
+        return -1
+      } else if (a.id > b.id) {
+        return 1
+      }
+      return 0
+    })
   }
 }
