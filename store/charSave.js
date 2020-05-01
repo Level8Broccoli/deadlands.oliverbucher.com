@@ -6,7 +6,8 @@ export const state = () => ({
   skillList: [],
   handicapList: [],
   talentList: [],
-  gearList: []
+  gearList: [],
+  charNames: { uqng012oe8: 'test' }
 })
 
 export const getters = {
@@ -28,6 +29,9 @@ export const getters = {
       (prev, curr) => prev + curr.value * curr.count,
       0
     )
+  },
+  getAuthorName: (state) => (id) => {
+    return state.charNames[id]
   }
 }
 
@@ -112,8 +116,12 @@ export const mutations = {
       }
     }
   },
+  updateCharName(state, { id, authorName }) {
+    state.charNames[id] = authorName
+  },
   setName(state, name) {
     state.name = name
+    state.charNames[state.id] = name
   },
   setNotes(state, notes) {
     state.notes = notes
@@ -183,6 +191,9 @@ export const mutations = {
   }
 }
 export const actions = {
+  updateCharNames({ commit }, meta) {
+    commit('updateCharName', { id: meta.author, authorName: meta.authorName })
+  },
   modifyGear({ commit, rootState }, gear) {
     gear.id = gear.id || gear.name
     const existingGear = rootState.charSave.gearList.find(

@@ -10,8 +10,13 @@
       </td>
       <td>
         {{ dicePool.comment }} (W{{ dicePool.dice }})
-        <div class="has-text-weight-bold">
-          <small>{{ meta.timestamp }}</small>
+        <div>
+          <small>
+            <span v-if="authorName !== ''" class="has-text-weight-bold">
+              {{ authorName }} |
+            </span>
+            {{ meta.timestamp }}
+          </small>
         </div>
         <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
           <span class="tag is-rounded">{{ tag }}</span>
@@ -105,6 +110,12 @@ export default {
       return this.entry.meta.author === this.$store.state.charSave.id
         ? 'custom-is-own-row'
         : ''
+    },
+    authorName() {
+      return (
+        this.$store.getters['charSave/getAuthorName'](this.meta.author) ||
+        this.meta.authorName
+      )
     }
   },
   methods: {
