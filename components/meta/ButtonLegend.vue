@@ -1,6 +1,6 @@
 <template
   ><div class="box">
-    <nav class="level is-mobile">
+    <nav class="level">
       <div class="level-item has-text-centered">
         <div><p class="title has-text-weight-bold">Legende</p></div>
       </div>
