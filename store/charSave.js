@@ -191,7 +191,7 @@ export const mutations = {
   }
 }
 export const actions = {
-  updateCharNames({ commit }, meta) {
+  updateCharNames({ commit }, { meta }) {
     commit('updateCharName', { id: meta.author, authorName: meta.authorName })
   },
   modifyGear({ commit, rootState }, gear) {
