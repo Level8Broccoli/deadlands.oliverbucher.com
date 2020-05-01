@@ -61,6 +61,9 @@ export default {
       return wsState ? 'signal' : 'ban'
     }
   },
+  mounted() {
+    this.$store.commit('chronicle/setShowLastRoll', false)
+  },
   head() {
     return {
       title: 'Chronik | ' + this.$store.state.title
