@@ -20,7 +20,7 @@ import { mapGetters } from 'vuex'
 import HeaderLogo from '~/components/header/HeaderLogo'
 import HeaderTitle from '~/components/header/HeaderTitle'
 import CharacterOverview from '~/components/common/CharacterOverview'
-import NavTabs from '~/components/navigation/NavTabs'
+import NavTabs from '~/components/header/NavTabs'
 import LastRoll from '~/components/common/LastRoll'
 
 export default {
