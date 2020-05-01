@@ -10,19 +10,20 @@
         ></button>
       </div>
       <div class="message-body">
-        <table class="table is-striped is-hoverable is-fullwidth">
-          <tr>
-            <th></th>
-            <th>Beschreibung</th>
-            <th>Wurf</th>
-            <th>Wild Die (W6)</th>
-            <th>Modifikationen</th>
-            <th>Ergebnis</th>
-            <th></th>
-          </tr>
-          <DiceRollResultEntry :entry="lastRoll" />
-        </table>
-
+        <div class="table-container">
+          <table class="table is-striped is-hoverable is-fullwidth">
+            <tr>
+              <th></th>
+              <th>Beschreibung</th>
+              <th>Wurf</th>
+              <th>Wild Die (W6)</th>
+              <th>Modifikationen</th>
+              <th>Ergebnis</th>
+              <th></th>
+            </tr>
+            <DiceRollResultEntry :entry="lastRoll" />
+          </table>
+        </div>
         <div class="has-text-right">
           <NuxtLink to="/chronicle">
             <span class="tag">zur Würfelchronik &rarr;</span>
