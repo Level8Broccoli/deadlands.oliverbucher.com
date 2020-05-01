@@ -15,7 +15,10 @@
               :class="{ 'is-danger': errors.countError }"
             />
           </div>
-          <p class="help">Setzte hier 0, um den Eintrag zu löschen.</p>
+          <p v-if="gearUpdated.count < 0" class="help is-danger">
+            Bitte gib eine positive Anzahl ein.
+          </p>
+          <p v-else class="help">Setzte hier 0, um den Eintrag zu löschen.</p>
         </div>
       </td>
       <td colspan="2">
@@ -30,6 +33,9 @@
               :class="{ 'is-danger': errors.nameError }"
             />
           </div>
+          <p v-if="gearUpdated.name.length === 0" class="help is-danger">
+            Bitte fülle eine Bezeichnung ein.
+          </p>
         </div>
       </td>
       <td>
@@ -104,7 +110,7 @@ export default {
   },
   methods: {
     saveGear() {
-      if ((!this.errors.countError, !this.errors.nameError)) {
+      if ((this.gearUpdated.count >= 0, this.gearUpdated.name.length !== 0)) {
         this.$emit('save-gear', this.gearUpdated)
         this.$emit('exit-form')
       }

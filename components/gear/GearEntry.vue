@@ -11,7 +11,9 @@
         </span>
       </td>
       <td class="has-text-right">
-        <span v-if="gearUpdated.count > 1"> {{ gearUpdated.value }}$/# </span>
+        <span v-if="gearUpdated.count > 1">
+          {{ gearUpdated.value }}$/Stück
+        </span>
       </td>
       <td class="has-text-right">{{ totalValue }}$</td>
       <td class="has-text-right">
@@ -49,12 +51,6 @@ export default {
     return { show: false }
   },
   computed: {
-    errors() {
-      return {
-        countError: this.gearUpdated.count < 0,
-        nameError: this.gearUpdated.name === ''
-      }
-    },
     totalValue() {
       return this.gearUpdated.count * this.gearUpdated.value
     },
