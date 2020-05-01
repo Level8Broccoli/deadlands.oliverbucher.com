@@ -7,7 +7,7 @@ export const state = () => ({
   handicapList: [],
   talentList: [],
   gearList: [],
-  charNames: { uqng012oe8: 'test' }
+  charNames: {}
 })
 
 export const getters = {
