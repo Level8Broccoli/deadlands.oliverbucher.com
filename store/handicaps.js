@@ -197,14 +197,7 @@ export const state = () => ({
       name: 'Feind',
       points: [1, 2],
       descr:
-        'Irgendjemand da draussen hasst den Charakter und will ihn ruinieren, einsperren oder tot sehen. Die Schwere des Handicaps hängt davon ab, wie mächtig der Feind ist und wie oft er auftaucht. Ein Feind (leicht) könnte ein einsamer Revolverheld sein, der auf Rache aus ist, oder eine verratene Bruderschaft, die zwar tödlich ist, sich aber nur selten zeigt.'
-    },
-    {
-      id: 'EinFeind',
-      name: 'Ein Feind',
-      points: [2],
-      descr:
-        'könnte mächtige Obrigkeiten, eine Bande von Gesetzlosen oder einen einzelnen sehr mächtigen und sehr hartnäckigen Rivalen bedeuten. Wenn der Gegner eines Tages bezwungen wird, sollte der SL nach und nach einen Ersatzfeind ins Spiel bringen, oder der Held wird das Handicap los, indem er einen Aufstieg opfert.'
+        'Irgendjemand da draussen hasst den Charakter und will ihn ruinieren, einsperren oder tot sehen. Die Schwere des Handicaps hängt davon ab, wie mächtig der Feind ist und wie oft er auftaucht. Ein Feind (leicht) könnte ein einsamer Revolverheld sein, der auf Rache aus ist, oder eine verratene Bruderschaft, die zwar tödlich ist, sich aber nur selten zeigt. Ein Feind könnte mächtige Obrigkeiten, eine Bande von Gesetzlosen oder einen einzelnen sehr mächtigen und sehr hartnäckigen Rivalen bedeuten. Wenn der Gegner eines Tages bezwungen wird, sollte der SL nach und nach einen Ersatzfeind ins Spiel bringen, oder der Held wird das Handicap los, indem er einen Aufstieg opfert.'
     },
     {
       id: 'Fettleibig',
