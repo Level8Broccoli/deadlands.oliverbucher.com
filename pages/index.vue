@@ -14,7 +14,6 @@
         <textarea v-model="notes" rows="20" class="textarea"></textarea>
       </div>
     </div>
-    
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -29,13 +28,6 @@
             <input v-model="powerPointsMax" type="text" class="input" />
           </div>
         </div>
-      </div>
-    </div>
-    
-    <div class="field">
-      <label class="label">Machtpunkte Maximum</label>
-      <div class="control">
-        <input v-model="powerPointsMax" type="text" class="input" />
       </div>
     </div>
   </div>
