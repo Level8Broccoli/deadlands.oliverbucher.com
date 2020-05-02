@@ -17,6 +17,34 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
+          <label class="label">Fate Chips</label>
+          <div class="control">
+            <button class="button" @click="drawChip">Ziehen</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Weiss</label>
+          <div class="control">
+            <input v-model="chipsWhite" type="text" class="input" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Rot</label>
+          <div class="control">
+            <input v-model="chipsRed" type="text" class="input" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Blau</label>
+          <div class="control">
+            <input v-model="chipsBlue" type="text" class="input" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
           <label class="label">Machtpunkte Aktuell</label>
           <div class="control">
             <input v-model="powerPointsCurrent" type="text" class="input" />
@@ -69,6 +97,57 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setPowerPointsMax', value)
+      }
+    },
+    chipsWhite: {
+      get() {
+        const chips = this.$store.state.charSave.fateChips
+        if (chips[white]) {
+          return chips[white]
+        } else {
+          return 0
+        }
+      },
+      set(value) {
+        this.$store.commit('charSave/setFateChips', {type: 'white', value})
+      }
+    },
+    chipsRed: {
+      get() {
+        const chips = this.$store.state.charSave.fateChips
+        if (chips[red]) {
+          return chips[red]
+        } else {
+          return 0
+        }
+      },
+      set(value) {
+        this.$store.commit('charSave/setFateChips', {type: 'red', value})
+      }
+    },
+    chipsBlue: {
+      get() {
+        const chips = this.$store.state.charSave.fateChips
+        if (chips[blue]) {
+          return chips[blue]
+        } else {
+          return 0
+        }
+      },
+      set(value) {
+        this.$store.commit('charSave/setFateChips', {type: 'blue', value})
+      }
+    }
+  },
+  methods: {
+    drawChip() {
+      const randomNumber = Math.random() * 100
+      if (randomNumber < 10) {
+        this.chipsBlue++
+      } else if (randomNumber < 40) {
+        this.chipsRot++
+      } else {
+        this.chipsWhite++
       }
     }
   },
