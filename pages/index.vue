@@ -14,6 +14,12 @@
         <textarea v-model="notes" rows="20" class="textarea"></textarea>
       </div>
     </div>
+    <div class="field">
+      <label class="label">Machtpunkte Maximum</label>
+      <div class="control">
+        <input v-model="powerPointsMax" type="text" class="input" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,6 +43,14 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setNotes', value)
+      }
+    },
+    powerPointsMax: {
+      get() {
+        return this.$store.state.charSave.powerPointsMax
+      },
+      set(value) {
+        this.$store.commit('charSave/setPowerPointsMax', value)
       }
     }
   },

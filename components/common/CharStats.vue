@@ -13,119 +13,104 @@
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">{{ charState.wounds }}</p>
-          <p class="title">
+          <p class="heading">
             <a v-if="wounds > 0" @click="wounds--">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'minus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
               </span>
             </a>
-            {{ wounds }}
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+            </span>
+            {{ charState.wounds }}
             <a v-if="wounds < 4" @click="wounds++">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'plus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
               </span>
             </a>
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+            </span>
+          </p>
+          <p class="title">
+            {{ wounds }}
           </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">{{ charState.fatigues }}</p>
-          <p class="title">
+          <p class="heading">
             <a v-if="fatigues > 0" @click="fatigues--">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'minus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
               </span>
             </a>
-            {{ fatigues }}
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+            </span>
+            {{ charState.fatigues }}
             <a v-if="fatigues < 3" @click="fatigues++">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'plus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
               </span>
             </a>
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+            </span>
+          </p>
+          <p class="title">
+            {{ fatigues }}
           </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">Fate Chips</p>
-          <p class="title">
+          <p class="heading">
             <a v-if="fateChips > 0" @click="fateChips--">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'minus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
               </span>
             </a>
-            {{ fateChips }}
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+            </span>
+            Fate Chips
             <a @click="fateChips++">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'plus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
               </span>
             </a>
+          </p>
+          <p class="title">
+            {{ fateChips }}
           </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">Machtpunkte</p>
-          <p class="title">
+          <p class="heading">
             <a v-if="powerPointsCurrent > 0" @click="powerPointsCurrent--">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'minus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
               </span>
             </a>
-            {{ powerPointsCurrent }}
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+            </span>
+            Machtpunkte
             <a
               v-if="powerPointsCurrent < powerPointsMax"
               @click="powerPointsCurrent++"
             >
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'plus']"
-                />
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
               </span>
             </a>
-            /
-            <a v-if="powerPointsMax > 0" @click="powerPointsMax--">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'minus']"
-                />
-              </span>
-            </a>
-            {{ powerPointsMax }}
-            <a @click="powerPointsMax++">
-              <span class="icon has-text-grey-light">
-                <font-awesome-icon
-                  transform="shrink-5"
-                  :icon="['fas', 'plus']"
-                />
-              </span>
-            </a>
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+            </span>
           </p>
+          <p class="title">{{ powerPointsCurrent }} / {{ powerPointsMax }}</p>
         </div>
       </div>
     </nav>
