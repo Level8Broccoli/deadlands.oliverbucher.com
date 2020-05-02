@@ -2,6 +2,13 @@ export const state = () => ({
   id: 0,
   name: '',
   notes: '',
+  fateChips: 0,
+  incapacitated: false,
+  shaken: false,
+  wounds: 0,
+  fatigues: 0,
+  powerPointsCurrent: 0,
+  powerPointsMax: 0,
   attributeList: [],
   skillList: [],
   handicapList: [],
@@ -36,6 +43,27 @@ export const getters = {
 }
 
 export const mutations = {
+  setFateChips(state, value) {
+    state.fateChips = value
+  },
+  setIncapacitated(state, value) {
+    state.incapacitated = value
+  },
+  setWounds(state, value) {
+    state.wounds = value
+  },
+  setFatigues(state, value) {
+    state.fatigues = value
+  },
+  setPowerPointsCurrent(state, value) {
+    state.powerPointsCurrent = value
+  },
+  setPowerPointsMax(state, value) {
+    state.powerPointsMax = value
+  },
+  setShaken(state, value) {
+    state.shaken = value
+  },
   removeGear(state, gear) {
     const list = state.gearList
     const existingGear = list.find((e) => e.id === gear.id)
@@ -63,7 +91,11 @@ export const mutations = {
   },
   loadFromSave(state, charSave) {
     for (const [key, value] of Object.entries(charSave)) {
-      if (typeof value !== 'undefined' && value.length > 0) {
+      if (
+        (typeof value !== 'undefined' && value.length > 0) ||
+        value > 0 ||
+        typeof value === 'boolean'
+      ) {
         state[key] = value
       }
     }

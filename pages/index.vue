@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2 class="subtitle">Allgemein</h2>
+    <CharStats />
     <div class="field">
       <label class="label">Charaktername</label>
       <div class="control">
@@ -17,7 +18,10 @@
 </template>
 
 <script>
+import CharStats from '~/components/common/CharStats'
+
 export default {
+  components: { CharStats },
   computed: {
     name: {
       get() {
