@@ -12,11 +12,12 @@
         <GearEntryForm
           v-if="gearList.length === 0 || formOpen"
           :gear="currentGear"
+          :gear-list-count="gearList.length"
           @exit-form="exitForm"
           @save-gear="saveGear"
         />
         <tr>
-          <th>#</th>
+          <th>Anzahl</th>
           <th>
             <h1 class="subtitle">Ausrüstung</h1>
           </th>

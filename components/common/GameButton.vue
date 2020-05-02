@@ -30,6 +30,8 @@ export default {
           'roll',
           'edit',
           'plus',
+          'save',
+          'closeUp',
           'text'
         ].includes(value)
       }
@@ -62,6 +64,7 @@ export default {
         'is-success':
           this.buttonType === 'checked' ||
           this.buttonType === 'plus' ||
+          this.buttonType === 'save' ||
           this.buttonStyles.includes('success'),
         'is-info':
           this.buttonType === 'fixed' || this.buttonStyles.includes('info'),
@@ -77,7 +80,9 @@ export default {
         fixed: 'check-double',
         roll: 'recycle',
         edit: 'edit',
-        plus: 'plus'
+        plus: 'plus',
+        save: 'save',
+        closeUp: 'compress-arrows-alt'
       }[this.buttonType]
     }
   },

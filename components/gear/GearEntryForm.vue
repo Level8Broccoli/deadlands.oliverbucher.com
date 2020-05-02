@@ -4,7 +4,7 @@
       <td>
         <div class="field">
           <label class="label">
-            Anzahl*
+            Anzahl *
           </label>
           <div class="control">
             <input
@@ -19,9 +19,9 @@
           </p>
         </div>
       </td>
-      <td colspan="2">
+      <td>
         <div class="field">
-          <label class="label">Name*</label>
+          <label class="label">Name *</label>
           <div class="control">
             <input
               v-model="gearUpdated.name"
@@ -35,7 +35,7 @@
           </p>
         </div>
       </td>
-      <td>
+      <td colspan="2">
         <div class="field">
           <label class="label">Stückpreis</label>
           <div class="control">
@@ -45,13 +45,13 @@
       </td>
       <td>
         <div class="field">
-          <label class="label">Aktionen</label>
-          <div class="field is-grouped">
+          <label class="label has-text-right">Aktionen</label>
+          <div class="buttons is-right">
             <div class="control">
-              <GameButton button-type="checked" @button-click="saveGear" />
+              <GameButton button-type="save" @button-click="saveGear" />
             </div>
-            <div class="control">
-              <GameButton button-type="point2" @button-click="exitForm" />
+            <div v-if="gearListCount > 0" class="control">
+              <GameButton button-type="closeUp" @button-click="exitForm" />
             </div>
           </div>
         </div>
@@ -92,6 +92,10 @@ export default {
           value: 0
         }
       }
+    },
+    gearListCount: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
