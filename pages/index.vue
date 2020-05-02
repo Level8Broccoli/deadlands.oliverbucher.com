@@ -18,7 +18,7 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <label class="label">Machtpunkte AKTUELL</label>
+          <label class="label">Machtpunkte Aktuell</label>
           <div class="control">
             <input v-model="powerPointsCurrent" type="text" class="input" />
           </div>
@@ -61,6 +61,14 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setNotes', value)
+      }
+    },
+    powerPointsCurrent: {
+      get() {
+        return this.$store.state.charSave.powerPointsCurrent
+      },
+      set(value) {
+        this.$store.commit('charSave/setPowerPointsCurrent', value)
       }
     },
     powerPointsMax: {
