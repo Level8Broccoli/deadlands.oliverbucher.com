@@ -4,7 +4,7 @@
       <td>
         <div class="field">
           <label class="label">
-            #
+            Anzahl*
           </label>
           <div class="control">
             <input
@@ -12,29 +12,26 @@
               class="input"
               type="number"
               min="0"
-              :class="{ 'is-danger': errors.countError }"
             />
           </div>
-          <p v-if="gearUpdated.count < 0" class="help is-danger">
-            Bitte gib eine positive Anzahl ein.
+          <p class="help">
+            * Pflichtfeld. Setzte hier 0, um den Eintrag zu löschen.
           </p>
-          <p v-else class="help">Setzte hier 0, um den Eintrag zu löschen.</p>
         </div>
       </td>
       <td colspan="2">
         <div class="field">
-          <label class="label">Name</label>
+          <label class="label">Name*</label>
           <div class="control">
             <input
               v-model="gearUpdated.name"
               class="input"
               type="text"
               placeholder="Bezeichnung"
-              :class="{ 'is-danger': errors.nameError }"
             />
           </div>
-          <p v-if="gearUpdated.name.length === 0" class="help is-danger">
-            Bitte fülle eine Bezeichnung ein.
+          <p class="help">
+            * Pflichtfeld
           </p>
         </div>
       </td>
@@ -100,12 +97,6 @@ export default {
   computed: {
     gearUpdated() {
       return { ...this.gear }
-    },
-    errors() {
-      return {
-        countError: this.gearUpdated.count < 0,
-        nameError: this.gearUpdated.name === ''
-      }
     }
   },
   methods: {

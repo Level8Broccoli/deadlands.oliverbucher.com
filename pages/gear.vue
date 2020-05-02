@@ -35,7 +35,7 @@
             <td></td>
             <td></td>
             <td class="has-text-right has-text-weight-bold">
-              {{ totalValue }}$
+              {{ showTwoDecimals(totalValue) }}$
             </td>
             <td></td>
           </tr>
@@ -89,6 +89,9 @@ export default {
         descr: '',
         value: 0
       }
+    },
+    showTwoDecimals(num) {
+      return (Math.round(num * 100) / 100).toFixed(2)
     }
   },
   head() {

@@ -1,7 +1,7 @@
 <template>
   <tbody>
     <tr>
-      <td>{{ gearUpdated.count }}</td>
+      <td>{{ roundNumber(gearUpdated.count) }}</td>
       <td>
         <a v-if="gearUpdated.descr !== ''" @click="show = !show">{{
           gearUpdated.name
@@ -11,11 +11,11 @@
         </span>
       </td>
       <td class="has-text-right">
-        <span v-if="gearUpdated.count > 1">
-          {{ gearUpdated.value }}$/Stück
+        <span v-if="gearUpdated.count !== 1">
+          {{ showTwoDecimals(gearUpdated.value) }} $/Stück
         </span>
       </td>
-      <td class="has-text-right">{{ totalValue }}$</td>
+      <td class="has-text-right">{{ showTwoDecimals(totalValue) }} $</td>
       <td class="has-text-right">
         <GameButton button-type="edit" @button-click="editGear" />
       </td>
@@ -61,6 +61,12 @@ export default {
   methods: {
     editGear() {
       this.$emit('edit-gear')
+    },
+    showTwoDecimals(num) {
+      return (Math.round(num * 100) / 100).toFixed(2)
+    },
+    roundNumber(num) {
+      return Math.round(num * 100) / 100
     }
   }
 }
