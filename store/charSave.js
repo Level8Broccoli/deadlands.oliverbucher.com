@@ -2,7 +2,7 @@ export const state = () => ({
   id: 0,
   name: '',
   notes: '',
-  fateChips: 0,
+  fateChips: {},
   incapacitated: false,
   shaken: false,
   wounds: 0,
@@ -43,8 +43,8 @@ export const getters = {
 }
 
 export const mutations = {
-  setFateChips(state, value) {
-    state.fateChips = value
+  setFateChips(state, {type, value}) {
+    state.fateChips[type] = value
   },
   setIncapacitated(state, value) {
     state.incapacitated = value
