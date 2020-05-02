@@ -66,23 +66,10 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">
-            <a v-if="fateChips > 0" @click="fateChips--">
-              <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
-              </span>
-            </a>
-            <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
-            </span>
             Fate Chips
-            <a @click="fateChips++">
-              <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
-              </span>
-            </a>
           </p>
           <p class="title">
-            {{ fateChips }}
+            {{ chipsWhite }} / {{ chipsRed }} / {{ chipsBlue }}
           </p>
         </div>
       </div>
@@ -138,20 +125,28 @@ export default {
         ][this.fatigues]
       }
     },
-    fateChips: {
+    chipsWhite: {
       get() {
-        return this.$store.state.charSave.fateChips
+        return this.$store.state.charSave.chipsWhite
       },
       set(value) {
-        this.$store.commit('charSave/setFateChips', value)
+        this.$store.commit('charSave/setChipsWhite', value)
       }
     },
-    incapacitated: {
+    chipsRed: {
       get() {
-        return this.$store.state.charSave.incapacitated
+        return this.$store.state.charSave.chipsRed
       },
       set(value) {
-        this.$store.commit('charSave/setIncapacitated', value)
+        this.$store.commit('charSave/setChipsRed', value)
+      }
+    },
+    chipsBlue: {
+      get() {
+        return this.$store.state.charSave.chipsBlue
+      },
+      set(value) {
+        this.$store.commit('charSave/setChipsBlue', value)
       }
     },
     wounds: {

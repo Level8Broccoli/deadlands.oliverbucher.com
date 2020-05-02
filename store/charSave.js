@@ -2,8 +2,9 @@ export const state = () => ({
   id: 0,
   name: '',
   notes: '',
-  fateChips: {},
-  incapacitated: false,
+  chipsWhite: 0,
+  chipsRed: 0,
+  chipsBlue: 0,
   shaken: false,
   wounds: 0,
   fatigues: 0,
@@ -43,11 +44,14 @@ export const getters = {
 }
 
 export const mutations = {
-  setFateChips(state, {type, value}) {
-    state.fateChips[type] = value
+  setChipsWhite(state, value) {
+    state.chipsWhite = value
   },
-  setIncapacitated(state, value) {
-    state.incapacitated = value
+  setChipsRed(state, value) {
+    state.chipsRed = value
+  },
+  setChipsBlue(state, value) {
+    state.chipsBlue = value
   },
   setWounds(state, value) {
     state.wounds = value

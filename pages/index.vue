@@ -101,41 +101,26 @@ export default {
     },
     chipsWhite: {
       get() {
-        const chips = this.$store.state.charSave.fateChips
-        if (chips[white]) {
-          return chips[white]
-        } else {
-          return 0
-        }
+        return this.$store.state.charSave.chipsWhite
       },
       set(value) {
-        this.$store.commit('charSave/setFateChips', {type: 'white', value})
+        this.$store.commit('charSave/setChipsWhite', value)
       }
     },
     chipsRed: {
       get() {
-        const chips = this.$store.state.charSave.fateChips
-        if (chips[red]) {
-          return chips[red]
-        } else {
-          return 0
-        }
+        return this.$store.state.charSave.chipsRed
       },
       set(value) {
-        this.$store.commit('charSave/setFateChips', {type: 'red', value})
+        this.$store.commit('charSave/setChipsRed', value)
       }
     },
     chipsBlue: {
       get() {
-        const chips = this.$store.state.charSave.fateChips
-        if (chips[blue]) {
-          return chips[blue]
-        } else {
-          return 0
-        }
+        return this.$store.state.charSave.chipsBlue
       },
       set(value) {
-        this.$store.commit('charSave/setFateChips', {type: 'blue', value})
+        this.$store.commit('charSave/setChipsBlue', value)
       }
     }
   },
@@ -145,7 +130,7 @@ export default {
       if (randomNumber < 10) {
         this.chipsBlue++
       } else if (randomNumber < 40) {
-        this.chipsRot++
+        this.chipsRed++
       } else {
         this.chipsWhite++
       }
