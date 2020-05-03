@@ -107,7 +107,7 @@ export default {
         const cards = []
         let deck = [...this.cardsRemaining]
         for (let i = 0; i < num; i++) {
-          const randomCardNumber = Math.ceil(
+          const randomCardNumber = Math.floor(
             Math.random() * Object.keys(deck).length
           )
           const randomCard = deck[randomCardNumber]
