@@ -45,13 +45,19 @@ export const getters = {
 
 export const mutations = {
   setChipsWhite(state, value) {
-    state.chipsWhite = value
+    if (value >= 0) {
+      state.chipsWhite = value
+    }
   },
   setChipsRed(state, value) {
-    state.chipsRed = value
+    if (value >= 0) {
+      state.chipsRed = value
+    }
   },
   setChipsBlue(state, value) {
-    state.chipsBlue = value
+    if (value >= 0) {
+      state.chipsBlue = value
+    }
   },
   setWounds(state, value) {
     state.wounds = value

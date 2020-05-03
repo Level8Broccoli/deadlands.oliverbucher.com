@@ -67,9 +67,30 @@
         <div>
           <p class="heading">
             Fate Chips
+            <a @click="drawChip">
+              <span class="icon">
+                <font-awesome-icon :icon="['fas', 'share-square']" />
+              </span>
+            </a>
           </p>
           <p class="title">
-            {{ chipsWhite }} / {{ chipsRed }} / {{ chipsBlue }}
+            <a @click="chipsWhite--">
+              <span class="has-text-grey-light">
+                {{ chipsWhite }}
+              </span>
+            </a>
+            /
+            <a @click="chipsRed--">
+              <span class="has-text-danger">
+                {{ chipsRed }}
+              </span>
+            </a>
+            /
+            <a @click="chipsBlue--">
+              <span class="has-text-info">
+                {{ chipsBlue }}
+              </span>
+            </a>
           </p>
         </div>
       </div>
@@ -187,6 +208,18 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setShaken', value)
+      }
+    }
+  },
+  methods: {
+    drawChip() {
+      const randomNumber = Math.random() * 100
+      if (randomNumber < 10) {
+        this.chipsBlue++
+      } else if (randomNumber < 40) {
+        this.chipsRed++
+      } else {
+        this.chipsWhite++
       }
     }
   }

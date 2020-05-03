@@ -19,7 +19,12 @@
         <div class="field">
           <label class="label">Fate Chips</label>
           <div class="control">
-            <button class="button" @click="drawChip">Ziehen</button>
+            <button class="button" @click="drawChip">
+              <span>Ziehen</span>
+              <span class="icon">
+                <font-awesome-icon :icon="['fas', 'share-square']" />
+              </span>
+            </button>
           </div>
         </div>
         <div class="field">
@@ -31,13 +36,13 @@
         <div class="field">
           <label class="label">Rot</label>
           <div class="control">
-            <input v-model="chipsRed" type="text" class="input" />
+            <input v-model="chipsRed" type="text" class="input is-danger" />
           </div>
         </div>
         <div class="field">
           <label class="label">Blau</label>
           <div class="control">
-            <input v-model="chipsBlue" type="text" class="input" />
+            <input v-model="chipsBlue" type="text" class="input is-info" />
           </div>
         </div>
       </div>
