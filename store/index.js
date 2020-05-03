@@ -56,7 +56,7 @@ export const state = () => ({
     53: { path: '53_Joker-1.svg', name: 'Joker' },
     54: { path: '54_Joker-2.svg', name: 'Joker' }
   },
-  cardsRemaining: {},
+  cardsRemaining: [],
   cardBack: 'card_back.svg',
   title: 'Deadlands RPG',
   tabList: [
@@ -115,10 +115,14 @@ export const getters = {
 export const mutations = {
   shuffleDeck(state) {
     const cards = state.cards
-
-    for (const [id, value] of Object.entries(cards)) {
-      state.cardsRemaining[id] = value
+    for (const id of Object.keys(cards)) {
+      if (!state.cardsRemaining.includes(Number(id))) {
+        state.cardsRemaining.push(Number(id))
+      }
     }
+  },
+  setCardsRemaining(state, value) {
+    state.cardsRemaining = value
   }
 }
 
@@ -129,5 +133,6 @@ export const actions = {
     } else if (meta.type === 'drawCards') {
       // TODO
     }
-  }
+  },
+  drawCard({ commit }, cardNumber) {}
 }

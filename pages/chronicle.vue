@@ -6,9 +6,37 @@
       <em>(wird nicht gespeichert)</em>.
     </p>
     <br />
-    <CharStats />
-    <CardDeck />
-    <DiceBag />
+    <div class="tabs is-toggle is-fullwidth">
+      <ul>
+        <li :class="tab === 0 ? 'is-active' : ''">
+          <a @click="tab = 0">
+            <span class="icon is-small">
+              <font-awesome-icon :icon="['fas', 'user']" />
+            </span>
+            <span>Charakterstatus</span>
+          </a>
+        </li>
+        <li :class="tab === 1 ? 'is-active' : ''">
+          <a @click="tab = 1">
+            <span class="icon is-small">
+              <font-awesome-icon :icon="['fas', 'chess-king']" />
+            </span>
+            <span>Pokerkarten</span>
+          </a>
+        </li>
+        <li :class="tab === 2 ? 'is-active' : ''">
+          <a @click="tab = 2">
+            <span class="icon is-small">
+              <font-awesome-icon :icon="['fas', 'dice']" />
+            </span>
+            <span>Würfel</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <CharStats v-if="tab === 0" />
+    <CardDeck v-if="tab === 1" />
+    <DiceBag v-if="tab === 2" />
     <ChatForm />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
@@ -40,6 +68,10 @@
             v-else-if="entry.meta.type === 'shuffleDeck'"
             :entry="entry"
           />
+          <CardDrawEntry
+            v-else-if="entry.meta.type === 'drawCards'"
+            :entry="entry"
+          />
         </tbody>
         <tr v-if="chronicleList.length === 0">
           <td></td>
@@ -67,16 +99,21 @@ import ChatEntry from '~/components/chronicle/ChatEntry'
 import CharStats from '~/components/common/CharStats'
 import CardDeck from '~/components/chronicle/CardDeck'
 import CardShuffleEntry from '~/components/chronicle/CardShuffleEntry'
+import CardDrawEntry from '~/components/chronicle/CardDrawEntry'
 
 export default {
   components: {
     DiceBag,
+    CardDrawEntry,
     DiceRollResultEntry,
     ChatForm,
     CardShuffleEntry,
     ChatEntry,
     CharStats,
     CardDeck
+  },
+  data() {
+    return { tab: 0 }
   },
   computed: {
     chronicleList() {
