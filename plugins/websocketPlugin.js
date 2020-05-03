@@ -15,6 +15,7 @@ export default function websocketPlugin({ store }) {
     const parse = JSON.parse(e.data)
     store.dispatch('chronicle/commitOtherAction', parse)
     store.dispatch('charSave/updateCharNames', parse)
+    store.dispatch('udpateCardDeck', parse)
   }
   socket.onclose = function() {
     store.commit('chronicle/setWsConnection', false)

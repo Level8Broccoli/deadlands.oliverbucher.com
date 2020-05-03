@@ -36,6 +36,10 @@
             v-else-if="entry.meta.type === 'chatEntry'"
             :entry="entry"
           />
+          <CardShuffleEntry
+            v-else-if="entry.meta.type === 'shuffleDeck'"
+            :entry="entry"
+          />
         </tbody>
         <tr v-if="chronicleList.length === 0">
           <td></td>
@@ -62,12 +66,14 @@ import ChatForm from '~/components/chronicle/ChatForm'
 import ChatEntry from '~/components/chronicle/ChatEntry'
 import CharStats from '~/components/common/CharStats'
 import CardDeck from '~/components/chronicle/CardDeck'
+import CardShuffleEntry from '~/components/chronicle/CardShuffleEntry'
 
 export default {
   components: {
     DiceBag,
     DiceRollResultEntry,
     ChatForm,
+    CardShuffleEntry,
     ChatEntry,
     CharStats,
     CardDeck
