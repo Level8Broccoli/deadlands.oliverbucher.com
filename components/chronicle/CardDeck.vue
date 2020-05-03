@@ -107,12 +107,14 @@ export default {
         const cards = []
         let deck = [...this.cardsRemaining]
         for (let i = 0; i < num; i++) {
-          const randomCardNumber = Math.floor(
+          const randomCardNumber = Math.ceil(
             Math.random() * Object.keys(deck).length
           )
-          cards.push(randomCardNumber)
-          deck = deck.filter((e) => e !== randomCardNumber)
+          const randomCard = deck[randomCardNumber]
+          cards.push(randomCard)
+          deck = deck.filter((e) => e !== randomCard)
         }
+
         this.$store.dispatch('chronicle/commitOwnAction', {
           meta: { type: 'drawCards' },
           payload: { cards, newDeck: deck, open }

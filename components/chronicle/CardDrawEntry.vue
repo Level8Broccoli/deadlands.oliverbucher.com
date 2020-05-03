@@ -2,15 +2,26 @@
   <tr :class="myEntry">
     <td></td>
     <td colspan="5">
-      Karten wurden gezogen:
+      Karten wurden{{ isOpen ? '' : ' verdeckt' }} gezogen:
       <span class="tags">
         <span
           v-for="(card, index) in cards"
           :key="index"
           class="tag is-rounded"
+          :class="
+            !isOpen && meta.author !== myId
+              ? ''
+              : getCardName(card).includes('Diamonds') ||
+                getCardName(card).includes('Hearts')
+              ? 'is-danger'
+              : getCardName(card).includes('Joker')
+              ? 'is-primary'
+              : 'is-dark'
+          "
         >
-          <span v-if="isOpen"
-            ><strong>{{ getCardName(card) }}</strong> ({{ card }})
+          <span v-if="isOpen || meta.author === myId">
+            <strong class="has-text-white">{{ getCardName(card) }}</strong>
+            ({{ card }})
           </span>
           <span v-else><em>Karte verdeckt</em></span>
         </span>
@@ -40,6 +51,9 @@ export default {
     }
   },
   computed: {
+    myId() {
+      return this.$store.state.charSave.id
+    },
     meta() {
       return this.entry.meta
     },

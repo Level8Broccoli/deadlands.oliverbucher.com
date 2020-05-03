@@ -121,8 +121,8 @@ export const mutations = {
       }
     }
   },
-  setCardsRemaining(state, value) {
-    state.cardsRemaining = value
+  updateCardDeck(state, newDeck) {
+    state.cardsRemaining = newDeck
   }
 }
 
@@ -131,8 +131,7 @@ export const actions = {
     if (meta.type === 'shuffleDeck') {
       commit('shuffleDeck')
     } else if (meta.type === 'drawCards') {
-      // TODO
+      commit('updateCardDeck', payload.newDeck)
     }
-  },
-  drawCard({ commit }, cardNumber) {}
+  }
 }
