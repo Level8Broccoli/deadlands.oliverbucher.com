@@ -1,7 +1,7 @@
 <template>
   <tr :class="myEntry">
     <td></td>
-    <td colspan="5">
+    <td colspan="4">
       Karten wurden{{ isOpen ? '' : ' verdeckt' }} gezogen:
       <span class="tags">
         <span
@@ -35,7 +35,11 @@
         </small>
       </div>
     </td>
-    <td></td>
+    <td
+      colspan="2"
+      class="custom-card-background"
+      :style="{ backgroundImage: backgroundImages }"
+    ></td>
   </tr>
 </template>
 
@@ -57,11 +61,36 @@ export default {
     meta() {
       return this.entry.meta
     },
-
     myEntry() {
       return this.entry.meta.author === this.$store.state.charSave.id
-        ? 'custom-is-own-row-chat'
+        ? 'custom-is-own-row'
         : ''
+    },
+    backgroundImages() {
+      const cardback = 'card_back.svg'
+      const urls = []
+      for (let index = 0; index < this.cards.length; index++) {
+        const element = this.cards[index]
+        if (this.isOpen || this.meta.author === this.myId) {
+          urls.push(`url("/cards/${this.getCardPath(element)}")`)
+        } else {
+          urls.push(`url("/cards/${cardback}")`)
+        }
+      }
+      return urls.join(', ')
+    },
+    cardBackgrounds() {
+      let background = 'custom-card-background custom-card-background'
+      if (this.cards.length === 1) {
+        background += '-one'
+      } else if (this.cards.length === 2) {
+        background += '-two'
+      } else if (this.cards.length === 3) {
+        background += '-three'
+      }
+      return this.entry.meta.author === this.$store.state.charSave.id
+        ? 'custom-is-own-row-chat ' + background
+        : background
     },
     authorName() {
       return (
@@ -86,3 +115,25 @@ export default {
   }
 }
 </script>
+
+<style>
+.custom-card-background {
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: top right, top right 50px, top right 100px;
+}
+
+.custom-card-background-one {
+  background-image: url(/cards/card_back.svg);
+  background-position: top right;
+}
+.custom-card-background-two {
+  background-image: url(/cards/card_back.svg), url(/cards/card_back.svg);
+  background-position: top right, top right 50px;
+}
+.custom-card-background-three {
+  background-image: url(/cards/card_back.svg), url(/cards/card_back.svg),
+    url(/cards/card_back.svg);
+  background-position: top right, top right 50px, top right 100px;
+}
+</style>
