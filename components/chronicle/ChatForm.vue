@@ -20,7 +20,7 @@
           />
         </p>
         <p class="control">
-          <a class="button is-primary">
+          <a class="button is-primary" @click="sendChatMessage">
             <font-awesome-icon :icon="['fas', 'paper-plane']" />
           </a>
         </p>

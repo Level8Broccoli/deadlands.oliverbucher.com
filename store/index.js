@@ -1,5 +1,7 @@
 export const state = () => ({
   dice: [4, 6, 8, 10, 12],
+  cards: {},
+  remainingCards: [],
   title: 'Deadlands RPG',
   tabList: [
     {
