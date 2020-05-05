@@ -44,12 +44,12 @@
       <div class="control">
         <button v-if="show" class="button" @click="show = !show">
           <span class="file-icon">
-            <font-awesome-icon :icon="['fas', 'eye-slash']" />
+            <font-awesome-icon :icon="['fas', 'times']" />
           </span>
         </button>
         <button v-else class="button" @click="show = !show">
           <span class="file-icon">
-            <font-awesome-icon :icon="['fas', 'eye']" />
+            <font-awesome-icon :icon="['fas', 'edit']" />
           </span>
         </button>
       </div>
@@ -88,14 +88,26 @@ export default {
   methods: {
     saveTextarea() {
       const newSave = document.querySelector('.custom-new-save').value
-      this.$store.commit('charSave/loadFromSave', JSON.parse(newSave))
+      let parse
+      try {
+        parse = JSON.parse(newSave)
+        this.$store.commit('charSave/loadFromSave', parse)
+      } catch (error) {
+        console.error(error, newSave)
+      }
     },
     loadJsonFile(e) {
       const reader = new FileReader()
       const file = e.target.files[0]
       reader.onload = (e) => {
-        const result = JSON.parse(e.target.result)
-        this.$store.commit('charSave/loadFromSave', result)
+        const newSave = e.target.result
+        let parse
+        try {
+          parse = JSON.parse(newSave)
+          this.$store.commit('charSave/loadFromSave', parse)
+        } catch (error) {
+          console.error(error, newSave)
+        }
       }
 
       reader.readAsText(file)
