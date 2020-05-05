@@ -127,7 +127,7 @@
 
 <script>
 export default {
-  name: 'CharSave',
+  name: 'CharacterStats',
   computed: {
     charState() {
       return {

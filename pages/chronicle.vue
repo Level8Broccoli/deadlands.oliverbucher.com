@@ -34,7 +34,7 @@
         </li>
       </ul>
     </div>
-    <CharStats v-if="tab === 0" />
+    <CharacterStats v-if="tab === 0" />
     <CardDeck v-if="tab === 1" />
     <DiceBag v-if="tab === 2" />
     <ChatForm />
@@ -96,7 +96,7 @@ import DiceBag from '~/components/chronicle/DiceBag'
 import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
 import ChatForm from '~/components/chronicle/ChatForm'
 import ChatEntry from '~/components/chronicle/ChatEntry'
-import CharStats from '~/components/common/CharStats'
+import CharacterStats from '~/components/common/CharacterStats'
 import CardDeck from '~/components/chronicle/CardDeck'
 import CardShuffleEntry from '~/components/chronicle/CardShuffleEntry'
 import CardDrawEntry from '~/components/chronicle/CardDrawEntry'
@@ -109,7 +109,7 @@ export default {
     ChatForm,
     CardShuffleEntry,
     ChatEntry,
-    CharStats,
+    CharacterStats,
     CardDeck
   },
   data() {

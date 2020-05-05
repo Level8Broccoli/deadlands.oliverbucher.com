@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="subtitle">Allgemein</h2>
-    <CharStats />
+    <CharacterStats />
     <div class="field">
       <label class="label">Charaktername</label>
       <div class="control">
@@ -63,14 +63,16 @@
         </div>
       </div>
     </div>
+    <CharacterImportExport />
   </div>
 </template>
 
 <script>
-import CharStats from '~/components/common/CharStats'
+import CharacterStats from '~/components/common/CharacterStats'
+import CharacterImportExport from '~/components/common/CharacterImportExport'
 
 export default {
-  components: { CharStats },
+  components: { CharacterStats, CharacterImportExport },
   computed: {
     name: {
       get() {
