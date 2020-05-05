@@ -44,23 +44,12 @@ export default {
   },
   mounted() {
     const getSaveFromLocalStorge = () => {
-      if (localStorage.getItem('charSaveV2')) {
-        try {
-          const charSave = JSON.parse(localStorage.getItem('charSaveV2'))
-          this.$store.commit('charSave/loadFromSave', charSave)
-        } catch (error) {
-          console.error(error)
-          console.error(localStorage.getItem('charSaveV2'))
-        }
-      } else if (localStorage.getItem('charSave')) {
-        // convert old save -> TODO delete next week
-        try {
-          const charSave = JSON.parse(localStorage.getItem('charSave'))
-          this.$store.commit('charSave/loadFromOldSave', charSave)
-        } catch (error) {
-          console.error(error)
-          console.error(localStorage.getItem('charSave'))
-        }
+      try {
+        const charSave = JSON.parse(localStorage.getItem('charSaveV2'))
+        this.$store.commit('charSave/loadFromSave', charSave)
+      } catch (error) {
+        console.error(error)
+        console.error(localStorage.getItem('charSaveV2'))
       }
     }
     getSaveFromLocalStorge()
