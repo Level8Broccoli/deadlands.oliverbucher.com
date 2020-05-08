@@ -14,6 +14,8 @@
         <textarea v-model="notes" rows="20" class="textarea"></textarea>
       </div>
     </div>
+    <br />
+    <h2 class="subtitle">Fortgeschritten</h2>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -47,6 +49,42 @@
         </div>
       </div>
     </div>
+    <br />
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <label class="label">Attributspunkte</label>
+          <div class="control">
+            <input v-model="attributePoints" type="text" class="input" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Fertigkeitspunkte</label>
+          <div class="control">
+            <input v-model="skillPoints" type="text" class="input" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Handicappunkte</label>
+          <div class="control">
+            <input v-model="handicapPoints" type="text" class="input" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Talentpunkte</label>
+          <div class="control">
+            <input v-model="talentPoints" type="text" class="input" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Machtpunkte</label>
+          <div class="control">
+            <input v-model="powerPoints" type="text" class="input" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
     <CharacterImportExport />
   </div>
 </template>
@@ -96,6 +134,61 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setChipsBlue', value)
+      }
+    },
+    attributePoints: {
+      get() {
+        return this.$store.state.charSave.charPoints.attributes
+      },
+      set(value) {
+        this.$store.commit('charSave/setCharPoints', {
+          type: 'attributes',
+          value
+        })
+      }
+    },
+    skillPoints: {
+      get() {
+        return this.$store.state.charSave.charPoints.skills
+      },
+      set(value) {
+        this.$store.commit('charSave/setCharPoints', {
+          type: 'skills',
+          value
+        })
+      }
+    },
+    handicapPoints: {
+      get() {
+        return this.$store.state.charSave.charPoints.handicaps
+      },
+      set(value) {
+        this.$store.commit('charSave/setCharPoints', {
+          type: 'handicaps',
+          value
+        })
+      }
+    },
+    talentPoints: {
+      get() {
+        return this.$store.state.charSave.charPoints.talents
+      },
+      set(value) {
+        this.$store.commit('charSave/setCharPoints', {
+          type: 'talents',
+          value
+        })
+      }
+    },
+    powerPoints: {
+      get() {
+        return this.$store.state.charSave.charPoints.powers
+      },
+      set(value) {
+        this.$store.commit('charSave/setCharPoints', {
+          type: 'powers',
+          value
+        })
       }
     }
   },

@@ -52,6 +52,11 @@ export const getters = {
 }
 
 export const mutations = {
+  setCharPoints(state, { type, value }) {
+    if (value >= 0) {
+      state.charPoints[type] = value
+    }
+  },
   setChipsWhite(state, value) {
     if (value >= 0) {
       state.chipsWhite = value
