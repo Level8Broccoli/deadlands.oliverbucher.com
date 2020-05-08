@@ -98,7 +98,13 @@ export default {
       )
     },
     badgeType(tab) {
-      if (tab.points) {
+      if (
+        tab.id === 'attributes' ||
+        tab.id === 'skills' ||
+        tab.id === 'handicaps' ||
+        tab.id === 'talents' ||
+        tab.id === 'powers'
+      ) {
         return 'danger'
       } else if (tab.notification) {
         return 'success'
