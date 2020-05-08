@@ -94,7 +94,7 @@
           </p>
         </div>
       </div>
-      <div class="level-item has-text-centered">
+      <div v-if="powerPointsMax > 0" class="level-item has-text-centered">
         <div>
           <p class="heading">
             <a v-if="powerPointsCurrent > 0" @click="powerPointsCurrent--">

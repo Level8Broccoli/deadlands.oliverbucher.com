@@ -3,6 +3,7 @@ export const state = () => ({
     {
       id: 'Abwehren',
       name: 'Abwehren',
+      summary: '–2/–4 um Empfänger anzugreifen',
       rank: 'Anfänger',
       powerPoints: 3,
       range: 'Verstand',
@@ -25,6 +26,8 @@ export const state = () => ({
     {
       id: 'Arkaner Schutz',
       name: 'Arkaner Schutz',
+      summary:
+        'Gegnerische Wirker ziehen –2 (–4 mit Steigerung) ab, wenn sie den Charakter mit Mächten angreifen; verringert Schaden um die gleiche Summe.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -47,6 +50,8 @@ export const state = () => ({
     {
       id: 'Arkanes entdecken/verbergen',
       name: 'Arkanes entdecken/verbergen',
+      summary:
+        'Entdeckt Magie für Wirkungsdauer 5 oder verbirgt sie für eine Stunde.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -70,6 +75,7 @@ export const state = () => ({
     {
       id: 'Betäuben',
       name: 'Betäuben',
+      summary: 'Ziel wird Betäubt.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -92,6 +98,7 @@ export const state = () => ({
     {
       id: 'Blenden',
       name: 'Blenden',
+      summary: 'Verursacht bei Opfern Abzüge von –2/–4.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -115,6 +122,8 @@ export const state = () => ({
     {
       id: 'Chaos',
       name: 'Chaos',
+      summary:
+        'Ziele in MFS oder Kegel sind Abgelenkt und könnten geschleudert werden.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -136,6 +145,8 @@ export const state = () => ({
     {
       id: 'Dunkelsicht',
       name: 'Dunkelsicht',
+      summary:
+        'Ignoriere bis zu 4 Punkte Beleuchtungsabzüge, 6 mit Steigerung.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -158,6 +169,7 @@ export const state = () => ({
     {
       id: 'Eigenschaft erhöhen/senken',
       name: 'Eigenschaft erhöhen/senken',
+      summary: 'Erhöht oder senkt Attribut oder Fertigkeit.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -181,6 +193,7 @@ export const state = () => ({
     {
       id: 'Elementarmanipulation',
       name: 'Elementarmanipulation',
+      summary: 'Erlaubt kleinere Manipulationen der Grundelemente.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -192,6 +205,8 @@ export const state = () => ({
     {
       id: 'Empathie',
       name: 'Empathie',
+      summary:
+        'Vergleichender Wurf gegen Willenskraft für +1/+2 auf Darbietung, Einschüchtern, Provozieren und Überreden gegen das Ziel.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -207,6 +222,7 @@ export const state = () => ({
     {
       id: 'Furcht',
       name: 'Furcht',
+      summary: 'Verursacht Furchtproben.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -225,6 +241,7 @@ export const state = () => ({
     {
       id: 'Gedankenlesen',
       name: 'Gedankenlesen',
+      summary: 'Vergleichender Wurf gegen Verstand, um Gedanken zu lesen.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -236,6 +253,7 @@ export const state = () => ({
     {
       id: 'Gedankenverbindung',
       name: 'Gedankenverbindung',
+      summary: 'Geistige Verbindung auf 1,5 Kilometer (8 mit Steigerung).',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -258,6 +276,7 @@ export const state = () => ({
     {
       id: 'Geräusch/Stille',
       name: 'Geräusch/Stille',
+      summary: 'Erzeugt oder dämpft Geräusche.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand ×5 (Geräusch); Verstand, (Stille)',
@@ -286,6 +305,7 @@ export const state = () => ({
     {
       id: 'Geschoss',
       name: 'Geschoss',
+      summary: 'Fernkampfangriff mit 2W6.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand ×2',
@@ -311,6 +331,7 @@ export const state = () => ({
     {
       id: 'Gestaltwandeln',
       name: 'Gestaltwandeln',
+      summary: 'Wirker nimmt die Gestalt verschiedener Wesen an.',
       rank: 'Anfänger',
       Machtpunkte: 'Speziell',
       range: 'Selbst',
@@ -329,6 +350,7 @@ export const state = () => ({
     {
       id: 'Graben',
       name: 'Graben',
+      summary: 'Ziel gräbt sich durch die Erde.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -354,6 +376,8 @@ export const state = () => ({
     {
       id: 'Heilung',
       name: 'Heilung',
+      summary:
+        'Stellt Wunden wieder her, die weniger als eine Stunde alt sind.',
       rank: 'Anfänger',
       powerPoints: 3,
       range: 'Berührung',
@@ -386,6 +410,7 @@ export const state = () => ({
     {
       id: 'Illusion',
       name: 'Illusion',
+      summary: 'Erzeugt illusionäre Bilder.',
       rank: 'Anfänger',
       powerPoints: 3,
       range: 'Verstand',
@@ -413,6 +438,7 @@ export const state = () => ({
     {
       id: 'Licht/Dunkelheit',
       name: 'Licht/Dunkelheit',
+      summary: 'Erschafft oder verbannt Beleuchtung.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -436,6 +462,7 @@ export const state = () => ({
     {
       id: 'Linderung',
       name: 'Linderung',
+      summary: 'Entfernt Erschöpfung und Angeschlagen; Betäubt mit Steigerung.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -454,6 +481,7 @@ export const state = () => ({
     {
       id: 'Schutz',
       name: 'Schutz',
+      summary: 'Gewährt Panzerung +2/+4.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -485,6 +513,7 @@ export const state = () => ({
     {
       id: 'Schutz vor Naturgewalten',
       name: 'Schutz vor Naturgewalten',
+      summary: 'Beschützt Ziel vor schädlichen Umwelteinflüssen.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -503,6 +532,7 @@ export const state = () => ({
     {
       id: 'Sprachen sprechen',
       name: 'Sprachen sprechen',
+      summary: 'Wirker kann Sprachen sprechen und verstehen.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -521,6 +551,7 @@ export const state = () => ({
     {
       id: 'Strahl',
       name: 'Strahl',
+      summary: 'Kegelförmiger Angriff mit 2W6 Schaden.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Kegelschablone',
@@ -541,6 +572,7 @@ export const state = () => ({
     {
       id: 'Tierfreund',
       name: 'Tierfreund',
+      summary: 'Kontrolliert Tiere.',
       rank: 'Anfänger',
       Machtpunkte: 'Speziell',
       range: 'Verstand',
@@ -561,6 +593,7 @@ export const state = () => ({
     {
       id: 'Verbündeten beschwören',
       name: 'Verbündeten beschwören',
+      summary: 'Beschwört verschiedene Verbündete.',
       rank: 'Anfänger',
       powerPoints: '2+',
       range: 'Verstand',
@@ -591,6 +624,7 @@ export const state = () => ({
     {
       id: 'Verstricken',
       name: 'Verstricken',
+      summary: 'Feind wird Gebunden oder Festgehalten.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -614,6 +648,7 @@ export const state = () => ({
     {
       id: 'Verwirrung',
       name: 'Verwirrung',
+      summary: 'Ziel wird Abgelenkt und Verwundbar.',
       rank: 'Anfänger',
       powerPoints: 1,
       range: 'Verstand',
@@ -632,6 +667,7 @@ export const state = () => ({
     {
       id: 'Waffe verbessern',
       name: 'Waffe verbessern',
+      summary: 'Erhöht Schaden einer Waffe um +2/+4.',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -655,6 +691,8 @@ export const state = () => ({
     {
       id: 'Wandkrabbler',
       name: 'Wandkrabbler',
+      summary:
+        'Charakter kann mit halber Bewegungsweite an Wänden laufen (volle Bewegungsweite bei einer Steigerung).',
       rank: 'Anfänger',
       powerPoints: 2,
       range: 'Verstand',
@@ -675,3 +713,16 @@ export const state = () => ({
     }
   ]
 })
+
+export const getters = {
+  getList: (state) => {
+    return [...state.list].sort((a, b) => {
+      if (a.id < b.id) {
+        return -1
+      } else if (a.id > b.id) {
+        return 1
+      }
+      return 0
+    })
+  }
+}

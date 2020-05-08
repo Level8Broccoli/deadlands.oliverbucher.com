@@ -85,6 +85,10 @@ export default {
     talentPoints() {
       const talentListActive = this.$store.state.charSave.talentList
       return talentListActive.length
+    },
+    powerPoints() {
+      const powerListActive = this.$store.state.charSave.powerList
+      return powerListActive.length
     }
   },
   methods: {
@@ -111,6 +115,8 @@ export default {
         return tab.points - this.handicapPoints
       } else if (tab.id === 'talents') {
         return tab.points - this.talentPoints
+      } else if (tab.id === 'powers') {
+        return tab.points - this.powerPoints
       } else {
         return null
       }

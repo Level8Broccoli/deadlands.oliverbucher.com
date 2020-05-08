@@ -14,6 +14,7 @@ export const state = () => ({
   skillList: [],
   handicapList: [],
   talentList: [],
+  powerList: [],
   gearList: [],
   charNames: {}
 })
@@ -173,6 +174,18 @@ export const mutations = {
   },
   clickTalent(state, payload) {
     const list = state.talentList
+    const currentEntry = list.find((e) => e.id === payload.id)
+    if (currentEntry) {
+      list.splice(
+        list.findIndex((e) => e.id === payload.id),
+        1
+      )
+    } else {
+      list.push(payload)
+    }
+  },
+  clickPower(state, payload) {
+    const list = state.powerList
     const currentEntry = list.find((e) => e.id === payload.id)
     if (currentEntry) {
       list.splice(

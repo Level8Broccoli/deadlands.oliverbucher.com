@@ -47,22 +47,6 @@
         </div>
       </div>
     </div>
-    <div class="field is-horizontal">
-      <div class="field-body">
-        <div class="field">
-          <label class="label">Machtpunkte Aktuell</label>
-          <div class="control">
-            <input v-model="powerPointsCurrent" type="text" class="input" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Machtpunkte Maximum</label>
-          <div class="control">
-            <input v-model="powerPointsMax" type="text" class="input" />
-          </div>
-        </div>
-      </div>
-    </div>
     <CharacterImportExport />
   </div>
 </template>
@@ -88,22 +72,6 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setNotes', value)
-      }
-    },
-    powerPointsCurrent: {
-      get() {
-        return this.$store.state.charSave.powerPointsCurrent
-      },
-      set(value) {
-        this.$store.commit('charSave/setPowerPointsCurrent', value)
-      }
-    },
-    powerPointsMax: {
-      get() {
-        return this.$store.state.charSave.powerPointsMax
-      },
-      set(value) {
-        this.$store.commit('charSave/setPowerPointsMax', value)
       }
     },
     chipsWhite: {

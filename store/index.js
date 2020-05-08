@@ -90,6 +90,12 @@ export const state = () => ({
       points: 3
     },
     {
+      id: 'powers',
+      name: 'Mächte',
+      link: '/powers',
+      points: 1
+    },
+    {
       id: 'gear',
       name: 'Ausrüstung',
       link: '/gear'
