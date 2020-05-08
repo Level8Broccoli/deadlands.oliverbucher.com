@@ -4,7 +4,7 @@
       <GameButton
         button-type="roll"
         title="Wurf wiederholen"
-        @button-click="rerollDice()"
+        @button-click="rerollDice"
       />
     </td>
     <td>

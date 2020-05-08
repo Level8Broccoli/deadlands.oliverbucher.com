@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td>
-        <GameButton button-type="roll" @button-click="rollDice()" />
+        <GameButton button-type="roll" @button-click="rollDice" />
       </td>
       <td>
         <a @click="show = !show">{{ skill.name }}</a>

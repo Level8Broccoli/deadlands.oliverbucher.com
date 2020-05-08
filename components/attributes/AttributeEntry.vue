@@ -2,15 +2,15 @@
   <tbody>
     <tr>
       <td>
-        <GameButton button-type="roll" @button-click="rollDice()" />
+        <GameButton button-type="roll" @button-click="rollDice" />
       </td>
       <td>
         <a @click="show = !show">{{ attribute.name }}</a>
       </td>
       <td v-for="die in dice" :key="die">
         <GameButton
-          :button-type="buttonType(attribute, die)"
-          @button-click="clickAttribute(attribute, die)"
+          :button-type="buttonType(die)"
+          @button-click="clickAttribute(die)"
         />
       </td>
     </tr>
@@ -66,8 +66,8 @@ export default {
         }
       })
     },
-    buttonType(attribute, value) {
-      if (attribute.defaultValue >= value) {
+    buttonType(value) {
+      if (this.attribute.defaultValue >= value) {
         return 'fixed'
       }
       if (this.currentValue >= value) {
@@ -75,9 +75,9 @@ export default {
       }
       return 'point1'
     },
-    clickAttribute(attribute, value) {
+    clickAttribute(value) {
       this.$store.commit('charSave/clickAttribute', {
-        id: attribute.id,
+        id: this.attribute.id,
         value
       })
     }
