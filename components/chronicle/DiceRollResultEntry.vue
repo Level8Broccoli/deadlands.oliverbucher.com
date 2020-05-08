@@ -9,6 +9,9 @@
     </td>
     <td>
       {{ dicePool.comment }} (W{{ dicePool.dice }})
+      <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
+        <span class="tag is-rounded">{{ tag }}</span>
+      </div>
       <div>
         <small>
           <span v-if="authorName !== ''" class="has-text-weight-bold">
@@ -16,9 +19,6 @@
           </span>
           {{ meta.timestamp }}
         </small>
-      </div>
-      <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
-        <span class="tag is-rounded">{{ tag }}</span>
       </div>
     </td>
     <td>
