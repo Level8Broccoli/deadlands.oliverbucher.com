@@ -34,8 +34,8 @@
         </div>
         <div class="control">
           <div class="tags has-addons">
-            <span class="tag is-dark">Startkapital</span>
-            <span class="tag">250$</span>
+            <span class="tag is-dark">Kapital</span>
+            <span class="tag">{{ totalValue }}$</span>
           </div>
         </div>
         <div class="control">
@@ -63,6 +63,9 @@ export default {
         (e) => e.id === 'Konstitution'
       )
       return savedEntry ? savedEntry.value : 4
+    },
+    totalValue() {
+      return this.$store.getters['charSave/getGearTotal'] * -1
     }
   }
 }

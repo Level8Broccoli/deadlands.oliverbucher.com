@@ -15,7 +15,15 @@ export const state = () => ({
   handicapList: [],
   talentList: [],
   powerList: [],
-  gearList: [],
+  gearList: [
+    {
+      count: 1,
+      name: 'Startkapital',
+      descr: '',
+      value: '-250',
+      id: 'Startkapital'
+    }
+  ],
   charPoints: {
     attributes: 5,
     skills: 12,
