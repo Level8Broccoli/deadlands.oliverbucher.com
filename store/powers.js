@@ -68,7 +68,12 @@ export const state = () => ({
         {
           name: 'STARK (+1)',
           descr:
-            'Nur Verbergen. Entdecken-Würfe, um das Verbergen zu durchschauen, werden mit –2 abgelegt. ZUSÄTZLICHE EMPFÄNGER (+1): Die Macht kann bei Entdecken mehr als einen Betrachter beeinflussen, oder mehrere Gegenstände verbergen, für je 1 zusätzlichen Machtpunkt.'
+            'Nur Verbergen. Entdecken-Würfe, um das Verbergen zu durchschauen, werden mit –2 abgelegt. '
+        },
+        {
+          name: 'ZUSÄTZLICHE EMPFÄNGER (+1)',
+          descr:
+            'Die Macht kann bei Entdecken mehr als einen Betrachter beeinflussen, oder mehrere Gegenstände verbergen, für je 1 zusätzlichen Machtpunkt.'
         }
       ]
     },
