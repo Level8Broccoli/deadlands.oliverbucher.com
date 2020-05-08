@@ -68,32 +68,27 @@ export const state = () => ({
     {
       id: 'attributes',
       name: 'Attribute',
-      link: '/attributes',
-      points: 5
+      link: '/attributes'
     },
     {
       id: 'skills',
       name: 'Fertigkeiten',
-      link: '/skills',
-      points: 12
+      link: '/skills'
     },
     {
       id: 'handicaps',
       name: 'Handicaps',
-      link: '/handicaps',
-      points: 4
+      link: '/handicaps'
     },
     {
       id: 'talents',
       name: 'Talente',
-      link: '/talents',
-      points: 3
+      link: '/talents'
     },
     {
       id: 'powers',
       name: 'Mächte',
-      link: '/powers',
-      points: 1
+      link: '/powers'
     },
     {
       id: 'gear',

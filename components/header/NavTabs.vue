@@ -31,7 +31,7 @@ export default {
     tabList() {
       return this.$store.state.tabList
     },
-    attributePoints() {
+    attributePointsUsed() {
       const attributeListActive = this.$store.state.charSave.attributeList
       let total = 0
       for (let i = 0; i < attributeListActive.length; i++) {
@@ -40,7 +40,7 @@ export default {
       }
       return total / 2
     },
-    skillPoints() {
+    skillPointsUsed() {
       const skillListActive = this.$store.state.charSave.skillList
       const attributeListActive = this.$store.state.charSave.attributeList
       const skillList = this.$store.getters['skills/getList']
@@ -73,7 +73,7 @@ export default {
       }
       return total
     },
-    handicapPoints() {
+    handicapPointsUsed() {
       const handicapListActive = this.$store.state.charSave.handicapList
       let total = 0
       for (let i = 0; i < handicapListActive.length; i++) {
@@ -82,11 +82,11 @@ export default {
       }
       return total
     },
-    talentPoints() {
+    talentPointsUsed() {
       const talentListActive = this.$store.state.charSave.talentList
       return talentListActive.length
     },
-    powerPoints() {
+    powerPointsUsed() {
       const powerListActive = this.$store.state.charSave.powerList
       return powerListActive.length
     }
@@ -107,16 +107,17 @@ export default {
       }
     },
     badgeValue(tab) {
+      const charPoints = this.$store.state.charSave.charPoints
       if (tab.id === 'attributes') {
-        return tab.points - this.attributePoints
+        return charPoints.attributes - this.attributePointsUsed
       } else if (tab.id === 'skills') {
-        return tab.points - this.skillPoints
+        return charPoints.skills - this.skillPointsUsed
       } else if (tab.id === 'handicaps') {
-        return tab.points - this.handicapPoints
+        return charPoints.handicaps - this.handicapPointsUsed
       } else if (tab.id === 'talents') {
-        return tab.points - this.talentPoints
+        return charPoints.talents - this.talentPointsUsed
       } else if (tab.id === 'powers') {
-        return tab.points - this.powerPoints
+        return charPoints.powers - this.powerPointsUsed
       } else {
         return null
       }

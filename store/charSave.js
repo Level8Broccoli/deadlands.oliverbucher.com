@@ -16,6 +16,13 @@ export const state = () => ({
   talentList: [],
   powerList: [],
   gearList: [],
+  charPoints: {
+    attributes: 5,
+    skills: 12,
+    handicaps: 4,
+    talents: 3,
+    powers: 0
+  },
   charNames: {}
 })
 
