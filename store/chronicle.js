@@ -56,67 +56,70 @@ export const actions = {
   },
   rollDice(
     { commit, dispatch },
-    { comment, dice, wild, modifications, showLastRoll, tags }
+    { comment, dice, options, modifications, tags }
   ) {
-    const rollNormal = []
-    let totalNormal = 0
-    while (true) {
-      const rolled = Math.ceil(Math.random() * dice)
-      totalNormal += rolled
-      rollNormal.push({
-        dice,
-        rolled
-      })
-      if (rolled !== dice) {
-        break
-      }
-    }
-
     const WILD_DICE = 6
-    const rollWild = []
-    let totalWild = 0
-    if (wild) {
+
+    const rollDie = (die, explodingDice) => {
+      const result = []
       while (true) {
-        const rolled = Math.ceil(Math.random() * WILD_DICE)
-        totalWild += rolled
-        rollWild.push({
-          dice: WILD_DICE,
-          rolled
-        })
-        if (rolled !== WILD_DICE) {
+        const rolled = Math.ceil(Math.random() * die)
+        result.push({ rolled, die, explodingDice })
+        if (rolled !== die || !explodingDice) {
           break
         }
       }
+      return result
     }
 
-    let biggerTotal = Math.max(totalNormal, totalWild)
-    if (modifications) {
-      for (let i = 0; i < modifications.length; i++) {
-        const mod = modifications[i]
-        biggerTotal += mod.value
+    const rollResult = {
+      rollNormal: [],
+      rollWild: [],
+      endResult: null,
+      effects: {}
+    }
+
+    for (const die of dice) {
+      for (let index = 0; index < die.count; index++) {
+        const roll = rollDie(die.type, options.explodingDice)
+        rollResult.rollNormal.push(roll)
       }
     }
 
-    const result = {
-      value: biggerTotal,
-      success: biggerTotal >= 4,
-      critFailure: totalNormal === 1 && totalWild === 1,
-      raise: Math.floor(biggerTotal / 4) - 1
+    if (options.wildDice) {
+      const roll = rollDie(WILD_DICE, options.explodingDice)
+      rollResult.rollWild.push(roll)
     }
 
-    if (showLastRoll) {
+    const totalRolls = (acc, curr) => (acc += curr.rolled)
+    const totalNormal = rollResult.rollNormal.flat().reduce(totalRolls, 0)
+    const totalWild = rollResult.rollWild.flat().reduce(totalRolls, 0)
+
+    rollResult.endResult = Math.max(totalNormal, totalWild)
+    if (modifications) {
+      for (let i = 0; i < modifications.length; i++) {
+        const mod = modifications[i]
+        rollResult.endResult += mod.value
+      }
+    }
+
+    if (options.showSuccessByFour) {
+      rollResult.effects = {
+        success: rollResult.endResult >= 4,
+        critFailure: totalNormal === 1 && totalWild === 1,
+        raise: Math.floor(rollResult.endResult / 4) - 1
+      }
+    }
+
+    if (options.showLastRoll) {
       commit('setShowLastRoll', true)
     }
 
     dispatch('commitOwnAction', {
       meta: { type: 'diceRoll' },
       payload: {
-        dicePool: { comment, dice, wild, modifications, showLastRoll, tags },
-        diceRoll: {
-          rollNormal,
-          rollWild,
-          result
-        }
+        dicePool: { comment, dice, options, modifications, tags },
+        rollResult
       }
     })
   }

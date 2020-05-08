@@ -53,7 +53,7 @@ export default {
       return this.$store.getters['chronicle/getLastRoll']
     },
     colorOfResult() {
-      const result = this.lastRoll.payload.diceRoll.result
+      const result = this.lastRoll.payload.rollResult.effects
       if (result.raise > 0) {
         return 'is-primary'
       }

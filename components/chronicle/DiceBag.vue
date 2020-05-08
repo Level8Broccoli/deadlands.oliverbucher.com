@@ -36,7 +36,13 @@ export default {
     rollDice(die) {
       this.$store.dispatch('chronicle/rollDice', {
         comment: 'Manueller Wurf',
-        dice: die
+        dice: [{ type: die, count: 1 }],
+        options: {
+          wildDice: false,
+          showLastRoll: false,
+          explodingDice: true,
+          showSuccessByFour: true
+        }
       })
     }
   }

@@ -4,11 +4,11 @@
       <GameButton
         button-type="roll"
         title="Wurf wiederholen"
-        @button-click="rerollDice(diceRoll)"
+        @button-click="rerollDice()"
       />
     </td>
     <td>
-      {{ dicePool.comment }} (W{{ dicePool.dice }})
+      {{ dicePool.comment }}
       <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
         <span class="tag is-rounded">{{ tag }}</span>
       </div>
@@ -24,10 +24,10 @@
     <td>
       <div class="buttons">
         <button
-          v-for="(die, index) in diceRoll.rollNormal"
+          v-for="(die, index) in rollResult.rollNormal.flat()"
           :key="index"
           class="button is-light"
-          :class="renderDice(die.rolled, die.dice)"
+          :class="renderDice(die)"
         >
           {{ die.rolled }}
         </button>
@@ -36,10 +36,10 @@
     <td>
       <div class="buttons">
         <button
-          v-for="(die, index) in diceRoll.rollWild"
+          v-for="(die, index) in rollResult.rollWild.flat()"
           :key="index"
           class="button is-light"
-          :class="renderDice(die.rolled, die.dice)"
+          :class="renderDice(die)"
         >
           {{ die.rolled }}
         </button>
@@ -58,23 +58,23 @@
       </div>
     </td>
     <td>
-      <button class="button" :class="renderResult(diceRoll.result)">
-        {{ diceRoll.result.value }}
+      <button class="button" :class="renderResult()">
+        {{ rollResult.endResult }}
       </button>
     </td>
     <td>
-      <div v-if="diceRoll.result.success" class="has-text-success">
+      <div v-if="rollResult.effects.success" class="has-text-success">
         Erfolg!
       </div>
-      <div v-else-if="diceRoll.result.critFailure" class="has-text-danger">
+      <div v-else-if="rollResult.effects.critFailure" class="has-text-danger">
         Snake Eyes!
       </div>
       <div v-else class="has-text-warning">Fehlschlag</div>
-      <div v-if="diceRoll.result.raise === 1" class="has-text-info">
+      <div v-if="rollResult.effects.raise === 1" class="has-text-info">
         1 Steigerung
       </div>
-      <div v-if="diceRoll.result.raise > 1" class="has-text-info">
-        {{ diceRoll.result.raise }} Steigerungen
+      <div v-if="rollResult.effects.raise > 1" class="has-text-info">
+        {{ rollResult.effects.raise }} Steigerungen
       </div>
     </td>
   </tr>
@@ -101,8 +101,8 @@ export default {
     dicePool() {
       return this.entry.payload.dicePool
     },
-    diceRoll() {
-      return this.entry.payload.diceRoll
+    rollResult() {
+      return this.entry.payload.rollResult
     },
     myEntry() {
       return this.entry.meta.author === this.$store.state.charSave.id
@@ -117,17 +117,18 @@ export default {
     }
   },
   methods: {
-    rerollDice(dice) {
+    rerollDice() {
       const REROLL_TAG = 'Reroll'
       const reroll = { ...this.dicePool }
       reroll.tags = reroll.tags ? [...reroll.tags] : []
       if (!reroll.tags.includes(REROLL_TAG)) {
         reroll.tags.push(REROLL_TAG)
       }
-      reroll.showLastRoll = this.$route.name !== 'chronicle'
+      reroll.options.showLastRoll = this.$route.name !== 'chronicle'
       this.$store.dispatch('chronicle/rollDice', reroll)
     },
-    renderResult(result) {
+    renderResult() {
+      const result = this.rollResult.effects
       if (result.raise > 0) {
         return 'is-primary'
       }
@@ -139,11 +140,11 @@ export default {
       }
       return 'is-warning'
     },
-    renderDice(result, die) {
-      if (result === 1) {
+    renderDice({ rolled, die, explodingDice }) {
+      if (rolled === 1) {
         return 'is-danger'
       }
-      if (result === die) {
+      if (rolled === die && explodingDice) {
         return 'is-success'
       }
       return ''

@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td>
-        <GameButton button-type="roll" @button-click="rollDice(skill)" />
+        <GameButton button-type="roll" @button-click="rollDice()" />
       </td>
       <td>
         <a @click="show = !show">{{ skill.name }}</a>
@@ -66,27 +66,33 @@ export default {
     }
   },
   methods: {
-    rollDice(skill) {
-      const comment = `${skill.name}`
+    rollDice() {
+      const comment = `${this.skill.name}`
+      const dice = []
+      dice.push({
+        type: this.currentValue === 0 ? 4 : this.currentValue,
+        count: 1
+      })
+      const options = {
+        wildDice: true,
+        showLastRoll: true,
+        explodingDice: true,
+        showSuccessByFour: true
+      }
       const modifications = []
-      let dice = this.currentValue
-      const wild = true
-      const showLastRoll = true
 
       if (this.currentValue === 0) {
         modifications.push({
           name: 'Ungeübt',
           value: -2
         })
-        dice = 4
       }
 
       this.$store.dispatch('chronicle/rollDice', {
         comment,
         dice,
-        wild,
-        modifications,
-        showLastRoll
+        options,
+        modifications
       })
     },
     buttonType(skill, value) {

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <DiceModal />
     <HeaderLogo />
     <section class="section">
       <div class="container">
@@ -22,9 +23,17 @@ import HeaderTitle from '~/components/header/HeaderTitle'
 import CharacterOverview from '~/components/common/CharacterOverview'
 import NavTabs from '~/components/header/NavTabs'
 import LastRoll from '~/components/common/LastRoll'
+import DiceModal from '~/components/common/DiceModal'
 
 export default {
-  components: { HeaderLogo, HeaderTitle, CharacterOverview, NavTabs, LastRoll },
+  components: {
+    HeaderLogo,
+    HeaderTitle,
+    CharacterOverview,
+    NavTabs,
+    LastRoll,
+    DiceModal
+  },
   computed: {
     showLastRoll() {
       const lastRoll = this.$store.getters['chronicle/getLastRoll']

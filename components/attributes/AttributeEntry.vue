@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td>
-        <GameButton button-type="roll" @button-click="rollDice(attribute)" />
+        <GameButton button-type="roll" @button-click="rollDice()" />
       </td>
       <td>
         <a @click="show = !show">{{ attribute.name }}</a>
@@ -54,12 +54,16 @@ export default {
     }
   },
   methods: {
-    rollDice(attribute) {
+    rollDice() {
       this.$store.dispatch('chronicle/rollDice', {
-        comment: `${attribute.name}`,
-        dice: this.currentValue,
-        wild: true,
-        showLastRoll: true
+        comment: `${this.attribute.name}`,
+        dice: [{ type: this.currentValue, count: 1 }],
+        options: {
+          wildDice: true,
+          showLastRoll: true,
+          explodingDice: true,
+          showSuccessByFour: true
+        }
       })
     },
     buttonType(attribute, value) {
