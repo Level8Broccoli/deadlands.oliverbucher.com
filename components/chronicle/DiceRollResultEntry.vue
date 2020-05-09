@@ -1,11 +1,18 @@
 <template>
   <tr :class="myEntry">
     <td>
-      <GameButton
-        button-type="roll"
-        :title="dicePoolDescription"
-        @button-click="rerollDice"
-      />
+      <div class="field has-addons">
+        <p class="control">
+          <GameButton
+            button-type="roll"
+            :title="dicePoolDescription"
+            @button-click="rerollDice"
+          />
+        </p>
+        <p class="control">
+          <GameButton button-type="more" @button-click="openDiceModal" />
+        </p>
+      </div>
     </td>
     <td>
       {{ dicePool.comment }}
@@ -126,13 +133,22 @@ export default {
       )
     },
     dicePoolDescription() {
-      console.log(this.dicePool.dice)
       const diceFiltered = this.dicePool.dice.filter((e) => e.count > 0)
       const diceAsString = diceFiltered.map((e) => `${e.count}W${e.type}`)
       return `Würfelpool: ${diceAsString.join(' + ')}`
     }
   },
   methods: {
+    openDiceModal() {
+      const REROLL_TAG = 'Reroll'
+      const reroll = { ...this.dicePool }
+      reroll.tags = reroll.tags ? [...reroll.tags] : []
+      if (!reroll.tags.includes(REROLL_TAG)) {
+        reroll.tags.push(REROLL_TAG)
+      }
+      reroll.options.showLastRoll = this.$route.name !== 'chronicle'
+      this.$store.commit('diceModal/openModal', reroll)
+    },
     rerollDice() {
       const REROLL_TAG = 'Reroll'
       const reroll = { ...this.dicePool }
