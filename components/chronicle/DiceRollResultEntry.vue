@@ -80,18 +80,20 @@
       </button>
     </td>
     <td>
-      <div v-if="rollResult.effects.success" class="has-text-success">
-        Erfolg!
-      </div>
-      <div v-else-if="rollResult.effects.critFailure" class="has-text-danger">
-        Snake Eyes!
-      </div>
-      <div v-else class="has-text-warning">Fehlschlag</div>
-      <div v-if="rollResult.effects.raise === 1" class="has-text-info">
-        1 Steigerung
-      </div>
-      <div v-if="rollResult.effects.raise > 1" class="has-text-info">
-        {{ rollResult.effects.raise }} Steigerungen
+      <div v-if="dicePool.options.showSuccessByFour">
+        <div v-if="rollResult.effects.success" class="has-text-success">
+          Erfolg!
+        </div>
+        <div v-else-if="rollResult.effects.critFailure" class="has-text-danger">
+          Snake Eyes!
+        </div>
+        <div v-else class="has-text-warning">Fehlschlag</div>
+        <div v-if="rollResult.effects.raise === 1" class="has-text-info">
+          1 Steigerung
+        </div>
+        <div v-if="rollResult.effects.raise > 1" class="has-text-info">
+          {{ rollResult.effects.raise }} Steigerungen
+        </div>
       </div>
     </td>
   </tr>
@@ -160,17 +162,20 @@ export default {
       this.$store.dispatch('chronicle/rollDice', reroll)
     },
     renderResult() {
-      const result = this.rollResult.effects
-      if (result.raise > 0) {
-        return 'is-primary'
+      if (this.dicePool.options.showSuccessByFour) {
+        const result = this.rollResult.effects
+        if (result.raise > 0) {
+          return 'is-primary'
+        }
+        if (result.success) {
+          return 'is-success'
+        }
+        if (result.critFailure) {
+          return 'is-danger'
+        }
+        return 'is-warning'
       }
-      if (result.success) {
-        return 'is-success'
-      }
-      if (result.critFailure) {
-        return 'is-danger'
-      }
-      return 'is-warning'
+      return 'is-light'
     },
     renderDice({ rolled, die, explodingDice }) {
       if (rolled === 1) {

@@ -220,7 +220,7 @@ export default {
           this.wildDice = dicePool.options.wildDice
           this.showLastRoll = dicePool.options.showLastRoll
           this.explodingDice = dicePool.options.explodingDice
-          this.showSuccessByFour = dicePool.options.showLastRoll
+          this.showSuccessByFour = dicePool.options.showSuccessByFour
           this.modifications = dicePool.modifications
           this.tags = dicePool.tags ? dicePool.tags.join(', ') : ''
         }
