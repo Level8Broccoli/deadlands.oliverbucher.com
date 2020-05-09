@@ -32,11 +32,20 @@
             <span>Würfel</span>
           </a>
         </li>
+        <li :class="tab === 3 ? 'is-active' : ''">
+          <a @click="tab = 3">
+            <span class="icon is-small">
+              <font-awesome-icon :icon="['fas', 'star']" />
+            </span>
+            <span>Favoriten</span>
+          </a>
+        </li>
       </ul>
     </div>
     <CharacterStats v-if="tab === 0" />
     <CardDeck v-if="tab === 1" />
     <DiceBag v-if="tab === 2" />
+    <FavouriteDicePools v-if="tab === 3" />
     <ChatForm />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
@@ -100,12 +109,14 @@ import CharacterStats from '~/components/common/CharacterStats'
 import CardDeck from '~/components/chronicle/CardDeck'
 import CardShuffleEntry from '~/components/chronicle/CardShuffleEntry'
 import CardDrawEntry from '~/components/chronicle/CardDrawEntry'
+import FavouriteDicePools from '~/components/chronicle/FavouriteDicePools'
 
 export default {
   components: {
     DiceBag,
     CardDrawEntry,
     DiceRollResultEntry,
+    FavouriteDicePools,
     ChatForm,
     CardShuffleEntry,
     ChatEntry,

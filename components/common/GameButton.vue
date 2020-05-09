@@ -9,7 +9,7 @@
       <span v-if="buttonType !== 'text'" class="icon">
         <font-awesome-icon :icon="['fas', buttonSymbol]" />
       </span>
-      <span v-else>{{ buttonText }}</span>
+      <span v-if="buttonText">{{ buttonText }}</span>
     </button>
   </div>
 </template>

@@ -31,7 +31,7 @@ export const state = () => ({
     talents: 3,
     powers: 0
   },
-  favoriteDicePools: [],
+  favouriteDicePools: [],
   charNames: {}
 })
 
@@ -61,8 +61,11 @@ export const getters = {
 }
 
 export const mutations = {
+  deleteFavourite(state, index) {
+    state.favouriteDicePools.splice(index, 1)
+  },
   saveDicePool(state, dicePool) {
-    state.favoriteDicePools.push(dicePool)
+    state.favouriteDicePools.push(dicePool)
   },
   setCharPoints(state, { type, value }) {
     if (value >= 0) {
