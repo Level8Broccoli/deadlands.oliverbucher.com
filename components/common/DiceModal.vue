@@ -221,7 +221,9 @@ export default {
           this.showLastRoll = dicePool.options.showLastRoll
           this.explodingDice = dicePool.options.explodingDice
           this.showSuccessByFour = dicePool.options.showSuccessByFour
-          this.modifications = dicePool.modifications
+          if (dicePool.modifications) {
+            this.modifications = [...dicePool.modifications]
+          }
           this.tags = dicePool.tags ? dicePool.tags.join(', ') : ''
         }
       }
@@ -262,6 +264,9 @@ export default {
       }
     },
     addMod() {
+      if (!this.modifications) {
+        this.modifications = []
+      }
       this.modifications.push({ name: '', value: 0 })
     },
     removeMod(index) {
