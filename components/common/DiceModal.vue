@@ -142,6 +142,9 @@
       </section>
       <footer class="modal-card-foot">
         <button class="button is-success" @click="rollDice">Würfeln</button>
+        <button class="button is-info" @click="saveDicePool">
+          Würfeln & Speichern
+        </button>
         <button class="button" @click="modalIsActive = false">Abbrechen</button>
       </footer>
     </div>
@@ -233,6 +236,36 @@ export default {
     this.unwatch()
   },
   methods: {
+    saveDicePool() {
+      if (
+        this.dice4 + this.dice6 + this.dice8 + this.dice10 + this.dice12 >
+        0
+      ) {
+        const dicePool = {
+          comment:
+            this.comment && this.comment.trim().length > 0
+              ? this.comment
+              : 'Wurf mit Würfelhilfe',
+          dice: [
+            { type: 4, count: Number(this.dice4) },
+            { type: 6, count: Number(this.dice6) },
+            { type: 8, count: Number(this.dice8) },
+            { type: 10, count: Number(this.dice10) },
+            { type: 12, count: Number(this.dice12) }
+          ],
+          options: {
+            wildDice: this.wildDice,
+            showLastRoll: this.showLastRoll && this.$route.name !== 'chronicle',
+            showSuccessByFour: this.showSuccessByFour,
+            explodingDice: this.explodingDice
+          },
+          modifications: this.modifications,
+          tags: this.tags ? this.tags.split(',').map((e) => e.trim()) : []
+        }
+        this.$store.commit('charSave/saveDicePool', dicePool)
+        this.rollDice()
+      }
+    },
     rollDice() {
       if (
         this.dice4 + this.dice6 + this.dice8 + this.dice10 + this.dice12 >

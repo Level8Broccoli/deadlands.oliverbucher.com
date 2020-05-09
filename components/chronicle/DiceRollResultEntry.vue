@@ -149,6 +149,9 @@ export default {
       const REROLL_TAG = 'Reroll'
 
       const reroll = JSON.parse(JSON.stringify(this.dicePool))
+      if (!reroll.tags) {
+        reroll.tags = []
+      }
       if (!reroll.tags.includes(REROLL_TAG)) {
         reroll.tags.push(REROLL_TAG)
       }
