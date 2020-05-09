@@ -10,7 +10,11 @@
           />
         </p>
         <p class="control">
-          <GameButton button-type="more" @button-click="openDiceModal" />
+          <GameButton
+            button-type="more"
+            :title="dicePoolDescription"
+            @button-click="openDiceModal"
+          />
         </p>
       </div>
     </td>
