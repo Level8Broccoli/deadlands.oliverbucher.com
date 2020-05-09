@@ -2,7 +2,14 @@
   <tbody>
     <tr>
       <td>
-        <GameButton button-type="roll" @button-click="rollDice" />
+        <div class="field has-addons">
+          <p class="control">
+            <GameButton button-type="roll" @button-click="rollDice" />
+          </p>
+          <p class="control">
+            <GameButton button-type="more" @button-click="openDiceModal" />
+          </p>
+        </div>
       </td>
       <td>
         <a @click="show = !show">{{ attribute.name }}</a>
@@ -54,9 +61,22 @@ export default {
     }
   },
   methods: {
+    openDiceModal() {
+      const dicePool = {
+        comment: this.attribute.name,
+        dice: [{ type: this.currentValue, count: 1 }],
+        options: {
+          wildDice: true,
+          showLastRoll: true,
+          explodingDice: true,
+          showSuccessByFour: true
+        }
+      }
+      this.$store.commit('diceModal/openModal', dicePool)
+    },
     rollDice() {
       this.$store.dispatch('chronicle/rollDice', {
-        comment: `${this.attribute.name}`,
+        comment: this.attribute.name,
         dice: [{ type: this.currentValue, count: 1 }],
         options: {
           wildDice: true,

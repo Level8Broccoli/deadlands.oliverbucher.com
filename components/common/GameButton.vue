@@ -33,6 +33,7 @@ export default {
           'delete',
           'save',
           'closeUp',
+          'more',
           'text'
         ].includes(value)
       }
@@ -59,6 +60,7 @@ export default {
         'is-light':
           this.buttonType === 'point1' ||
           this.buttonType === 'edit' ||
+          this.buttonType === 'more' ||
           this.buttonStyles.includes('light'),
         'is-danger is-light':
           this.buttonType === 'point2' || this.buttonStyles.includes('danger'),
@@ -85,6 +87,7 @@ export default {
         plus: 'plus',
         save: 'save',
         delete: 'trash',
+        more: 'ellipsis-v',
         closeUp: 'compress-arrows-alt'
       }[this.buttonType]
     }

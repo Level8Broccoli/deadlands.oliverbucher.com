@@ -3,7 +3,7 @@
     <td>
       <GameButton
         button-type="roll"
-        title="Wurf wiederholen"
+        :title="dicePoolDescription"
         @button-click="rerollDice"
       />
     </td>
@@ -124,6 +124,12 @@ export default {
         this.$store.getters['charSave/getAuthorName'](this.meta.author) ||
         this.meta.authorName
       )
+    },
+    dicePoolDescription() {
+      console.log(this.dicePool.dice)
+      const diceFiltered = this.dicePool.dice.filter((e) => e.count > 0)
+      const diceAsString = diceFiltered.map((e) => `${e.count}W${e.type}`)
+      return `Würfelpool: ${diceAsString.join(' + ')}`
     }
   },
   methods: {

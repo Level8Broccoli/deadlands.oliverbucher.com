@@ -193,19 +193,29 @@ export default {
           const dicePool = this.$store.state.diceModal.dicePool
           this.comment = dicePool.comment
           if (dicePool.dice.find((e) => e.type === 4)) {
-            this.dice4 = dicePool.dice.find((e) => e.type === 4).value
+            this.dice4 = dicePool.dice.find((e) => e.type === 4).count
+          } else {
+            this.dice4 = 0
           }
           if (dicePool.dice.find((e) => e.type === 6)) {
-            this.dice6 = dicePool.dice.find((e) => e.type === 6).value
+            this.dice6 = dicePool.dice.find((e) => e.type === 6).count
+          } else {
+            this.dice6 = 0
           }
           if (dicePool.dice.find((e) => e.type === 8)) {
-            this.dice8 = dicePool.dice.find((e) => e.type === 8).value
+            this.dice8 = dicePool.dice.find((e) => e.type === 8).count
+          } else {
+            this.dice8 = 0
           }
           if (dicePool.dice.find((e) => e.type === 10)) {
-            this.dice10 = dicePool.dice.find((e) => e.type === 10).value
+            this.dice10 = dicePool.dice.find((e) => e.type === 10).count
+          } else {
+            this.dice10 = 0
           }
           if (dicePool.dice.find((e) => e.type === 12)) {
-            this.dice12 = dicePool.dice.find((e) => e.type === 12).value
+            this.dice12 = dicePool.dice.find((e) => e.type === 12).count
+          } else {
+            this.dice12 = 0
           }
           this.wildDice = dicePool.options.wildDice
           this.showLastRoll = dicePool.options.showLastRoll
