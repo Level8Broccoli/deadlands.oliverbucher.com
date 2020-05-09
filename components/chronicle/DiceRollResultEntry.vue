@@ -9,9 +9,15 @@
     </td>
     <td>
       {{ dicePool.comment }}
-      <div v-for="(tag, index) in dicePool.tags" :key="index" class="tags">
-        <span class="tag is-rounded">{{ tag }}</span>
-      </div>
+      <span class="tags">
+        <span
+          v-for="(tag, index) in dicePool.tags"
+          :key="index"
+          class="tag is-rounded"
+        >
+          {{ tag }}
+        </span>
+      </span>
       <div>
         <small>
           <span v-if="authorName !== ''" class="has-text-weight-bold">
@@ -28,6 +34,7 @@
           :key="index"
           class="button is-light"
           :class="renderDice(die)"
+          :title="'W' + die.die"
         >
           {{ die.rolled }}
         </button>
@@ -40,6 +47,7 @@
           :key="index"
           class="button is-light"
           :class="renderDice(die)"
+          :title="'W' + die.die"
         >
           {{ die.rolled }}
         </button>
@@ -53,7 +61,9 @@
           class="button is-light"
           :class="mod.value < 0 ? 'is-danger' : 'is-success'"
         >
-          {{ mod.name }} {{ mod.value }}
+          <span v-if="mod.name.trim().length > 0 || mod.value !== 0">
+            {{ mod.name }} {{ mod.value }}
+          </span>
         </button>
       </div>
     </td>

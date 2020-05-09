@@ -30,6 +30,7 @@ export default {
           'roll',
           'edit',
           'plus',
+          'delete',
           'save',
           'closeUp',
           'text'
@@ -61,6 +62,7 @@ export default {
           this.buttonStyles.includes('light'),
         'is-danger is-light':
           this.buttonType === 'point2' || this.buttonStyles.includes('danger'),
+        'is-danger': this.buttonType === 'delete',
         'is-success':
           this.buttonType === 'checked' ||
           this.buttonType === 'plus' ||
@@ -82,6 +84,7 @@ export default {
         edit: 'edit',
         plus: 'plus',
         save: 'save',
+        delete: 'trash',
         closeUp: 'compress-arrows-alt'
       }[this.buttonType]
     }

@@ -17,6 +17,18 @@
           </p>
         </div>
       </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="title">
+            <GameButton
+              title="Öffne die Würfelhilfe"
+              button-type="text"
+              button-text="Würfelhilfe"
+              @button-click="openDiceModal"
+            />
+          </p>
+        </div>
+      </div>
     </nav>
   </div>
 </template>
@@ -44,6 +56,19 @@ export default {
           showSuccessByFour: true
         }
       })
+    },
+    openDiceModal() {
+      const dicePool = {
+        comment: 'Manueller Wurf',
+        dice: [],
+        options: {
+          wildDice: false,
+          showLastRoll: false,
+          explodingDice: true,
+          showSuccessByFour: false
+        }
+      }
+      this.$store.commit('diceModal/openModal', dicePool)
     }
   }
 }
