@@ -2,7 +2,14 @@
   <tbody>
     <tr>
       <td>
-        <GameButton button-type="roll" @button-click="rollDice" />
+        <div class="field has-addons">
+          <p class="control">
+            <GameButton button-type="roll" @button-click="rollDice" />
+          </p>
+          <p class="control">
+            <GameButton button-type="more" @button-click="openDiceModal" />
+          </p>
+        </div>
       </td>
       <td>
         <a @click="show = !show">{{ skill.name }}</a>
@@ -66,8 +73,37 @@ export default {
     }
   },
   methods: {
+    openDiceModal() {
+      const comment = this.skill.name
+      const dice = []
+      dice.push({
+        type: this.currentValue === 0 ? 4 : this.currentValue,
+        count: 1
+      })
+      const options = {
+        wildDice: true,
+        showLastRoll: true,
+        explodingDice: true,
+        showSuccessByFour: true
+      }
+      const modifications = []
+
+      if (this.currentValue === 0) {
+        modifications.push({
+          name: 'Ungeübt',
+          value: -2
+        })
+      }
+      const dicePool = {
+        comment,
+        dice,
+        options,
+        modifications
+      }
+      this.$store.commit('diceModal/openModal', dicePool)
+    },
     rollDice() {
-      const comment = `${this.skill.name}`
+      const comment = this.skill.name
       const dice = []
       dice.push({
         type: this.currentValue === 0 ? 4 : this.currentValue,
