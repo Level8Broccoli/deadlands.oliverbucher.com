@@ -8,32 +8,32 @@
     <br />
     <div class="tabs is-toggle is-fullwidth">
       <ul>
-        <li :class="tab === 0 ? 'is-active' : ''">
-          <a @click="tab = 0">
+        <li :class="tab.includes('characterStatus') ? 'is-active' : ''">
+          <a @click="toggleTab('characterStatus')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'user']" />
             </span>
             <span>Charakterstatus</span>
           </a>
         </li>
-        <li :class="tab === 1 ? 'is-active' : ''">
-          <a @click="tab = 1">
+        <li :class="tab.includes('pokercards') ? 'is-active' : ''">
+          <a @click="toggleTab('pokercards')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'chess-king']" />
             </span>
             <span>Pokerkarten</span>
           </a>
         </li>
-        <li :class="tab === 2 ? 'is-active' : ''">
-          <a @click="tab = 2">
+        <li :class="tab.includes('dice') ? 'is-active' : ''">
+          <a @click="toggleTab('dice')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'dice']" />
             </span>
             <span>Würfel</span>
           </a>
         </li>
-        <li :class="tab === 3 ? 'is-active' : ''">
-          <a @click="tab = 3">
+        <li :class="tab.includes('favourites') ? 'is-active' : ''">
+          <a @click="toggleTab('favourites')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'star']" />
             </span>
@@ -42,10 +42,10 @@
         </li>
       </ul>
     </div>
-    <CharacterStats v-if="tab === 0" />
-    <CardDeck v-if="tab === 1" />
-    <DiceBag v-if="tab === 2" />
-    <FavouriteDicePools v-if="tab === 3" />
+    <CharacterStats v-if="tab.includes('characterStatus')" />
+    <CardDeck v-if="tab.includes('pokercards')" />
+    <DiceBag v-if="tab.includes('dice')" />
+    <FavouriteDicePools v-if="tab.includes('favourites')" />
     <ChatForm />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
@@ -124,7 +124,7 @@ export default {
     CardDeck
   },
   data() {
-    return { tab: 0 }
+    return { tab: [] }
   },
   computed: {
     chronicleList() {
@@ -141,6 +141,15 @@ export default {
   },
   mounted() {
     this.$store.commit('chronicle/setShowLastRoll', false)
+  },
+  methods: {
+    toggleTab(tabName) {
+      if (this.tab.includes(tabName)) {
+        this.tab.splice(this.tab.indexOf(tabName), 1)
+      } else {
+        this.tab.push(tabName)
+      }
+    }
   },
   head() {
     return {
