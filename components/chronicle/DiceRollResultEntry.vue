@@ -143,8 +143,8 @@ export default {
   methods: {
     openDiceModal() {
       const REROLL_TAG = 'Reroll'
-      const reroll = { ...this.dicePool }
-      reroll.tags = reroll.tags ? [...reroll.tags] : []
+
+      const reroll = JSON.parse(JSON.stringify(this.dicePool))
       if (!reroll.tags.includes(REROLL_TAG)) {
         reroll.tags.push(REROLL_TAG)
       }
