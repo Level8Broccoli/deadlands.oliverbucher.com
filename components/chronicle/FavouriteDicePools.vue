@@ -3,12 +3,16 @@
     <div v-if="favourites.length === 0">
       <span class="is-italic">Noch keine Favoriten erstellt</span>
     </div>
-    <FavouriteEntry
-      v-for="(favourite, index) in favourites"
-      :key="index"
-      :favourite="favourite"
-      @delete-favourite="deleteFavourite(index)"
-    />
+    <div class="tile is-ancestor">
+      <div class="tile is-parent custom-flex-flow">
+        <FavouriteEntry
+          v-for="(favourite, index) in favourites"
+          :key="index"
+          :favourite="favourite"
+          @delete-favourite="deleteFavourite(index)"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -30,3 +34,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.custom-flex-flow {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+</style>

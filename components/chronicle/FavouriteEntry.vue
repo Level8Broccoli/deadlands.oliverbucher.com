@@ -1,23 +1,25 @@
 <template>
-  <div class="field has-addons">
-    <p class="control">
-      <GameButton
-        button-type="roll"
-        :button-text="favourite.comment"
-        :title="dicePoolDescription"
-        @button-click="rollDice"
-      />
-    </p>
-    <p class="control">
-      <GameButton
-        button-type="more"
-        :title="dicePoolDescription"
-        @button-click="openDiceModal"
-      />
-    </p>
-    <p class="control">
-      <GameButton button-type="delete" @button-click="deleteFavorite" />
-    </p>
+  <div class="tile is-child custom-flex-item">
+    <div class="field has-addons">
+      <p class="control">
+        <GameButton
+          button-type="roll"
+          :button-text="favourite.comment"
+          :title="dicePoolDescription"
+          @button-click="rollDice"
+        />
+      </p>
+      <p class="control">
+        <GameButton
+          button-type="more"
+          :title="dicePoolDescription"
+          @button-click="openDiceModal"
+        />
+      </p>
+      <p class="control">
+        <GameButton button-type="delete" @button-click="deleteFavorite" />
+      </p>
+    </div>
   </div>
 </template>
 
@@ -55,3 +57,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.custom-flex-item {
+  flex-grow: initial;
+}
+</style>
