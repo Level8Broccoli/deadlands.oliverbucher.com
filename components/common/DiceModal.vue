@@ -66,10 +66,18 @@
                 Wild Die (W6) mitwerfen.
               </span>
             </label>
-            <label class="checkbox">
+            <label v-if="$route.name !== 'chronicle'" class="checkbox">
               <input v-model="showLastRoll" type="checkbox" />
               <span :class="{ 'has-text-grey': !showLastRoll }">
                 Zeige den letzten Wurf im PopUp (unten).
+              </span>
+            </label>
+            <label v-else class="checkbox" disabled>
+              <input v-model="showLastRoll" type="checkbox" disabled />
+              <span class="has-text-grey">
+                <del>
+                  Zeige den letzten Wurf im PopUp (unten).
+                </del>
               </span>
             </label>
             <label class="checkbox">
