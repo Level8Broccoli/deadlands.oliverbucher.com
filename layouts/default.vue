@@ -14,6 +14,7 @@
             </div>
             <div v-if="layout !== 'default'" class="column">
               <AttributeShorthand />
+              <SkillShorthand />
             </div>
           </div>
           <LastRoll v-if="showLastRoll" />
@@ -32,6 +33,7 @@ import NavTabs from '~/components/header/NavTabs'
 import LastRoll from '~/components/common/LastRoll'
 import DiceModal from '~/components/common/DiceModal'
 import AttributeShorthand from '~/components/attributes/AttributeShorthand'
+import SkillShorthand from '~/components/skills/SkillShorthand'
 
 export default {
   components: {
@@ -41,7 +43,8 @@ export default {
     NavTabs,
     LastRoll,
     DiceModal,
-    AttributeShorthand
+    AttributeShorthand,
+    SkillShorthand
   },
   computed: {
     layout() {
