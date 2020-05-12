@@ -70,6 +70,10 @@ export default {
           {
             set: '@fortawesome/free-brands-svg-icons',
             icons: ['fab']
+          },
+          {
+            set: '@fortawesome/pro-regular-svg-icons',
+            icons: ['faAdjust', 'faArchive']
           }
         ]
       }
