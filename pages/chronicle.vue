@@ -1,45 +1,6 @@
 <template>
   <div>
-    <div class="tabs is-toggle is-fullwidth">
-      <ul>
-        <li :class="tab.includes('characterStatus') ? 'is-active' : ''">
-          <a @click="toggleOption('characterStatus')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'user']" />
-            </span>
-            <span>Charakterstatus</span>
-          </a>
-        </li>
-        <li :class="tab.includes('pokercards') ? 'is-active' : ''">
-          <a @click="toggleOption('pokercards')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'chess-king']" />
-            </span>
-            <span>Pokerkarten</span>
-          </a>
-        </li>
-        <li :class="tab.includes('dice') ? 'is-active' : ''">
-          <a @click="toggleOption('dice')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'dice']" />
-            </span>
-            <span>Würfel</span>
-          </a>
-        </li>
-        <li :class="tab.includes('favourites') ? 'is-active' : ''">
-          <a @click="toggleOption('favourites')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'star']" />
-            </span>
-            <span>Favoriten</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <CharacterStats v-if="tab.includes('characterStatus')" />
-    <CardDeck v-if="tab.includes('pokercards')" />
-    <DiceBag v-if="tab.includes('dice')" />
-    <FavouriteDicePools v-if="tab.includes('favourites')" />
+    <Helpers v-if="layout === 'default'" />
     <ChatForm />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
@@ -95,31 +56,25 @@
 </template>
 
 <script>
-import DiceBag from '~/components/chronicle/DiceBag'
+import Helpers from '~/components/common/Helpers'
 import DiceRollResultEntry from '~/components/chronicle/DiceRollResultEntry'
 import ChatForm from '~/components/chronicle/ChatForm'
 import ChatEntry from '~/components/chronicle/ChatEntry'
-import CharacterStats from '~/components/common/CharacterStats'
-import CardDeck from '~/components/chronicle/CardDeck'
 import CardShuffleEntry from '~/components/chronicle/CardShuffleEntry'
 import CardDrawEntry from '~/components/chronicle/CardDrawEntry'
-import FavouriteDicePools from '~/components/chronicle/FavouriteDicePools'
 
 export default {
   components: {
-    DiceBag,
     CardDrawEntry,
+    Helpers,
     DiceRollResultEntry,
-    FavouriteDicePools,
     ChatForm,
     CardShuffleEntry,
-    ChatEntry,
-    CharacterStats,
-    CardDeck
+    ChatEntry
   },
   computed: {
-    tab() {
-      return this.$store.state.charSave.options
+    layout() {
+      return this.$store.state.charSave.layout
     },
     chronicleList() {
       return this.$store.getters['chronicle/getList']
@@ -135,11 +90,6 @@ export default {
   },
   mounted() {
     this.$store.commit('chronicle/setShowLastRoll', false)
-  },
-  methods: {
-    toggleOption(tabName) {
-      this.$store.commit('charSave/toggleOption', tabName)
-    }
   },
   head() {
     return {

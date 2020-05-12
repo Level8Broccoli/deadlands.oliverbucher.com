@@ -9,12 +9,11 @@
           <CharacterOverview />
           <NavTabs />
           <div class="columns is-desktop">
+            <div v-if="layout !== 'default'" class="column">
+              <Helpers />
+            </div>
             <div class="column">
               <nuxt />
-            </div>
-            <div v-if="layout !== 'default'" class="column">
-              <AttributeShorthand />
-              <SkillShorthand />
             </div>
           </div>
           <LastRoll v-if="showLastRoll" />
@@ -32,8 +31,7 @@ import CharacterOverview from '~/components/common/CharacterOverview'
 import NavTabs from '~/components/header/NavTabs'
 import LastRoll from '~/components/common/LastRoll'
 import DiceModal from '~/components/common/DiceModal'
-import AttributeShorthand from '~/components/attributes/AttributeShorthand'
-import SkillShorthand from '~/components/skills/SkillShorthand'
+import Helpers from '~/components/common/Helpers'
 
 export default {
   components: {
@@ -43,12 +41,14 @@ export default {
     NavTabs,
     LastRoll,
     DiceModal,
-    AttributeShorthand,
-    SkillShorthand
+    Helpers
   },
   computed: {
     layout() {
       return this.$store.state.charSave.layout
+    },
+    tab() {
+      return this.$store.state.charSave.options
     },
     showLastRoll() {
       const lastRoll = this.$store.getters['chronicle/getLastRoll']
