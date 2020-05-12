@@ -32,6 +32,7 @@ export const state = () => ({
     powers: 0
   },
   options: [],
+  layout: 'default',
   favouriteDicePools: [],
   charNames: {}
 })
@@ -62,6 +63,13 @@ export const getters = {
 }
 
 export const mutations = {
+  toggleLayout(state) {
+    if (state.layout === 'default') {
+      state.layout = 'extended'
+    } else {
+      state.layout = 'default'
+    }
+  },
   toggleOption(state, option) {
     if (state.options.includes(option)) {
       state.options.splice(state.options.indexOf(option), 1)

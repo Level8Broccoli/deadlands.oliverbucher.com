@@ -3,12 +3,17 @@
     <DiceModal />
     <HeaderLogo />
     <section class="section">
-      <div class="container">
+      <div :class="{ container: layout === 'default' }">
         <div class="custom-container">
           <HeaderTitle title="Willkommen im Weird West" />
           <CharacterOverview />
           <NavTabs />
-          <nuxt />
+          <div class="columns is-desktop">
+            <div class="column">
+              <nuxt />
+            </div>
+            <div v-if="layout !== 'default'" class="column"></div>
+          </div>
           <LastRoll v-if="showLastRoll" />
         </div>
       </div>
@@ -35,6 +40,9 @@ export default {
     DiceModal
   },
   computed: {
+    layout() {
+      return this.$store.state.charSave.layout
+    },
     showLastRoll() {
       const lastRoll = this.$store.getters['chronicle/getLastRoll']
       const showLastRoll = this.$store.state.chronicle.showLastRoll
