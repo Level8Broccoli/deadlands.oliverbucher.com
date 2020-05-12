@@ -2,10 +2,7 @@
   <tbody>
     <tr>
       <td>
-        <GameButton
-          :button-type="buttonType(talent)"
-          @button-click="clickTalent(talent)"
-        />
+        <GameButton :button-preset="buttonType" @click.native="clickTalent" />
       </td>
       <td>
         <a @click="show = !show">{{ talent.name }}</a>
@@ -19,8 +16,9 @@
             :class="
               tag === 'Deadlands' ? 'is-danger is-light' : 'is-warning is-light'
             "
-            >{{ tag }}</span
           >
+            {{ tag }}
+          </span>
         </div>
       </td>
       <td>
@@ -58,19 +56,19 @@ export default {
       const list = this.$store.state.charSave.talentList
       const talentSaved = list.find((e) => e.id === this.talent.id)
       return !!talentSaved
-    }
-  },
-  methods: {
-    buttonType(talent) {
+    },
+    buttonType() {
       if (this.isActive) {
         return 'checked'
       } else {
-        return 'point1'
+        return 'unchecked1'
       }
-    },
-    clickTalent(talent) {
+    }
+  },
+  methods: {
+    clickTalent() {
       this.$store.commit('charSave/clickTalent', {
-        id: talent.id
+        id: this.talent.id
       })
     }
   }

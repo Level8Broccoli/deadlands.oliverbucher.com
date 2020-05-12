@@ -5,7 +5,7 @@
       Führe hier deine Ausrüsung auf.
     </p>
     <br />
-    <GameButton button-type="plus" @button-click="openEmptyForm" />
+    <GameButton button-preset="add" @click.native="openEmptyForm" />
     <br />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">

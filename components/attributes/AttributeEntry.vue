@@ -4,10 +4,14 @@
       <td>
         <div class="field has-addons">
           <p class="control">
-            <GameButton button-type="roll" @button-click="rollDice" />
+            <GameButton
+              button-preset="rollWithoutLabel"
+              :dice-pool="dicePool"
+              @click.native="rollDice"
+            />
           </p>
           <p class="control">
-            <GameButton button-type="more" @button-click="openDiceModal" />
+            <GameButton button-preset="more" @click.native="openDiceModal" />
           </p>
         </div>
       </td>
@@ -16,8 +20,8 @@
       </td>
       <td v-for="die in dice" :key="die">
         <GameButton
-          :button-type="buttonType(die)"
-          @button-click="clickAttribute(die)"
+          :button-preset="buttonType(die)"
+          @click.native="clickAttribute(die)"
         />
       </td>
     </tr>
@@ -58,42 +62,35 @@ export default {
         return attributeSaved.value
       }
       return 4
+    },
+    dicePool() {
+      return {
+        comment: this.attribute.name,
+        dice: [{ type: this.currentValue, count: 1 }],
+        options: {
+          wildDice: true,
+          showLastRoll: true,
+          explodingDice: true,
+          showSuccessByFour: true
+        }
+      }
     }
   },
   methods: {
     openDiceModal() {
-      const dicePool = {
-        comment: this.attribute.name,
-        dice: [{ type: this.currentValue, count: 1 }],
-        options: {
-          wildDice: true,
-          showLastRoll: true,
-          explodingDice: true,
-          showSuccessByFour: true
-        }
-      }
-      this.$store.commit('diceModal/openModal', dicePool)
+      this.$store.commit('diceModal/openModal', this.dicePool)
     },
     rollDice() {
-      this.$store.dispatch('chronicle/rollDice', {
-        comment: this.attribute.name,
-        dice: [{ type: this.currentValue, count: 1 }],
-        options: {
-          wildDice: true,
-          showLastRoll: true,
-          explodingDice: true,
-          showSuccessByFour: true
-        }
-      })
+      this.$store.dispatch('chronicle/rollDice', this.dicePool)
     },
     buttonType(value) {
       if (this.attribute.defaultValue >= value) {
-        return 'fixed'
+        return 'defaultValue'
       }
       if (this.currentValue >= value) {
         return 'checked'
       }
-      return 'point1'
+      return 'unchecked1'
     },
     clickAttribute(value) {
       this.$store.commit('charSave/clickAttribute', {

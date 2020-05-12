@@ -4,17 +4,13 @@
       <div class="field has-addons">
         <p class="control">
           <GameButton
-            button-type="roll"
-            :title="dicePoolDescription"
-            @button-click="rerollDice"
+            button-preset="rollWithoutLabel"
+            :dice-pool="dicePool"
+            @click.native="rerollDice"
           />
         </p>
         <p class="control">
-          <GameButton
-            button-type="more"
-            :title="dicePoolDescription"
-            @button-click="openDiceModal"
-          />
+          <GameButton button-preset="more" @click.native="openDiceModal" />
         </p>
       </div>
     </td>
@@ -160,7 +156,7 @@ export default {
     },
     rerollDice() {
       const REROLL_TAG = 'Reroll'
-      const reroll = { ...this.dicePool }
+      const reroll = JSON.parse(JSON.stringify(this.dicePool))
       reroll.tags = reroll.tags ? [...reroll.tags] : []
       if (!reroll.tags.includes(REROLL_TAG)) {
         reroll.tags.push(REROLL_TAG)

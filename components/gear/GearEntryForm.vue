@@ -48,10 +48,17 @@
           <label class="label has-text-right">Aktionen</label>
           <div class="buttons is-right">
             <div class="control">
-              <GameButton button-type="save" @button-click="saveGear" />
+              <GameButton
+                button-icon="save"
+                button-style="is-success"
+                @click.native="saveGear"
+              />
             </div>
             <div v-if="gearListCount > 0" class="control">
-              <GameButton button-type="closeUp" @button-click="exitForm" />
+              <GameButton
+                button-icon="compress-arrows-alt"
+                @click.native="exitForm"
+              />
             </div>
           </div>
         </div>

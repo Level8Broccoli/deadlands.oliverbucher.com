@@ -3,16 +3,16 @@
     <div class="field has-addons">
       <p class="control">
         <GameButton
-          button-type="roll"
-          :button-text="label"
-          @button-click="clickMain"
+          button-preset="rollWithLabel"
+          :dice-pool="dicePool"
+          @click.native="clickMain"
         />
       </p>
       <p v-if="hasMore" class="control">
-        <GameButton button-type="more" @button-click="clickMore" />
+        <GameButton button-preset="more" @click.native="clickMore" />
       </p>
       <p v-if="hasDelete" class="control">
-        <GameButton button-type="delete" @button-click="clickDelete" />
+        <GameButton button-preset="delete" @click.native="clickDelete" />
       </p>
     </div>
   </div>
@@ -22,7 +22,7 @@
 import GameButton from '~/components/common/GameButton'
 
 export default {
-  name: 'DiceShortcut',
+  name: 'DiceShorthand',
   components: { GameButton },
   props: {
     label: {
@@ -30,7 +30,13 @@ export default {
       default: ''
     },
     hasMore: { type: Boolean, default: false },
-    hasDelete: { type: Boolean, default: false }
+    hasDelete: { type: Boolean, default: false },
+    dicePool: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
   },
   methods: {
     clickMain() {

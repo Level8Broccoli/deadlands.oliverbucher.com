@@ -105,8 +105,8 @@
             <div class="field">
               <div class="control">
                 <GameButton
-                  button-type="delete"
-                  @button-click="removeMod(index)"
+                  button-preset="delete"
+                  @click.native="removeMod(index)"
                 />
               </div>
             </div>
@@ -134,7 +134,7 @@
             </div>
           </div>
         </div>
-        <GameButton button-type="plus" @button-click="addMod" />
+        <GameButton button-preset="add" @click.native="addMod" />
         <br />
         <div class="field">
           <label class="label">Tags (Komma-getrennt)</label>

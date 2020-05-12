@@ -4,8 +4,8 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent custom-flex-flow">
         <div v-for="(skill, index) in skillList" :key="index">
-          <DiceShortcut
-            :label="skill.name"
+          <DiceShorthand
+            :dice-pool="dicePool(skill)"
             :has-more="true"
             @click-main="rollDice(skill)"
             @click-more="openDiceModal(skill)"
@@ -17,74 +17,48 @@
 </template>
 
 <script>
-import DiceShortcut from '~/components/common/DiceShortcut'
+import DiceShorthand from '~/components/common/DiceShorthand'
 
 export default {
   name: 'SkillShorthand',
-  components: { DiceShortcut },
+  components: { DiceShorthand },
   computed: {
     skillList() {
       return this.$store.getters['skills/getList']
     }
   },
   methods: {
+    dicePool(skill) {
+      return {
+        comment: skill.name,
+        dice: [
+          {
+            type: this.currentValue(skill) === 0 ? 4 : this.currentValue(skill),
+            count: 1
+          }
+        ],
+        options: {
+          wildDice: true,
+          showLastRoll: this.$route.name !== 'chronicle',
+          explodingDice: true,
+          showSuccessByFour: true
+        },
+        modifications:
+          this.currentValue(skill) === 0
+            ? [
+                {
+                  name: 'Ungeübt',
+                  value: -2
+                }
+              ]
+            : []
+      }
+    },
     openDiceModal(skill) {
-      const comment = skill.name
-      const dice = []
-      dice.push({
-        type: this.currentValue(skill) === 0 ? 4 : this.currentValue(skill),
-        count: 1
-      })
-      const options = {
-        wildDice: true,
-        showLastRoll: this.$route.name !== 'chronicle',
-        explodingDice: true,
-        showSuccessByFour: true
-      }
-      const modifications = []
-
-      if (this.currentValue(skill) === 0) {
-        modifications.push({
-          name: 'Ungeübt',
-          value: -2
-        })
-      }
-      const dicePool = {
-        comment,
-        dice,
-        options,
-        modifications
-      }
-      this.$store.commit('diceModal/openModal', dicePool)
+      this.$store.commit('diceModal/openModal', this.dicePool(skill))
     },
     rollDice(skill) {
-      const comment = skill.name
-      const dice = []
-      dice.push({
-        type: this.currentValue(skill) === 0 ? 4 : this.currentValue(skill),
-        count: 1
-      })
-      const options = {
-        wildDice: true,
-        showLastRoll: this.$route.name !== 'chronicle',
-        explodingDice: true,
-        showSuccessByFour: true
-      }
-      const modifications = []
-
-      if (this.currentValue(skill) === 0) {
-        modifications.push({
-          name: 'Ungeübt',
-          value: -2
-        })
-      }
-
-      this.$store.dispatch('chronicle/rollDice', {
-        comment,
-        dice,
-        options,
-        modifications
-      })
+      this.$store.dispatch('chronicle/rollDice', this.dicePool(skill))
     },
     currentValue(skill) {
       const list = this.$store.state.charSave.skillList

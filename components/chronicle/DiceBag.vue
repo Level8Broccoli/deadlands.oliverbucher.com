@@ -8,11 +8,10 @@
         <div>
           <p class="title">
             <GameButton
-              :title="'Wirf einen ' + die + ' Würfel'"
-              button-type="text"
-              :button-text="'W ' + die"
-              :button-styles="['info', 'light']"
-              @button-click="rollDice(die)"
+              :button-title="'Wirf einen ' + die + '-er Würfel'"
+              :button-text="'W' + die"
+              button-style="is-info is-light"
+              @click.native="rollDice(die)"
             />
           </p>
         </div>
@@ -21,10 +20,9 @@
         <div>
           <p class="title">
             <GameButton
-              title="Öffne die Würfelhilfe"
-              button-type="text"
+              button-title="Öffne die Würfelhilfe"
               button-text="Würfelhilfe"
-              @button-click="openDiceModal"
+              @click.native="openDiceModal"
             />
           </p>
         </div>

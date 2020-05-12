@@ -17,7 +17,11 @@
       </td>
       <td class="has-text-right">{{ showTwoDecimals(totalValue) }} $</td>
       <td class="has-text-right">
-        <GameButton button-type="edit" @button-click="editGear" />
+        <GameButton
+          button-icon="edit"
+          button-style="is-light"
+          @click.native="editGear"
+        />
       </td>
     </tr>
     <tr v-if="show">

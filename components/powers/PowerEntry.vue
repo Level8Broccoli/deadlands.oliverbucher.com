@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td>
-        <GameButton :button-type="buttonType()" @button-click="clickPower" />
+        <GameButton :button-preset="buttonType" @click.native="clickPower" />
       </td>
       <td>
         <a @click="show = !show">{{ power.name }}</a>
@@ -64,16 +64,16 @@ export default {
       const list = this.$store.state.charSave.powerList
       const powerSaved = list.find((e) => e.id === this.power.id)
       return !!powerSaved
-    }
-  },
-  methods: {
+    },
     buttonType() {
       if (this.isActive) {
         return 'checked'
       } else {
-        return 'point1'
+        return 'unchecked1'
       }
-    },
+    }
+  },
+  methods: {
     clickPower() {
       this.$store.commit('charSave/clickPower', {
         id: this.power.id

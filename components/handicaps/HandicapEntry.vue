@@ -18,15 +18,15 @@
       <td>
         <GameButton
           v-if="handicap.points.includes(1)"
-          :button-type="buttonType(1)"
-          @button-click="clickHandicap(1)"
+          :button-preset="buttonType(1)"
+          @click.native="clickHandicap(1)"
         />
       </td>
       <td>
         <GameButton
           v-if="handicap.points.includes(2)"
-          :button-type="buttonType(2)"
-          @button-click="clickHandicap(2)"
+          :button-preset="buttonType(2)"
+          @click.native="clickHandicap(2)"
         />
       </td>
     </tr>
@@ -70,9 +70,9 @@ export default {
       if (this.currentValue === value) {
         return 'checked'
       } else if (value === 1) {
-        return 'point1'
+        return 'unchecked1'
       } else {
-        return 'point2'
+        return 'unchecked2'
       }
     },
     clickHandicap(value) {

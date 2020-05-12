@@ -4,10 +4,14 @@
       <td>
         <div class="field has-addons">
           <p class="control">
-            <GameButton button-type="roll" @button-click="rollDice" />
+            <GameButton
+              button-preset="rollWithoutLabel"
+              :dice-pool="dicePool"
+              @click.native="rollDice"
+            />
           </p>
           <p class="control">
-            <GameButton button-type="more" @button-click="openDiceModal" />
+            <GameButton button-preset="more" @click.native="openDiceModal" />
           </p>
         </div>
       </td>
@@ -17,8 +21,8 @@
       </td>
       <td v-for="die in dice" :key="die">
         <GameButton
-          :button-type="buttonType(skill, die)"
-          @button-click="clickSkill(skill, die)"
+          :button-preset="buttonType(die)"
+          @click.native="clickSkill(die)"
         />
       </td>
     </tr>
@@ -70,81 +74,52 @@ export default {
         return attributeSaved.value
       }
       return 4
+    },
+    dicePool() {
+      return {
+        comment: this.skill.name,
+        dice: [
+          { type: this.currentValue === 0 ? 4 : this.currentValue, count: 1 }
+        ],
+        options: {
+          wildDice: true,
+          showLastRoll: true,
+          explodingDice: true,
+          showSuccessByFour: true
+        },
+        modifications:
+          this.currentValue === 0
+            ? [
+                {
+                  name: 'Ungeübt',
+                  value: -2
+                }
+              ]
+            : []
+      }
     }
   },
   methods: {
     openDiceModal() {
-      const comment = this.skill.name
-      const dice = []
-      dice.push({
-        type: this.currentValue === 0 ? 4 : this.currentValue,
-        count: 1
-      })
-      const options = {
-        wildDice: true,
-        showLastRoll: true,
-        explodingDice: true,
-        showSuccessByFour: true
-      }
-      const modifications = []
-
-      if (this.currentValue === 0) {
-        modifications.push({
-          name: 'Ungeübt',
-          value: -2
-        })
-      }
-      const dicePool = {
-        comment,
-        dice,
-        options,
-        modifications
-      }
-      this.$store.commit('diceModal/openModal', dicePool)
+      this.$store.commit('diceModal/openModal', this.dicePool)
     },
     rollDice() {
-      const comment = this.skill.name
-      const dice = []
-      dice.push({
-        type: this.currentValue === 0 ? 4 : this.currentValue,
-        count: 1
-      })
-      const options = {
-        wildDice: true,
-        showLastRoll: true,
-        explodingDice: true,
-        showSuccessByFour: true
-      }
-      const modifications = []
-
-      if (this.currentValue === 0) {
-        modifications.push({
-          name: 'Ungeübt',
-          value: -2
-        })
-      }
-
-      this.$store.dispatch('chronicle/rollDice', {
-        comment,
-        dice,
-        options,
-        modifications
-      })
+      this.$store.dispatch('chronicle/rollDice', this.dicePool)
     },
-    buttonType(skill, value) {
-      if (skill.defaultValue >= value) {
-        return 'fixed'
+    buttonType(value) {
+      if (this.skill.defaultValue >= value) {
+        return 'defaultValue'
       } else if (this.currentValue >= value) {
         return 'checked'
       } else if (this.currentValueOfAttribute < value) {
-        return 'point2'
+        return 'unchecked2'
       } else {
-        return 'point1'
+        return 'unchecked1'
       }
     },
-    clickSkill(skill, value) {
+    clickSkill(value) {
       this.$store.commit('charSave/clickSkill', {
-        id: skill.id,
+        id: this.skill.id,
         value
       })
     }

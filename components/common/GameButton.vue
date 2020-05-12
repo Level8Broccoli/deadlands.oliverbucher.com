@@ -1,15 +1,107 @@
 <template>
   <div>
+    <GameButton
+      v-if="buttonPreset === 'defaultValue'"
+      button-icon="check-double"
+      button-style="is-info"
+      button-title="Startwert"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'checked'"
+      button-icon="check"
+      button-style="is-success"
+      button-title="Ausgewählt"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'unchecked1'"
+      button-icon="times"
+      button-style="is-light"
+      button-title="Kostet 1 Punkt"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'unchecked2'"
+      button-icon="times"
+      button-style="is-light is-danger"
+      button-title="Kostet 2 Punkte"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'more'"
+      button-icon="ellipsis-v"
+      button-style="is-light"
+      button-title="In Würfelhilfe öffnen"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'delete'"
+      button-icon="trash"
+      button-style="is-danger"
+      button-title="Eintrag löschen"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'add'"
+      button-icon="plus"
+      button-style="is-success"
+      button-title="Hinzufügen"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'rollWithoutLabel'"
+      button-style="is-light is-link"
+      :dice-pool="dicePool"
+    />
+
+    <GameButton
+      v-if="buttonPreset === 'rollWithLabel'"
+      button-style="is-light is-link"
+      :button-text="dicePool.comment"
+      :dice-pool="dicePool"
+    />
+
     <button
+      v-if="buttonPreset === ''"
       class="button"
-      :class="buttonClass"
-      :title="title"
-      @click="buttonClick"
+      :class="buttonStyle"
+      :title="buttonTitle"
     >
-      <span v-if="buttonType !== 'text'" class="icon">
-        <font-awesome-icon :icon="['fas', buttonSymbol]" />
+      <span v-if="dicePool">
+        <span v-for="(die, index) in dicePool.dice" :key="index">
+          <span v-for="count in die.count" :key="count">
+            <font-awesome-icon
+              v-if="die.type === 4"
+              :icon="['fas', 'dice-two']"
+            />
+            <font-awesome-icon
+              v-if="die.type === 6"
+              :icon="['fas', 'dice-d6']"
+            />
+            <font-awesome-icon
+              v-if="die.type === 8"
+              :icon="['fas', 'dice-three']"
+            />
+            <font-awesome-icon
+              v-if="die.type === 10"
+              :icon="['fas', 'dice-six']"
+            />
+            <font-awesome-icon
+              v-if="die.type === 12"
+              :icon="['fas', 'dice-four']"
+            />
+          </span>
+        </span>
       </span>
-      <span v-if="buttonText">{{ buttonText }}</span>
+
+      <span v-if="buttonIcon" class="icon">
+        <font-awesome-icon :icon="['fas', buttonIcon]" />
+      </span>
+
+      <span v-if="buttonText" :class="{ 'custom-button-text': !!dicePool }">
+        {{ buttonText }}
+      </span>
     </button>
   </div>
 </template>
@@ -18,84 +110,26 @@
 export default {
   name: 'GameButton',
   props: {
-    buttonType: {
-      type: String,
-      default: 'point1',
-      validator(value) {
-        return [
-          'point1',
-          'point2',
-          'checked',
-          'fixed',
-          'roll',
-          'edit',
-          'plus',
-          'delete',
-          'save',
-          'closeUp',
-          'more',
-          'text'
-        ].includes(value)
-      }
-    },
-    buttonText: { type: String, default: '' },
-    size: {
-      type: String,
-      default: 'normal'
-    },
-    buttonStyles: {
-      type: Array,
-      default() {
-        return ['']
-      }
-    },
-    title: {
+    buttonPreset: {
       type: String,
       default: ''
-    }
-  },
-  computed: {
-    buttonClass() {
-      return {
-        'is-light':
-          this.buttonType === 'point1' ||
-          this.buttonType === 'edit' ||
-          this.buttonType === 'more' ||
-          this.buttonStyles.includes('light'),
-        'is-danger is-light':
-          this.buttonType === 'point2' || this.buttonStyles.includes('danger'),
-        'is-danger': this.buttonType === 'delete',
-        'is-success':
-          this.buttonType === 'checked' ||
-          this.buttonType === 'plus' ||
-          this.buttonType === 'save' ||
-          this.buttonStyles.includes('success'),
-        'is-info':
-          this.buttonType === 'fixed' || this.buttonStyles.includes('info'),
-        'is-info is-light': this.buttonType === 'roll',
-        'is-small': this.size === 'small'
-      }
     },
-    buttonSymbol() {
-      return {
-        point1: 'times',
-        point2: 'times',
-        checked: 'check',
-        fixed: 'check-double',
-        roll: 'recycle',
-        edit: 'edit',
-        plus: 'plus',
-        save: 'save',
-        delete: 'trash',
-        more: 'ellipsis-v',
-        closeUp: 'compress-arrows-alt'
-      }[this.buttonType]
-    }
-  },
-  methods: {
-    buttonClick() {
-      this.$emit('button-click')
+    buttonText: { type: String, default: null },
+    buttonIcon: { type: String, default: null },
+    buttonStyle: { type: String, default: null },
+    buttonTitle: { type: String, default: null },
+    dicePool: {
+      type: Object,
+      default() {
+        return null
+      }
     }
   }
 }
 </script>
+
+<style>
+.custom-button-text {
+  padding-left: 1rem;
+}
+</style>

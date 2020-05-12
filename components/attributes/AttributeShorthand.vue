@@ -4,8 +4,8 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent custom-flex-flow">
         <div v-for="(attribute, index) in attributeList" :key="index">
-          <DiceShortcut
-            :label="attribute.name"
+          <DiceShorthand
+            :dice-pool="dicePool(attribute)"
             :has-more="true"
             @click-main="rollDice(attribute)"
             @click-more="openDiceModal(attribute)"
@@ -17,19 +17,19 @@
 </template>
 
 <script>
-import DiceShortcut from '~/components/common/DiceShortcut'
+import DiceShorthand from '~/components/common/DiceShorthand'
 
 export default {
   name: 'AttributeShorthand',
-  components: { DiceShortcut },
+  components: { DiceShorthand },
   computed: {
     attributeList() {
       return this.$store.getters['attributes/getList']
     }
   },
   methods: {
-    openDiceModal(attribute) {
-      const dicePool = {
+    dicePool(attribute) {
+      return {
         comment: attribute.name,
         dice: [{ type: this.currentValue(attribute), count: 1 }],
         options: {
@@ -39,19 +39,12 @@ export default {
           showSuccessByFour: true
         }
       }
-      this.$store.commit('diceModal/openModal', dicePool)
+    },
+    openDiceModal(attribute) {
+      this.$store.commit('diceModal/openModal', this.dicePool(attribute))
     },
     rollDice(attribute) {
-      this.$store.dispatch('chronicle/rollDice', {
-        comment: attribute.name,
-        dice: [{ type: this.currentValue(attribute), count: 1 }],
-        options: {
-          wildDice: true,
-          showLastRoll: this.$route.name !== 'chronicle',
-          explodingDice: true,
-          showSuccessByFour: true
-        }
-      })
+      this.$store.dispatch('chronicle/rollDice', this.dicePool(attribute))
     },
     currentValue(attribute) {
       const list = this.$store.state.charSave.attributeList

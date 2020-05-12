@@ -102,14 +102,16 @@ body {
   font-family: Oldenburg;
 }
 
+button {
+  font-family: Oldenburg;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-button,
-.file-label {
+h6 {
   font-family: 'Oleo Script';
 }
 

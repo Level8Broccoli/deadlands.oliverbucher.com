@@ -6,7 +6,7 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent custom-flex-flow">
         <div v-for="(favourite, index) in favourites" :key="index">
-          <DiceShortcut
+          <DiceShorthand
             :label="favourite.comment"
             :has-more="true"
             :has-delete="true"
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import DiceShortcut from '~/components/common/DiceShortcut'
+import DiceShorthand from '~/components/common/DiceShorthand'
 
 export default {
   name: 'FavoriteDicePools',
-  components: { DiceShortcut },
+  components: { DiceShorthand },
   computed: {
     favourites() {
       return this.$store.state.charSave.favouriteDicePools
