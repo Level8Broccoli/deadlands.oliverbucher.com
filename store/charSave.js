@@ -31,6 +31,7 @@ export const state = () => ({
     talents: 3,
     powers: 0
   },
+  options: [],
   favouriteDicePools: [],
   charNames: {}
 })
@@ -61,6 +62,13 @@ export const getters = {
 }
 
 export const mutations = {
+  toggleOption(state, option) {
+    if (state.options.includes(option)) {
+      state.options.splice(state.options.indexOf(option), 1)
+    } else {
+      state.options.push(option)
+    }
+  },
   deleteFavourite(state, index) {
     state.favouriteDicePools.splice(index, 1)
   },

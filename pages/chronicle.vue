@@ -9,7 +9,7 @@
     <div class="tabs is-toggle is-fullwidth">
       <ul>
         <li :class="tab.includes('characterStatus') ? 'is-active' : ''">
-          <a @click="toggleTab('characterStatus')">
+          <a @click="toggleOption('characterStatus')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'user']" />
             </span>
@@ -17,7 +17,7 @@
           </a>
         </li>
         <li :class="tab.includes('pokercards') ? 'is-active' : ''">
-          <a @click="toggleTab('pokercards')">
+          <a @click="toggleOption('pokercards')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'chess-king']" />
             </span>
@@ -25,7 +25,7 @@
           </a>
         </li>
         <li :class="tab.includes('dice') ? 'is-active' : ''">
-          <a @click="toggleTab('dice')">
+          <a @click="toggleOption('dice')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'dice']" />
             </span>
@@ -33,7 +33,7 @@
           </a>
         </li>
         <li :class="tab.includes('favourites') ? 'is-active' : ''">
-          <a @click="toggleTab('favourites')">
+          <a @click="toggleOption('favourites')">
             <span class="icon is-small">
               <font-awesome-icon :icon="['fas', 'star']" />
             </span>
@@ -123,10 +123,10 @@ export default {
     CharacterStats,
     CardDeck
   },
-  data() {
-    return { tab: [] }
-  },
   computed: {
+    tab() {
+      return this.$store.state.charSave.options
+    },
     chronicleList() {
       return this.$store.getters['chronicle/getList']
     },
@@ -143,12 +143,8 @@ export default {
     this.$store.commit('chronicle/setShowLastRoll', false)
   },
   methods: {
-    toggleTab(tabName) {
-      if (this.tab.includes(tabName)) {
-        this.tab.splice(this.tab.indexOf(tabName), 1)
-      } else {
-        this.tab.push(tabName)
-      }
+    toggleOption(tabName) {
+      this.$store.commit('charSave/toggleOption', tabName)
     }
   },
   head() {
