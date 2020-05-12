@@ -1,11 +1,5 @@
 <template>
   <div>
-    <h2>Erklärung:</h2>
-    <p>
-      Hier befindet sich die Chronik der aktuellen Spielrunde
-      <em>(wird nicht gespeichert)</em>.
-    </p>
-    <br />
     <div class="tabs is-toggle is-fullwidth">
       <ul>
         <li :class="tab.includes('characterStatus') ? 'is-active' : ''">

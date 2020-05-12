@@ -35,7 +35,6 @@ import ButtonLegend from '~/components/common/ButtonLegend'
 
 export default {
   components: { AttributeEntry, ButtonLegend },
-
   computed: {
     attributeList() {
       return this.$store.getters['attributes/getList']

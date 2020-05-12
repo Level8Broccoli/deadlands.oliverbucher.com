@@ -12,7 +12,9 @@
             <div class="column">
               <nuxt />
             </div>
-            <div v-if="layout !== 'default'" class="column"></div>
+            <div v-if="layout !== 'default'" class="column">
+              <AttributeShorthand />
+            </div>
           </div>
           <LastRoll v-if="showLastRoll" />
         </div>
@@ -29,6 +31,7 @@ import CharacterOverview from '~/components/common/CharacterOverview'
 import NavTabs from '~/components/header/NavTabs'
 import LastRoll from '~/components/common/LastRoll'
 import DiceModal from '~/components/common/DiceModal'
+import AttributeShorthand from '~/components/attributes/AttributeShorthand'
 
 export default {
   components: {
@@ -37,7 +40,8 @@ export default {
     CharacterOverview,
     NavTabs,
     LastRoll,
-    DiceModal
+    DiceModal,
+    AttributeShorthand
   },
   computed: {
     layout() {

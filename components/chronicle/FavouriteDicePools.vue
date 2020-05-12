@@ -5,29 +5,39 @@
     </div>
     <div class="tile is-ancestor">
       <div class="tile is-parent custom-flex-flow">
-        <FavouriteEntry
-          v-for="(favourite, index) in favourites"
-          :key="index"
-          :favourite="favourite"
-          @delete-favourite="deleteFavourite(index)"
-        />
+        <div v-for="(favourite, index) in favourites" :key="index">
+          <DiceShortcut
+            :label="favourite.comment"
+            :has-more="true"
+            :has-delete="true"
+            @click-main="rollDice(favourite)"
+            @click-more="openDiceModal(favourite)"
+            @click-delete="deleteFavourite(index)"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import FavouriteEntry from '~/components/chronicle/FavouriteEntry'
+import DiceShortcut from '~/components/common/DiceShortcut'
 
 export default {
   name: 'FavoriteDicePools',
-  components: { FavouriteEntry },
+  components: { DiceShortcut },
   computed: {
     favourites() {
       return this.$store.state.charSave.favouriteDicePools
     }
   },
   methods: {
+    openDiceModal(favourite) {
+      this.$store.commit('diceModal/openModal', favourite)
+    },
+    rollDice(favourite) {
+      this.$store.dispatch('chronicle/rollDice', favourite)
+    },
     deleteFavourite(index) {
       this.$store.commit('charSave/deleteFavourite', index)
     }
