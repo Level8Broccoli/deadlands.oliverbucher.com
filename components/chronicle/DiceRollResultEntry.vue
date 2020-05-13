@@ -39,7 +39,7 @@
         <button
           v-for="(die, index) in rollResult.rollNormal.flat()"
           :key="index"
-          class="button is-light"
+          class="button is-light custom-button-font"
           :class="renderDice(die)"
           :title="'W' + die.die"
         >
@@ -52,7 +52,7 @@
         <button
           v-for="(die, index) in rollResult.rollWild.flat()"
           :key="index"
-          class="button is-light"
+          class="button is-light custom-button-font"
           :class="renderDice(die)"
           :title="'W' + die.die"
         >
@@ -75,7 +75,7 @@
       </div>
     </td>
     <td>
-      <button class="button" :class="renderResult()">
+      <button class="button custom-button-font" :class="renderResult()">
         {{ rollResult.endResult }}
       </button>
     </td>
@@ -192,3 +192,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.custom-button-font {
+  font-family: 'Oleo Script';
+}
+</style>
