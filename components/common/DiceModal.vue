@@ -25,30 +25,45 @@
         <div class="field is-horizontal">
           <div class="field-body">
             <div class="field">
+              <span class="icon">
+                <font-awesome-icon :icon="['fad', 'dice-d4']" />
+              </span>
               <label class="label">W4</label>
               <div class="control">
                 <input v-model="dice4" type="text" class="input" />
               </div>
             </div>
             <div class="field">
+              <span class="icon">
+                <font-awesome-icon :icon="['fad', 'dice-d6']" />
+              </span>
               <label class="label">W6</label>
               <div class="control">
                 <input v-model="dice6" type="text" class="input" />
               </div>
             </div>
             <div class="field">
+              <span class="icon">
+                <font-awesome-icon :icon="['fad', 'dice-d8']" />
+              </span>
               <label class="label">W8</label>
               <div class="control">
                 <input v-model="dice8" type="text" class="input" />
               </div>
             </div>
             <div class="field">
+              <span class="icon">
+                <font-awesome-icon :icon="['fad', 'dice-d10']" />
+              </span>
               <label class="label">W10</label>
               <div class="control">
                 <input v-model="dice10" type="text" class="input" />
               </div>
             </div>
             <div class="field">
+              <span class="icon">
+                <font-awesome-icon :icon="['fad', 'dice-d12']" />
+              </span>
               <label class="label">W12</label>
               <div class="control">
                 <input v-model="dice12" type="text" class="input" />

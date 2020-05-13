@@ -20,7 +20,12 @@
           <th>
             <h1 class="subtitle">Fertigkeiten</h1>
           </th>
-          <th v-for="die in dice" :key="die">W{{ die }}</th>
+          <th v-for="die in dice" :key="die">
+            W{{ die }}
+            <span class="icon">
+              <font-awesome-icon :icon="['fad', 'dice-d' + die]" />
+            </span>
+          </th>
         </tr>
         <SkillEntry
           v-for="skill in skillList"
