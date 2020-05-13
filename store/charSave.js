@@ -1,6 +1,7 @@
 export const state = () => ({
   id: 0,
   name: '',
+  introduction: '',
   notes: '',
   chipsWhite: 0,
   chipsRed: 0,
@@ -155,6 +156,9 @@ export const mutations = {
   },
   setNotes(state, notes) {
     state.notes = notes
+  },
+  setIntroduction(state, introduction) {
+    state.introduction = introduction
   },
   setId(state, id) {
     state.id = id

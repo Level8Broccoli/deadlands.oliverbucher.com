@@ -8,6 +8,12 @@
       </div>
     </div>
     <div class="field">
+      <label class="label">Kurzbeschreib</label>
+      <div class="control">
+        <textarea v-model="introduction" rows="1" class="textarea"></textarea>
+      </div>
+    </div>
+    <div class="field">
       <label class="label">Notizen</label>
       <div class="control">
         <textarea v-model="notes" rows="20" class="textarea"></textarea>
@@ -108,6 +114,14 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setNotes', value)
+      }
+    },
+    introduction: {
+      get() {
+        return this.$store.state.charSave.introduction
+      },
+      set(value) {
+        this.$store.commit('charSave/setIntroduction', value)
       }
     },
     chipsWhite: {

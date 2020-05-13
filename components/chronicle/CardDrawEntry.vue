@@ -26,14 +26,7 @@
           <span v-else><em>Karte verdeckt</em></span>
         </span>
       </span>
-      <div>
-        <small>
-          <span v-if="authorName !== ''" class="has-text-weight-bold">
-            {{ authorName }} |
-          </span>
-          {{ meta.timestamp }}
-        </small>
-      </div>
+      <Author :author="meta.author" :timestamp="meta.timestamp" />
     </td>
     <td
       colspan="2"
@@ -44,8 +37,11 @@
 </template>
 
 <script>
+import Author from '~/components/chronicle/Author'
+
 export default {
   name: 'CardDrawEntry',
+  components: { Author },
   props: {
     entry: {
       type: Object,
@@ -91,12 +87,6 @@ export default {
       return this.entry.meta.author.id === this.$store.state.charSave.id
         ? 'custom-is-own-row-chat ' + background
         : background
-    },
-    authorName() {
-      return (
-        this.$store.getters['players/getPlayerName'](this.meta.author.id) ||
-        this.meta.author.name
-      )
     },
     cards() {
       return this.entry.payload.cards

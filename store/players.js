@@ -13,6 +13,14 @@ export const getters = {
     } else {
       return null
     }
+  },
+  getPlayerIntroduction: (state) => (playerId) => {
+    const playerEntry = state.list.find((e) => e.id === playerId)
+    if (playerEntry) {
+      return playerEntry.introduction
+    } else {
+      return null
+    }
   }
 }
 

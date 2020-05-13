@@ -25,14 +25,7 @@
           {{ tag }}
         </span>
       </span>
-      <div>
-        <small>
-          <span v-if="authorName !== ''" class="has-text-weight-bold">
-            {{ authorName }} |
-          </span>
-          {{ meta.timestamp }}
-        </small>
-      </div>
+      <Author :author="meta.author" :timestamp="meta.timestamp" />
     </td>
     <td>
       <div class="buttons">
@@ -100,10 +93,11 @@
 
 <script>
 import GameButton from '~/components/common/GameButton'
+import Author from '~/components/chronicle/Author'
 
 export default {
   name: 'DiceRollResultEntry',
-  components: { GameButton },
+  components: { GameButton, Author },
   props: {
     entry: {
       type: Object,
@@ -126,12 +120,6 @@ export default {
       return this.entry.meta.author.id === this.$store.state.charSave.id
         ? 'custom-is-own-row'
         : ''
-    },
-    authorName() {
-      return (
-        this.$store.getters['players/getPlayerName'](this.meta.author.id) ||
-        this.meta.author.name
-      )
     },
     dicePoolDescription() {
       const diceFiltered = this.dicePool.dice.filter((e) => e.count > 0)

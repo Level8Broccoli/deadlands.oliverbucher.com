@@ -3,22 +3,18 @@
     <td></td>
     <td colspan="5">
       {{ message }}
-      <div>
-        <small>
-          <span v-if="authorName !== ''" class="has-text-weight-bold">
-            {{ authorName }} |
-          </span>
-          {{ meta.timestamp }}
-        </small>
-      </div>
+      <Author :author="meta.author" :timestamp="meta.timestamp" />
     </td>
     <td></td>
   </tr>
 </template>
 
 <script>
+import Author from '~/components/chronicle/Author'
+
 export default {
   name: 'ChatEntry',
+  components: { Author },
   props: {
     entry: {
       type: Object,
@@ -38,12 +34,6 @@ export default {
       return this.entry.meta.author.id === this.$store.state.charSave.id
         ? 'custom-is-own-row-chat'
         : ''
-    },
-    authorName() {
-      return (
-        this.$store.getters['players/getPlayerName'](this.meta.author.id) ||
-        this.meta.author.name
-      )
     }
   }
 }
