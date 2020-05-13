@@ -11,9 +11,7 @@
           </th>
           <th>Wurf</th>
           <th>
-            <span class="icon">
-              <font-awesome-icon :icon="['fad', 'dice-d6']" />
-            </span>
+            <font-awesome-icon :icon="['fad', 'dice-d6']" />
             Wild Die
           </th>
           <th>Modifikationen</th>

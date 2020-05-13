@@ -16,10 +16,8 @@
             <h1 class="subtitle">Attribute</h1>
           </th>
           <th v-for="die in dice" :key="die">
+            <font-awesome-icon :icon="['fad', 'dice-d' + die]" />
             W{{ die }}
-            <span class="icon">
-              <font-awesome-icon :icon="['fad', 'dice-d' + die]" />
-            </span>
           </th>
         </tr>
         <AttributeEntry
