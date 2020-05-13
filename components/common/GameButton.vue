@@ -58,6 +58,7 @@
           ? 'is-light is-danger'
           : 'is-light is-success'
       "
+      :button-title="dicePoolAsString"
       :dice-pool="dicePool"
     />
 
@@ -71,6 +72,7 @@
           : 'is-light is-success'
       "
       :button-text="dicePool.comment"
+      :button-title="dicePoolAsString"
       :dice-pool="dicePool"
     />
 
@@ -135,6 +137,36 @@ export default {
       } else {
         return 0
       }
+    },
+    dicePoolAsString() {
+      const titleString = 'Würfelpool: '
+      const dice = []
+      let modString = ''
+      const mods = []
+      if (this.dicePool) {
+        for (const die of this.dicePool.dice) {
+          if (die.count > 0) {
+            dice.push(`${die.count}W${die.type}`)
+          }
+        }
+        if (this.dicePool.modifications) {
+          for (const mod of this.dicePool.modifications) {
+            if (mod.name !== '' && mod.value !== 0) {
+              mods.push(
+                `${mod.name} ${mod.value > 0 ? '+' + mod.value : mod.value}`
+              )
+            } else if (mod.name !== '') {
+              mods.push(`${mod.name}`)
+            } else if (mod.value !== 0) {
+              mods.push(`${mod.value > 0 ? '+' + mod.value : mod.value}`)
+            }
+          }
+        }
+        if (mods.length > 0) {
+          modString = ', Modifikatoren: ' + mods.join('; ')
+        }
+      }
+      return titleString + dice.join(' + ') + modString
     }
   }
 }
