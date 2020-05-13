@@ -60,8 +60,15 @@ export default {
   watch: {
     charSave: {
       handler(charSave) {
-        const parsed = JSON.stringify(this.charSave)
-        localStorage.setItem('charSaveV2', parsed)
+        const parsed = JSON.stringify({ version: 3, data: this.charSave })
+        localStorage.setItem('character', parsed)
+      },
+      deep: true
+    },
+    players: {
+      handler(players) {
+        const parsed = JSON.stringify(this.players)
+        localStorage.setItem('players', parsed)
       },
       deep: true
     }
@@ -69,11 +76,23 @@ export default {
   mounted() {
     const getSaveFromLocalStorge = () => {
       try {
-        const charSave = JSON.parse(localStorage.getItem('charSaveV2'))
-        this.$store.commit('charSave/loadFromSave', charSave)
+        const charSave =
+          JSON.parse(localStorage.getItem('character')) ||
+          JSON.parse(localStorage.getItem('charSaveV2'))
+        if (charSave && charSave.version === 3) {
+          this.$store.commit('charSave/loadFromSave', charSave.data)
+        } else if (charSave) {
+          this.$store.commit('charSave/loadFromSave', charSave)
+        }
+        const players = JSON.parse(localStorage.getItem('players'))
+        if (players) {
+          this.$store.commit('players/loadFromSave', players)
+        }
       } catch (error) {
         console.error(error)
         console.error(localStorage.getItem('charSaveV2'))
+        console.error(localStorage.getItem('character'))
+        console.error(localStorage.getItem('players'))
       }
     }
     getSaveFromLocalStorge()

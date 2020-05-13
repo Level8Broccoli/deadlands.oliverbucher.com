@@ -15,9 +15,11 @@ export default function websocketPlugin({ store }) {
 
     socket.onmessage = function(e) {
       const parse = JSON.parse(e.data)
-      store.dispatch('chronicle/commitOtherAction', parse)
-      store.dispatch('players/updatePlayer', parse)
-      store.dispatch('udpateCardDeck', parse)
+      if (parse.meta && parse.payload) {
+        store.dispatch('chronicle/commitOtherAction', parse)
+        store.dispatch('players/updatePlayer', parse)
+        store.dispatch('udpateCardDeck', parse)
+      }
     }
 
     socket.onclose = function() {
@@ -32,6 +34,8 @@ export default function websocketPlugin({ store }) {
       mutation.type === 'chronicle/addToChronicle' &&
       mutation.payload.meta.author === state.charSave.id
     ) {
+      console.log(mutation.payload)
+
       sendMessage(JSON.stringify(mutation.payload))
     }
   })

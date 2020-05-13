@@ -17,6 +17,17 @@ export const mutations = {
   },
   addPlayer(state, player) {
     state.list.push(player)
+  },
+  loadFromSave(state, players) {
+    for (const [key, value] of Object.entries(players)) {
+      if (
+        (typeof value !== 'undefined' && value.length > 0) ||
+        value > 0 ||
+        typeof value === 'boolean'
+      ) {
+        state[key] = value
+      }
+    }
   }
 }
 
