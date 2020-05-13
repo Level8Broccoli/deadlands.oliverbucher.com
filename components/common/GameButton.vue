@@ -82,7 +82,11 @@
     >
       <span v-if="dicePool">
         <span v-for="(die, index) in dicePool.dice" :key="index">
-          <span v-for="count in die.count" :key="count">
+          <span
+            v-for="count in die.count"
+            :key="count"
+            class="custom-space-between"
+          >
             <font-awesome-icon :icon="['fad', 'dice-d' + die.type]" />
           </span>
         </span>
@@ -139,5 +143,8 @@ export default {
 <style>
 .custom-button-text {
   padding-left: 1rem;
+}
+.custom-space-between {
+  margin: 0 2px;
 }
 </style>

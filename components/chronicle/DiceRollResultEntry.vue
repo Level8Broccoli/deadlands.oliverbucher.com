@@ -62,15 +62,15 @@
     </td>
     <td>
       <div class="buttons">
-        <button
-          v-for="(mod, index) in dicePool.modifications"
-          :key="index"
-          class="button is-light"
-          :class="mod.value < 0 ? 'is-danger' : 'is-success'"
-          v-if="mod.name.trim().length > 0 || mod.value !== 0"
-        >
-          {{ mod.name }} {{ mod.value }}
-        </button>
+        <span v-for="(mod, index) in dicePool.modifications" :key="index">
+          <button
+            v-if="mod.name.trim().length > 0 || mod.value !== 0"
+            class="button is-light"
+            :class="mod.value < 0 ? 'is-danger' : 'is-success'"
+          >
+            {{ mod.name }} {{ mod.value }}
+          </button>
+        </span>
       </div>
     </td>
     <td>
