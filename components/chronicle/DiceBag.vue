@@ -8,6 +8,7 @@
         <div>
           <p class="title">
             <GameButton
+              :button-icon="'dice-d' + die"
               :button-title="'Wirf einen ' + die + '-er Würfel'"
               :button-text="'W' + die"
               button-style="is-info is-light"
@@ -20,6 +21,8 @@
         <div>
           <p class="title">
             <GameButton
+              button-icon="ellipsis-v"
+              button-style="is-light"
               button-title="Öffne die Würfelhilfe"
               button-text="Würfelhilfe"
               @click.native="openDiceModal"
