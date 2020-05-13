@@ -55,7 +55,7 @@ export default {
       const showLastRoll = this.$store.state.chronicle.showLastRoll
       return showLastRoll && typeof lastRoll !== 'undefined'
     },
-    ...mapGetters({ charSave: 'charSave/charSave' })
+    ...mapGetters({ charSave: 'charSave/charSave', players: 'players/players' })
   },
   watch: {
     charSave: {

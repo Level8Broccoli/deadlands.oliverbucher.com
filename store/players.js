@@ -3,6 +3,9 @@ export const state = () => ({
 })
 
 export const getters = {
+  players: (state) => {
+    return state
+  },
   getPlayerName: (state) => (playerId) => {
     const playerEntry = state.list.find((e) => e.id === playerId)
     if (playerEntry) {
