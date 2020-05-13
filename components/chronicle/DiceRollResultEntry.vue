@@ -67,10 +67,9 @@
           :key="index"
           class="button is-light"
           :class="mod.value < 0 ? 'is-danger' : 'is-success'"
+          v-if="mod.name.trim().length > 0 || mod.value !== 0"
         >
-          <span v-if="mod.name.trim().length > 0 || mod.value !== 0">
-            {{ mod.name }} {{ mod.value }}
-          </span>
+          {{ mod.name }} {{ mod.value }}
         </button>
       </div>
     </td>
