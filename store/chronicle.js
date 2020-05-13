@@ -44,9 +44,8 @@ export const actions = {
       -2
     )} Uhr`
     const time = now.getTime()
-    const author = rootState.charSave.id
-    const authorName = rootState.charSave.name
-    meta = { ...meta, time, timestamp, author, authorName }
+    const author = rootState.charSave
+    meta = { ...meta, time, timestamp, author }
     commit('addToChronicle', { meta, payload })
   },
   commitOtherAction({ commit, rootState }, { meta, payload }) {

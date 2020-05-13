@@ -16,7 +16,7 @@ export default function websocketPlugin({ store }) {
     socket.onmessage = function(e) {
       const parse = JSON.parse(e.data)
       store.dispatch('chronicle/commitOtherAction', parse)
-      store.dispatch('charSave/updateCharNames', parse)
+      store.dispatch('players/updatePlayer', parse)
       store.dispatch('udpateCardDeck', parse)
     }
 

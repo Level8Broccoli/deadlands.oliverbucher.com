@@ -41,8 +41,8 @@ export default {
     },
     authorName() {
       return (
-        this.$store.getters['charSave/getAuthorName'](this.meta.author) ||
-        this.meta.authorName
+        this.$store.getters['players/getPlayerName'](this.meta.author.id) ||
+        this.meta.author.name
       )
     }
   }
