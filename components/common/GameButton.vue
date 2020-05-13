@@ -51,13 +51,25 @@
 
     <GameButton
       v-if="buttonPreset === 'rollWithoutLabel'"
-      :button-style="isSkilled ? 'is-light is-link' : 'is-light is-danger'"
+      :button-style="
+        modificationTotal === 0
+          ? 'is-light is-link'
+          : modificationTotal < 0
+          ? 'is-light is-danger'
+          : 'is-light is-success'
+      "
       :dice-pool="dicePool"
     />
 
     <GameButton
       v-if="buttonPreset === 'rollWithLabel'"
-      :button-style="isSkilled ? 'is-light is-link' : 'is-light is-danger'"
+      :button-style="
+        modificationTotal === 0
+          ? 'is-light is-link'
+          : modificationTotal < 0
+          ? 'is-light is-danger'
+          : 'is-light is-success'
+      "
       :button-text="dicePool.comment"
       :dice-pool="dicePool"
     />
@@ -126,11 +138,14 @@ export default {
     }
   },
   computed: {
-    isSkilled() {
+    modificationTotal() {
       if (this.dicePool && this.dicePool.modifications) {
-        return !this.dicePool.modifications.find((e) => e.name === 'Ungeübt')
+        return this.dicePool.modifications.reduce(
+          (acc, curr) => (acc += curr.value),
+          0
+        )
       } else {
-        return true
+        return 0
       }
     }
   }
