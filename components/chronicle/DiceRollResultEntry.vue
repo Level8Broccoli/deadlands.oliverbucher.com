@@ -68,7 +68,7 @@
             class="button is-light"
             :class="mod.value < 0 ? 'is-danger' : 'is-success'"
           >
-            {{ mod.name }} {{ mod.value }}
+            {{ mod.name }} {{ mod.value > 0 ? '+' + mod.value : mod.value }}
           </button>
         </span>
       </div>
