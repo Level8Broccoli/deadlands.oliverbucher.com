@@ -14,7 +14,7 @@
             Deck
             <a title="Deck mischen" @click="shuffleDeck">
               <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'random']" />
+                <font-awesome-icon :icon="['fad', 'random']" />
               </span>
             </a>
           </p>

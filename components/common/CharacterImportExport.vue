@@ -4,7 +4,7 @@
     <div class="buttons" style="align-items: inherit">
       <button class="button  is-info" @click="exportAsJson">
         <span class="file-icon">
-          <font-awesome-icon :icon="['fas', 'download']" />
+          <font-awesome-icon :icon="['fad', 'download']" />
         </span>
         Export
       </button>
@@ -18,7 +18,7 @@
           />
           <span class="file-cta">
             <span class="file-icon">
-              <font-awesome-icon :icon="['fas', 'upload']" />
+              <font-awesome-icon :icon="['fad', 'upload']" />
             </span>
             <span class="file-label">
               Import
@@ -44,12 +44,12 @@
       <div class="control">
         <button v-if="show" class="button" @click="show = !show">
           <span class="file-icon">
-            <font-awesome-icon :icon="['fas', 'times']" />
+            <font-awesome-icon :icon="['fad', 'times']" />
           </span>
         </button>
         <button v-else class="button" @click="show = !show">
           <span class="file-icon">
-            <font-awesome-icon :icon="['fas', 'edit']" />
+            <font-awesome-icon :icon="['fad', 'edit']" />
           </span>
         </button>
       </div>
@@ -66,7 +66,7 @@
     <div v-show="show" class="control">
       <button class="button is-success" @click="saveTextarea">
         <span class="file-icon">
-          <font-awesome-icon :icon="['fas', 'save']" />
+          <font-awesome-icon :icon="['fad', 'save']" />
         </span>
         Speichern
       </button>

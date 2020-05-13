@@ -10,9 +10,9 @@
         <span class="icon">
           <font-awesome-icon
             v-if="layout === 'default'"
-            :icon="['fas', 'expand-arrows-alt']"
+            :icon="['fad', 'expand-arrows-alt']"
           />
-          <font-awesome-icon v-else :icon="['fas', 'compress-arrows-alt']" />
+          <font-awesome-icon v-else :icon="['fad', 'compress-arrows-alt']" />
         </span>
       </a>
     </div>

@@ -2,7 +2,7 @@
   <span class="tag" :class="badgeClass">
     {{ badgeCount }}
     <span v-if="badgeIcon" class="icon is-small">
-      <font-awesome-icon :icon="['fas', badgeIcon]" />
+      <font-awesome-icon :icon="['fad', badgeIcon]" />
     </span>
   </span>
 </template>

@@ -56,7 +56,7 @@ export default {
       '@nuxtjs/fontawesome',
       {
         proIcons: {
-          solid: [
+          duotone: [
             'faCheck',
             'faTimes',
             'faCheckDouble',
@@ -87,7 +87,8 @@ export default {
             'faBell',
             'faExpandArrowsAlt',
             'faSave'
-          ]
+          ],
+          solid: ['faEllipsisV']
         }
       }
     ]

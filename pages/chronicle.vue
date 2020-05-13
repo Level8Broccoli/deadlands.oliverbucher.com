@@ -48,7 +48,7 @@
       <div class="has-text-right">
         <small>
           {{ wsState }}
-          <font-awesome-icon :icon="['fas', wsSymbol]" />
+          <font-awesome-icon :icon="['fad', wsSymbol]" />
         </small>
       </div>
     </div>

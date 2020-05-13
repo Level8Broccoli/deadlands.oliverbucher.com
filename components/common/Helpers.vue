@@ -5,7 +5,7 @@
         <li :class="tab.includes('characterStatus') ? 'is-active' : ''">
           <a @click="toggleOption('characterStatus')">
             <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'user']" />
+              <font-awesome-icon :icon="['fad', 'user']" />
             </span>
             <span>Charakterstatus</span>
           </a>
@@ -13,7 +13,7 @@
         <li :class="tab.includes('pokercards') ? 'is-active' : ''">
           <a @click="toggleOption('pokercards')">
             <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'chess-king']" />
+              <font-awesome-icon :icon="['fad', 'chess-king']" />
             </span>
             <span>Pokerkarten</span>
           </a>
@@ -21,7 +21,7 @@
         <li :class="tab.includes('dice') ? 'is-active' : ''">
           <a @click="toggleOption('dice')">
             <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'dice']" />
+              <font-awesome-icon :icon="['fad', 'dice']" />
             </span>
             <span>Würfel</span>
           </a>
@@ -29,7 +29,7 @@
         <li :class="tab.includes('favourites') ? 'is-active' : ''">
           <a @click="toggleOption('favourites')">
             <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'star']" />
+              <font-awesome-icon :icon="['fad', 'star']" />
             </span>
             <span>Favoriten</span>
           </a>
@@ -37,7 +37,7 @@
         <li :class="tab.includes('attributeShorthand') ? 'is-active' : ''">
           <a @click="toggleOption('attributeShorthand')">
             <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'asterisk']" />
+              <font-awesome-icon :icon="['fad', 'asterisk']" />
             </span>
             <span>Attribute</span>
           </a>
@@ -45,7 +45,7 @@
         <li :class="tab.includes('skillsShorthand') ? 'is-active' : ''">
           <a @click="toggleOption('skillsShorthand')">
             <span class="icon is-small">
-              <font-awesome-icon :icon="['fas', 'asterisk']" />
+              <font-awesome-icon :icon="['fad', 'asterisk']" />
             </span>
             <span>Fertigkeiten</span>
           </a>

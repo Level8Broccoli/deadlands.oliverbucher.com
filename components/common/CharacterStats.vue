@@ -16,20 +16,20 @@
           <p class="heading">
             <a v-if="wounds > 0" @click="wounds--">
               <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+                <font-awesome-icon :icon="['fad', 'angle-double-left']" />
               </span>
             </a>
             <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+              <font-awesome-icon :icon="['fad', 'angle-double-left']" />
             </span>
             {{ charState.wounds }}
             <a v-if="wounds < 4" @click="wounds++">
               <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+                <font-awesome-icon :icon="['fad', 'angle-double-right']" />
               </span>
             </a>
             <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+              <font-awesome-icon :icon="['fad', 'angle-double-right']" />
             </span>
           </p>
           <p class="title">
@@ -42,20 +42,20 @@
           <p class="heading">
             <a v-if="fatigues > 0" @click="fatigues--">
               <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+                <font-awesome-icon :icon="['fad', 'angle-double-left']" />
               </span>
             </a>
             <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+              <font-awesome-icon :icon="['fad', 'angle-double-left']" />
             </span>
             {{ charState.fatigues }}
             <a v-if="fatigues < 3" @click="fatigues++">
               <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+                <font-awesome-icon :icon="['fad', 'angle-double-right']" />
               </span>
             </a>
             <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+              <font-awesome-icon :icon="['fad', 'angle-double-right']" />
             </span>
           </p>
           <p class="title">
@@ -69,7 +69,7 @@
             Fate Chips
             <a @click="drawChip">
               <span class="icon">
-                <font-awesome-icon :icon="['fas', 'share-square']" />
+                <font-awesome-icon :icon="['fad', 'share-square']" />
               </span>
             </a>
           </p>
@@ -99,11 +99,11 @@
           <p class="heading">
             <a v-if="powerPointsCurrent > 0" @click="powerPointsCurrent--">
               <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+                <font-awesome-icon :icon="['fad', 'angle-double-left']" />
               </span>
             </a>
             <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fas', 'angle-double-left']" />
+              <font-awesome-icon :icon="['fad', 'angle-double-left']" />
             </span>
             Machtpunkte
             <a
@@ -111,11 +111,11 @@
               @click="powerPointsCurrent++"
             >
               <span class="icon has-text-info">
-                <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+                <font-awesome-icon :icon="['fad', 'angle-double-right']" />
               </span>
             </a>
             <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+              <font-awesome-icon :icon="['fad', 'angle-double-right']" />
             </span>
           </p>
           <p class="title">{{ powerPointsCurrent }} / {{ powerPointsMax }}</p>

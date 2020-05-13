@@ -23,7 +23,7 @@
             <button class="button" @click="drawChip">
               <span>Ziehen</span>
               <span class="icon">
-                <font-awesome-icon :icon="['fas', 'share-square']" />
+                <font-awesome-icon :icon="['fad', 'share-square']" />
               </span>
             </button>
           </div>
