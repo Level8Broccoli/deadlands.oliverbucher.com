@@ -83,30 +83,10 @@
       <span v-if="dicePool">
         <span v-for="(die, index) in dicePool.dice" :key="index">
           <span v-for="count in die.count" :key="count">
-            <font-awesome-icon
-              v-if="die.type === 4"
-              :icon="['fad', 'dice-d4']"
-            />
-            <font-awesome-icon
-              v-if="die.type === 6"
-              :icon="['fad', 'dice-d6']"
-            />
-            <font-awesome-icon
-              v-if="die.type === 8"
-              :icon="['fad', 'dice-d8']"
-            />
-            <font-awesome-icon
-              v-if="die.type === 10"
-              :icon="['fad', 'dice-d10']"
-            />
-            <font-awesome-icon
-              v-if="die.type === 12"
-              :icon="['fad', 'dice-d12']"
-            />
+            <font-awesome-icon :icon="['fad', 'dice-d' + die.type]" />
           </span>
         </span>
       </span>
-
       <span v-if="buttonIcon" class="icon">
         <font-awesome-icon
           v-if="buttonIcon === 'ellipsis-v'"
