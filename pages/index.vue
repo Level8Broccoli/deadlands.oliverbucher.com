@@ -1,13 +1,5 @@
 <template>
   <div>
-    <GameButton button-preset="defaultValue" />
-    <GameButton button-preset="checked" />
-    <GameButton button-preset="unchecked1" />
-    <GameButton button-preset="unchecked2" />
-    <GameButton button-preset="more" />
-    <GameButton button-preset="delete" />
-    <GameButton button-preset="add" />
-    <GameButton button-preset="roll" />
     <h2 class="subtitle">Allgemein</h2>
     <div class="field">
       <label class="label">Charaktername</label>
@@ -97,11 +89,10 @@
 </template>
 
 <script>
-import GameButton from '~/components/common/GameButton'
 import CharacterImportExport from '~/components/common/CharacterImportExport'
 
 export default {
-  components: { CharacterImportExport, GameButton },
+  components: { CharacterImportExport },
   computed: {
     name: {
       get() {

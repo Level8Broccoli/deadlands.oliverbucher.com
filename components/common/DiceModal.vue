@@ -233,7 +233,9 @@ export default {
           this.explodingDice = dicePool.options.explodingDice
           this.showSuccessByFour = dicePool.options.showSuccessByFour
           if (dicePool.modifications) {
-            this.modifications = [...dicePool.modifications]
+            this.modifications = JSON.parse(
+              JSON.stringify(dicePool.modifications)
+            )
           }
           this.tags = dicePool.tags ? dicePool.tags.join(', ') : ''
         }

@@ -7,7 +7,7 @@
       <div class="tile is-parent custom-flex-flow">
         <div v-for="(favourite, index) in favourites" :key="index">
           <DiceShorthand
-            :label="favourite.comment"
+            :dice-pool="favourite"
             :has-more="true"
             :has-delete="true"
             @click-main="rollDice(favourite)"

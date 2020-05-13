@@ -51,33 +51,53 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    [
+      '@nuxtjs/fontawesome',
+      {
+        proIcons: {
+          solid: [
+            'faCheck',
+            'faTimes',
+            'faCheckDouble',
+            'faEllipsisV',
+            'faTrash',
+            'faPlus',
+            'faDiceD4',
+            'faDiceD6',
+            'faDiceD8',
+            'faDiceD10',
+            'faDiceD12',
+            'faShareSquare',
+            'faRandom',
+            'faPaperPlane',
+            'faUpload',
+            'faDownload',
+            'faEdit',
+            'faAngleDoubleLeft',
+            'faAngleDoubleRight',
+            'faUser',
+            'faChessKing',
+            'faDice',
+            'faStar',
+            'faAsterisk',
+            'faCompressArrowsAlt',
+            'faSignal',
+            'faBan',
+            'faBell',
+            'faExpandArrowsAlt',
+            'faSave'
+          ]
+        }
+      }
+    ]
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
-    [
-      'nuxt-fontawesome',
-      {
-        imports: [
-          {
-            set: '@fortawesome/free-solid-svg-icons',
-            icons: ['fas']
-          },
-          {
-            set: '@fortawesome/free-brands-svg-icons',
-            icons: ['fab']
-          },
-          {
-            set: '@fortawesome/pro-regular-svg-icons',
-            icons: ['faAdjust', 'faArchive']
-          }
-        ]
-      }
-    ]
+    '@nuxtjs/bulma'
   ],
   /*
    ** Build configuration

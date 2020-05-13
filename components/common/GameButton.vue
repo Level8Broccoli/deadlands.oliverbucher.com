@@ -73,7 +73,7 @@
           <span v-for="count in die.count" :key="count">
             <font-awesome-icon
               v-if="die.type === 4"
-              :icon="['fas', 'dice-two']"
+              :icon="['fas', 'dice-d4']"
             />
             <font-awesome-icon
               v-if="die.type === 6"
@@ -81,15 +81,15 @@
             />
             <font-awesome-icon
               v-if="die.type === 8"
-              :icon="['fas', 'dice-three']"
+              :icon="['fas', 'dice-d8']"
             />
             <font-awesome-icon
               v-if="die.type === 10"
-              :icon="['fas', 'dice-six']"
+              :icon="['fas', 'dice-d10']"
             />
             <font-awesome-icon
               v-if="die.type === 12"
-              :icon="['fas', 'dice-four']"
+              :icon="['fas', 'dice-d12']"
             />
           </span>
         </span>
