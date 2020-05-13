@@ -13,7 +13,7 @@
       {{ timestamp }}
     </small>
     <div v-if="show">
-      <small>
+      <small class="has-text-grey is-italic">
         {{ authorIntroduction }}
       </small>
     </div>
