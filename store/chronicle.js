@@ -11,7 +11,7 @@ export const getters = {
   getLastRoll: (state, getters, rootState) => {
     return getters.getList
       .filter((e) => e.meta.type === 'diceRoll')
-      .find((e) => e.meta.author === rootState.charSave.id)
+      .find((e) => e.meta.author.id === rootState.charSave.id)
   },
   getList: (state) => {
     const list = [...state.list].sort((a, b) => b.meta.time - a.meta.time)
@@ -24,6 +24,8 @@ export const getters = {
 
 export const mutations = {
   addToChronicle(state, payload) {
+    console.log('addToChronicle', payload)
+
     state.list.push(payload)
   },
   setShowLastRoll(state, boolean) {
@@ -49,7 +51,7 @@ export const actions = {
     commit('addToChronicle', { meta, payload })
   },
   commitOtherAction({ commit, rootState }, { meta, payload }) {
-    if (meta.author !== rootState.charSave.id) {
+    if (meta.author.id !== rootState.charSave.id) {
       commit('addToChronicle', { meta, payload })
     }
   },

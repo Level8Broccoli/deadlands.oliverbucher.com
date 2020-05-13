@@ -35,7 +35,7 @@ export default {
       return this.entry.payload.message
     },
     myEntry() {
-      return this.entry.meta.author === this.$store.state.charSave.id
+      return this.entry.meta.author.id === this.$store.state.charSave.id
         ? 'custom-is-own-row-chat'
         : ''
     },

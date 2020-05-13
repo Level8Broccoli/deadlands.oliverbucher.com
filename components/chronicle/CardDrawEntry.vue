@@ -9,7 +9,7 @@
           :key="index"
           class="tag is-rounded"
           :class="
-            !isOpen && meta.author !== myId
+            !isOpen && meta.author.id !== myId
               ? ''
               : getCardName(card).includes('Diamonds') ||
                 getCardName(card).includes('Hearts')
@@ -19,7 +19,7 @@
               : 'is-dark'
           "
         >
-          <span v-if="isOpen || meta.author === myId">
+          <span v-if="isOpen || meta.author.id === myId">
             <strong class="has-text-white">{{ getCardName(card) }}</strong>
             ({{ card }})
           </span>
@@ -62,7 +62,7 @@ export default {
       return this.entry.meta
     },
     myEntry() {
-      return this.entry.meta.author === this.$store.state.charSave.id
+      return this.entry.meta.author.id === this.$store.state.charSave.id
         ? 'custom-is-own-row'
         : ''
     },
@@ -71,7 +71,7 @@ export default {
       const urls = []
       for (let index = 0; index < this.cards.length; index++) {
         const element = this.cards[index]
-        if (this.isOpen || this.meta.author === this.myId) {
+        if (this.isOpen || this.meta.author.id === this.myId) {
           urls.push(`url("/cards/${this.getCardPath(element)}")`)
         } else {
           urls.push(`url("/cards/${cardback}")`)
@@ -88,7 +88,7 @@ export default {
       } else if (this.cards.length === 3) {
         background += '-three'
       }
-      return this.entry.meta.author === this.$store.state.charSave.id
+      return this.entry.meta.author.id === this.$store.state.charSave.id
         ? 'custom-is-own-row-chat ' + background
         : background
     },

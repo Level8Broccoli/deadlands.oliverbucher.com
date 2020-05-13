@@ -32,7 +32,7 @@ export default function websocketPlugin({ store }) {
   store.subscribe((mutation, state) => {
     if (
       mutation.type === 'chronicle/addToChronicle' &&
-      mutation.payload.meta.author === state.charSave.id
+      mutation.payload.meta.author.id === state.charSave.id
     ) {
       console.log(mutation.payload)
 
