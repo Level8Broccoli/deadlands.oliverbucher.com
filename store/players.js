@@ -4,7 +4,12 @@ export const state = () => ({
 
 export const getters = {
   getPlayerName: (state) => (playerId) => {
-    return state.list.find((e) => e.id === playerId)
+    const playerEntry = state.list.find((e) => e.id === playerId)
+    if (playerEntry) {
+      return playerEntry.name
+    } else {
+      return null
+    }
   }
 }
 
@@ -33,7 +38,7 @@ export const mutations = {
 
 export const actions = {
   updatePlayer({ commit, rootState }, payload) {
-    const player = payload.author
+    const player = payload.meta.author
     if (rootState.players.list.find((e) => e.id === player.id)) {
       commit('removePlayer', player.id)
       commit('addPlayer', player)

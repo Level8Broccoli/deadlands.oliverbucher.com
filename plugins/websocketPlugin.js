@@ -15,6 +15,8 @@ export default function websocketPlugin({ store }) {
 
     socket.onmessage = function(e) {
       const parse = JSON.parse(e.data)
+      console.log(parse)
+
       if (parse.meta && parse.payload) {
         store.dispatch('chronicle/commitOtherAction', parse)
         store.dispatch('players/updatePlayer', parse)
@@ -34,8 +36,6 @@ export default function websocketPlugin({ store }) {
       mutation.type === 'chronicle/addToChronicle' &&
       mutation.payload.meta.author.id === state.charSave.id
     ) {
-      console.log(mutation.payload)
-
       sendMessage(JSON.stringify(mutation.payload))
     }
   })

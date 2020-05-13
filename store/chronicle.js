@@ -24,8 +24,6 @@ export const getters = {
 
 export const mutations = {
   addToChronicle(state, payload) {
-    console.log('addToChronicle', payload)
-
     state.list.push(payload)
   },
   setShowLastRoll(state, boolean) {
