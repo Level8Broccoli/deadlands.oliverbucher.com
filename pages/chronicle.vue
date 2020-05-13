@@ -10,7 +10,12 @@
             <h1 class="subtitle">Chronik</h1>
           </th>
           <th>Wurf</th>
-          <th>Wild Die (W6)</th>
+          <th>
+            <span class="icon">
+              <font-awesome-icon :icon="['fad', 'dice-d6']" />
+            </span>
+            Wild Die
+          </th>
           <th>Modifikationen</th>
           <th>Ergebnis</th>
           <th></th>
