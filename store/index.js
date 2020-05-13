@@ -128,7 +128,7 @@ export const mutations = {
 }
 
 export const actions = {
-  udpateCardDeck({ commit }, { meta, payload }) {
+  updateCardDeck({ commit }, { meta, payload }) {
     if (meta.type === 'shuffleDeck') {
       commit('shuffleDeck')
     } else if (meta.type === 'drawCards') {

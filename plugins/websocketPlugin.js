@@ -18,7 +18,7 @@ export default function websocketPlugin({ store }) {
       if (parse.meta && parse.payload) {
         store.dispatch('chronicle/commitOtherAction', parse)
         store.dispatch('players/updatePlayer', parse)
-        store.dispatch('udpateCardDeck', parse)
+        store.dispatch('updateCardDeck', parse)
       }
     }
 

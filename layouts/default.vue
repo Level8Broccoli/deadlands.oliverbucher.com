@@ -98,6 +98,7 @@ export default {
     getSaveFromLocalStorge()
 
     this.$store.dispatch('charSave/uniqueId')
+    this.$store.dispatch('updateCardDeck', { meta: { type: 'shuffleDeck' } })
   }
 }
 </script>
