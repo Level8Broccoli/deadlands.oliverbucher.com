@@ -127,7 +127,7 @@ export default {
   },
   computed: {
     isSkilled() {
-      if (this.dicePool) {
+      if (this.dicePool && this.dicePool.modifications) {
         return !this.dicePool.modifications.find((e) => e.name === 'Ungeübt')
       } else {
         return true
