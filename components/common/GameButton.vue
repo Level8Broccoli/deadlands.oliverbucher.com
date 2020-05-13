@@ -51,13 +51,13 @@
 
     <GameButton
       v-if="buttonPreset === 'rollWithoutLabel'"
-      button-style="is-light is-link"
+      :button-style="isSkilled ? 'is-light is-link' : 'is-light is-danger'"
       :dice-pool="dicePool"
     />
 
     <GameButton
       v-if="buttonPreset === 'rollWithLabel'"
-      button-style="is-light is-link"
+      :button-style="isSkilled ? 'is-light is-link' : 'is-light is-danger'"
       :button-text="dicePool.comment"
       :dice-pool="dicePool"
     />
@@ -122,6 +122,15 @@ export default {
       type: Object,
       default() {
         return null
+      }
+    }
+  },
+  computed: {
+    isSkilled() {
+      if (this.dicePool) {
+        return !this.dicePool.modifications.find((e) => e.name === 'Ungeübt')
+      } else {
+        return true
       }
     }
   }
