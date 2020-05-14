@@ -1,5 +1,6 @@
 export const state = () => ({
   dice: [4, 6, 8, 10, 12],
+  lastCardsDrawn: {},
   cards: {
     1: { path: '01_2-clubs.svg', name: '2 of Clubs' },
     2: { path: '02_2-diamonds.svg', name: '2 of Diamonds' },
@@ -124,6 +125,9 @@ export const mutations = {
   },
   updateCardDeck(state, newDeck) {
     state.cardsRemaining = newDeck
+  },
+  updateLastCard(state, { author, card }) {
+    state.lastCardsDrawn[author] = card
   }
 }
 
@@ -133,6 +137,12 @@ export const actions = {
       commit('shuffleDeck')
     } else if (meta.type === 'drawCards') {
       commit('updateCardDeck', payload.newDeck)
+      if (payload.open && payload.cards.length === 1) {
+        commit('updateLastCard', {
+          author: meta.author.id,
+          card: payload.cards[0]
+        })
+      }
     }
   }
 }
