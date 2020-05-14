@@ -120,9 +120,13 @@ export default {
       return this.entry.payload.rollResult
     },
     myEntry() {
-      return this.entry.meta.author.id === this.$store.state.charSave.id
-        ? 'custom-is-own-row'
-        : ''
+      if (this.$store.getters['chronicle/isMyLastEntry'](this.entry)) {
+        return 'custom-is-my-last-entry'
+      } else {
+        return this.entry.meta.author.id === this.$store.state.charSave.id
+          ? 'custom-is-own-row-dice'
+          : ''
+      }
     },
     dicePoolDescription() {
       const diceFiltered = this.dicePool.dice.filter((e) => e.count > 0)

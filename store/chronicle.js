@@ -13,6 +13,13 @@ export const getters = {
       .filter((e) => e.meta.type === 'diceRoll')
       .find((e) => e.meta.author.id === rootState.charSave.id)
   },
+  isMyLastEntry: (state, getters, rootState) => (entry) => {
+    const list = getters.getList
+    const lastEntryOfMine = list.find(
+      (e) => e.meta.author.id === rootState.charSave.id
+    )
+    return lastEntryOfMine.meta.time === entry.meta.time
+  },
   getList: (state) => {
     const list = [...state.list].sort((a, b) => b.meta.time - a.meta.time)
     if (!isNaN(state.chronicleLimit)) {

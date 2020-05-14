@@ -103,11 +103,27 @@ export default {
 </script>
 
 <style>
-.custom-is-own-row {
+.custom-is-my-last-entry {
+  background: hsla(348, 100%, 61%, 0.8);
+  background: linear-gradient(
+    90deg,
+    hsla(348, 100%, 61%, 0.8) 0%,
+    hsl(0, 0%, 100%) 100%
+  );
+}
+.custom-is-own-row-dice {
   background: hsla(171, 100%, 41%, 0.2);
   background: linear-gradient(
     90deg,
     hsla(171, 100%, 41%, 0.2) 0%,
+    hsl(0, 0%, 100%) 100%
+  );
+}
+.custom-is-own-row-cards {
+  background: hsla(0, 0%, 14%, 0.2);
+  background: linear-gradient(
+    90deg,
+    hsla(0, 0%, 14%, 0.2) 0%,
     hsl(0, 0%, 100%) 100%
   );
 }

@@ -31,9 +31,13 @@ export default {
       return this.entry.payload.message
     },
     myEntry() {
-      return this.entry.meta.author.id === this.$store.state.charSave.id
-        ? 'custom-is-own-row-chat'
-        : ''
+      if (this.$store.getters['chronicle/isMyLastEntry'](this.entry)) {
+        return 'custom-is-my-last-entry'
+      } else {
+        return this.entry.meta.author.id === this.$store.state.charSave.id
+          ? 'custom-is-own-row-chat'
+          : ''
+      }
     }
   }
 }

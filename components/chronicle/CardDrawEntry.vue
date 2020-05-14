@@ -58,9 +58,13 @@ export default {
       return this.entry.meta
     },
     myEntry() {
-      return this.entry.meta.author.id === this.$store.state.charSave.id
-        ? 'custom-is-own-row'
-        : ''
+      if (this.$store.getters['chronicle/isMyLastEntry'](this.entry)) {
+        return 'custom-is-my-last-entry'
+      } else {
+        return this.entry.meta.author.id === this.$store.state.charSave.id
+          ? 'custom-is-own-row-cards'
+          : ''
+      }
     },
     backgroundImages() {
       const cardback = 'card_back.svg'
