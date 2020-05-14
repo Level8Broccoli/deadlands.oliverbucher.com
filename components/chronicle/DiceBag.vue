@@ -1,9 +1,6 @@
 <template>
   <div class="box">
     <nav class="level">
-      <div class="level-item has-text-centered">
-        <div><p class="title has-text-weight-bold">Würfel</p></div>
-      </div>
       <div v-for="die in dice" :key="die" class="level-item has-text-centered">
         <div>
           <p class="title">

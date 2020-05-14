@@ -3,13 +3,6 @@
     <nav class="level">
       <div class="level-item has-text-centered">
         <div>
-          <p class="title">
-            Pokerkarten
-          </p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
           <p class="heading">
             Deck
             <a title="Deck mischen" @click="shuffleDeck">
