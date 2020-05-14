@@ -3,21 +3,21 @@
     <div class="content">
       <ol>
         <li v-for="(card, index) in lastCardsDrawn" :key="index">
-          {{ getAuthorName(card[0]) }}
+          {{ getAuthorName(card.id) }}
           <span
             class="tag is-rounded"
             :class="
-              getCardName(card[1]).includes('Diamonds') ||
-              getCardName(card[1]).includes('Hearts')
+              getCardName(card.num).includes('Diamonds') ||
+              getCardName(card.num).includes('Hearts')
                 ? 'is-danger'
-                : getCardName(card[1]).includes('Joker')
+                : getCardName(card.num).includes('Joker')
                 ? 'is-primary'
                 : 'is-dark'
             "
           >
-            {{ getCardName(card[1]) }}
+            {{ getCardName(card.num) }}
           </span>
-          <a class="delete" @click="removeEntry(card[0])"></a>
+          <a class="delete" @click="removeEntry(card.id)"></a>
         </li>
       </ol>
     </div>
@@ -29,7 +29,8 @@ export default {
   name: 'FightTracker',
   computed: {
     lastCardsDrawn() {
-      return this.$store.getters.getLastCardsDrawnAsListSorted
+      const lastCardsDrawn = this.$store.getters.getLastCardsDrawnAsListSorted
+      return lastCardsDrawn
     }
   },
   methods: {
@@ -40,7 +41,7 @@ export default {
       return this.$store.state.cards[num].name
     },
     removeEntry(id) {
-      this.$store.commit('removeEntry', id)
+      this.$store.commit('removeLastCard', id)
     }
   }
 }

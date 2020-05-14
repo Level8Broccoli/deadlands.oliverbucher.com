@@ -1,6 +1,6 @@
 export const state = () => ({
   dice: [4, 6, 8, 10, 12],
-  lastCardsDrawn: {},
+  lastCardsDrawn: [],
   cards: {
     1: { path: '01_2-clubs.svg', name: '2 of Clubs' },
     2: { path: '02_2-diamonds.svg', name: '2 of Diamonds' },
@@ -107,15 +107,20 @@ export const state = () => ({
 
 export const getters = {
   getLastCardsDrawnAsListSorted: (state) => {
-    return Object.entries(state.lastCardsDrawn)
-      .sort((a, b) => a[1] < b[1])
-      .filter((e) => e[1] !== null)
+    return [...state.lastCardsDrawn].sort((a, b) => a.num < b.num)
   }
 }
 
 export const mutations = {
-  removeEntry(state, id) {
-    state.lastCardsDrawn[id] = null
+  removeLastCard(state, id) {
+    const list = state.lastCardsDrawn
+    const existingEntry = list.find((e) => e.id === id)
+    if (existingEntry) {
+      list.splice(
+        list.findIndex((e) => e.id === id),
+        1
+      )
+    }
   },
   shuffleDeck(state) {
     const cards = state.cards
@@ -128,8 +133,8 @@ export const mutations = {
   updateCardDeck(state, newDeck) {
     state.cardsRemaining = newDeck
   },
-  updateLastCard(state, { author, card }) {
-    state.lastCardsDrawn[author] = card
+  addLastCard(state, { author, card }) {
+    state.lastCardsDrawn.push({ id: author, num: card })
   }
 }
 
@@ -140,7 +145,8 @@ export const actions = {
     } else if (meta.type === 'drawCards') {
       commit('updateCardDeck', payload.newDeck)
       if (payload.open && payload.cards.length === 1) {
-        commit('updateLastCard', {
+        commit('removeLastCard', meta.author.id)
+        commit('addLastCard', {
           author: meta.author.id,
           card: payload.cards[0]
         })
