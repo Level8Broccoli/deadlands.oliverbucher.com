@@ -86,7 +86,8 @@ export default {
             'faBan',
             'faBell',
             'faExpandArrowsAlt',
-            'faSave'
+            'faSave',
+            'faSwords'
           ],
           solid: ['faEllipsisV']
         }

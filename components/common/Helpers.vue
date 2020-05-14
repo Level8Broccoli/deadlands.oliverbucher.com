@@ -1,56 +1,76 @@
 <template>
   <div>
-    <div class="tabs is-toggle is-fullwidth">
-      <ul>
-        <li :class="tab.includes('characterStatus') ? 'is-active' : ''">
-          <a @click="toggleOption('characterStatus')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fad', 'user']" />
-            </span>
-            <span>Charakterstatus</span>
-          </a>
-        </li>
-        <li :class="tab.includes('pokercards') ? 'is-active' : ''">
-          <a @click="toggleOption('pokercards')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fad', 'chess-king']" />
-            </span>
-            <span>Pokerkarten</span>
-          </a>
-        </li>
-        <li :class="tab.includes('dice') ? 'is-active' : ''">
-          <a @click="toggleOption('dice')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fad', 'dice']" />
-            </span>
-            <span>Würfel</span>
-          </a>
-        </li>
-        <li :class="tab.includes('favourites') ? 'is-active' : ''">
-          <a @click="toggleOption('favourites')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fad', 'star']" />
-            </span>
-            <span>Favoriten</span>
-          </a>
-        </li>
-        <li :class="tab.includes('attributeShorthand') ? 'is-active' : ''">
-          <a @click="toggleOption('attributeShorthand')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fad', 'asterisk']" />
-            </span>
-            <span>Attribute</span>
-          </a>
-        </li>
-        <li :class="tab.includes('skillsShorthand') ? 'is-active' : ''">
-          <a @click="toggleOption('skillsShorthand')">
-            <span class="icon is-small">
-              <font-awesome-icon :icon="['fad', 'asterisk']" />
-            </span>
-            <span>Fertigkeiten</span>
-          </a>
-        </li>
-      </ul>
+    <div class="buttons">
+      <GameButton
+        :button-style="
+          tab.includes('characterStatus')
+            ? 'is-info custom-button-margin'
+            : 'custom-button-margin'
+        "
+        button-icon="user"
+        button-text="Charakterstatus"
+        @click.native="toggleOption('characterStatus')"
+      />
+      <GameButton
+        :button-style="
+          tab.includes('pokercards')
+            ? 'is-info custom-button-margin'
+            : 'custom-button-margin'
+        "
+        button-icon="chess-king"
+        button-text="Pokerkarten"
+        @click.native="toggleOption('pokercards')"
+      />
+      <GameButton
+        :button-style="
+          tab.includes('dice')
+            ? 'is-info custom-button-margin'
+            : 'custom-button-margin'
+        "
+        button-icon="dice"
+        button-text="Würfel"
+        @click.native="toggleOption('dice')"
+      />
+      <GameButton
+        :button-style="
+          tab.includes('favourites')
+            ? 'is-info custom-button-margin'
+            : 'custom-button-margin'
+        "
+        button-icon="star"
+        button-text="Favoriten"
+        @click.native="toggleOption('favourites')"
+      />
+      <GameButton
+        :button-style="
+          tab.includes('attributeShorthand')
+            ? 'is-info custom-button-margin'
+            : 'custom-button-margin'
+        "
+        button-icon="asterisk"
+        button-text="Attribute"
+        @click.native="toggleOption('attributeShorthand')"
+      />
+      <GameButton
+        :button-style="
+          tab.includes('skillsShorthand')
+            ? 'is-info custom-button-margin'
+            : 'custom-button-margin'
+        "
+        button-icon="asterisk"
+        button-text="Fertigkeiten"
+        @click.native="toggleOption('skillsShorthand')"
+      />
+      <GameButton
+        :button-style="
+          tab.includes('fightTracker')
+            ? 'is-info custom-button-margin'
+            : 'custom-button-margin'
+        "
+        button-icon="swords"
+        button-text="Kampf"
+        @click.native="toggleOption('fightTracker')"
+      />
     </div>
     <CharacterStats v-if="tab.includes('characterStatus')" />
     <CardDeck v-if="tab.includes('pokercards')" />
@@ -63,6 +83,7 @@
 </template>
 
 <script>
+import GameButton from '~/components/common/GameButton'
 import DiceBag from '~/components/chronicle/DiceBag'
 import CharacterStats from '~/components/common/CharacterStats'
 import CardDeck from '~/components/chronicle/CardDeck'
@@ -74,6 +95,7 @@ export default {
   name: 'Helpers',
   components: {
     DiceBag,
+    GameButton,
     CharacterStats,
     CardDeck,
     FavouriteDicePools,
@@ -92,3 +114,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.custom-button-margin {
+  margin-right: 0.5rem;
+}
+</style>
