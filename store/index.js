@@ -115,6 +115,9 @@ export const getters = {
 }
 
 export const mutations = {
+  removeEntry(state, id) {
+    delete state.lastCardsDrawn[id]
+  },
   shuffleDeck(state) {
     const cards = state.cards
     for (const id of Object.keys(cards)) {

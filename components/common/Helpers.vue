@@ -78,6 +78,7 @@
     <FavouriteDicePools v-if="tab.includes('favourites')" />
     <AttributeShorthand v-if="tab.includes('attributeShorthand')" />
     <SkillShorthand v-if="tab.includes('skillsShorthand')" />
+    <FightTracker v-if="tab.includes('fightTracker')" />
     <br />
   </div>
 </template>
@@ -90,11 +91,13 @@ import CardDeck from '~/components/chronicle/CardDeck'
 import FavouriteDicePools from '~/components/chronicle/FavouriteDicePools'
 import AttributeShorthand from '~/components/attributes/AttributeShorthand'
 import SkillShorthand from '~/components/skills/SkillShorthand'
+import FightTracker from '~/components/chronicle/FightTracker'
 
 export default {
   name: 'Helpers',
   components: {
     DiceBag,
+    FightTracker,
     GameButton,
     CharacterStats,
     CardDeck,
