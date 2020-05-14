@@ -106,17 +106,16 @@ export const state = () => ({
 })
 
 export const getters = {
-  getNumberOfCards: (state) => {
-    return Object.keys(state.cards).length
-  },
-  getNumberOfCardsRemaining: (state) => {
-    return Object.keys(state.cardsRemaining).length
+  getLastCardsDrawnAsListSorted: (state) => {
+    return Object.entries(state.lastCardsDrawn)
+      .sort((a, b) => a[1] < b[1])
+      .filter((e) => e[1] !== null)
   }
 }
 
 export const mutations = {
   removeEntry(state, id) {
-    delete state.lastCardsDrawn[id]
+    state.lastCardsDrawn[id] = null
   },
   shuffleDeck(state) {
     const cards = state.cards

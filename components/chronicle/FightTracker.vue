@@ -29,11 +29,7 @@ export default {
   name: 'FightTracker',
   computed: {
     lastCardsDrawn() {
-      const lastCardsDrawn = this.$store.state.lastCardsDrawn
-      const lastCardsDrawnSorted = Object.entries(lastCardsDrawn).sort(
-        (a, b) => a[1] < b[1]
-      )
-      return lastCardsDrawnSorted
+      return this.$store.getters.getLastCardsDrawnAsListSorted
     }
   },
   methods: {
