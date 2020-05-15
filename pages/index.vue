@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Kurzbeschreib</label>
+      <label class="label">Kurzbeschreibung</label>
       <div class="control">
         <textarea v-model="introduction" rows="1" class="textarea"></textarea>
       </div>
