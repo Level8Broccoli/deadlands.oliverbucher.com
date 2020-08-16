@@ -20,51 +20,63 @@
       </div>
     </div>
     <br />
-    <h2 class="subtitle">Fortgeschritten</h2>
-    <div class="field is-horizontal">
-      <div class="field-body">
-        <div class="field">
-          <label class="label">Attributspunkte</label>
-          <div class="control">
-            <input v-model="attributePoints" type="text" class="input" />
+    <h2 class="subtitle">
+      Fortgeschritten
+      <GameButton
+        button-preset="add"
+        @click.native="showAdvanced = !showAdvanced"
+      />
+    </h2>
+    <div v-if="showAdvanced">
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <label class="label">Attributspunkte</label>
+            <div class="control">
+              <input v-model="attributePoints" type="text" class="input" />
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label">Fertigkeitspunkte</label>
-          <div class="control">
-            <input v-model="skillPoints" type="text" class="input" />
+          <div class="field">
+            <label class="label">Fertigkeitspunkte</label>
+            <div class="control">
+              <input v-model="skillPoints" type="text" class="input" />
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label">Handicappunkte</label>
-          <div class="control">
-            <input v-model="handicapPoints" type="text" class="input" />
+          <div class="field">
+            <label class="label">Handicappunkte</label>
+            <div class="control">
+              <input v-model="handicapPoints" type="text" class="input" />
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label">Talentpunkte</label>
-          <div class="control">
-            <input v-model="talentPoints" type="text" class="input" />
+          <div class="field">
+            <label class="label">Talentpunkte</label>
+            <div class="control">
+              <input v-model="talentPoints" type="text" class="input" />
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label">Machtpunkte</label>
-          <div class="control">
-            <input v-model="powerPoints" type="text" class="input" />
+          <div class="field">
+            <label class="label">Machtpunkte</label>
+            <div class="control">
+              <input v-model="powerPoints" type="text" class="input" />
+            </div>
           </div>
         </div>
       </div>
+      <br />
+      <CharacterImportExport />
     </div>
-    <br />
-    <CharacterImportExport />
   </div>
 </template>
 
 <script>
 import CharacterImportExport from '~/components/common/CharacterImportExport'
+import GameButton from '~/components/common/GameButton'
 
 export default {
-  components: { CharacterImportExport },
+  components: { CharacterImportExport, GameButton },
+  data() {
+    return { showAdvanced: false }
+  },
   computed: {
     name: {
       get() {
