@@ -66,31 +66,23 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">
+            <a v-if="chips > 0" @click="chips--">
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fad', 'angle-double-left']" />
+              </span>
+            </a>
+            <span v-else class="icon has-text-grey-light">
+              <font-awesome-icon :icon="['fad', 'angle-double-left']" />
+            </span>
             Fate Chips
-            <a @click="drawChip">
-              <span class="icon">
-                <font-awesome-icon :icon="['fad', 'share-square']" />
+            <a @click="chips++">
+              <span class="icon has-text-info">
+                <font-awesome-icon :icon="['fad', 'angle-double-right']" />
               </span>
             </a>
           </p>
           <p class="title">
-            <a @click="chipsWhite--">
-              <span class="has-text-grey-light">
-                {{ chipsWhite }}
-              </span>
-            </a>
-            /
-            <a @click="chipsRed--">
-              <span class="has-text-danger">
-                {{ chipsRed }}
-              </span>
-            </a>
-            /
-            <a @click="chipsBlue--">
-              <span class="has-text-info">
-                {{ chipsBlue }}
-              </span>
-            </a>
+            {{ chips }}
           </p>
         </div>
       </div>
@@ -114,9 +106,6 @@
                 <font-awesome-icon :icon="['fad', 'angle-double-right']" />
               </span>
             </a>
-            <span v-else class="icon has-text-grey-light">
-              <font-awesome-icon :icon="['fad', 'angle-double-right']" />
-            </span>
           </p>
           <p class="title">{{ powerPointsCurrent }} / {{ powerPointsMax }}</p>
         </div>
@@ -146,28 +135,12 @@ export default {
         ][this.fatigues]
       }
     },
-    chipsWhite: {
+    chips: {
       get() {
-        return this.$store.state.charSave.chipsWhite
+        return this.$store.state.charSave.chips
       },
       set(value) {
-        this.$store.commit('charSave/setChipsWhite', value)
-      }
-    },
-    chipsRed: {
-      get() {
-        return this.$store.state.charSave.chipsRed
-      },
-      set(value) {
-        this.$store.commit('charSave/setChipsRed', value)
-      }
-    },
-    chipsBlue: {
-      get() {
-        return this.$store.state.charSave.chipsBlue
-      },
-      set(value) {
-        this.$store.commit('charSave/setChipsBlue', value)
+        this.$store.commit('charSave/setChips', value)
       }
     },
     wounds: {
@@ -208,18 +181,6 @@ export default {
       },
       set(value) {
         this.$store.commit('charSave/setShaken', value)
-      }
-    }
-  },
-  methods: {
-    drawChip() {
-      const randomNumber = Math.random() * 100
-      if (randomNumber < 10) {
-        this.chipsBlue++
-      } else if (randomNumber < 40) {
-        this.chipsRed++
-      } else {
-        this.chipsWhite++
       }
     }
   }

@@ -3,9 +3,7 @@ export const state = () => ({
   name: '',
   introduction: '',
   notes: '',
-  chipsWhite: 0,
-  chipsRed: 0,
-  chipsBlue: 0,
+  chips: 0,
   shaken: false,
   wounds: 0,
   fatigues: 0,
@@ -85,19 +83,9 @@ export const mutations = {
       state.charPoints[type] = value
     }
   },
-  setChipsWhite(state, value) {
+  setChips(state, value) {
     if (value >= 0) {
-      state.chipsWhite = value
-    }
-  },
-  setChipsRed(state, value) {
-    if (value >= 0) {
-      state.chipsRed = value
-    }
-  },
-  setChipsBlue(state, value) {
-    if (value >= 0) {
-      state.chipsBlue = value
+      state.chips = value
     }
   },
   setWounds(state, value) {

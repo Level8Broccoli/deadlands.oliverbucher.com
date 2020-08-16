@@ -24,40 +24,6 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <label class="label">Fate Chips</label>
-          <div class="control">
-            <button class="button" @click="drawChip">
-              <span>Ziehen</span>
-              <span class="icon">
-                <font-awesome-icon :icon="['fad', 'share-square']" />
-              </span>
-            </button>
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Weiss</label>
-          <div class="control">
-            <input v-model="chipsWhite" type="text" class="input" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Rot</label>
-          <div class="control">
-            <input v-model="chipsRed" type="text" class="input is-danger" />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Blau</label>
-          <div class="control">
-            <input v-model="chipsBlue" type="text" class="input is-info" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="field is-horizontal">
-      <div class="field-body">
-        <div class="field">
           <label class="label">Attributspunkte</label>
           <div class="control">
             <input v-model="attributePoints" type="text" class="input" />
@@ -124,30 +90,6 @@ export default {
         this.$store.commit('charSave/setIntroduction', value)
       }
     },
-    chipsWhite: {
-      get() {
-        return this.$store.state.charSave.chipsWhite
-      },
-      set(value) {
-        this.$store.commit('charSave/setChipsWhite', value)
-      }
-    },
-    chipsRed: {
-      get() {
-        return this.$store.state.charSave.chipsRed
-      },
-      set(value) {
-        this.$store.commit('charSave/setChipsRed', value)
-      }
-    },
-    chipsBlue: {
-      get() {
-        return this.$store.state.charSave.chipsBlue
-      },
-      set(value) {
-        this.$store.commit('charSave/setChipsBlue', value)
-      }
-    },
     attributePoints: {
       get() {
         return this.$store.state.charSave.charPoints.attributes
@@ -201,18 +143,6 @@ export default {
           type: 'powers',
           value
         })
-      }
-    }
-  },
-  methods: {
-    drawChip() {
-      const randomNumber = Math.random() * 100
-      if (randomNumber < 10) {
-        this.chipsBlue++
-      } else if (randomNumber < 40) {
-        this.chipsRed++
-      } else {
-        this.chipsWhite++
       }
     }
   },
