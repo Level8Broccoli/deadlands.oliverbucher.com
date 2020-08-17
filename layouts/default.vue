@@ -166,4 +166,9 @@ h6 {
   -webkit-box-shadow: 0px 0px 16px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 16px 5px rgba(0, 0, 0, 0.3);
 }
+
+.table tbody tr:last-child td,
+.table tbody tr:last-child th {
+  border-bottom-width: 1px;
+}
 </style>

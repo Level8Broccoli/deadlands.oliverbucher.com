@@ -108,7 +108,7 @@ export default {
   background: linear-gradient(
     90deg,
     hsla(348, 100%, 61%, 0.8) 0%,
-    hsl(0, 0%, 100%) 100%
+    hsl(0, 0%, 100%) 15%
   );
 }
 .custom-is-own-row-dice {
@@ -116,7 +116,7 @@ export default {
   background: linear-gradient(
     90deg,
     hsla(171, 100%, 41%, 0.2) 0%,
-    hsl(0, 0%, 100%) 100%
+    hsl(0, 0%, 100%) 15%
   );
 }
 .custom-is-own-row-cards {
@@ -124,7 +124,7 @@ export default {
   background: linear-gradient(
     90deg,
     hsla(0, 0%, 14%, 0.2) 0%,
-    hsl(0, 0%, 100%) 100%
+    hsl(0, 0%, 100%) 15%
   );
 }
 .custom-is-own-row-chat {
@@ -132,7 +132,7 @@ export default {
   background: linear-gradient(
     90deg,
     hsla(48, 100%, 67%, 0.2) 0%,
-    hsl(0, 0%, 100%) 100%
+    hsl(0, 0%, 100%) 15%
   );
 }
 </style>
