@@ -32,6 +32,9 @@ export const state = () => ({
   },
   options: [],
   showOnlyChoosenSkills: false,
+  showOnlyChoosenHandicaps: false,
+  showOnlyChoosenTalents: false,
+  showOnlyChoosenPowers: false,
   layout: 'default',
   favouriteDicePools: []
 })
@@ -42,6 +45,15 @@ export const getters = {
   },
   getSkillList: (state) => {
     return state.skillList
+  },
+  getHandicapList: (state) => {
+    return state.handicapList
+  },
+  getTalentList: (state) => {
+    return state.talentList
+  },
+  getPowerList: (state) => {
+    return state.powerList
   },
   getGearList: (state) => {
     return [...state.gearList].sort((a, b) => {
@@ -145,6 +157,15 @@ export const mutations = {
   },
   setShowOnlyChoosenSkills(state, bool) {
     state.showOnlyChoosenSkills = bool
+  },
+  setShowOnlyChoosenHandicaps(state, bool) {
+    state.showOnlyChoosenHandicaps = bool
+  },
+  setShowOnlyChoosenTalents(state, bool) {
+    state.showOnlyChoosenTalents = bool
+  },
+  setShowOnlyChoosenPowers(state, bool) {
+    state.showOnlyChoosenPowers = bool
   },
   setName(state, name) {
     state.name = name

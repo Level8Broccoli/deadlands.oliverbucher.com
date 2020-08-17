@@ -6,6 +6,13 @@
       schwere Handicaps 2 (rot).
     </p>
     <br />
+    <div class="has-text-right is-italic">
+      <label class="checkbox">
+        <input v-model="showOnlyChoosenHandicaps" type="checkbox" />
+        Zeige nur ausgewählte Handicaps
+      </label>
+    </div>
+    <br />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
         <tr>
@@ -34,8 +41,29 @@ import ButtonLegend from '~/components/common/ButtonLegend'
 export default {
   components: { HandicapEntry, ButtonLegend },
   computed: {
+    showOnlyChoosenHandicaps: {
+      get() {
+        return this.$store.state.charSave.showOnlyChoosenHandicaps
+      },
+      set(value) {
+        this.$store.commit('charSave/setShowOnlyChoosenHandicaps', value)
+      }
+    },
     handicapList() {
+      if (this.showOnlyChoosenHandicaps) {
+        return this.handicapListFiltered
+      }
       return this.$store.getters['handicaps/getList']
+    },
+    handicapListFiltered() {
+      const allHandicaps = this.$store.getters['handicaps/getList']
+      const choosenHandicapsId = this.$store.getters[
+        'charSave/getHandicapList'
+      ].map((handicap) => handicap.id)
+
+      return allHandicaps.filter((skill) => {
+        return skill.defaultValue || choosenHandicapsId.includes(skill.id)
+      })
     }
   },
   head() {

@@ -5,6 +5,13 @@
       Hier findest eine Übersicht der Mächte.
     </p>
     <br />
+    <div class="has-text-right is-italic">
+      <label class="checkbox">
+        <input v-model="showOnlyChoosenPowers" type="checkbox" />
+        Zeige nur ausgewählte Mächte
+      </label>
+    </div>
+    <br />
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -44,8 +51,29 @@ import ButtonLegend from '~/components/common/ButtonLegend'
 export default {
   components: { ButtonLegend, PowerEntry },
   computed: {
+    showOnlyChoosenPowers: {
+      get() {
+        return this.$store.state.charSave.showOnlyChoosenPowers
+      },
+      set(value) {
+        this.$store.commit('charSave/setShowOnlyChoosenPowers', value)
+      }
+    },
     powerList() {
+      if (this.showOnlyChoosenPowers) {
+        return this.powerListFiltered
+      }
       return this.$store.getters['powers/getList']
+    },
+    powerListFiltered() {
+      const allPowers = this.$store.getters['powers/getList']
+      const choosenPowersId = this.$store.getters['charSave/getPowerList'].map(
+        (power) => power.id
+      )
+
+      return allPowers.filter((skill) => {
+        return skill.defaultValue || choosenPowersId.includes(skill.id)
+      })
     },
     powerPointsCurrent: {
       get() {
