@@ -18,7 +18,7 @@ export const getters = {
     const lastEntryOfMine = list.find(
       (e) => e.meta.author.id === rootState.charSave.id
     )
-    return lastEntryOfMine.meta.time === entry.meta.time
+    return !!lastEntryOfMine && lastEntryOfMine.meta.time === entry.meta.time
   },
   getList: (state) => {
     const list = [...state.list].sort((a, b) => b.meta.time - a.meta.time)
