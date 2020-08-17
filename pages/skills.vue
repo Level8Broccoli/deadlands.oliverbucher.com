@@ -13,6 +13,13 @@
       (leicht rot markiert)
     </p>
     <br />
+    <div class="has-text-right is-italic">
+      <label class="checkbox">
+        <input v-model="showOnlyChoosenSkills" type="checkbox" />
+        Zeige nur ausgewählte Fertigkeiten
+      </label>
+    </div>
+    <br />
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
         <tr>
@@ -43,10 +50,30 @@ import ButtonLegend from '~/components/common/ButtonLegend'
 
 export default {
   components: { SkillEntry, ButtonLegend },
-
   computed: {
+    showOnlyChoosenSkills: {
+      get() {
+        return this.$store.state.charSave.showOnlyChoosenSkills
+      },
+      set(value) {
+        this.$store.commit('charSave/setShowOnlyChoosenSkills', value)
+      }
+    },
     skillList() {
+      if (this.showOnlyChoosenSkills) {
+        return this.skillListFiltered
+      }
       return this.$store.getters['skills/getList']
+    },
+    skillListFiltered() {
+      const allSkills = this.$store.getters['skills/getList']
+      const choosenSkillsId = this.$store.getters['charSave/getSkillList'].map(
+        (skill) => skill.id
+      )
+
+      return allSkills.filter((skill) => {
+        return skill.defaultValue || choosenSkillsId.includes(skill.id)
+      })
     },
     dice() {
       return this.$store.state.dice

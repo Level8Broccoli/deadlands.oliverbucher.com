@@ -31,6 +31,7 @@ export const state = () => ({
     powers: 0
   },
   options: [],
+  showOnlyChoosenSkills: false,
   layout: 'default',
   favouriteDicePools: []
 })
@@ -38,6 +39,9 @@ export const state = () => ({
 export const getters = {
   charSave: (state) => {
     return state
+  },
+  getSkillList: (state) => {
+    return state.skillList
   },
   getGearList: (state) => {
     return [...state.gearList].sort((a, b) => {
@@ -138,6 +142,9 @@ export const mutations = {
         state[key] = value
       }
     }
+  },
+  setShowOnlyChoosenSkills(state, bool) {
+    state.showOnlyChoosenSkills = bool
   },
   setName(state, name) {
     state.name = name
