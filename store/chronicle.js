@@ -44,19 +44,37 @@ export const mutations = {
   }
 }
 
+const getTimestamp = () => {
+  const now = new Date()
+  const timestamp = `${now.getHours()}.${('0' + now.getMinutes()).slice(
+    -2
+  )} Uhr`
+  const time = now.getTime()
+  return { time, timestamp }
+}
+
+const getUID = () => {
+  return {
+    uid: Math.random()
+      .toString(36)
+      .substr(2, 12)
+  }
+}
+
 export const actions = {
   commitOwnAction({ commit, rootState }, { meta, payload }) {
-    const now = new Date()
-    const timestamp = `${now.getHours()}.${('0' + now.getMinutes()).slice(
-      -2
-    )} Uhr`
-    const time = now.getTime()
     const author = rootState.charSave
-    meta = { ...meta, time, timestamp, author }
+    meta = { ...meta, ...getTimestamp(), ...getUID(), author }
+    console.log('own Action', { meta, payload })
     commit('addToChronicle', { meta, payload })
   },
   commitOtherAction({ commit, rootState }, { meta, payload }) {
+    const { time, timestamp } = getTimestamp()
+    meta.time = time
+    meta.timestamp = timestamp
+
     if (meta.author.id !== rootState.charSave.id) {
+      console.log('other Action', { meta, payload })
       commit('addToChronicle', { meta, payload })
     }
   },
