@@ -31,31 +31,31 @@
       <div class="field is-horizontal">
         <div class="field-body">
           <div class="field">
-            <label class="label">Attributspunkte</label>
+            <label class="label">Punkte für Attribute</label>
             <div class="control">
               <input v-model="attributePoints" type="text" class="input" />
             </div>
           </div>
           <div class="field">
-            <label class="label">Fertigkeitspunkte</label>
+            <label class="label">Punkte für Fertigkeiten</label>
             <div class="control">
               <input v-model="skillPoints" type="text" class="input" />
             </div>
           </div>
           <div class="field">
-            <label class="label">Handicappunkte</label>
+            <label class="label">Punkte für Handicaps</label>
             <div class="control">
               <input v-model="handicapPoints" type="text" class="input" />
             </div>
           </div>
           <div class="field">
-            <label class="label">Talentpunkte</label>
+            <label class="label">Punkte für Talente</label>
             <div class="control">
               <input v-model="talentPoints" type="text" class="input" />
             </div>
           </div>
           <div class="field">
-            <label class="label">Machtpunkte</label>
+            <label class="label">Punkte für Mächte</label>
             <div class="control">
               <input v-model="powerPoints" type="text" class="input" />
             </div>

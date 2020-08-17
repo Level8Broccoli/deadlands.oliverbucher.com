@@ -29,7 +29,12 @@ export default {
   components: { NotificationBadge },
   computed: {
     tabList() {
-      return this.$store.state.tabList
+      const tabList = this.$store.state.tabList
+      const powerPoints = this.$store.state.charSave.charPoints.powers
+      if (powerPoints) {
+        return tabList
+      }
+      return tabList.filter((tab) => tab.id !== 'powers')
     },
     attributePointsUsed() {
       const attributeListActive = this.$store.state.charSave.attributeList
