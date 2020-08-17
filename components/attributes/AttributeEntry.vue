@@ -26,7 +26,7 @@
       </td>
     </tr>
     <tr v-if="show">
-      <td colspan="6">{{ attribute.descr }}</td>
+      <td colspan="7">{{ attribute.descr }}</td>
     </tr>
   </tbody>
 </template>
