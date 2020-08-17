@@ -7,7 +7,7 @@
         :title="authorIntroduction"
         @click="show = !show"
       >
-        {{ authorName }} ! |
+        {{ authorName }} |
       </span>
       {{ timestamp }}
     </small>
