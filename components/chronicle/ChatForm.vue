@@ -49,7 +49,7 @@ export default {
   methods: {
     sendChatMessage(e) {
       if (this.chatText.length > 0 && this.chatText.length < 500) {
-        this.$store.dispatch('chronicle/commitOwnAction', {
+        this.$store.dispatch('chronicle/commitAction', {
           meta: { type: 'chatEntry' },
           payload: { message: this.chatText }
         })

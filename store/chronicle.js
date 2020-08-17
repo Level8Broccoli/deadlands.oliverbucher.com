@@ -53,7 +53,7 @@ const getTimestamp = () => {
   return { time, timestamp }
 }
 
-const getUID = () => {
+const generateUID = () => {
   return {
     uid: Math.random()
       .toString(36)
@@ -62,21 +62,21 @@ const getUID = () => {
 }
 
 export const actions = {
-  commitOwnAction({ commit, rootState }, { meta, payload }) {
-    const author = rootState.charSave
-    meta = { ...meta, ...getTimestamp(), ...getUID(), author }
-    console.log('own Action', { meta, payload })
-    commit('addToChronicle', { meta, payload })
-  },
-  commitOtherAction({ commit, rootState }, { meta, payload }) {
+  commitAction({ commit, rootState }, { meta, payload }) {
     const { time, timestamp } = getTimestamp()
     meta.time = time
     meta.timestamp = timestamp
 
-    if (meta.author.id !== rootState.charSave.id) {
-      console.log('other Action', { meta, payload })
-      commit('addToChronicle', { meta, payload })
+    if (!meta.author) {
+      meta.author = rootState.charSave
     }
+
+    if (!meta.uid) {
+      meta.uid = generateUID()
+    }
+
+    console.log('other Action', { meta, payload })
+    commit('addToChronicle', { meta, payload })
   },
   rollDice(
     { commit, dispatch },
@@ -139,7 +139,7 @@ export const actions = {
       commit('setShowLastRoll', true)
     }
 
-    dispatch('commitOwnAction', {
+    dispatch('commitAction', {
       meta: { type: 'diceRoll' },
       payload: {
         dicePool: { comment, dice, options, modifications, tags },

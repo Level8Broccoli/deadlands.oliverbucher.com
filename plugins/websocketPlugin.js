@@ -14,12 +14,16 @@ export default function websocketPlugin({ store }) {
     }
 
     socket.onmessage = function(e) {
-      const parse = JSON.parse(e.data)
-      console.log('receive', parse)
-      if (parse.meta && parse.payload) {
-        store.dispatch('chronicle/commitOtherAction', parse)
-        store.dispatch('players/updatePlayer', parse)
-        store.dispatch('updateCardDeck', parse)
+      const parsed = JSON.parse(e.data)
+      if (
+        parsed.meta &&
+        parsed.payload &&
+        parsed.meta.author.id !== store.getters['charSave/charSave'].id
+      ) {
+        console.log('receive', parsed)
+        store.dispatch('chronicle/commitAction', parsed)
+        store.dispatch('players/updatePlayer', parsed)
+        store.dispatch('updateCardDeck', parsed)
       }
     }
 
@@ -31,12 +35,11 @@ export default function websocketPlugin({ store }) {
   connect()
 
   store.subscribe((mutation, state) => {
-    console.log('mutation', mutation)
     if (
       mutation.type === 'chronicle/addToChronicle' &&
       mutation.payload.meta.author.id === state.charSave.id
     ) {
-      console.log('send', mutation)
+      console.log('send', mutation.payload)
       sendMessage(JSON.stringify(mutation.payload))
     }
   })

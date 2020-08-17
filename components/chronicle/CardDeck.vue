@@ -90,7 +90,7 @@ export default {
   methods: {
     shuffleDeck() {
       const type = 'shuffleDeck'
-      this.$store.dispatch('chronicle/commitOwnAction', {
+      this.$store.dispatch('chronicle/commitAction', {
         meta: { type },
         payload: {}
       })
@@ -108,7 +108,7 @@ export default {
           deck = deck.filter((e) => e !== randomCard)
         }
 
-        this.$store.dispatch('chronicle/commitOwnAction', {
+        this.$store.dispatch('chronicle/commitAction', {
           meta: { type: 'drawCards' },
           payload: { cards, newDeck: deck, open }
         })
