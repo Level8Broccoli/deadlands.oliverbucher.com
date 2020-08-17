@@ -75,7 +75,6 @@ export const actions = {
       meta.uid = generateUID()
     }
 
-    console.log('other Action', { meta, payload })
     commit('addToChronicle', { meta, payload })
   },
   rollDice(

@@ -20,7 +20,6 @@ export default function websocketPlugin({ store }) {
         parsed.payload &&
         parsed.meta.author.id !== store.getters['charSave/charSave'].id
       ) {
-        console.log('receive', parsed)
         store.dispatch('chronicle/commitAction', parsed)
         store.dispatch('players/updatePlayer', parsed)
         store.dispatch('updateCardDeck', parsed)
@@ -39,7 +38,6 @@ export default function websocketPlugin({ store }) {
       mutation.type === 'chronicle/addToChronicle' &&
       mutation.payload.meta.author.id === state.charSave.id
     ) {
-      console.log('send', mutation.payload)
       sendMessage(JSON.stringify(mutation.payload))
     }
   })
