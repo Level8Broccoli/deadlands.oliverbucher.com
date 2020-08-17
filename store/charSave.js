@@ -149,7 +149,8 @@ export const mutations = {
       if (
         (typeof value !== 'undefined' && value.length > 0) ||
         value > 0 ||
-        typeof value === 'boolean'
+        typeof value === 'boolean' ||
+        (typeof value === 'object' && value !== null)
       ) {
         state[key] = value
       }
