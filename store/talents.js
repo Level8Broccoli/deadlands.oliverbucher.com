@@ -89,13 +89,13 @@ export const state = () => ({
       descr:
         'Es ist nicht immer ein Nachteil, ein ungehobelter Klotz zu sein, wenn man weiss, wie man es einsetzen kann. Bedrohlich erlaubt es einem Charakter, sein übles Aussehen oder seine noch üblere Einstellung auszunutzen. Der Charakter erhält +2 auf Einschüchternproben.'
     },
-    {
-      id: 'Beziehungen',
-      name: 'Beziehungen',
-      tags: ['Sozial'],
-      descr:
-        'Dein Held ist mit Personen oder Organisationen verbunden, die ihm helfen können, wenn es hart auf hart kommt. Vielleicht ist es die Mafia, die Bundespolizei, eine Gewerkschaft oder sogar andere Abenteurer. Beziehungen kann mehr als einmal ausgewählt werden, um jedes Mal eine neue Fraktion oder einen neuen Kontakt auszuwählen. Einmal pro Sitzung, vorausgesetzt, der Held hat eine Möglichkeit mit seinen Freunden in Kontakt zu treten, kann er sie um einen Gefallen bitten. Der Gefallen hängt von der Art des Kontakts ab (Entscheidung der SL), könnte aber ein Darlehen, Ausrüstung, einige tatkräftige Verbündete, Transportmittel, Informationen oder sogar einen Spezialisten mit besonderen Fertigkeiten, die die Gruppe nicht hat, wie einen Hacker oder Gelehrten, umfassen. '
-    },
+//    {
+//      id: 'Beziehungen',
+//      name: 'Beziehungen',
+//      tags: ['Sozial'],
+//      descr:
+//        'Dein Held ist mit Personen oder Organisationen verbunden, die ihm helfen können, wenn es hart auf hart kommt. Vielleicht ist es die Mafia, die Bundespolizei, eine Gewerkschaft oder sogar andere Abenteurer. Beziehungen kann mehr als einmal ausgewählt werden, um jedes Mal eine neue Fraktion oder einen neuen Kontakt auszuwählen. Einmal pro Sitzung, vorausgesetzt, der Held hat eine Möglichkeit mit seinen Freunden in Kontakt zu treten, kann er sie um einen Gefallen bitten. Der Gefallen hängt von der Art des Kontakts ab (Entscheidung der SL), könnte aber ein Darlehen, Ausrüstung, einige tatkräftige Verbündete, Transportmittel, Informationen oder sogar einen Spezialisten mit besonderen Fertigkeiten, die die Gruppe nicht hat, wie einen Hacker oder Gelehrten, umfassen. '
+//    },
     {
       id: 'Ermutigen',
       name: 'Ermutigen',
@@ -628,13 +628,13 @@ export const state = () => ({
       descr:
         'Wie oben, doch steigt der Abzug auf arkane Fertigkeitswürfe und Schaden auf –4.'
     },
-    {
-      id: 'ArkanerHintergrund',
-      name: 'Arkaner Hintergrund',
-      tags: ['Hintergrund'],
-      descr:
-        'Der Kontakt mit seltsamen Energie, Studien an einer Zauberschule oder die Gaben göttlicher oder spiritueller Wesenheiten gewähren Charakteren manchmal besondere Kräfte. Solche Charaktere haben das Talent Arkaner Hintergrund und entwickeln übernatürlicher Fähigkeiten. Siehe Kapitel 5 (ab Seite 147) für eine vollständige Übersicht über die arkanen Hintergründe, Mächte und wie du sie verwendest.'
-    },
+//    {
+//      id: 'ArkanerHintergrund',
+//      name: 'Arkaner Hintergrund',
+//      tags: ['Hintergrund'],
+//      descr:
+//        'Der Kontakt mit seltsamen Energie, Studien an einer Zauberschule oder die Gaben göttlicher oder spiritueller Wesenheiten gewähren Charakteren manchmal besondere Kräfte. Solche Charaktere haben das Talent Arkaner Hintergrund und entwickeln übernatürlicher Fähigkeiten. Siehe Kapitel 5 (ab Seite 147) für eine vollständige Übersicht über die arkanen Hintergründe, Mächte und wie du sie verwendest.'
+//    },
     {
       id: 'Attraktiv',
       name: 'Attraktiv',
@@ -923,21 +923,21 @@ export const state = () => ({
       descr:
         'Durch eine gute Ausbildung, Bücherwissen, computerverbesserte Fertigkeitenprogramme oder einfach unglaubliche intuitive Auffassungsgabe hat dein Held ein Talent dafür entwickelt, spontan Fertigkeiten aufzuschnappen. Es gibt wenig, was er nicht mit ein bisschen Zeit und einer Prise Glück verstehen kann. Nachdem er eine bestimmte Fertigkeit beobachtet oder studiert hat, legt der Charakter eine Verstandsprobe als seine Aktion ab. Bei einem Erfolg erhält er einen W4 in der Fertigkeit, bei einer Steigerung einen W6. Er kann es nach einer weiteren Stunde Studien und Herumprobieren oder Vertiefung in das Thema noch einmal versuchen, wenn der Wurf misslungen ist, oder er es auf eine Steigerung abgesehen hat. Dieser Effekt hält an, bis der Charakter versucht ein anderes Thema zu lernen, egal ob erfolgreich oder nicht.'
     },
-    {
-      id: 'AssamSteuer',
-      name: 'Ass am Steuer',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Geschicklichkeit',
-          value: 8
-        }
-      ],
-      tags: ['Experte'],
-      descr:
-        'Ein Ass am Steuer ist ein Pilot oder Fahrer mit einer besonderen Affinität für sein Auto, Boot, Flugzeug oder anderes Fahrzeug. Er ignoriert zwei Punkte Abzüge auf alle Proben mit Fahren, Pilot oder Seefahrt und kann Bennys ausgeben, um damit Schaden wegstecken für Fahrzeuge anzuwenden, die er lenkt oder kommandiert, jeweils mit der passenden Fertigkeit Fahren, Pilot oder Seefahrt anstelle von Konstitution. Ein Erfolg und jede Steigerung negieren eine Wunde.'
-    },
+//    {
+//      id: 'AssamSteuer',
+//      name: 'Ass am Steuer',
+//      req: [
+//        {
+//          type: 'dynamic',
+//          depends: 'attribute',
+//          id: 'Geschicklichkeit',
+//          value: 8
+//        }
+//      ],
+//      tags: ['Experte'],
+//      descr:
+//        'Ein Ass am Steuer ist ein Pilot oder Fahrer mit einer besonderen Affinität für sein Auto, Boot, Flugzeug oder anderes Fahrzeug. Er ignoriert zwei Punkte Abzüge auf alle Proben mit Fahren, Pilot oder Seefahrt und kann Bennys ausgeben, um damit Schaden wegstecken für Fahrzeuge anzuwenden, die er lenkt oder kommandiert, jeweils mit der passenden Fertigkeit Fahren, Pilot oder Seefahrt anstelle von Konstitution. Ein Erfolg und jede Steigerung negieren eine Wunde.'
+//    },
     {
       id: 'Assassine',
       name: 'Assassine',
@@ -1043,7 +1043,7 @@ export const state = () => ({
           depends: 'skill',
           id: 'Wahrnehmung',
           value: 8
-        },
+        }, 
         {
           type: 'dynamic',
           depends: 'skill',
@@ -1235,21 +1235,21 @@ export const state = () => ({
       descr:
         'Ihr Held kann gut mit einem Kartenspiel umgehen und fühlt sich nie mehr zu Hause als beim Mischen der Karten. Er hat eine ganze Reihe von Methoden zum Schneiden, Mischen und Austeilen gelernt, die ihm in einem Spiel einen Vorteil verschaffen. Ein Spieler mit diesem Edge wird nur beim Betrügen mit einer Rolle Schlangenaugen erwischt. Und wenn Ihr Held ein Huckster ist, bekommen die Leute ein -2, um Würfe zu bemerken, wenn sie versuchen, ein geworfenes Feld zu erkennen.'
     },
-    {
-      id: 'TrueGrit',
-      name: 'True Grit',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Willenskraft',
-          value: 8
-        }
-      ],
-      tags: ['Deadlands', 'Sozial'],
-      descr:
-        'Manche Leute scheinen einfach Härte auszustrahlen, und Ihr Held ist einer von ihnen. Die Schrecken des Lebens im Schrägen Westen lassen diesen Hombre nicht kalt. Er hat Kies in seinen Eingeweiden und Eiswasser, das durch seine Adern fliesst. Das kühle Auftreten Ihres Helden verleiht ihm +1 Grit.'
-    },
+//    {
+//      id: 'TrueGrit',
+//      name: 'True Grit',
+//      req: [
+//        {
+//          type: 'dynamic',
+//          depends: 'attribute',
+//          id: 'Willenskraft',
+//          value: 8
+//        }
+//      ],
+//      tags: ['Deadlands', 'Sozial'],
+//      descr:
+//        'Manche Leute scheinen einfach Härte auszustrahlen, und Ihr Held ist einer von ihnen. Die Schrecken des Lebens im Schrägen Westen lassen diesen Hombre nicht kalt. Er hat Kies in seinen Eingeweiden und Eiswasser, das durch seine Adern fliesst. Das kühle Auftreten Ihres Helden verleiht ihm +1 Grit.'
+//    },
     {
       id: 'Aufklaerer',
       name: 'Aufklärer',
