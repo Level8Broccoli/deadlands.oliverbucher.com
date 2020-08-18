@@ -57,19 +57,19 @@ export const state = () => ({
         'Die Fähigkeit eines Charakters, andere mit Drohungen dazu zu bringen, das zu tun, was er will.',
       attr: 'Willenskraft'
     },
-    {
-      id: 'Elektronik',
-      name: 'Elektronik',
-      descr: 'Die Verwendung von elektronischen Geräten und Systemen.',
-      attr: 'Verstand'
-    },
-    {
-      id: 'Fahren',
-      name: 'Fahren',
-      descr:
-        'Die Fähigkeit, Bodenfahrzeuge zu kontrollieren, zu steuern und zu bedienen.',
-      attr: 'Geschicklichkeit'
-    },
+//    {
+//      id: 'Elektronik',
+//      name: 'Elektronik',
+//      descr: 'Die Verwendung von elektronischen Geräten und Systemen.',
+//      attr: 'Verstand'
+//    },
+//    {
+//      id: 'Fahren',
+//      name: 'Fahren',
+//      descr:
+//        'Die Fähigkeit, Bodenfahrzeuge zu kontrollieren, zu steuern und zu bedienen.',
+//      attr: 'Geschicklichkeit'
+//    },
     {
       id: 'Fokus',
       name: 'Fokus',
@@ -95,18 +95,18 @@ export const state = () => ({
       descr: 'Übung und Vertrautheit mit Glückspielen aller Art.',
       attr: 'Verstand'
     },
-    {
-      id: 'Guts',
-      name: 'Guts',
-      descr: 'Umso taffer, umso mehr brauchts, um dich einzuschüchtern.',
-      attr: 'Willenskraft'
-    },
-    {
-      id: 'Hacken',
-      name: 'Hacken',
-      descr: 'Programmieren und Einbrechen in Computersysteme.',
-      attr: 'Verstand'
-    },
+//    {
+//      id: 'Guts',
+//      name: 'Guts',
+//      descr: 'Umso taffer, umso mehr brauchts, um dich einzuschüchtern.',
+//      attr: 'Willenskraft'
+//    },
+//    {
+//      id: 'Hacken',
+//      name: 'Hacken',
+//      descr: 'Programmieren und Einbrechen in Computersysteme.',
+//      attr: 'Verstand'
+//    },
     {
       id: 'Heilen',
       name: 'Heilen',
@@ -120,13 +120,13 @@ export const state = () => ({
       descr: 'Können im bewaffneten und unbewaffneten Kampf.',
       attr: 'Geschicklichkeit'
     },
-    {
-      id: 'Kriegskunst',
-      name: 'Kriegskunst',
-      descr:
-        'Strategie, Taktik und das Verständnis von militärischen Einsätzen. Wichtig für Massenschlachten.',
-      attr: 'Verstand'
-    },
+//    {
+//      id: 'Kriegskunst',
+//      name: 'Kriegskunst',
+//      descr:
+//        'Strategie, Taktik und das Verständnis von militärischen Einsätzen. Wichtig für Massenschlachten.',
+//      attr: 'Verstand'
+//    },
     {
       id: 'Naturwissenschaften',
       name: 'Naturwissenschaften',
@@ -141,13 +141,13 @@ export const state = () => ({
         'Wissen über übernatürliche Ereignisse, Kreaturen, Geschichte und Methoden.',
       attr: 'Verstand'
     },
-    {
-      id: 'Pilot',
-      name: 'Pilot',
-      descr:
-        'Fähigkeit Fahrzeuge zu lenken, die sich in drei Dimensionen bewegen, wie Flugzeuge, Helikopter, Raumschiffe etc.',
-      attr: 'Geschicklichkeit'
-    },
+//    {
+//      id: 'Pilot',
+//      name: 'Pilot',
+//      descr:
+//        'Fähigkeit Fahrzeuge zu lenken, die sich in drei Dimensionen bewegen, wie Flugzeuge, Helikopter, Raumschiffe etc.',
+//      attr: 'Geschicklichkeit'
+//    },
     {
       id: 'Provozieren',
       name: 'Provozieren',
@@ -155,18 +155,18 @@ export const state = () => ({
         'Andere beleidigen oder erniedrigen. Fast immer als Herausfordern (siehe Seite 104).',
       attr: 'Verstand'
     },
-    {
-      id: 'Psionik',
-      name: 'Psionik',
-      descr: 'Die arkane Fertigkeit für den Arkanen Hintergrund (Psionik).',
-      attr: 'Verstand'
-    },
-    {
-      id: 'Recherche',
-      name: 'Recherche',
-      descr: 'Schriftliche Informationen in verschiedenen Quellen finden.',
-      attr: 'Verstand'
-    },
+//    {
+//      id: 'Psionik',
+//      name: 'Psionik',
+//      descr: 'Die arkane Fertigkeit für den Arkanen Hintergrund (Psionik).',
+//      attr: 'Verstand'
+//    },
+//    {
+//      id: 'Recherche',
+//      name: 'Recherche',
+//      descr: 'Schriftliche Informationen in verschiedenen Quellen finden.',
+//      attr: 'Verstand'
+//    },
     {
       id: 'Reiten',
       name: 'Reiten',
@@ -186,13 +186,13 @@ export const state = () => ({
       descr: 'Präzision mit allen Arten von Fernkampfwaffen.',
       attr: 'Geschicklichkeit'
     },
-    {
-      id: 'Seefahrt',
-      name: 'Seefahrt',
-      descr:
-        'Die Fähigkeit, ein Boot, Schiff oder anderes Wasserfahrzeug zu steuern.',
-      attr: 'Geschicklichkeit'
-    },
+//    {
+//      id: 'Seefahrt',
+//      name: 'Seefahrt',
+//      descr:
+//        'Die Fähigkeit, ein Boot, Schiff oder anderes Wasserfahrzeug zu steuern.',
+//      attr: 'Geschicklichkeit'
+//    },
     {
       id: 'Sprache',
       name: 'Sprache',
