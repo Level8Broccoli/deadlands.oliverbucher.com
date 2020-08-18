@@ -318,13 +318,13 @@ export const state = () => ({
       descr:
         'Wer seine Nase in anderer Leute Angelegenheiten steckt, für den gibt es oft ein böses Erwachen. Neugierige Charaktere wollen alles anschauen und immer wissen, was hinter einem potenziellen Mysterium oder Geheimnis steckt.'
     },
-    {
-      id: 'Nichtschwimmer',
-      name: 'Nichtschwimmer',
-      points: [1],
-      descr:
-        'Dank Schwimmbädern, mühelosen Reisen zu Seen und Stränden oder bewusster Erziehung können die meisten Leute im 21. Jahrhundert schwimmen. Historisch gesehen allerdings konnten Leute, die nicht an einem gemässigten Gewässer aufgewachsen sind, das nicht. Charaktere mit diesem Handicap erleiden einen Abzug von –2 auf Athletikproben, wenn sie schwimmen, und jeder Zoll, den sie sich im Wasser bewegen, kostet sie 3“ Bewegungsweite. Siehe auch Bewegung (Seite 142) für mehr Details und Ertrinken (auf Seite 116).'
-    },
+//    {
+//      id: 'Nichtschwimmer',
+//      name: 'Nichtschwimmer',
+//      points: [1],
+//      descr:
+//        'Dank Schwimmbädern, mühelosen Reisen zu Seen und Stränden oder bewusster Erziehung können die meisten Leute im 21. Jahrhundert schwimmen. Historisch gesehen allerdings konnten Leute, die nicht an einem gemässigten Gewässer aufgewachsen sind, das nicht. Charaktere mit diesem Handicap erleiden einen Abzug von –2 auf Athletikproben, wenn sie schwimmen, und jeder Zoll, den sie sich im Wasser bewegen, kostet sie 3“ Bewegungsweite. Siehe auch Bewegung (Seite 142) für mehr Details und Ertrinken (auf Seite 116).'
+//    },
     {
       id: 'Pazifist',
       name: 'Pazifist',
