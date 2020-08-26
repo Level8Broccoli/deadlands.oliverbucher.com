@@ -1,26 +1,26 @@
 export const state = () => ({
   list: [
-    {
-      id: 'Auserwaehlter',
-      name: 'Auserwählter',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Willenskraft',
-          value: 8
-        },
-        {
-          type: 'dynamic',
-          depends: 'skill',
-          id: 'Kaempfen',
-          value: 6
-        }
-      ],
-      tags: ['Macht'],
-      descr:
-        'Auserwählte sind heilige (oder unheilige) Männer und Frauen, die auserkoren wurden, für eine Gottheit oder Religion zu kämpfen. Die meisten sind fromme Seelen und bereit, ihr Leben für eine grössere Sache zu opfern, doch einige wurden vielleicht in die Rolle hineingeboren und folgen ihrem Pfad eher zögerlich. Auserwählte bekämpfen die Kräfte der Dunkelheit (oder des Lichts). Sie addieren +2 Schaden, wenn sie übernatürlich böse (oder gute, wenn sie böse sind) Kreaturen angreifen. Der Bonus gilt auf Flächenschaden, Fernkampfangriffe, Mächte etc. Die SL muss entscheiden, auf welche Feinde dieser Bonus gilt, doch grundsätzlich sind es alle bösen (oder guten!) Kreaturen, die aus Magie entstanden sind oder übernatürliche Fähigkeiten haben.'
-    },
+//   {
+//   id: 'Auserwaehlter',
+//   name: 'Auserwählter',
+//   req: [
+//     {
+//       type: 'dynamic',
+//       depends: 'attribute',
+//       id: 'Willenskraft',
+//       value: 8
+//     },
+//     {
+//       type: 'dynamic',
+//       depends: 'skill',
+//       id: 'Kaempfen',
+//       value: 6
+//     }
+//   ],
+//   tags: ['Macht'],
+//   descr:
+//     'Auserwählte sind heilige (oder unheilige) Männer und Frauen, die auserkoren wurden, für eine Gottheit oder Religion zu kämpfen. Die meisten sind fromme Seelen und bereit, ihr Leben für eine grössere Sache zu opfern, doch einige wurden vielleicht in die Rolle hineingeboren und folgen ihrem Pfad eher zögerlich. Auserwählte bekämpfen die Kräfte der Dunkelheit (oder des Lichts). Sie addieren +2 Schaden, wenn sie übernatürlich böse (oder gute, wenn sie böse sind) Kreaturen angreifen. Der Bonus gilt auf Flächenschaden, Fernkampfangriffe, Mächte etc. Die SL muss entscheiden, auf welche Feinde dieser Bonus gilt, doch grundsätzlich sind es alle bösen (oder guten!) Kreaturen, die aus Magie entstanden sind oder übernatürliche Fähigkeiten haben.'
+// },
     {
       id: 'Heiler',
       name: 'Heiler',
@@ -75,20 +75,20 @@ export const state = () => ({
       descr:
         'Tiere gewöhnen sich schnell und ohne grosse Mühe an deinen Charakter. Sie greifen ihn nicht an, wenn er sie nicht zuvor irgendwie gegen sich aufgebracht hat. Die tierische Anziehungskraft des Tiermeisters ist so gross, dass ihm ausserdem ein loyales Tier folgt. Es ist normalerweise ein Tier von Grösse 0 oder kleiner, nach Zustimmung der Spielleiterin. Das Tier ist ein Statist und erhält keine Aufstiege. Wenn das Haustier weggeschickt oder getötet wird, findet der Held innerhalb von 1W4 Tagen einen Ersatz. Mächtigere Gefährten: Tiermeister kann mehr als einmal gewählt werden. Wähle jedes Mal einen der Effekte unten, wenn das Talent ausgewählt wird. • Du erhältst ein zusätzliches Haustier. • Erhöhe eine Eigenschaft des Tiers um einen Würfeltyp (nur eine Eigenschaft pro Tier). • Erhöhe die maximale Grösse, die dein Tier haben kann, um +1, auf ein Maximum von 3. • Mach ein Tier zur Wildcard. (Der Held muss mindestens Heroisch sein).'
     },
-    {
-      id: 'Bedrohlich',
-      name: 'Bedrohlich',
-      req: [
-        {
-          type: 'text',
-          label: 'entweder Blutrünstig, Fies, Skrupellos oder Hässlich',
-          id: 'entwederBlutrünstigFiesSkrupellosoderHässlich'
-        }
-      ],
-      tags: ['Sozial'],
-      descr:
-        'Es ist nicht immer ein Nachteil, ein ungehobelter Klotz zu sein, wenn man weiss, wie man es einsetzen kann. Bedrohlich erlaubt es einem Charakter, sein übles Aussehen oder seine noch üblere Einstellung auszunutzen. Der Charakter erhält +2 auf Einschüchternproben.'
-    },
+{
+//   id: 'Bedrohlich',
+//   name: 'Bedrohlich',
+//   req: [
+//     {
+//       type: 'text',
+//       label: 'entweder Blutrünstig, Fies, Skrupellos oder Hässlich',
+//       id: 'entwederBlutrünstigFiesSkrupellosoderHässlich'
+//     }
+//   ],
+//   tags: ['Sozial'],
+//   descr:
+//     'Es ist nicht immer ein Nachteil, ein ungehobelter Klotz zu sein, wenn man weiss, wie man es einsetzen kann. Bedrohlich erlaubt es einem Charakter, sein übles Aussehen oder seine noch üblere Einstellung auszunutzen. Der Charakter erhält +2 auf Einschüchternproben.'
+// },
 //    {
 //      id: 'Beziehungen',
 //      name: 'Beziehungen',
@@ -279,20 +279,20 @@ export const state = () => ({
     //   descr:
     //     'Magier, verrückte Wissenschaftler und andere arkane Charaktere wollen immer mehr Macht. Dieses Talent gewährt ihnen 5 zusätzliche Machtpunkte. Machtpunkte kann mehr als einmal gewählt werden, aber nur einmal pro Rang. Es kann auf dem Legendären Rang beliebig oft gewählt werden, gewährt aber nur jeweils 2 zusätzliche Machtpunkte.'
     // },
-    {
-      id: 'NeueMaechte',
-      name: 'Neue Mächte',
-      req: [
-        {
-          type: 'text',
-          id: 'ArkanerHintergrund',
-          label: 'Arkaner Hintergrund (beliebig)'
-        }
-      ],
-      tags: ['Macht'],
-      descr:
-        'Ein arkaner Charakter kann zwei neue Mächte erlernen, indem er dieses Talent erwirbt (das er mehrere Male auswählen kann). Er kann Mächte für seinen Rang und darunter auswählen, die normalerweise für seinen Arkanen Hintergrund verfügbar sind. Ein Charakter kann, statt einer neuen Macht, auch eine neue Ausprägung für eine Macht wählen, die er schon besitzt. Er könnte zum Beispiel eine Eis- Ausprägung, zusätzlich zu seinem Feuer-Geschoss, erlenen und dann je nach Bedarf zwischen der Feuer und der Eis-Ausprägung wählen.'
-    },
+// {
+//   id: 'NeueMaechte',
+//   name: 'Neue Mächte',
+//   req: [
+//     {
+//       type: 'text',
+//       id: 'ArkanerHintergrund',
+//       label: 'Arkaner Hintergrund (beliebig)'
+//     }
+//   ],
+//   tags: ['Macht'],
+//   descr:
+//     'Ein arkaner Charakter kann zwei neue Mächte erlernen, indem er dieses Talent erwirbt (das er mehrere Male auswählen kann). Er kann Mächte für seinen Rang und darunter auswählen, die normalerweise für seinen Arkanen Hintergrund verfügbar sind. Ein Charakter kann, statt einer neuen Macht, auch eine neue Ausprägung für eine Macht wählen, die er schon besitzt. Er könnte zum Beispiel eine Eis- Ausprägung, zusätzlich zu seinem Feuer-Geschoss, erlenen und dann je nach Bedarf zwischen der Feuer und der Eis-Ausprägung wählen.'
+// },
     // {
     //   id: 'BeidhaendigerFernkampf',
     //   name: 'Beidhändiger Fernkampf',
@@ -353,21 +353,21 @@ export const state = () => ({
     //   descr:
     //     'Der Held kann auch extreme Treffer abschütteln. Er addiert +2 auf Schaden wegstecken und Konstitutionsproben, um K.O.-Schläge (siehe Seite 107) zu vermeiden.'
     // },
-    {
-      id: 'Erstschlag',
-      name: 'Erstschlag',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Geschicklichkeit',
-          value: 8
-        }
-      ],
-      tags: ['Kampf'],
-      descr:
-        'Einmal pro Runde erhält der Held, solange er nicht Angeschlagen oder Betäubt ist, einen freien Kämpfen- Angriff gegen einen Feind unmittelbar nachdem sich dieser in seine Reichweite bewegt hat. (Siehe Freie Angriffe auf Seite 102.'
-    },
+// {
+//   id: 'Erstschlag',
+//   name: 'Erstschlag',
+//   req: [
+//     {
+//       type: 'dynamic',
+//       depends: 'attribute',
+//       id: 'Geschicklichkeit',
+//       value: 8
+//     }
+//   ],
+//   tags: ['Kampf'],
+//   descr:
+//     'Einmal pro Runde erhält der Held, solange er nicht Angeschlagen oder Betäubt ist, einen freien Kämpfen- Angriff gegen einen Feind unmittelbar nachdem sich dieser in seine Reichweite bewegt hat. (Siehe Freie Angriffe auf Seite 102.'
+// },
     // {
     //   id: 'Finte',
     //   name: 'Finte',
@@ -412,21 +412,21 @@ export const state = () => ({
       descr:
         'Der Held kennt eine einzigartige Waffe (Excalibur, Old Betsy, Stich) sehr genau. Wenn er sie verwendet, addiert er +1 auf seine Proben mit Athletik (Werfen), Kämpfen oder Schiessen, und erhält +1 Parade, wenn er die Waffe bereitgemacht hat (selbst bei einer Fernkampfwaffe). Ein Kämpfer kann dieses Talent mehrere Male wählen und jedes Mal für eine andere Waffe verwenden. Wenn eine Lieblingswaffe verloren geht, kann sie ersetzt werden, doch die Vorteile treten erst nach ein paar Tagen wieder in Kraft (solange wie die SL für angemessen hält).'
     },
-    {
-      id: 'MaechtigerHieb',
-      name: 'Mächtiger Hieb',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'skill',
-          id: 'Kaempfen',
-          value: 8
-        }
-      ],
-      tags: ['Kampf'],
-      descr:
-        'Wenn deine Aktionskarte ein Joker ist, verdopple den Gesamtschaden deines ersten erfolgreichen Kämpfen- Angriffs in dieser Runde.'
-    },
+// {
+//   id: 'MaechtigerHieb',
+//   name: 'Mächtiger Hieb',
+//   req: [
+//     {
+//       type: 'dynamic',
+//       depends: 'skill',
+//       id: 'Kaempfen',
+//       value: 8
+//     }
+//   ],
+//   tags: ['Kampf'],
+//   descr:
+//     'Wenn deine Aktionskarte ein Joker ist, verdopple den Gesamtschaden deines ersten erfolgreichen Kämpfen- Angriffs in dieser Runde.'
+// },
     {
       id: 'Parkour',
       name: 'Parkour',
@@ -520,21 +520,21 @@ export const state = () => ({
       descr:
         'Rundumschlag erlaubt es dem Charakter, einen Kämpfen-Angriff mit –2 auszuführen und das Ergebnis gegen alle Gegner innerhalb seiner Reichweite (Freund und Feind) anzuwenden. Ermittle den Schaden für jeden getroffenen Gegner einzeln. Ein Kämpfer kann nur einen Rundumschlag pro Zug durchführen. Er kann nicht mit Schneller Angriff kombiniert werden.'
     },
-    {
-      id: 'Schmerzresistenz',
-      name: 'Schmerzresistenz',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Konstitution',
-          value: 8
-        }
-      ],
-      tags: ['Kampf'],
-      descr:
-        'Dein Held hat gelernt, trotz extremer Schmerzen weiterzukämpfen. Er kann 1 Punkt Wundabzüge ignorieren.'
-    },
+// {
+//   id: 'Schmerzresistenz',
+//   name: 'Schmerzresistenz',
+//   req: [
+//     {
+//       type: 'dynamic',
+//       depends: 'attribute',
+//       id: 'Konstitution',
+//       value: 8
+//     }
+//   ],
+//   tags: ['Kampf'],
+//   descr:
+//     'Dein Held hat gelernt, trotz extremer Schmerzen weiterzukämpfen. Er kann 1 Punkt Wundabzüge ignorieren.'
+// },
     // {
     //   id: 'StaerkereSchmerzresistenz',
     //   name: 'Stärkere Schmerzresistenz',
@@ -694,13 +694,13 @@ export const state = () => ({
       descr:
         'Dein Charakter ist eine kleinere Berühmtheit. Vielleicht ist er ein beliebter Barde, der in einem Lehen bekannt ist, ein kleinerer Rockstar oder ein beliebter Schauspieler in B-Movies. Er verdient doppelt so viel, wenn er für Bezahlung auftritt (siehe Darbietung, Seite 29). Er kann seine Berühmtheit auch verwenden, um +1 auf Überredenproben zu addieren, wenn das Ziel freundlich gesinnt ist und weiss, wer er ist (ein Wurf auf Allgemeinwissen, mit einem Modifikator, der davon abhängt, wie wahrscheinlich es ist, dass die Person schon von dem Charakter gehört hat). Der Nachteil von Ruhm ist, dass die Person oft erkannt wird, andere oft etwas von ihr haben wollen, sie von Fans und Bewunderern verfolgt wird, oder sie nicht dazu in der Lage ist, Engagements, Auftritte oder anderen Verpflichtungen zu vermeiden, ohne in Schwierigkeiten zu kommen.'
     },
-    {
-      id: 'Berserker',
-      name: 'Berserker',
-      tags: ['Hintergrund'],
-      descr:
-        'Berserker werden wild und fast unkontrollierbar, wenn der „rote Zorn“ sie ergreift, doch ihr Zorn lässt sie auch zu tödlichen Mordmaschinen werden! Unmittelbar nachdem er eine Wunde erlitten hat oder Angeschlagen ist (nur durch körperlichen Schaden), muss dein Held eine Verstandsprobe würfeln, um nicht in den Berserkerrausch zu verfallen. Er kann sich entscheiden, die Probe freiwillig nicht zu schaffen, wenn er möchte. Der Berserkerrausch hat folgende Auswirkungen: WÜTEND: Der Stärkewert des Charakters steigt um einen Würfeltyp und alle Angriffe müssen als Rücksichtslose Angriffe (siehe Seite 105) ausgeführt werden. Er kann keine Fertigkeiten verwenden, die einen klaren Verstand oder Konzentration erfordern (Entscheidung der SL). Er könnte beispielsweise durchaus Drohungen brüllen und somit Einschüchtern verwenden.  ZORNIG: Adrenalin und Zorn treiben die Muskeln des Berserkers an, wodurch er +2 Robustheit erhält. Er ignoriert eine Stufe Wundabzüge (dies ist kumulativ mit anderen Fähigkeiten, die Wundabzüge verringern).  UNGEZÜGELT: Immer wenn der Berserker einen Kritischen Fehlschlag bei einer Kämpfenprobe erzielt, trifft er ein zufälliges Ziel in Reichweite seines Angriffs (nicht das eigentliche Ziel), egal ob Freund oder Feind. Wenn es keine passenden Ziele gibt, geht der Schlag einfach ins Leere, zertrümmert Gegenstände in der Umgebung oder etwas in der Art. Nach fünf durchgehenden Runden des Berserkerzorns erleidet der Held eine Erschöpfungsstufe. Nach zehn Runden erleidet er weitere Stufe Erschöpfung und der Zorn endet. Er kann seinen Zorn auch jederzeit bewusst abbrechen, indem er eine Verstandsprobe mit –2 ablegt (dies ist eine freie Aktion, und ermöglicht es, die Erschöpfung zu umgehen, wenn es dem Charakter gelingt, den Zorn zu beenden, ehe sie verursacht wird!). Beginne neu damit, Runden zu zählen, wenn er wieder in Berserkerrausch verfällt, selbst wenn es im selben Kampf ist.'
-    },
+// {
+//   id: 'Berserker',
+//   name: 'Berserker',
+//   tags: ['Hintergrund'],
+//   descr:
+//     'Berserker werden wild und fast unkontrollierbar, wenn der „rote Zorn“ sie ergreift, doch ihr Zorn lässt sie auch zu tödlichen Mordmaschinen werden! Unmittelbar nachdem er eine Wunde erlitten hat oder Angeschlagen ist (nur durch körperlichen Schaden), muss dein Held eine Verstandsprobe würfeln, um nicht in den Berserkerrausch zu verfallen. Er kann sich entscheiden, die Probe freiwillig nicht zu schaffen, wenn er möchte. Der Berserkerrausch hat folgende Auswirkungen: WÜTEND: Der Stärkewert des Charakters steigt um einen Würfeltyp und alle Angriffe müssen als Rücksichtslose Angriffe (siehe Seite 105) ausgeführt werden. Er kann keine Fertigkeiten verwenden, die einen klaren Verstand oder Konzentration erfordern (Entscheidung der SL). Er könnte beispielsweise durchaus Drohungen brüllen und somit Einschüchtern verwenden.  ZORNIG: Adrenalin und Zorn treiben die Muskeln des Berserkers an, wodurch er +2 Robustheit erhält. Er ignoriert eine Stufe Wundabzüge (dies ist kumulativ mit anderen Fähigkeiten, die Wundabzüge verringern).  UNGEZÜGELT: Immer wenn der Berserker einen Kritischen Fehlschlag bei einer Kämpfenprobe erzielt, trifft er ein zufälliges Ziel in Reichweite seines Angriffs (nicht das eigentliche Ziel), egal ob Freund oder Feind. Wenn es keine passenden Ziele gibt, geht der Schlag einfach ins Leere, zertrümmert Gegenstände in der Umgebung oder etwas in der Art. Nach fünf durchgehenden Runden des Berserkerzorns erleidet der Held eine Erschöpfungsstufe. Nach zehn Runden erleidet er weitere Stufe Erschöpfung und der Zorn endet. Er kann seinen Zorn auch jederzeit bewusst abbrechen, indem er eine Verstandsprobe mit –2 ablegt (dies ist eine freie Aktion, und ermöglicht es, die Erschöpfung zu umgehen, wenn es dem Charakter gelingt, den Zorn zu beenden, ehe sie verursacht wird!). Beginne neu damit, Runden zu zählen, wenn er wieder in Berserkerrausch verfällt, selbst wenn es im selben Kampf ist.'
+// },
     // {
     //   id: 'Charismatisch',
     //   name: 'Charismatisch',
@@ -731,28 +731,28 @@ export const state = () => ({
     //   descr:
     //     'Elan bedeutet Begeisterung oder Wille. Wer dieses Talent hat, läuft zur Höchstform auf, wenn es hart auf hart kommt. Wenn du einen Benny ausgibst, um eine Eigenschaftsprobe zu wiederholen, addiere +2 auf das Gesamtergebnis. Der Bonus gilt nur auf den wiederholten Wurf. Er gilt nicht für Schadenswürfe (da sie keine Eigenschaftsproben sind), und auch nicht beim Schaden wegstecken, wenn du nicht zusätzlich einen Benny verwendest, um die Konstitutionsprobe zu widerholen.'
     // },
-    {
-      id: 'Flink',
-      name: 'Flink',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Geschicklichkeit',
-          value: 6
-        }
-      ],
-      tags: ['Hintergrund'],
-      descr:
-        'Die Bewegungsweite des Helden steigt um +2, und sein Sprintwürfel wird um einen Typ verbessert (ein W6 wird beispielsweise ein W8).'
-    },
-    {
-      id: 'Glück',
-      name: 'Glück',
-      tags: ['Hintergrund'],
-      descr:
-        'Der Abenteurer scheint vom Schicksal, Karma, den Göttern oder an welche äusseren Kräften er auch immer glauben mag (oder welche an ihn glauben), gesegnet. Er zieht einen zusätzlichen Benny zu Beginn einer jeden Spielsitzung, sodass ihm wichtige Aufgaben leichter gelingen als den meisten, und er selbst extremste Gefahren überstehen kann.'
-    },
+// {
+//   id: 'Flink',
+//   name: 'Flink',
+//   req: [
+//     {
+//       type: 'dynamic',
+//       depends: 'attribute',
+//       id: 'Geschicklichkeit',
+//       value: 6
+//     }
+//   ],
+//   tags: ['Hintergrund'],
+//   descr:
+//     'Die Bewegungsweite des Helden steigt um +2, und sein Sprintwürfel wird um einen Typ verbessert (ein W6 wird beispielsweise ein W8).'
+// },
+// {
+//   id: 'Glück',
+//   name: 'Glück',
+//   tags: ['Hintergrund'],
+//   descr:
+//     'Der Abenteurer scheint vom Schicksal, Karma, den Göttern oder an welche äusseren Kräften er auch immer glauben mag (oder welche an ihn glauben), gesegnet. Er zieht einen zusätzlichen Benny zu Beginn einer jeden Spielsitzung, sodass ihm wichtige Aufgaben leichter gelingen als den meisten, und er selbst extremste Gefahren überstehen kann.'
+// },
     // {
     //   id: 'GrossesGlück',
     //   name: 'Grosses Glück',
@@ -763,27 +763,27 @@ export const state = () => ({
     //   descr:
     //     'Der Spieler zieht zu Beginn einer jeden Sitzung zwei zusätzliche Bennys statt einem.'
     // },
-    {
-      id: 'Kraeftig',
-      name: 'Kräftig',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Staerke',
-          value: 6
-        },
-        {
-          type: 'dynamic',
-          depends: 'attribute',
-          id: 'Konstitution',
-          value: 6
-        }
-      ],
-      tags: ['Hintergrund'],
-      descr:
-        'Dein Charakter ist sehr gross oder sehr fit. Seine Grösse steigt um +1 (und somit auch seine Robustheit), und er behandelt seine Stärke als um einen Würfeltyp höher, wenn es um die Ermittlung von Behinderung (siehe Seite 67) und Mindeststärke geht, damit Rüstungen, Waffen und Ausrüstungsgegenstände ohne Abzug verwendet werden können. Kräftig kann die Grösse eines Charakters nicht über +3 anheben.'
-    },
+// {
+//   id: 'Kraeftig',
+//   name: 'Kräftig',
+//   req: [
+//     {
+//       type: 'dynamic',
+//       depends: 'attribute',
+//       id: 'Staerke',
+//       value: 6
+//     },
+//     {
+//       type: 'dynamic',
+//       depends: 'attribute',
+//       id: 'Konstitution',
+//       value: 6
+//     }
+//   ],
+//   tags: ['Hintergrund'],
+//   descr:
+//     'Dein Charakter ist sehr gross oder sehr fit. Seine Grösse steigt um +1 (und somit auch seine Robustheit), und er behandelt seine Stärke als um einen Würfeltyp höher, wenn es um die Ermittlung von Behinderung (siehe Seite 67) und Mindeststärke geht, damit Rüstungen, Waffen und Ausrüstungsgegenstände ohne Abzug verwendet werden können. Kräftig kann die Grösse eines Charakters nicht über +3 anheben.'
+// },
     // {
     //   id: 'Linguist',
     //   name: 'Linguist',
