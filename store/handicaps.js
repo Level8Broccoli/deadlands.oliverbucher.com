@@ -109,13 +109,13 @@ export const state = () => ({
     //   descr:
     //     'Ein Schwur ist eine Verpflichtung anderen gegenüber. Angetriebene Charaktere wollen etwas für sich selbst. Vielleicht wollen sie das Reich beschützen, ein hochdekorierter Offizier werden, beweisen, dass sie der beste Gladiator in Rom sind oder der beste Pilot in der galaktischen Flotte. Die leichte Version formt den Charakter und beeinflusst seine Entscheidungen, jedoch eher selten oder auf harmlose Weise. Ein schweres Handicap ist ein starkes Verlangen, das häufig ins Spiel kommt oder grosse Schwierigkeiten für die Heldin und die Leute um sie herum bedeutet.'
     // },
-    {
-      id: 'Angewohnheit',
-      name: 'Angewohnheit',
-      points: [1, 2],
-      descr:
-        'Dein Charakter hat eine nervtötende oder gefährliche Angewohnheit. Eine leichte Angewohnheit irritiert die Leute in seiner Umgebung, ist aber nicht gefährlich. Vielleicht bohrt er in der Nase, kann nicht aufhören, mit seinem Handy herumzuspielen oder beendet jeden Satz mit „Junge!“. Verbündete meiden ihn, falls möglich. Eine schwere Angewohnheit ist eine körperliche oder geistige Abhängigkeit, die verheerend oder sogar tödlich sein kann. Dazu gehören Drogenabhängigkeit, chronischer Alkoholismus oder vielleicht eine Sucht nach virtueller Realität in einem Hightech-Setting. Ein Abhängiger, der seine Dosis nicht bekommt, muss alle 24 stunden, die er ohne auskommen muss, eine Konstitutionsprobe ablegen, um nicht eine Stufe Erschöpfung (siehe Seite 101) zu erleiden. Einmal pro 24 Stunden ist eine Heilungsprobe mit irgendeiner passenden Medizin möglich, die eine Stufe Erschöpfung für vier Stunden aufhebt. Danach kehrt die Erschöpfung zurück und kann nur mit der Substanz, von der der Charakter abhängig ist, wieder geheilt werden.'
-    },
+{
+//   id: 'Angewohnheit',
+//   name: 'Angewohnheit',
+//   points: [1, 2],
+//   descr:
+//     'Dein Charakter hat eine nervtötende oder gefährliche Angewohnheit. Eine leichte Angewohnheit irritiert die Leute in seiner Umgebung, ist aber nicht gefährlich. Vielleicht bohrt er in der Nase, kann nicht aufhören, mit seinem Handy herumzuspielen oder beendet jeden Satz mit „Junge!“. Verbündete meiden ihn, falls möglich. Eine schwere Angewohnheit ist eine körperliche oder geistige Abhängigkeit, die verheerend oder sogar tödlich sein kann. Dazu gehören Drogenabhängigkeit, chronischer Alkoholismus oder vielleicht eine Sucht nach virtueller Realität in einem Hightech-Setting. Ein Abhängiger, der seine Dosis nicht bekommt, muss alle 24 stunden, die er ohne auskommen muss, eine Konstitutionsprobe ablegen, um nicht eine Stufe Erschöpfung (siehe Seite 101) zu erleiden. Einmal pro 24 Stunden ist eine Heilungsprobe mit irgendeiner passenden Medizin möglich, die eine Stufe Erschöpfung für vier Stunden aufhebt. Danach kehrt die Erschöpfung zurück und kann nur mit der Substanz, von der der Charakter abhängig ist, wieder geheilt werden.'
+// },
     // {
     //   id: 'Arm',
     //   name: 'Arm',
@@ -165,14 +165,14 @@ export const state = () => ({
       descr:
         'Persönliche Angriffe gehen dem Charakter wirklich unter die Haut. Bei einem leichten Handicap erleidet er einen Abzug von –2, wenn er Provozieren-Angriffen widerstehen will. Bei einem schweren Handicap beträgt der Abzug –4.'
     },
-    {
-      id: 'Ehrenkodex',
-      name: 'Ehrenkodex',
-      points: [2],
-      descr:
-        'Ehre ist deinem Charakter sehr wichtig. Er hält sein Wort, misshandelt oder tötet keine Gefangenen, und versucht sich insgesamt im Rahmen dessen zu verhalten, was er einem Gentleman (oder einer Dame) für angemessen erachtet.'
-    },
-    {
+//  {
+//   id: 'Ehrenkodex',
+//   name: 'Ehrenkodex',
+//   points: [2],
+//   descr:
+//     'Ehre ist deinem Charakter sehr wichtig. Er hält sein Wort, misshandelt oder tötet keine Gefangenen, und versucht sich insgesamt im Rahmen dessen zu verhalten, was er einem Gentleman (oder einer Dame) für angemessen erachtet.'
+// },
+   {
       id: 'Eifersuuechtig',
       name: 'Eifersüchtig',
       points: [1, 2],
@@ -263,13 +263,13 @@ export const state = () => ({
     //   descr:
     //     'Diese edle Seele sagt niemals nein zu Menschen in Not. Er muss nicht froh darüber sein, aber er kommt immer zur Rettung jener, die sich nicht selbst helfen können. Er ist der erste, der in ein brennendes Gebäude läuft, stimmt normalerweise zu, Monster für wenig oder gar kein Geld zu jagen, und ist sehr empfänglich für eine tränenreich vorgetragene Geschichte.'
     // },
-    {
-      id: 'Impulsiv',
-      name: 'Impulsiv',
-      points: [2],
-      descr:
-        'Dieser Draufgänger wird fast immer erst drauflosstürmen und dann schauen wohin es geht. Er denkt eine Situation selten zu Ende ehe er handelt.'
-    },
+{
+//   id: 'Impulsiv',
+//   name: 'Impulsiv',
+//   points: [2],
+//   descr:
+//     'Dieser Draufgänger wird fast immer erst drauflosstürmen und dann schauen wohin es geht. Er denkt eine Situation selten zu Ende ehe er handelt.'
+// },
     {
       id: 'Jung',
       name: 'Jung',
@@ -375,13 +375,13 @@ export const state = () => ({
     //   descr:
     //     'Charaktere, die ihr Gehör ganz oder zum Teil verloren haben, besitzen diesen Nachteil. Bei einem leichten Handicap erleidet der Charakter einen Abzug von –4 auf Wahrnehmungsproben, die mit Gehör zu tun haben, zum Beispiel wenn er bei lauten Geräuschen aufwachen soll. Ein schweres Handicap bedeutet, dass der Charakter taub ist. Er kann nicht hören und scheitert automatisch bei allen Wahrnehmungsproben, die auf Gehör basieren. Hörgeräte verringern den Abzug um 2, erfordern aber Batterien, und wenn der Charakter eine Wunde einsteckt, stürzt oder eine andere Art Verletzung erleidet, besteht eine Chance von 50%, dass sie herausfallen.'
     // },
-    {
-      id: 'Schwerzüngig',
-      name: 'Schwerzüngig',
-      points: [2],
-      descr:
-        'Dein Abenteurer versaut coole Sprüche (oder sie fallen ihm erst nachher ein!), schweift ab, wenn er jemanden von etwas überreden will, und bringt so gut wie alles, was er sagt, falsch rüber. Er erleidet einen Abzug von –1 auf Proben mit Darbietung, Einschüchtern, Provozieren und Überreden, die Sprechen erfordern.'
-    },
+    // {
+    //   id: 'Schwerzüngig',
+    //   name: 'Schwerzüngig',
+    //   points: [2],
+    //   descr:
+    //     'Dein Abenteurer versaut coole Sprüche (oder sie fallen ihm erst nachher ein!), schweift ab, wenn er jemanden von etwas überreden will, und bringt so gut wie alles, was er sagt, falsch rüber. Er erleidet einen Abzug von –1 auf Proben mit Darbietung, Einschüchtern, Provozieren und Überreden, die Sprechen erfordern.'
+    // },
     {
       id: 'Schwur',
       name: 'Schwur',
@@ -459,20 +459,20 @@ export const state = () => ({
       descr:
         'Dein Held glaubt etwas, das alle anderen als seltsam erachten. Leichte Wahnvorstellungen sind harmlos, oder der Charakter behält sie für sich (zum Beispiel: die Regierung gibt Beruhigungsmittel in Softdrinks, Hunde können reden, wir sind alle nur Charaktere in einem bizarren Spiel). Bei einer schweren Wahnvorstellung bringt er seine Ansichten zu der Situation oft zum Ausdruck, und das kann gelegentlich gefährlich werden (zum Beispiel: die Regierung wird von Aliens geleitet, Krankenhäuser sind tödlich, ich bin allergisch gegen Rüstung, Zombies sind meine Freunde).'
     },
-    {
-      id: 'Zoegerlich',
-      name: 'Zögerlich',
-      points: [1],
-      descr:
-        'Dein Held zögert in Stresssituationen. Ziehe zwei Aktionskarten im Kampf und verwende die schlechtere. Wenn du einen Joker ziehst, kannst du ihn normal verwenden und das Handicap für die Runde ignorieren (deshalb ist es auch nur ein leichtes Handicap, weil es tatsächlich die Chancen erhöht, einen Joker zu ziehen!). Zögerliche Charaktere können nicht die Talente Schnell oder Kühler Kopf wählen.'
-    },
-    {
-      id: 'ZweilinkeHaende',
-      name: 'Zwei linke Hände',
-      points: [1],
-      descr:
-        'Aufgrund ihrer Erziehung, geringem Kontakt oder einfach Pech haben einige Leute zwei linke Hände, wenn es um mechanische oder technologische Gerätschaften geht. Zwei linke Hände verursacht einen Abzug von –2, wenn der Charakter mechanische oder elektrische Geräte verwendet. Wenn er einen Kritischen Fehlschlag bei der Verwendung eines solchen Geräts würfelt (und das Gerät nicht bereits einen vorgesehen Effekt für einen solchen Fall hat), dann geht es kaputt. Wenn die SL der Meinung ist, dass es passend ist, kann es danach mit einer Reparierenprobe und 1W6 Stunden Zeit wieder einsatzbereit gemacht werden.'
-    },
+{
+//   id: 'Zoegerlich',
+//   name: 'Zögerlich',
+//   points: [1],
+//   descr:
+//     'Dein Held zögert in Stresssituationen. Ziehe zwei Aktionskarten im Kampf und verwende die schlechtere. Wenn du einen Joker ziehst, kannst du ihn normal verwenden und das Handicap für die Runde ignorieren (deshalb ist es auch nur ein leichtes Handicap, weil es tatsächlich die Chancen erhöht, einen Joker zu ziehen!). Zögerliche Charaktere können nicht die Talente Schnell oder Kühler Kopf wählen.'
+// },
+{
+//   id: 'ZweilinkeHaende',
+//   name: 'Zwei linke Hände',
+//   points: [1],
+//   descr:
+//     'Aufgrund ihrer Erziehung, geringem Kontakt oder einfach Pech haben einige Leute zwei linke Hände, wenn es um mechanische oder technologische Gerätschaften geht. Zwei linke Hände verursacht einen Abzug von –2, wenn der Charakter mechanische oder elektrische Geräte verwendet. Wenn er einen Kritischen Fehlschlag bei der Verwendung eines solchen Geräts würfelt (und das Gerät nicht bereits einen vorgesehen Effekt für einen solchen Fall hat), dann geht es kaputt. Wenn die SL der Meinung ist, dass es passend ist, kann es danach mit einer Reparierenprobe und 1W6 Stunden Zeit wieder einsatzbereit gemacht werden.'
+// },
     {
       id: 'Zweifler',
       name: 'Zweifler',
