@@ -1139,13 +1139,49 @@ export const state = () => ({
       tags: ['Deadlands', 'Hintergrund'],
       descr:
         'Bestimmte Charaktere können die Macht ihrer Gottheit (oder ihrer Gottheiten) um Hilfe anrufen. Im Weird West werden diese frommen Seelen die Gesegneten genannt. Gesegnete sind Nonnen, Priester oder auch durchschnittliche, aber (relativ) reinherzige Menschen, die von einem göttlichen Wesen gesegnet sind. Obwohl sie im Wilden Westen selten sind, gibt es auch gesegnete Imame, buddhistische Mönche und andere Gläubige, die mit höheren Mächten umherlaufen, die ihren heiligen Hintern bedecken. Wenn diese Leute sich benehmen, können sie manchmal Wunder beschwören, die ihnen helfen, die Übel des Wilden Westens zu bekämpfen. Die Gesegneten benutzen den Glauben als ihre arkane Fertigkeit.'
-    },    // {
-    //   id: 'ArkanerHintergrundShamanismus',
-    //   name: 'Arkaner Hintergrund (Shamanismus)',
-    //   tags: ['Deadlands', 'Hintergrund'],
-    //   descr:
-    //     'Schamanen sind indische heilige Männer und Frauen und Bewahrer der Stammesmedizin. Ihre Macht kommt aus den Verhandlungen mit den anspruchsvollen Geistern der natürlichen Welt. Wenn diese Medizinmänner die Naturgeister ehren, können sie erstaunliche Kunststücke vollbringen, die selbst den zweifelndsten Thomas erzittern lassen. Einzelheiten über das Spielen eines Schamanen, zusammen mit einigen zusätzlichen Talenten, finden Sie auf Seite 92.'
-    // },
+    },
+    {
+      id: 'ArkanerHintergrundKraemer',
+      name: 'Arkaner Hintergrund (Krämer)',
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Gluecksspiel',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Zaubern',
+          value: 4
+        }
+      ],
+      tags: ['Deadlands', 'Hintergrund'],
+      descr:
+        'Die Magie im Wilden Westen ist nicht auf die leichte Schulter zu nehmen. Diejenigen, die Zauberei praktizieren, müssen ihre Kräfte oft dunklen Geistern abtrotzen, die selten bereit sind, leicht aufzugeben. Krämer stellen sich diese Willensduelle als Kartenspiele vor, und die Besten sind zu erstaunlichen Kräften fähig. Andere sollen noch dunklere Wege beschreiten und sich die Kraft der Blutmagie zunutze machen. Krämer benutzen Zaubern als ihre arkane Fertigkeit.'
+    },
+    {
+      id: 'ArkanerHintergrundShamanismus',
+      name: 'Arkaner Hintergrund (Shamanismus)',
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Glaube',
+          value: 4
+        },
+      ],
+      tags: ['Deadlands', 'Hintergrund'],
+      descr:
+        'Schamanen sind indische heilige Männer und Frauen und Bewahrer der Stammesmedizin. Ihre Macht kommt aus den Verhandlungen mit den anspruchsvollen Geistern der natürlichen Welt. Wenn diese Medizinmänner die Naturgeister ehren, können sie erstaunliche Kunststücke vollbringen, die selbst den zweifelndsten Thomas erzittern lassen. Schamanen benutzen Glaube als ihre arkane Fertigkeit.'
+    },
     {
       id: 'ArkanerHintergrundChi',
       name: 'Arkaner Hintergrund (Chi Master)',
@@ -1179,15 +1215,33 @@ export const state = () => ({
       descr:
         'Einige wenige Menschen im Wilden Westen haben die altorientalischen Kampfkünste studiert. Nur sehr wenige dieser überaus fähigen Kämpfer haben die spirituelle Disziplin erlangt, die notwendig ist, um übernatürliche Kräfte durch ihren eigenen Körper, Chi genannt, zu kanalisieren. Diese erleuchteten Kämpfer nutzen den Rand des Arkanen Hintergrunds (Chi-Meisterschaft), um ihre erstaunlichen Fähigkeiten widerzuspiegeln. Chi Master benutzen den Fokus als ihre arkane Fertigkeit.'
     },
-
-
-    // {
-    //   id: 'ArkanerHintergrundWeirdScience',
-    //   name: 'Arkaner Hintergrund (Weird Science)',
-    //   tags: ['Deadlands', 'Hintergrund'],
-    //   descr:
-    //     'Die Anhänger der Prinzipien der Neuen Wissenschaft (von den meisten als verrückte Wissenschaftler bezeichnet) bauen seltsame und wunderbare Geräte, Maschinen, die oft den Gesetzen der Realität zu trotzen scheinen. Die meisten dieser Erfinder (oder zumindest die erfolgreichen) verlassen sich auf Ghost Rock, um ihre Erfindungen in irgendeiner Weise anzutreiben. Für den Knüller über diese verrückten Erfinder und ihre bizarren Gizmos siehe Seite 96.'
-    // },
+    {
+      id: 'ArkanerHintergrundWeirdScience',
+      name: 'Arkaner Hintergrund (Verrückte Wissenschaft)',
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 8
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Naturwissenschaften',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'VerrueckteWissenschaft',
+          value: 4
+        },
+      ],
+      tags: ['Deadlands', 'Hintergrund'],
+      descr:
+        'Die Anhänger der Prinzipien der Neuen Wissenschaft (von den meisten als verrückte Wissenschaftler bezeichnet) bauen seltsame und wunderbare Geräte, Maschinen, die oft den Gesetzen der Realität zu trotzen scheinen. Die meisten dieser Erfinder, zumindest die erfolgreichen, verlassen sich auf Geisterfelsen, um ihre Erfindungen in irgendeiner Weise anzutreiben. Verrückte Wissenschaftler benutzen Verrückte Wissenschaft als ihre arkane Fertigkeit.'
+    },
     // {
     //   id: 'VeteranDesWeirdWest',
     //   name: 'Veteran des Weird West',
