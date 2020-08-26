@@ -1119,35 +1119,68 @@ export const state = () => ({
     //   descr:
     //     "Die Magie im Wilden Westen ist nicht auf die leichte Schulter zu nehmen. Diejenigen, die Zauberei praktizieren, müssen ihre Kräfte oft den dunklen Geistern des Wilden Westens abtrotzen, die selten bereit sind, leicht aufzugeben. Hucksters stellen sich diese Willensduelle als Kartenspiele vor, und die Besten sind zu erstaunlichen Kräften fähig. Es geht das Gerücht, dass andere noch dunklere Wege beschreiten und sich die Kraft der Blutmagie zunutze machen. Wenn Sie sich für diese Kante entscheiden, lesen Sie unbedingt die entsprechenden Einzelheiten in No Man's Land, wo Sie zusätzliche Kanten finden, die nur Hucksters zur Verfügung stehen (siehe Seite 91)."
     // },
-    // {
-    //   id: 'ArkanerHintergrundWunder',
-    //   name: 'Arkaner Hintergrund (Wunder)',
-    //   tags: ['Deadlands', 'Hintergrund'],
-    //   descr:
-    //     'Bestimmte Charaktere können die Macht ihrer Gottheit (oder ihrer Gottheiten) um Hilfe anrufen. Im Merkwürdigen Westen werden diese frommen Seelen die Seligen genannt. Gesegnet sind Nonnen, Priester oder auch durchschnittliche, aber (relativ) reinherzige Menschen, die von einem göttlichen Wesen gesegnet sind. Obwohl sie im Wilden Westen selten sind, gibt es auch gesegnete Imame, buddhistische Mönche und andere Gläubige, die mit höheren Mächten umherlaufen, die ihren heiligen Hintern bedecken. Wenn diese Leute sich benehmen, können sie manchmal Wunder beschwören, die ihnen helfen, die Übel des Wilden Westens zu bekämpfen. Einzelheiten dazu, wie man einen dieser Kreuzfahrer spielt, finden Sie auf Seite 82, wo Sie einige zusätzliche Kanten finden, die nur den Gesegneten zur Verfügung stehen.'
-    // },
-    // {
+    {
+      id: 'ArkanerHintergrundGesegnet',
+      name: 'Arkaner Hintergrund (Gesegnet)',
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Glaube',
+          value: 4
+        }
+      ],
+      tags: ['Deadlands', 'Hintergrund'],
+      descr:
+        'Bestimmte Charaktere können die Macht ihrer Gottheit (oder ihrer Gottheiten) um Hilfe anrufen. Im Weird West werden diese frommen Seelen die Gesegneten genannt. Gesegnete sind Nonnen, Priester oder auch durchschnittliche, aber (relativ) reinherzige Menschen, die von einem göttlichen Wesen gesegnet sind. Obwohl sie im Wilden Westen selten sind, gibt es auch gesegnete Imame, buddhistische Mönche und andere Gläubige, die mit höheren Mächten umherlaufen, die ihren heiligen Hintern bedecken. Wenn diese Leute sich benehmen, können sie manchmal Wunder beschwören, die ihnen helfen, die Übel des Wilden Westens zu bekämpfen. Die Gesegneten benutzen den Glauben als ihre arkane Fertigkeit.'
+    },    // {
     //   id: 'ArkanerHintergrundShamanismus',
     //   name: 'Arkaner Hintergrund (Shamanismus)',
     //   tags: ['Deadlands', 'Hintergrund'],
     //   descr:
     //     'Schamanen sind indische heilige Männer und Frauen und Bewahrer der Stammesmedizin. Ihre Macht kommt aus den Verhandlungen mit den anspruchsvollen Geistern der natürlichen Welt. Wenn diese Medizinmänner die Naturgeister ehren, können sie erstaunliche Kunststücke vollbringen, die selbst den zweifelndsten Thomas erzittern lassen. Einzelheiten über das Spielen eines Schamanen, zusammen mit einigen zusätzlichen Talenten, finden Sie auf Seite 92.'
     // },
-    // {
-    //   id: 'ArkanerHintergrundChiMeisterung',
-    //   name: 'Arkaner Hintergrund (Chi Meisterung)',
-    //   req: [
-    //     {
-    //       type: 'dynamic',
-    //       depends: 'talent',
-    //       id: 'MartialArts',
-    //       label: 'Martial Arts'
-    //     }
-    //   ],
-    //   tags: ['Deadlands', 'Hintergrund'],
-    //   descr:
-    //     'Einige wenige Menschen im Wilden Westen haben die altorientalischen Kampfkünste studiert. Nur sehr wenige dieser überaus fähigen Kämpfer haben die spirituelle Disziplin erlangt, die notwendig ist, um übernatürliche Kräfte durch ihren eigenen Körper, Chi genannt, zu kanalisieren. Diese erleuchteten Kämpfer nutzen den Rand des Arkanen Hintergrunds (Chi-Meisterschaft), um ihre erstaunlichen Fähigkeiten widerzuspiegeln. Einzelheiten zum Spiel eines dieser erleuchteten Krieger sowie eine neue Kante, die verschiedene Kampfkunst-Kampfstile eröffnet, finden Sie auf Seite 99.'
-    // },
+    {
+      id: 'ArkanerHintergrundChi',
+      name: 'Arkaner Hintergrund (Chi Master)',
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 6
+        },
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Fokus',
+          value: 4
+        },
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'MartialArts',
+          label: 'Martial Arts'
+        }
+      ],
+      tags: ['Deadlands', 'Hintergrund'],
+      descr:
+        'Einige wenige Menschen im Wilden Westen haben die altorientalischen Kampfkünste studiert. Nur sehr wenige dieser überaus fähigen Kämpfer haben die spirituelle Disziplin erlangt, die notwendig ist, um übernatürliche Kräfte durch ihren eigenen Körper, Chi genannt, zu kanalisieren. Diese erleuchteten Kämpfer nutzen den Rand des Arkanen Hintergrunds (Chi-Meisterschaft), um ihre erstaunlichen Fähigkeiten widerzuspiegeln. Chi Master benutzen den Fokus als ihre arkane Fertigkeit.'
+    },
+
+
     // {
     //   id: 'ArkanerHintergrundWeirdScience',
     //   name: 'Arkaner Hintergrund (Weird Science)',
@@ -1191,21 +1224,21 @@ export const state = () => ({
     //   descr:
     //     "Ihr Hombre ist ein tödlicher Revolverheld, und jeder, der dumm genug ist, ihm am Mittag gegenüberzutreten, landet bei Sonnenuntergang auf dem Friedhof. In einem Duell erhält dieser Held für jeden Grit-Punkt, den er hat, eine zusätzliche 'Hole Card'. Die Regeln für das Duell finden Sie auf Seite 68."
     // },
-    // {
-    //   id: 'MartialArts',
-    //   name: 'Martial Arts',
-    //   req: [
-    //     {
-    //       type: 'dynamic',
-    //       depends: 'skill',
-    //       id: 'Kaempfen',
-    //       value: 6
-    //     }
-    //   ],
-    //   tags: ['Deadlands', 'Kampf'],
-    //   descr:
-    //     'Sie haben in Kampfsportarten oder Boxen trainiert oder gelernt, wirklich schmutzig auf der Strasse zu kämpfen. Der Körper Ihres Charakters ist eine fein geschliffene Waffe. Selbst wenn Ihr Held unbewaffnet kämpft, gilt er als bewaffnet. Darüber hinaus profitieren Gegner im Nahkampf niemals von einem Bandenbonus gegen Ihren Helden.'
-    // },
+    {
+      id: 'MartialArts',
+      name: 'Martial Arts',
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 6
+        }
+      ],
+      tags: ['Deadlands', 'Kampf'],
+      descr:
+        'Sie haben in Kampfsportarten oder Boxen trainiert oder gelernt, wirklich schmutzig auf der Strasse zu kämpfen. Der Körper Ihres Charakters ist eine fein geschliffene Waffe. Selbst wenn Ihr Held unbewaffnet kämpft, gilt er als bewaffnet. Darüber hinaus profitieren Gegner im Nahkampf niemals von einem Bandenbonus gegen Ihren Helden.'
+    },
     // {
     //   id: 'RebelYell',
     //   name: 'Rebel Yell',
