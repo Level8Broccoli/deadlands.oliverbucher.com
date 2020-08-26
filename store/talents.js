@@ -54,14 +54,14 @@ export const state = () => ({
     {
       id: 'Sammler',
       name: 'Sammler',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'talent',
-          id: 'Glück',
-          label: 'Glück'
-        }
-      ],
+      // req: [
+      //   {
+      //     type: 'dynamic',
+      //     depends: 'talent',
+      //     id: 'Glück',
+      //     label: 'Glück'
+      //   }
+      // ],
       tags: ['Macht'],
       descr:
         'Einmal pro Begegnung kann der Held ein Ausrüstungsteil, eine Handvoll Munition oder einen anderen nützlichen Gegenstand finden, beziehungsweise „erinnert er sich“, dass er ihn die ganze Zeit schon dabei hatte. Die Spielleiterin entscheidet, was als Begegnung zählt, und hat das letzte Wort darüber, was „entdeckt“ werden kann und was nicht.'
