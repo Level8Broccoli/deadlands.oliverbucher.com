@@ -1,85 +1,85 @@
 export const state = () => ({
   list: [
-    {
-      id: 'Kraenkelnd',
-      name: 'Kränkelnd',
-      points: [1, 2],
-      tags: ['Deadlands'],
-      descr:
-        'Die Medizin ist eine rudimentäre Wissenschaft an der wilden Grenze, und es gibt schlimmere Todesarten als einen schweren Fall von Bleivergiftung. Dieses Hindernis ist krankheitsbedingten Hombres mit einem kalten Grab in ihrer nahen Zukunft vorbehalten. Wie Doc Holliday hat auch Ihr Held eine Reservierung beim Leichenbestatter. Sie ist nur noch nicht bestätigt worden. Die Ursache für sein zukünftiges Ableben ist so etwas wie Schwindsucht (Tuberkulose), Diabetes oder Krebs. Wenn ein Cowpoke dieses Hindernis auf dem Minor-Level hat, zieht er immer 1 von den Müdigkeitsrollen ab, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht die Agility-Rollen, um Beulen und Prellungen zu vermeiden). Er befindet sich im frühesten Stadium der Krankheit und kann noch nicht einmal diagnostiziert werden. Wenn es sich um ein grösseres Hindernis handelt, subtrahiert Ihr Hombre 2 von Ermüdungsrollen, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht Agility-Rollen, um Beulen und Prellungen zu vermeiden). Es ist unmöglich, die Tatsache zu verbergen, dass er krank ist, und jeder kann erkennen, dass der Tod einen Schritt hinter ihm geht. In jedem Fall muss der Longenspieler am Ende jeder Spielsitzung einen Vigor Roll machen. Bei einem Misserfolg wird die Krankheit schlimmer. Aus der Minor-Version dieses Hindernisses wird die Major-Version. Wenn der Held bereits die Major-Version dieses Hindernisses hat, stirbt er am Ende der nächsten Spielrunde, in der er bei einem Ermüdungscheck durchfällt (oder zu einem vom Marschall gewählten geeigneten Zeitpunkt).'
-    },
-    {
-      id: 'SchlechteTraeume',
-      name: 'Schlechte Träume',
-      points: [2],
-      tags: ['Deadlands'],
-      descr:
-        'Ihr Hombre schläft nicht gut. Tatsächlich ist das Land des Nickens für ihn ein ständiger Alptraum. Er wirft und dreht sich wie ein Dämon auf einem Gestell und hält mit seinen nächtlichen Qualen wahrscheinlich jeden im Umkreis von einem Dutzend Meter von ihm wach. Der Cowpoke beginnt jede Spielsitzung mit 1 Schicksalschip weniger, um seinen ständig müden Zustand zu repräsentieren. Dies ist kumulativ mit Pech verbunden.'
-    },
-    {
-      id: 'GrimmigeDienerindesTodes',
-      name: 'Grimmige Dienerin des Todes',
-      points: [2],
-      tags: ['Deadlands'],
-      descr:
-        "Ihr Held ist ein Killer. Seine Familie schiebt wahrscheinlich Gänseblümchen, seine Feinde sind Wurmfutter, und sogar einige seiner Freunde haben Löcher in ihnen, die verdächtig das gleiche Kaliber wie sein eigenes Schiesseisen haben. Nur Wild Cards können dieses Hindernis überwinden, und Sie sollten das nicht auf die leichte Schulter nehmen, Amigo. Die gute Nachricht ist, dass Ihr Hombre +1 zu jedem Schadenswurf hinzufügt, den er jemals macht, sei es durch Kämpfen, Schiessen, Zaubern oder sogar durch das Werfen von Dingen auf Menschen auf höchst unwirtliche Weise. Die Kehrseite der Medaille ist, dass Ihr Held oft im Knast oder auf der Flucht landet. Aber es gibt noch mehr als das, Amigo. Jeder Schiess- oder Wurf-Angriffswurf, der beim Fertigkeitswürfel 1 ergibt (unabhängig vom Ergebnis eines beliebigen Wilden Würfels), trifft automatisch den nächstgelegenen befreundeten Charakter in Sichtweite - egal, ob er sich in der Schusslinie befindet oder nicht. Die Charaktere der anderen Spieler sind immer die erste Wahl, aber ein verbündetes Extra reicht im Notfall aus. Selbst Nahkampfangriffe treffen Verbündete, wenn die mittlere alte 1 auftaucht. Das mag ein wenig Phantasie erfordern, aber entweder fliegt dem Helden die Waffe aus der Hand und trifft seinen Freund, oder der Held muss sich neben seinen einstigen Kameraden bewegen und ihn 'versehentlich' schlagen. In beiden Fällen fügt Schlangenaugen beim Angriffswurf einen zusätzlichen d6 zum Schaden hinzu (als ob der Cowboy mit einer Erhöhung getroffen hätte)."
-    },
-    {
-      id: 'SchwererSchlaefer',
-      name: 'Schwerer Schläfer',
-      points: [1],
-      tags: ['Deadlands'],
-      descr:
-        'Ein Gewitter aus der Hölle selbst wird diesen dösenden Doolie nicht aufwecken. Sobald er abfällt, muss er eine Notizrolle (-4) machen, um aufzuwachen. Er erleidet auch eine Strafe von -4 bei Vigor-Würfen, die gemacht werden, um wach zu bleiben.'
-    },
-    {
-      id: 'LuegendeAugen',
-      name: 'Lügende Augen',
-      points: [1],
-      tags: ['Deadlands'],
-      descr:
-        'Lügen fällt diesem Hombre einfach nicht leicht. Das klingt alles gut und edel, verursacht aber oft Probleme im Umgang mit ruchloseren Typen. Ein Held mit diesem Hindernis erleidet bei allen Einschüchterungs- und Überzeugungsrollen, bei denen Lügen - auch kleine weisse - erzählt werden müssen, eine -2-Strafe. Was noch schlimmer ist: Wenn Ihr Held vorhat, sein Geld beim Pokern zu verdienen, gilt die Strafe auch für Bluffen. Auch in einem Pokerspiel beträgt die Strafe -2 auf Ihre Glücksspielrollen, Compadre!'
-    },
-    {
-      id: 'EidderaltenWege',
-      name: 'Eid der alten Wege',
-      points: [1, 2],
-      tags: ['Deadlands'],
-      descr:
-        'Ganz gleich, ob Ihr Held ein Indianer oder ein Eingeborener ist, er hat beschlossen, auf moderne Technologie zu verzichten, um die Geister zu ehren. Als geringes Hindernis wird er in modernen Transportmitteln wie Zügen oder Dampfwagen reisen, aber selbst keine modernen Geräte benutzen (einschliesslich Gewehren, Stahlmesser/Tomahawks usw.). Als grösseres Hindernis wird er solche Vorrichtungen nicht einmal passiv benutzen, da er sich weigert, in etwas Komplexerem als einem Pferdewagen zu fahren (und auch das tut er nur ungern).'
-    },
-    {
-      id: 'LahmeEnte',
-      name: 'Lahme Ente',
-      points: [1],
-      tags: ['Deadlands'],
-      descr:
-        'Melasse an einem kalten Tag bewegt sich schneller als Ihr Held. Verringern Sie sein Tempo um 1. Dies ist kumulativ mit dem Lame Hindernis, wenn Sie sich wirklich auf das nächste Schildkröten- und Hasenrennen einlassen wollen. Wir überlassen es Ihnen, herauszufinden, welcher von ihnen Sie sind.'
-    },
-    {
-      id: 'Anfaenger',
-      name: 'Anfänger',
-      points: [1],
-      tags: ['Deadlands'],
-      descr:
-        'Manche Kerle sind nicht für die Gefahren geschaffen, die an der wilden Grenze auf sie warten, und Ihr Held ist ein solches Greenhorn. Solange er im Westen unterwegs ist, schien er nie wirklich zu passen. Ihr armer Held leidet -1 Grit als Folge seiner Unerfahrenheit im Umgang mit dem Westen. Ein Held mit diesem Hindernis kann nicht die wahre Körnigkeit ertragen. Natürlich dauert das nicht ewig an. Der Grund dafür, dass Tenderfoot nur ein geringes Hindernis ist, ist, dass er entfernt werden kann. Sobald ein Held den Seasoned-Rang erreicht hat, kann er Tenderfoot abkaufen, indem er auf die Möglichkeit verzichtet, einmal aufzusteigen. Dadurch werden die Strafe für Tenderfoot und die Beschränkung auf das Erreichen der wahren Tenderfoot-Kante aufgehoben.'
-    },
-    {
-      id: 'Empfindlich',
-      name: 'Empfindlich',
-      points: [2],
-      tags: ['Deadlands'],
-      descr:
-        'Jeder kleine Schnitt und jede Schramme bringt Ihren Cowboy zum Schreien nach Mama. Solange er mindestens eine Wunde hat, erleidet er eine zusätzliche Strafe von -1 für alle seine Handlungen (ein Held mit 2 Wunden würde also z.B. eine -3 erleiden).'
-    },
-    {
-      id: 'Wanted',
-      name: 'Wanted',
-      points: [1, 2],
-      tags: ['Deadlands'],
-      descr:
-        "Unabhängig davon, ob Ihr Cowboy etwas falsch gemacht hat oder nicht, das Gesetz denkt, er hat es getan! Sein Gesicht ist auf Plakaten in der ganzen Region zu sehen, und vielleicht auch noch weiter weg. Die Art des Verbrechens und der Sinn des Marschalls für 'Sport' bestimmen, wie weit und breit die Anklagen in Umlauf gebracht wurden, aber irgendwo sucht jemand nach Ihnen. Auf Ihren Hombre ist nicht nur jemand hinter ihm her, sondern es ist auch ein Kopfgeld auf ihn ausgesetzt. Für die Minor-Version gibt es eine Belohnung von 1d6 x $100. Bei der Major-Hindernis-Version erhöht sich die Belohnung auf verlockende 1d6 x $1.000. Der Spieler und der Marschall sollten vereinbaren, wo das Kopfgeld eingesammelt werden kann."
-    },
+    // {
+    //   id: 'Kraenkelnd',
+    //   name: 'Kränkelnd',
+    //   points: [1, 2],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Die Medizin ist eine rudimentäre Wissenschaft an der wilden Grenze, und es gibt schlimmere Todesarten als einen schweren Fall von Bleivergiftung. Dieses Hindernis ist krankheitsbedingten Hombres mit einem kalten Grab in ihrer nahen Zukunft vorbehalten. Wie Doc Holliday hat auch Ihr Held eine Reservierung beim Leichenbestatter. Sie ist nur noch nicht bestätigt worden. Die Ursache für sein zukünftiges Ableben ist so etwas wie Schwindsucht (Tuberkulose), Diabetes oder Krebs. Wenn ein Cowpoke dieses Hindernis auf dem Minor-Level hat, zieht er immer 1 von den Müdigkeitsrollen ab, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht die Agility-Rollen, um Beulen und Prellungen zu vermeiden). Er befindet sich im frühesten Stadium der Krankheit und kann noch nicht einmal diagnostiziert werden. Wenn es sich um ein grösseres Hindernis handelt, subtrahiert Ihr Hombre 2 von Ermüdungsrollen, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht Agility-Rollen, um Beulen und Prellungen zu vermeiden). Es ist unmöglich, die Tatsache zu verbergen, dass er krank ist, und jeder kann erkennen, dass der Tod einen Schritt hinter ihm geht. In jedem Fall muss der Longenspieler am Ende jeder Spielsitzung einen Vigor Roll machen. Bei einem Misserfolg wird die Krankheit schlimmer. Aus der Minor-Version dieses Hindernisses wird die Major-Version. Wenn der Held bereits die Major-Version dieses Hindernisses hat, stirbt er am Ende der nächsten Spielrunde, in der er bei einem Ermüdungscheck durchfällt (oder zu einem vom Marschall gewählten geeigneten Zeitpunkt).'
+    // },
+    // {
+    //   id: 'SchlechteTraeume',
+    //   name: 'Schlechte Träume',
+    //   points: [2],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Ihr Hombre schläft nicht gut. Tatsächlich ist das Land des Nickens für ihn ein ständiger Alptraum. Er wirft und dreht sich wie ein Dämon auf einem Gestell und hält mit seinen nächtlichen Qualen wahrscheinlich jeden im Umkreis von einem Dutzend Meter von ihm wach. Der Cowpoke beginnt jede Spielsitzung mit 1 Schicksalschip weniger, um seinen ständig müden Zustand zu repräsentieren. Dies ist kumulativ mit Pech verbunden.'
+    // },
+    // {
+    //   id: 'GrimmigeDienerindesTodes',
+    //   name: 'Grimmige Dienerin des Todes',
+    //   points: [2],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     "Ihr Held ist ein Killer. Seine Familie schiebt wahrscheinlich Gänseblümchen, seine Feinde sind Wurmfutter, und sogar einige seiner Freunde haben Löcher in ihnen, die verdächtig das gleiche Kaliber wie sein eigenes Schiesseisen haben. Nur Wild Cards können dieses Hindernis überwinden, und Sie sollten das nicht auf die leichte Schulter nehmen, Amigo. Die gute Nachricht ist, dass Ihr Hombre +1 zu jedem Schadenswurf hinzufügt, den er jemals macht, sei es durch Kämpfen, Schiessen, Zaubern oder sogar durch das Werfen von Dingen auf Menschen auf höchst unwirtliche Weise. Die Kehrseite der Medaille ist, dass Ihr Held oft im Knast oder auf der Flucht landet. Aber es gibt noch mehr als das, Amigo. Jeder Schiess- oder Wurf-Angriffswurf, der beim Fertigkeitswürfel 1 ergibt (unabhängig vom Ergebnis eines beliebigen Wilden Würfels), trifft automatisch den nächstgelegenen befreundeten Charakter in Sichtweite - egal, ob er sich in der Schusslinie befindet oder nicht. Die Charaktere der anderen Spieler sind immer die erste Wahl, aber ein verbündetes Extra reicht im Notfall aus. Selbst Nahkampfangriffe treffen Verbündete, wenn die mittlere alte 1 auftaucht. Das mag ein wenig Phantasie erfordern, aber entweder fliegt dem Helden die Waffe aus der Hand und trifft seinen Freund, oder der Held muss sich neben seinen einstigen Kameraden bewegen und ihn 'versehentlich' schlagen. In beiden Fällen fügt Schlangenaugen beim Angriffswurf einen zusätzlichen d6 zum Schaden hinzu (als ob der Cowboy mit einer Erhöhung getroffen hätte)."
+    // },
+    // {
+    //   id: 'SchwererSchlaefer',
+    //   name: 'Schwerer Schläfer',
+    //   points: [1],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Ein Gewitter aus der Hölle selbst wird diesen dösenden Doolie nicht aufwecken. Sobald er abfällt, muss er eine Notizrolle (-4) machen, um aufzuwachen. Er erleidet auch eine Strafe von -4 bei Vigor-Würfen, die gemacht werden, um wach zu bleiben.'
+    // },
+    // {
+    //   id: 'LuegendeAugen',
+    //   name: 'Lügende Augen',
+    //   points: [1],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Lügen fällt diesem Hombre einfach nicht leicht. Das klingt alles gut und edel, verursacht aber oft Probleme im Umgang mit ruchloseren Typen. Ein Held mit diesem Hindernis erleidet bei allen Einschüchterungs- und Überzeugungsrollen, bei denen Lügen - auch kleine weisse - erzählt werden müssen, eine -2-Strafe. Was noch schlimmer ist: Wenn Ihr Held vorhat, sein Geld beim Pokern zu verdienen, gilt die Strafe auch für Bluffen. Auch in einem Pokerspiel beträgt die Strafe -2 auf Ihre Glücksspielrollen, Compadre!'
+    // },
+    // {
+    //   id: 'EidderaltenWege',
+    //   name: 'Eid der alten Wege',
+    //   points: [1, 2],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Ganz gleich, ob Ihr Held ein Indianer oder ein Eingeborener ist, er hat beschlossen, auf moderne Technologie zu verzichten, um die Geister zu ehren. Als geringes Hindernis wird er in modernen Transportmitteln wie Zügen oder Dampfwagen reisen, aber selbst keine modernen Geräte benutzen (einschliesslich Gewehren, Stahlmesser/Tomahawks usw.). Als grösseres Hindernis wird er solche Vorrichtungen nicht einmal passiv benutzen, da er sich weigert, in etwas Komplexerem als einem Pferdewagen zu fahren (und auch das tut er nur ungern).'
+    // },
+    // {
+    //   id: 'LahmeEnte',
+    //   name: 'Lahme Ente',
+    //   points: [1],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Melasse an einem kalten Tag bewegt sich schneller als Ihr Held. Verringern Sie sein Tempo um 1. Dies ist kumulativ mit dem Lame Hindernis, wenn Sie sich wirklich auf das nächste Schildkröten- und Hasenrennen einlassen wollen. Wir überlassen es Ihnen, herauszufinden, welcher von ihnen Sie sind.'
+    // },
+    // {
+    //   id: 'Anfaenger',
+    //   name: 'Anfänger',
+    //   points: [1],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Manche Kerle sind nicht für die Gefahren geschaffen, die an der wilden Grenze auf sie warten, und Ihr Held ist ein solches Greenhorn. Solange er im Westen unterwegs ist, schien er nie wirklich zu passen. Ihr armer Held leidet -1 Grit als Folge seiner Unerfahrenheit im Umgang mit dem Westen. Ein Held mit diesem Hindernis kann nicht die wahre Körnigkeit ertragen. Natürlich dauert das nicht ewig an. Der Grund dafür, dass Tenderfoot nur ein geringes Hindernis ist, ist, dass er entfernt werden kann. Sobald ein Held den Seasoned-Rang erreicht hat, kann er Tenderfoot abkaufen, indem er auf die Möglichkeit verzichtet, einmal aufzusteigen. Dadurch werden die Strafe für Tenderfoot und die Beschränkung auf das Erreichen der wahren Tenderfoot-Kante aufgehoben.'
+    // },
+    // {
+    //   id: 'Empfindlich',
+    //   name: 'Empfindlich',
+    //   points: [2],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     'Jeder kleine Schnitt und jede Schramme bringt Ihren Cowboy zum Schreien nach Mama. Solange er mindestens eine Wunde hat, erleidet er eine zusätzliche Strafe von -1 für alle seine Handlungen (ein Held mit 2 Wunden würde also z.B. eine -3 erleiden).'
+    // },
+    // {
+    //   id: 'Wanted',
+    //   name: 'Wanted',
+    //   points: [1, 2],
+    //   tags: ['Deadlands'],
+    //   descr:
+    //     "Unabhängig davon, ob Ihr Cowboy etwas falsch gemacht hat oder nicht, das Gesetz denkt, er hat es getan! Sein Gesicht ist auf Plakaten in der ganzen Region zu sehen, und vielleicht auch noch weiter weg. Die Art des Verbrechens und der Sinn des Marschalls für 'Sport' bestimmen, wie weit und breit die Anklagen in Umlauf gebracht wurden, aber irgendwo sucht jemand nach Ihnen. Auf Ihren Hombre ist nicht nur jemand hinter ihm her, sondern es ist auch ein Kopfgeld auf ihn ausgesetzt. Für die Minor-Version gibt es eine Belohnung von 1d6 x $100. Bei der Major-Hindernis-Version erhöht sich die Belohnung auf verlockende 1d6 x $1.000. Der Spieler und der Marschall sollten vereinbaren, wo das Kopfgeld eingesammelt werden kann."
+    // },
     {
       id: 'Alt',
       name: 'Alt',
