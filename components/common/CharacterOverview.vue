@@ -7,19 +7,7 @@
       </p>
     </div>
     <div class="message-body">
-      <div class="field is-grouped is-grouped-multiline">
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Rasse</span>
-            <span class="tag">Mensch</span>
-          </div>
-        </div>
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Bewegung</span>
-            <span class="tag">12 Meter</span>
-          </div>
-        </div>
+      <div class="field is-grouped is-grouped-multiline">       
         <div class="control">
           <div class="tags has-addons">
             <span class="tag is-dark">Parade/Zielwert (Kämpfen)</span>
@@ -37,12 +25,7 @@
             <span class="tag is-dark">Kapital</span>
             <span class="tag">{{ totalValue }}$</span>
           </div>
-        </div>
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Grit</span> <span class="tag">1</span>
-          </div>
-        </div>
+        </div>        
       </div>
     </div>
   </div>
