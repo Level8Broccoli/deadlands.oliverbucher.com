@@ -1013,21 +1013,21 @@ export const state = () => ({
     //   descr:
     //     'Ermittler verbringen viel Zeit damit, über alte Legenden zu forschen, sich auf der Strasse umzuhören oder teuflische Mysterien zu entschlüsseln. Einige dieser Helden sind tatsächlich Privatermittler, andere sind Magier-Detektive in Fantasywelten oder neugierige Collegeprofessoren, die auf Dinge stossen, die die Menschheit niemals wissen sollte. Ermittler addieren +2 auf Recherche und auf Wahrnehmung, sofern sie auf einem Schreibtisch nach bedeutsamen Papieren suchen, einen Stapel Werbepost nach etwas Wichtigem durchwühlen oder versteckte Gegenstände in einem Haufen Schrott oder Schutt entdecken wollen.'
     // },
-    {
-      id: 'Gelehrter',
-      name: 'Gelehrter',
-      req: [
-        {
-          type: 'dynamic',
-          depends: 'skill',
-          id: 'Recherche',
-          value: 8
-        }
-      ],
-      tags: ['Experte'],
-      descr:
-        'Gebildete Professoren, hingebungsvolle Studenten und enthusiastische Amateure verwenden viel Zeit und Energie auf das Studium eines bestimmten Themas. Sie werden Experten in diesem Feld, und nur selten fehlen ihnen Antworten, wenn es um eine Frage aus ihrem Fachgebiet geht. Wähle eine der folgenden Fertigkeiten aus: Geisteswissenschaften, Kriegsführung, Naturwissenschaften, Okkultismus oder eine auf Verstand basierende „Wissensfertigkeit“, die in deinem Setting erlaubt ist. Du kannst +2 addieren, wenn die Fertigkeit verwendet wird. Das Talent kann mehr als einmal gewählt werden, um verschiedene Fertigkeiten abzudecken.'
-    },
+//  {
+//   id: 'Gelehrter',
+//   name: 'Gelehrter',
+//   req: [
+//     {
+//       type: 'dynamic',
+//       depends: 'skill',
+//       id: 'Recherche',
+//       value: 8
+//     }
+//   ],
+//   tags: ['Experte'],
+//   descr:
+//     'Gebildete Professoren, hingebungsvolle Studenten und enthusiastische Amateure verwenden viel Zeit und Energie auf das Studium eines bestimmten Themas. Sie werden Experten in diesem Feld, und nur selten fehlen ihnen Antworten, wenn es um eine Frage aus ihrem Fachgebiet geht. Wähle eine der folgenden Fertigkeiten aus: Geisteswissenschaften, Kriegsführung, Naturwissenschaften, Okkultismus oder eine auf Verstand basierende „Wissensfertigkeit“, die in deinem Setting erlaubt ist. Du kannst +2 addieren, wenn die Fertigkeit verwendet wird. Das Talent kann mehr als einmal gewählt werden, um verschiedene Fertigkeiten abzudecken.'
+// },
     // {
     //   id: 'McGyver',
     //   name: 'McGyver',
