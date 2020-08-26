@@ -1,21 +1,29 @@
 export const state = () => ({
   list: [
-    // {
-    //   id: 'Kraenkelnd',
-    //   name: 'Kränkelnd',
-    //   points: [1, 2],
-    //   tags: ['Deadlands'],
-    //   descr:
-    //     'Die Medizin ist eine rudimentäre Wissenschaft an der wilden Grenze, und es gibt schlimmere Todesarten als einen schweren Fall von Bleivergiftung. Dieses Hindernis ist krankheitsbedingten Hombres mit einem kalten Grab in ihrer nahen Zukunft vorbehalten. Wie Doc Holliday hat auch Ihr Held eine Reservierung beim Leichenbestatter. Sie ist nur noch nicht bestätigt worden. Die Ursache für sein zukünftiges Ableben ist so etwas wie Schwindsucht (Tuberkulose), Diabetes oder Krebs. Wenn ein Cowpoke dieses Hindernis auf dem Minor-Level hat, zieht er immer 1 von den Müdigkeitsrollen ab, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht die Agility-Rollen, um Beulen und Prellungen zu vermeiden). Er befindet sich im frühesten Stadium der Krankheit und kann noch nicht einmal diagnostiziert werden. Wenn es sich um ein grösseres Hindernis handelt, subtrahiert Ihr Hombre 2 von Ermüdungsrollen, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht Agility-Rollen, um Beulen und Prellungen zu vermeiden). Es ist unmöglich, die Tatsache zu verbergen, dass er krank ist, und jeder kann erkennen, dass der Tod einen Schritt hinter ihm geht. In jedem Fall muss der Longenspieler am Ende jeder Spielsitzung einen Vigor Roll machen. Bei einem Misserfolg wird die Krankheit schlimmer. Aus der Minor-Version dieses Hindernisses wird die Major-Version. Wenn der Held bereits die Major-Version dieses Hindernisses hat, stirbt er am Ende der nächsten Spielrunde, in der er bei einem Ermüdungscheck durchfällt (oder zu einem vom Marschall gewählten geeigneten Zeitpunkt).'
-    // },
-    // {
-    //   id: 'SchlechteTraeume',
-    //   name: 'Schlechte Träume',
-    //   points: [2],
-    //   tags: ['Deadlands'],
-    //   descr:
-    //     'Ihr Hombre schläft nicht gut. Tatsächlich ist das Land des Nickens für ihn ein ständiger Alptraum. Er wirft und dreht sich wie ein Dämon auf einem Gestell und hält mit seinen nächtlichen Qualen wahrscheinlich jeden im Umkreis von einem Dutzend Meter von ihm wach. Der Cowpoke beginnt jede Spielsitzung mit 1 Schicksalschip weniger, um seinen ständig müden Zustand zu repräsentieren. Dies ist kumulativ mit Pech verbunden.'
-    // },
+    {
+      id: 'Kraenkelnd',
+      name: 'Kränkelnd',
+      points: [1, 2],
+      tags: ['Deadlands'],
+      descr:
+        'Die Medizin ist eine rudimentäre Wissenschaft und es gibt schlimmere Todesarten als einen schweren Fall von Bleivergiftung. Dieses Handicap ist krankheitsbedingten Hombres mit einem kalten Grab in ihrer nahen Zukunft vorbehalten. Wie Doc Holliday hat auch dein Held eine Reservierung beim Leichenbestatter. Sie ist nur noch nicht bestätigt worden. Die Ursache für sein zukünftiges Ableben ist so etwas wie Schwindsucht (Tuberkulose), Diabetes oder Krebs. Wenn ein Cowpoke dieses Hindernis auf dem Leicht-Level hat, zieht er immer 1 von den Müdigkeitswürfen ab, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht die Geschicklichkeitswürfen, um Beulen und Prellungen zu vermeiden). Er befindet sich im frühesten Stadium der Krankheit und kann noch nicht einmal diagnostiziert werden. Wenn es sich um ein schweres Handicap handelt, subtrahiert dein Hombre stattdessen 2. Es ist unmöglich, die Tatsache zu verbergen, dass er krank ist, und jeder kann erkennen, dass der Tod einen Schritt hinter ihm geht.'
+    },
+    {
+      id: 'Verflucht',
+      name: 'Verflucht',
+      points: [2],
+      tags: ['Deadlands'],
+      descr:
+        'Jeder hat Leichen im Keller, aber deine versuchen, sich den Weg freizukratzen! Dein Held hat jemandem Unrecht getan, entweder durch frühere Zugehörigkeit oder dunkle, unausgesprochene Taten. Während die meisten Leute es nicht wissen oder sich nicht darum kümmern, der Kerl da oben tut das sicher - und er ist es nicht zufrieden. Für jeden Spielercharakter mit dem Handicap Verflucht, beginnt der Spielleiter mit einem zusätzlich Chip!'
+    },
+    {
+      id: 'SchlechteTraeume',
+      name: 'Schlechte Träume',
+      points: [2],
+      tags: ['Deadlands'],
+      descr:
+        'Dein Hombre schläft nicht gut. Tatsächlich ist das Land des Nickens für ihn ein ständiger Alptraum. Er wirft und dreht sich wie ein Dämon auf einem Gestell und hält mit seinen nächtlichen Qualen wahrscheinlich jeden im Umkreis von einem Dutzend Meter von ihm wach. Der Held beginnt jede Spielsitzung mit 1 Chip weniger, um seinen ständig müden Zustand zu repräsentieren. Dies ist kumulativ mit Pech verbunden.'
+    },
     // {
     //   id: 'GrimmigeDienerindesTodes',
     //   name: 'Grimmige Dienerin des Todes',
