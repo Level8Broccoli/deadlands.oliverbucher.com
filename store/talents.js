@@ -24,38 +24,47 @@ export const state = () => ({
     {
       id: 'Heiler',
       name: 'Heiler',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Willenskraft',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Macht'],
-      descr: 'Ein Held mit diesem Talent addiert +2 auf alle Heilenproben, egal ob sie natürlicher oder magischer Natur sind.'
+      descr:
+        'Ein Held mit diesem Talent addiert +2 auf alle Heilenproben, egal ob sie natürlicher oder magischer Natur sind.'
     },
     {
       id: 'MutinFlaschen',
       name: 'Mut in Flaschen',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Konstitution',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 8
+        }
+      ],
       tags: ['Macht'],
-      descr: 'Dieser gesellige Charakter verarbeitet Alkohol ganz anders als die meisten. In der ersten Runde, nachdem er sich einen hinter die Binde gekippt hat (ungefähr 200 ml starker Schnaps oder etwas entsprechendes) steigt seine Konstitution um einen Würfeltyp (was auch seine Robustheit erhöht). Der Trinker kann ausserdem eine Stufe Wundabzüge ignorieren (was mit anderen Fähigkeiten, die diesen Effekt haben, kumulativ ist). Verstand, Geschicklichkeit und alle verknüpften Fertigkeiten erleiden aber für die Wirkungsdauer einen Abzug von –1. Der Effekt hält eine Stunde lang an, dann erleidet der Trinker für die nächsten vier Stunden eine Stufe Erschöpfung.'
+      descr:
+        'Dieser gesellige Charakter verarbeitet Alkohol ganz anders als die meisten. In der ersten Runde, nachdem er sich einen hinter die Binde gekippt hat (ungefähr 200 ml starker Schnaps oder etwas entsprechendes) steigt seine Konstitution um einen Würfeltyp (was auch seine Robustheit erhöht). Der Trinker kann ausserdem eine Stufe Wundabzüge ignorieren (was mit anderen Fähigkeiten, die diesen Effekt haben, kumulativ ist). Verstand, Geschicklichkeit und alle verknüpften Fertigkeiten erleiden aber für die Wirkungsdauer einen Abzug von –1. Der Effekt hält eine Stunde lang an, dann erleidet der Trinker für die nächsten vier Stunden eine Stufe Erschöpfung.'
     },
     {
       id: 'Sammler',
       name: 'Sammler',
-      req: [{
-        type: 'dynamic',
-        depends: 'talent',
-        id: 'Glück',
-        label: 'Glück'
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'talent',
+          id: 'Glück',
+          label: 'Glück'
+        }
+      ],
       tags: ['Macht'],
-      descr: 'Einmal pro Begegnung kann der Held ein Ausrüstungsteil, eine Handvoll Munition oder einen anderen nützlichen Gegenstand finden, beziehungsweise „erinnert er sich“, dass er ihn die ganze Zeit schon dabei hatte. Die Spielleiterin entscheidet, was als Begegnung zählt, und hat das letzte Wort darüber, was „entdeckt“ werden kann und was nicht.'
+      descr:
+        'Einmal pro Begegnung kann der Held ein Ausrüstungsteil, eine Handvoll Munition oder einen anderen nützlichen Gegenstand finden, beziehungsweise „erinnert er sich“, dass er ihn die ganze Zeit schon dabei hatte. Die Spielleiterin entscheidet, was als Begegnung zählt, und hat das letzte Wort darüber, was „entdeckt“ werden kann und was nicht.'
     },
     // {
     //   id: 'SechsterSinn',
@@ -74,14 +83,17 @@ export const state = () => ({
     {
       id: 'Tiermeister',
       name: 'Tiermeister',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Willenskraft',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Macht'],
-      descr: 'Tiere gewöhnen sich schnell und ohne grosse Mühe an deinen Charakter. Sie greifen ihn nicht an, wenn er sie nicht zuvor irgendwie gegen sich aufgebracht hat. Die tierische Anziehungskraft des Tiermeisters ist so gross, dass ihm ausserdem ein loyales Tier folgt. Es ist normalerweise ein Tier von Grösse 0 oder kleiner, nach Zustimmung der Spielleiterin. Das Tier ist ein Statist und erhält keine Aufstiege. Wenn das Haustier weggeschickt oder getötet wird, findet der Held innerhalb von 1W4 Tagen einen Ersatz. Mächtigere Gefährten: Tiermeister kann mehr als einmal gewählt werden. Wähle jedes Mal einen der Effekte unten, wenn das Talent ausgewählt wird. • Du erhältst ein zusätzliches Haustier. • Erhöhe eine Eigenschaft des Tiers um einen Würfeltyp (nur eine Eigenschaft pro Tier). • Erhöhe die maximale Grösse, die dein Tier haben kann, um +1, auf ein Maximum von 3. • Mach ein Tier zur Wildcard. (Der Held muss mindestens Heroisch sein).'
+      descr:
+        'Tiere gewöhnen sich schnell und ohne grosse Mühe an deinen Charakter. Sie greifen ihn nicht an, wenn er sie nicht zuvor irgendwie gegen sich aufgebracht hat. Die tierische Anziehungskraft des Tiermeisters ist so gross, dass ihm ausserdem ein loyales Tier folgt. Es ist normalerweise ein Tier von Grösse 0 oder kleiner, nach Zustimmung der Spielleiterin. Das Tier ist ein Statist und erhält keine Aufstiege. Wenn das Haustier weggeschickt oder getötet wird, findet der Held innerhalb von 1W4 Tagen einen Ersatz. Mächtigere Gefährten: Tiermeister kann mehr als einmal gewählt werden. Wähle jedes Mal einen der Effekte unten, wenn das Talent ausgewählt wird. • Du erhältst ein zusätzliches Haustier. • Erhöhe eine Eigenschaft des Tiers um einen Würfeltyp (nur eine Eigenschaft pro Tier). • Erhöhe die maximale Grösse, die dein Tier haben kann, um +1, auf ein Maximum von 3. • Mach ein Tier zur Wildcard. (Der Held muss mindestens Heroisch sein).'
     },
     // {
     //   id: 'Bedrohlich',
@@ -122,38 +134,47 @@ export const state = () => ({
     {
       id: 'Erniedrigen',
       name: 'Erniedrigen',
-      req: [{
-        type: 'dynamic',
-        depends: 'skill',
-        id: 'Provozieren',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Provozieren',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
-      descr: 'Wer viel Übung darin hat, fiese Sprüche zu klopfen, kann das Ego eines Rivalen mit einer einzigen Bemerkung oder bedeutungsvollen Geste regelrecht zerstören. Dein Held erhält eine freie Wiederholung für Provozierenproben.'
+      descr:
+        'Wer viel Übung darin hat, fiese Sprüche zu klopfen, kann das Ego eines Rivalen mit einer einzigen Bemerkung oder bedeutungsvollen Geste regelrecht zerstören. Dein Held erhält eine freie Wiederholung für Provozierenproben.'
     },
     {
       id: 'Erzürnen',
       name: 'Erzürnen',
-      req: [{
-        type: 'dynamic',
-        depends: 'skill',
-        id: 'Provozieren',
-        value: 6
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Provozieren',
+          value: 6
+        }
+      ],
       tags: ['Sozial'],
-      descr: 'Clevere Charaktere können ihre Feinde manipulieren und ihre Aufmerksamkeit auf sich lenken, um ihre Freunde zu unterstützen. Einmal pro Zug kann dein Held, wenn er eine Provozieren-Herausforderung verwendet und eine Steigerung erzielt (siehe Herausfordern, Seite 104), einen Feind „erzürnen“. Neben den üblichen Effekten eines Erfolgs mit Steigerung erleidet der Gegner einen Abzug von –2, wenn er Ziele ausser dem Charakter, der ihn erzürnt hat, beeinflussen will. Dies gilt zusätzlich zu Abgelenkt, kann aber nicht mit weiteren Anwendungen von Erzürnen kombiniert werden. Erzürnen hält an, bis ein Joker gezogen wird, jemand anderes Erzürnen gegen das Ziel verwendet, oder die Begegnung endet. Erzürnen kann mehrere Ziele beeinflussen indem es mit Aufwiegler kombiniert wird.'
+      descr:
+        'Clevere Charaktere können ihre Feinde manipulieren und ihre Aufmerksamkeit auf sich lenken, um ihre Freunde zu unterstützen. Einmal pro Zug kann dein Held, wenn er eine Provozieren-Herausforderung verwendet und eine Steigerung erzielt (siehe Herausfordern, Seite 104), einen Feind „erzürnen“. Neben den üblichen Effekten eines Erfolgs mit Steigerung erleidet der Gegner einen Abzug von –2, wenn er Ziele ausser dem Charakter, der ihn erzürnt hat, beeinflussen will. Dies gilt zusätzlich zu Abgelenkt, kann aber nicht mit weiteren Anwendungen von Erzürnen kombiniert werden. Erzürnen hält an, bis ein Joker gezogen wird, jemand anderes Erzürnen gegen das Ziel verwendet, oder die Begegnung endet. Erzürnen kann mehrere Ziele beeinflussen indem es mit Aufwiegler kombiniert wird.'
     },
     {
       id: 'Gassenwissen',
       name: 'Gassenwissen',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Verstand',
-        value: 6
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Verstand',
+          value: 6
+        }
+      ],
       tags: ['Sozial'],
-      descr: 'Charaktere, die dieses Talent besitzen, wissen, wie sie den örtlichen Schwarzmarkt finden, gestohlene Güter verhökern, den örtlichen Gesetzeshütern (oder den Verbrechern!) ausweichen können, sich bedeckt halten, wenn es brenzlig wird, illegale Waffen erwerben oder herausfinden können, welcher „Boss“ Schläger anheuert und so weiter. Charaktere mit diesem Talent addieren +2 auf Proben mit Einschüchtern oder Überreden zur Informationsbeschaffung (siehe Seite 120), sofern diese zwielichtige oder kriminelle Elemente involvieren. Sie addieren ausserdem +2 auf Allgemeinwissenproben, die mit zwielichtigen Aktivitäten (wie weiter oben beschrieben) zu tun haben.'
+      descr:
+        'Charaktere, die dieses Talent besitzen, wissen, wie sie den örtlichen Schwarzmarkt finden, gestohlene Güter verhökern, den örtlichen Gesetzeshütern (oder den Verbrechern!) ausweichen können, sich bedeckt halten, wenn es brenzlig wird, illegale Waffen erwerben oder herausfinden können, welcher „Boss“ Schläger anheuert und so weiter. Charaktere mit diesem Talent addieren +2 auf Proben mit Einschüchtern oder Überreden zur Informationsbeschaffung (siehe Seite 120), sofern diese zwielichtige oder kriminelle Elemente involvieren. Sie addieren ausserdem +2 auf Allgemeinwissenproben, die mit zwielichtigen Aktivitäten (wie weiter oben beschrieben) zu tun haben.'
     },
     // {
     //   id: 'Konter',
@@ -188,14 +209,17 @@ export const state = () => ({
     {
       id: 'Selbstlos',
       name: 'Selbstlos',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Willenskraft',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Willenskraft',
+          value: 8
+        }
+      ],
       tags: ['Sozial'],
-      descr: 'Selbstlose Helden und entschlossene Anführer wissen, dass ihre grösste Stärke oft von ihren Gefährten kommt, und sind bereit, einen Teil ihres Glücks oder Schicksals mit ihnen zu teilen. Ein Charakter mit diesem Talent kann seine Bennys jedem anderen Charakter geben, mit dem er kommunizieren kann. Der Spieler sollte erklären, wie das genau aussieht: Von einem kurzen ermunternden Ausruf bis hin zu einem freundlichen Schulterklopfen ist so einiges möglich.'
+      descr:
+        'Selbstlose Helden und entschlossene Anführer wissen, dass ihre grösste Stärke oft von ihren Gefährten kommt, und sind bereit, einen Teil ihres Glücks oder Schicksals mit ihnen zu teilen. Ein Charakter mit diesem Talent kann seine Bennys jedem anderen Charakter geben, mit dem er kommunizieren kann. Der Spieler sollte erklären, wie das genau aussieht: Von einem kurzen ermunternden Ausruf bis hin zu einem freundlichen Schulterklopfen ist so einiges möglich.'
     },
     // {
     //   id: 'StarkerWille',
@@ -382,25 +406,31 @@ export const state = () => ({
     {
       id: 'Kampfkünstler',
       name: 'Kampfkünstler',
-      req: [{
-        type: 'dynamic',
-        depends: 'skill',
-        id: 'Kaempfen',
-        value: 6
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 6
+        }
+      ],
       tags: ['Kampf'],
-      descr: 'Der Kämpfer hat die Grundlagen einer Kampfkunst erlernt. Seine Fäuste und Füsse sind Waffen (siehe Natürliche Waffen, Seite 105) und somit gilt er immer als bewaffnet. Er addiert +1 bei Kämpfen-Angriffen mit ihnen und verursacht Stärke + W4 Schaden. Wenn er bereits einen Stärke-Schadenswürfel durch die Volkseigenart Klauen (siehe Seite 19) oder das Talent Raufbold erhält, erhöhe den Schadenswürfel um einen Würfeltyp. Kampfkünstler addieren keinen Schaden auf andere Natürliche Waffen wie Fänge oder Hörner.'
+      descr:
+        'Der Kämpfer hat die Grundlagen einer Kampfkunst erlernt. Seine Fäuste und Füsse sind Waffen (siehe Natürliche Waffen, Seite 105) und somit gilt er immer als bewaffnet. Er addiert +1 bei Kämpfen-Angriffen mit ihnen und verursacht Stärke + W4 Schaden. Wenn er bereits einen Stärke-Schadenswürfel durch die Volkseigenart Klauen (siehe Seite 19) oder das Talent Raufbold erhält, erhöhe den Schadenswürfel um einen Würfeltyp. Kampfkünstler addieren keinen Schaden auf andere Natürliche Waffen wie Fänge oder Hörner.'
     },
     {
       id: 'Lieblingswaffe',
       name: 'Lieblingswaffe',
-      req: [{
-        type: 'text',
-        id: 'Lieblingswaffe',
-        label: 'Fertigkeit mit der gewählten Waffe auf W8+'
-      }],
+      req: [
+        {
+          type: 'text',
+          id: 'Lieblingswaffe',
+          label: 'Fertigkeit mit der gewählten Waffe auf W8+'
+        }
+      ],
       tags: ['Kampf'],
-      descr: 'Der Held kennt eine einzigartige Waffe (Excalibur, Old Betsy, Stich) sehr genau. Wenn er sie verwendet, addiert er +1 auf seine Proben mit Athletik (Werfen), Kämpfen oder Schiessen, und erhält +1 Parade, wenn er die Waffe bereitgemacht hat (selbst bei einer Fernkampfwaffe). Ein Kämpfer kann dieses Talent mehrere Male wählen und jedes Mal für eine andere Waffe verwenden. Wenn eine Lieblingswaffe verloren geht, kann sie ersetzt werden, doch die Vorteile treten erst nach ein paar Tagen wieder in Kraft (solange wie die SL für angemessen hält).'
+      descr:
+        'Der Held kennt eine einzigartige Waffe (Excalibur, Old Betsy, Stich) sehr genau. Wenn er sie verwendet, addiert er +1 auf seine Proben mit Athletik (Werfen), Kämpfen oder Schiessen, und erhält +1 Parade, wenn er die Waffe bereitgemacht hat (selbst bei einer Fernkampfwaffe). Ein Kämpfer kann dieses Talent mehrere Male wählen und jedes Mal für eine andere Waffe verwenden. Wenn eine Lieblingswaffe verloren geht, kann sie ersetzt werden, doch die Vorteile treten erst nach ein paar Tagen wieder in Kraft (solange wie die SL für angemessen hält).'
     },
     // {
     //   id: 'MaechtigerHieb',
@@ -420,7 +450,8 @@ export const state = () => ({
     {
       id: 'Parkour',
       name: 'Parkour',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Geschicklichkeit',
@@ -434,7 +465,8 @@ export const state = () => ({
         }
       ],
       tags: ['Kampf'],
-      descr: 'Dein Charakter geht der Sportart „Parkour“ nach, oder ist einfach sehr geschickt darin, zu rennen, zu springen, zu schwingen, Wände emporzukrabbeln und über Hindernisse zu kommen. Solange es Hindernisse gibt, auf die er springen, von denen er abprallen oder an denen er sich schwingen kann, bewegt er sich auf dem Boden mit voller Bewegungsweite durch Schwieriges Gelände, wenn er zu Fuss ist. Er addiert ausserdem +2 auf Athletikproben, sofern es etwas mit Klettern zu tun hat, und in Verfolgungsjagden zu Fuss (siehe Verfolgungsjagden & Fahrzeuge, Seite 135).'
+      descr:
+        'Dein Charakter geht der Sportart „Parkour“ nach, oder ist einfach sehr geschickt darin, zu rennen, zu springen, zu schwingen, Wände emporzukrabbeln und über Hindernisse zu kommen. Solange es Hindernisse gibt, auf die er springen, von denen er abprallen oder an denen er sich schwingen kann, bewegt er sich auf dem Boden mit voller Bewegungsweite durch Schwieriges Gelände, wenn er zu Fuss ist. Er addiert ausserdem +2 auf Athletikproben, sofern es etwas mit Klettern zu tun hat, und in Verfolgungsjagden zu Fuss (siehe Verfolgungsjagden & Fahrzeuge, Seite 135).'
     },
     // {
     //   id: 'Raufbold',
@@ -475,19 +507,23 @@ export const state = () => ({
     {
       id: 'RuhigeHaende',
       name: 'Ruhige Hände',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Geschicklichkeit',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Geschicklichkeit',
+          value: 8
+        }
+      ],
       tags: ['Kampf'],
-      descr: 'Es ist schwierig, vom Rücken eines Pferdes oder einem sich bewegenden Fahrzeug aus zu schiessen, aber dein Held weiss, wie es geht. Er ignoriert den Abzug für Unsicheren Grund (siehe Seite 108). Dies hilft auch, wenn er sprintet, sodass der übliche Abzug fürs Sprinten von –2 auf –1 sinkt (siehe Bewegung, Seite 142).'
+      descr:
+        'Es ist schwierig, vom Rücken eines Pferdes oder einem sich bewegenden Fahrzeug aus zu schiessen, aber dein Held weiss, wie es geht. Er ignoriert den Abzug für Unsicheren Grund (siehe Seite 108). Dies hilft auch, wenn er sprintet, sodass der übliche Abzug fürs Sprinten von –2 auf –1 sinkt (siehe Bewegung, Seite 142).'
     },
     {
       id: 'Rundumschlag',
       name: 'Rundumschlag',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Staerke',
@@ -501,7 +537,8 @@ export const state = () => ({
         }
       ],
       tags: ['Kampf'],
-      descr: 'Rundumschlag erlaubt es dem Charakter, einen Kämpfen-Angriff mit –2 auszuführen und das Ergebnis gegen alle Gegner innerhalb seiner Reichweite (Freund und Feind) anzuwenden. Ermittle den Schaden für jeden getroffenen Gegner einzeln. Ein Kämpfer kann nur einen Rundumschlag pro Zug durchführen. Er kann nicht mit Schneller Angriff kombiniert werden.'
+      descr:
+        'Rundumschlag erlaubt es dem Charakter, einen Kämpfen-Angriff mit –2 auszuführen und das Ergebnis gegen alle Gegner innerhalb seiner Reichweite (Freund und Feind) anzuwenden. Ermittle den Schaden für jeden getroffenen Gegner einzeln. Ein Kämpfer kann nur einen Rundumschlag pro Zug durchführen. Er kann nicht mit Schneller Angriff kombiniert werden.'
     },
     // {
     //   id: 'Schmerzresistenz',
@@ -621,14 +658,17 @@ export const state = () => ({
     {
       id: 'Attraktiv',
       name: 'Attraktiv',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Konstitution',
-        value: 6
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 6
+        }
+      ],
       tags: ['Hintergrund'],
-      descr: 'Es ist kein Geheimnis, dass Leute hilfsbereiter sind, wenn sie ihr Gegenüber körperlich anziehend finden. Dein Charakter addiert +1 auf Würfe mit Darbietung und Überreden, wenn das Ziel ihn generell anziehend findet (in Bezug auf Geschlecht, Spezies und so weiter).'
+      descr:
+        'Es ist kein Geheimnis, dass Leute hilfsbereiter sind, wenn sie ihr Gegenüber körperlich anziehend finden. Dein Charakter addiert +1 auf Würfe mit Darbietung und Überreden, wenn das Ziel ihn generell anziehend findet (in Bezug auf Geschlecht, Spezies und so weiter).'
     },
     // {
     //   id: 'SehrAttraktiv',
@@ -649,7 +689,8 @@ export const state = () => ({
       id: 'Aufmerksamkeit',
       name: 'Aufmerksamkeit',
       tags: ['Hintergrund'],
-      descr: 'Dem Helden entgeht nicht viel. Er ist sehr aufmerksam und scharfsinnig und addiert + 2 auf Wahrnehmungsproben, wenn er die Welt, die ihn umgibt, hören, sehen oder anderweitig wahrnehmen möchte.'
+      descr:
+        'Dem Helden entgeht nicht viel. Er ist sehr aufmerksam und scharfsinnig und addiert + 2 auf Wahrnehmungsproben, wenn er die Welt, die ihn umgibt, hören, sehen oder anderweitig wahrnehmen möchte.'
     },
     // {
     //   id: 'Beidhaendig',
@@ -670,7 +711,8 @@ export const state = () => ({
       id: 'Bekannt',
       name: 'Bekannt',
       tags: ['Hintergrund'],
-      descr: 'Dein Charakter ist eine kleinere Berühmtheit. Vielleicht ist er ein beliebter Barde, der in einem Lehen bekannt ist, ein kleinerer Rockstar oder ein beliebter Schauspieler in B-Movies. Er verdient doppelt so viel, wenn er für Bezahlung auftritt (siehe Darbietung, Seite 29). Er kann seine Berühmtheit auch verwenden, um +1 auf Überredenproben zu addieren, wenn das Ziel freundlich gesinnt ist und weiss, wer er ist (ein Wurf auf Allgemeinwissen, mit einem Modifikator, der davon abhängt, wie wahrscheinlich es ist, dass die Person schon von dem Charakter gehört hat). Der Nachteil von Ruhm ist, dass die Person oft erkannt wird, andere oft etwas von ihr haben wollen, sie von Fans und Bewunderern verfolgt wird, oder sie nicht dazu in der Lage ist, Engagements, Auftritte oder anderen Verpflichtungen zu vermeiden, ohne in Schwierigkeiten zu kommen.'
+      descr:
+        'Dein Charakter ist eine kleinere Berühmtheit. Vielleicht ist er ein beliebter Barde, der in einem Lehen bekannt ist, ein kleinerer Rockstar oder ein beliebter Schauspieler in B-Movies. Er verdient doppelt so viel, wenn er für Bezahlung auftritt (siehe Darbietung, Seite 29). Er kann seine Berühmtheit auch verwenden, um +1 auf Überredenproben zu addieren, wenn das Ziel freundlich gesinnt ist und weiss, wer er ist (ein Wurf auf Allgemeinwissen, mit einem Modifikator, der davon abhängt, wie wahrscheinlich es ist, dass die Person schon von dem Charakter gehört hat). Der Nachteil von Ruhm ist, dass die Person oft erkannt wird, andere oft etwas von ihr haben wollen, sie von Fans und Bewunderern verfolgt wird, oder sie nicht dazu in der Lage ist, Engagements, Auftritte oder anderen Verpflichtungen zu vermeiden, ohne in Schwierigkeiten zu kommen.'
     },
     // {
     //   id: 'Berserker',
@@ -796,7 +838,8 @@ export const state = () => ({
       id: 'Reich',
       name: 'Reich',
       tags: ['Hintergrund'],
-      descr: 'Egal ob diese Person mit dem Silberlöffel im Mund geboren wurde oder sich ihr Vermögen mit harter Arbeit verdient hat, sie hat auf jeden Fall mehr Geld als die meisten Leute. Reiche Helden beginnen das Spiel mit dem dreifachen normalen Startkapital für das Setting. Wenn ein regelmässiges Einkommen für das Setting angemessen erscheint, erhält der Charakter die Entsprechung eines heutigen Jahresgehalts von $150.000.'
+      descr:
+        'Egal ob diese Person mit dem Silberlöffel im Mund geboren wurde oder sich ihr Vermögen mit harter Arbeit verdient hat, sie hat auf jeden Fall mehr Geld als die meisten Leute. Reiche Helden beginnen das Spiel mit dem dreifachen normalen Startkapital für das Setting. Wenn ein regelmässiges Einkommen für das Setting angemessen erscheint, erhält der Charakter die Entsprechung eines heutigen Jahresgehalts von $150.000.'
     },
     // {
     //   id: 'Stinkreich',
@@ -852,19 +895,23 @@ export const state = () => ({
     {
       id: 'SchnelleHeilung',
       name: 'Schnelle Heilung',
-      req: [{
-        type: 'dynamic',
-        depends: 'attribute',
-        id: 'Konstitution',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'attribute',
+          id: 'Konstitution',
+          value: 8
+        }
+      ],
       tags: ['Hintergrund'],
-      descr: 'Charaktere mit diesem Talent addieren +2 auf Konstitutionproben für Natürliche Heilung und würfeln alle drei Tage, nicht nur alle fünf (siehe Heilung, Seite 96).'
+      descr:
+        'Charaktere mit diesem Talent addieren +2 auf Konstitutionproben für Natürliche Heilung und würfeln alle drei Tage, nicht nur alle fünf (siehe Heilung, Seite 96).'
     },
     {
       id: 'Akrobat',
       name: 'Akrobat',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Geschicklichkeit',
@@ -878,7 +925,8 @@ export const state = () => ({
         }
       ],
       tags: ['Experte'],
-      descr: 'Der Akrobat kann Proben auf Athletik einmal kostenlos wiederholen, die sich um Gleichgewicht, Abrollen oder Ringen drehen. Das hat keinen Einfluss auf Proben, um Aktionen zu unterbrechen, zu klettern, zu schwimmen oder zu werfen.'
+      descr:
+        'Der Akrobat kann Proben auf Athletik einmal kostenlos wiederholen, die sich um Gleichgewicht, Abrollen oder Ringen drehen. Das hat keinen Einfluss auf Proben, um Aktionen zu unterbrechen, zu klettern, zu schwimmen oder zu werfen.'
     },
     // {
     //   id: 'Alleskoenner',
@@ -913,7 +961,8 @@ export const state = () => ({
     {
       id: 'Assassine',
       name: 'Assassine',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Geschicklichkeit',
@@ -933,12 +982,14 @@ export const state = () => ({
         }
       ],
       tags: ['Experte'],
-      descr: 'Assassinen sind ausgebildete Mörder, die wissen, wie man auch die härtesten Gegner um die Ecke bringt. Sie addieren +2 auf Schadenswürfe, wenn ihre Gegner Verwundbar sind oder sie einen Überraschungsangriff ausführen.'
+      descr:
+        'Assassinen sind ausgebildete Mörder, die wissen, wie man auch die härtesten Gegner um die Ecke bringt. Sie addieren +2 auf Schadenswürfe, wenn ihre Gegner Verwundbar sind oder sie einen Überraschungsangriff ausführen.'
     },
     {
       id: 'Dieb',
       name: 'Dieb',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Geschicklichkeit',
@@ -958,7 +1009,8 @@ export const state = () => ({
         }
       ],
       tags: ['Experte'],
-      descr: 'Diebe sind spezialisiert auf Täuschung, Verrat und Akrobatik. Sie sind unabdingbar, wenn es gilt, Fallen zu entdecken, Wände zu erklimmen und Schlösser zu knacken. Diebe wissen, wie sie Vorsprünge an Wänden und Fenstersimsen verwenden können, um die höchsten Gebäude zu erklimmen und wie Katzen durch Strassen und Gassen zu huschen. Sie addieren +1 auf Athletikproben, um in urbanen Gebieten zu klettern. Diebe wissen auch, wie man sich in der Dunkelheit zwischen Strassenlaternen bewegt, und addieren +1 auf Heimlichkeitsproben in urbanen Umgebungen. Ausserdem sind diese Schurken sehr geschickt, wenn es um Diebeskunst geht, und addieren in allen Umständen +1 auf entsprechende Proben.'
+      descr:
+        'Diebe sind spezialisiert auf Täuschung, Verrat und Akrobatik. Sie sind unabdingbar, wenn es gilt, Fallen zu entdecken, Wände zu erklimmen und Schlösser zu knacken. Diebe wissen, wie sie Vorsprünge an Wänden und Fenstersimsen verwenden können, um die höchsten Gebäude zu erklimmen und wie Katzen durch Strassen und Gassen zu huschen. Sie addieren +1 auf Athletikproben, um in urbanen Gebieten zu klettern. Diebe wissen auch, wie man sich in der Dunkelheit zwischen Strassenlaternen bewegt, und addieren +1 auf Heimlichkeitsproben in urbanen Umgebungen. Ausserdem sind diese Schurken sehr geschickt, wenn es um Diebeskunst geht, und addieren in allen Umständen +1 auf entsprechende Proben.'
     },
     // {
     //   id: 'Ermittler',
@@ -1011,7 +1063,7 @@ export const state = () => ({
     //       depends: 'skill',
     //       id: 'Wahrnehmung',
     //       value: 8
-    //     }, 
+    //     },
     //     {
     //       type: 'dynamic',
     //       depends: 'skill',
@@ -1026,7 +1078,8 @@ export const state = () => ({
     {
       id: 'Naturbursche',
       name: 'Naturbursche',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Willenskraft',
@@ -1040,19 +1093,23 @@ export const state = () => ({
         }
       ],
       tags: ['Experte'],
-      descr: 'Naturburschen sind Waldläufer, Kundschafter und Jäger, die sich in der Wildnis wohler fühlen als in urbanen Gebieten. Sie sind geschickte Fährtenleser und Kundschafter, und wissen, wie man über Monate in der Wildnis überlebt. Naturburschen addieren +2 auf Überlebensproben und Heimlichkeitsproben in der Wildnis (nicht in Städten, Ruinen oder unter der Erde).'
+      descr:
+        'Naturburschen sind Waldläufer, Kundschafter und Jäger, die sich in der Wildnis wohler fühlen als in urbanen Gebieten. Sie sind geschickte Fährtenleser und Kundschafter, und wissen, wie man über Monate in der Wildnis überlebt. Naturburschen addieren +2 auf Überlebensproben und Heimlichkeitsproben in der Wildnis (nicht in Städten, Ruinen oder unter der Erde).'
     },
     {
       id: 'Reparaturgenie',
       name: 'Reparaturgenie',
-      req: [{
-        type: 'dynamic',
-        depends: 'skill',
-        id: 'Reparieren',
-        value: 8
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Reparieren',
+          value: 8
+        }
+      ],
       tags: ['Experte'],
-      descr: 'Der Mechaniker addiert +2 auf Reparierenproben. Mit einer Steigerung halbiert er die Zeit, die normalerweise nötig ist, um etwas zu reparieren. Das bedeutet, dass ein Reparaturgenie, wenn bei einer bestimmten Reparatur angegeben ist, dass sie bei einer Steigerung in der Hälfte der Zeit gelingt, sie in einem Viertel der Zeit erledigt ist, wenn er eine Steigerung erzielt.'
+      descr:
+        'Der Mechaniker addiert +2 auf Reparierenproben. Mit einer Steigerung halbiert er die Zeit, die normalerweise nötig ist, um etwas zu reparieren. Das bedeutet, dass ein Reparaturgenie, wenn bei einer bestimmten Reparatur angegeben ist, dass sie bei einer Steigerung in der Hälfte der Zeit gelingt, sie in einem Viertel der Zeit erledigt ist, wenn er eine Steigerung erzielt.'
     },
     // {
     //   id: 'Soldat',
@@ -1085,7 +1142,8 @@ export const state = () => ({
     {
       id: 'ArkanerHintergrundGesegnet',
       name: 'Arkaner Hintergrund (Gesegnet)',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Willenskraft',
@@ -1099,12 +1157,14 @@ export const state = () => ({
         }
       ],
       tags: ['Deadlands', 'Hintergrund'],
-      descr: 'Bestimmte Charaktere können die Macht ihrer Gottheit (oder ihrer Gottheiten) um Hilfe anrufen. Im Weird West werden diese frommen Seelen die Gesegneten genannt. Gesegnete sind Nonnen, Priester oder auch durchschnittliche, aber (relativ) reinherzige Menschen, die von einem göttlichen Wesen gesegnet sind. Obwohl sie im Wilden Westen selten sind, gibt es auch gesegnete Imame, buddhistische Mönche und andere Gläubige, die mit höheren Mächten umherlaufen, die ihren heiligen Hintern bedecken. Wenn diese Leute sich benehmen, können sie manchmal Wunder beschwören, die ihnen helfen, die Übel des Wilden Westens zu bekämpfen. Die Gesegneten benutzen den Glauben als ihre arkane Fertigkeit.'
+      descr:
+        'Bestimmte Charaktere können die Macht ihrer Gottheit (oder ihrer Gottheiten) um Hilfe anrufen. Im Weird West werden diese frommen Seelen die Gesegneten genannt. Gesegnete sind Nonnen, Priester oder auch durchschnittliche, aber (relativ) reinherzige Menschen, die von einem göttlichen Wesen gesegnet sind. Obwohl sie im Wilden Westen selten sind, gibt es auch gesegnete Imame, buddhistische Mönche und andere Gläubige, die mit höheren Mächten umherlaufen, die ihren heiligen Hintern bedecken. Wenn diese Leute sich benehmen, können sie manchmal Wunder beschwören, die ihnen helfen, die Übel des Wilden Westens zu bekämpfen. Die Gesegneten benutzen den Glauben als ihre arkane Fertigkeit.'
     },
     {
       id: 'ArkanerHintergrundKraemer',
       name: 'Arkaner Hintergrund (Krämer)',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'skill',
           id: 'Gluecksspiel',
@@ -1118,12 +1178,14 @@ export const state = () => ({
         }
       ],
       tags: ['Deadlands', 'Hintergrund'],
-      descr: 'Die Magie im Wilden Westen ist nicht auf die leichte Schulter zu nehmen. Diejenigen, die Zauberei praktizieren, müssen ihre Kräfte oft dunklen Geistern abtrotzen, die selten bereit sind, leicht aufzugeben. Krämer stellen sich diese Willensduelle als Kartenspiele vor, und die Besten sind zu erstaunlichen Kräften fähig. Andere sollen noch dunklere Wege beschreiten und sich die Kraft der Blutmagie zunutze machen. Krämer benutzen Zaubern als ihre arkane Fertigkeit.'
+      descr:
+        'Die Magie im Wilden Westen ist nicht auf die leichte Schulter zu nehmen. Diejenigen, die Zauberei praktizieren, müssen ihre Kräfte oft dunklen Geistern abtrotzen, die selten bereit sind, leicht aufzugeben. Krämer stellen sich diese Willensduelle als Kartenspiele vor, und die Besten sind zu erstaunlichen Kräften fähig. Andere sollen noch dunklere Wege beschreiten und sich die Kraft der Blutmagie zunutze machen. Krämer benutzen Zaubern als ihre arkane Fertigkeit.'
     },
     {
       id: 'ArkanerHintergrundShamanismus',
       name: 'Arkaner Hintergrund (Shamanismus)',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Willenskraft',
@@ -1134,15 +1196,17 @@ export const state = () => ({
           depends: 'skill',
           id: 'Glaube',
           value: 4
-        },
+        }
       ],
       tags: ['Deadlands', 'Hintergrund'],
-      descr: 'Schamanen sind indische heilige Männer und Frauen und Bewahrer der Stammesmedizin. Ihre Macht kommt aus den Verhandlungen mit den anspruchsvollen Geistern der natürlichen Welt. Wenn diese Medizinmänner die Naturgeister ehren, können sie erstaunliche Kunststücke vollbringen, die selbst den zweifelndsten Thomas erzittern lassen. Schamanen benutzen Glaube als ihre arkane Fertigkeit.'
+      descr:
+        'Schamanen sind indische heilige Männer und Frauen und Bewahrer der Stammesmedizin. Ihre Macht kommt aus den Verhandlungen mit den anspruchsvollen Geistern der natürlichen Welt. Wenn diese Medizinmänner die Naturgeister ehren, können sie erstaunliche Kunststücke vollbringen, die selbst den zweifelndsten Thomas erzittern lassen. Schamanen benutzen Glaube als ihre arkane Fertigkeit.'
     },
     {
       id: 'ArkanerHintergrundChi',
       name: 'Arkaner Hintergrund (Chi Master)',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Geschicklichkeit',
@@ -1168,12 +1232,14 @@ export const state = () => ({
         }
       ],
       tags: ['Deadlands', 'Hintergrund'],
-      descr: 'Einige wenige Menschen im Wilden Westen haben die altorientalischen Kampfkünste studiert. Nur sehr wenige dieser überaus fähigen Kämpfer haben die spirituelle Disziplin erlangt, die notwendig ist, um übernatürliche Kräfte durch ihren eigenen Körper, Chi genannt, zu kanalisieren. Diese erleuchteten Kämpfer nutzen den Rand des Arkanen Hintergrunds (Chi-Meisterschaft), um ihre erstaunlichen Fähigkeiten widerzuspiegeln. Chi Master benutzen den Fokus als ihre arkane Fertigkeit.'
+      descr:
+        'Einige wenige Menschen im Wilden Westen haben die altorientalischen Kampfkünste studiert. Nur sehr wenige dieser überaus fähigen Kämpfer haben die spirituelle Disziplin erlangt, die notwendig ist, um übernatürliche Kräfte durch ihren eigenen Körper, Chi genannt, zu kanalisieren. Diese erleuchteten Kämpfer nutzen den Rand des Arkanen Hintergrunds (Chi-Meisterschaft), um ihre erstaunlichen Fähigkeiten widerzuspiegeln. Chi Master benutzen den Fokus als ihre arkane Fertigkeit.'
     },
     {
       id: 'ArkanerHintergrundWeirdScience',
       name: 'Arkaner Hintergrund (Verrückte Wissenschaft)',
-      req: [{
+      req: [
+        {
           type: 'dynamic',
           depends: 'attribute',
           id: 'Verstand',
@@ -1190,10 +1256,11 @@ export const state = () => ({
           depends: 'skill',
           id: 'VerrueckteWissenschaft',
           value: 4
-        },
+        }
       ],
       tags: ['Deadlands', 'Hintergrund'],
-      descr: 'Die Anhänger der Prinzipien der Neuen Wissenschaft (von den meisten als verrückte Wissenschaftler bezeichnet) bauen seltsame und wunderbare Geräte, Maschinen, die oft den Gesetzen der Realität zu trotzen scheinen. Die meisten dieser Erfinder, zumindest die erfolgreichen, verlassen sich auf Geisterfelsen, um ihre Erfindungen in irgendeiner Weise anzutreiben. Verrückte Wissenschaftler benutzen Verrückte Wissenschaft als ihre arkane Fertigkeit.'
+      descr:
+        'Die Anhänger der Prinzipien der Neuen Wissenschaft (von den meisten als verrückte Wissenschaftler bezeichnet) bauen seltsame und wunderbare Geräte, Maschinen, die oft den Gesetzen der Realität zu trotzen scheinen. Die meisten dieser Erfinder, zumindest die erfolgreichen, verlassen sich auf Geisterfelsen, um ihre Erfindungen in irgendeiner Weise anzutreiben. Verrückte Wissenschaftler benutzen Verrückte Wissenschaft als ihre arkane Fertigkeit.'
     },
     // {
     //   id: 'VeteranDesWeirdWest',
@@ -1234,15 +1301,18 @@ export const state = () => ({
     {
       id: 'MartialArts',
       name: 'Martial Arts',
-      req: [{
-        type: 'dynamic',
-        depends: 'skill',
-        id: 'Kaempfen',
-        value: 6
-      }],
+      req: [
+        {
+          type: 'dynamic',
+          depends: 'skill',
+          id: 'Kaempfen',
+          value: 6
+        }
+      ],
       tags: ['Deadlands', 'Kampf'],
-      descr: 'Sie haben in Kampfsportarten oder Boxen trainiert oder gelernt, wirklich schmutzig auf der Strasse zu kämpfen. Der Körper Ihres Charakters ist eine fein geschliffene Waffe. Selbst wenn Ihr Held unbewaffnet kämpft, gilt er als bewaffnet. Darüber hinaus profitieren Gegner im Nahkampf niemals von einem Bandenbonus gegen Ihren Helden.'
-    },
+      descr:
+        'Sie haben in Kampfsportarten oder Boxen trainiert oder gelernt, wirklich schmutzig auf der Strasse zu kämpfen. Der Körper Ihres Charakters ist eine fein geschliffene Waffe. Selbst wenn Ihr Held unbewaffnet kämpft, gilt er als bewaffnet. Darüber hinaus profitieren Gegner im Nahkampf niemals von einem Bandenbonus gegen Ihren Helden.'
+    }
     // {
     //   id: 'RebelYell',
     //   name: 'Rebel Yell',

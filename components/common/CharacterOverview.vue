@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="message-body">
-      <div class="field is-grouped is-grouped-multiline">       
+      <div class="field is-grouped is-grouped-multiline">
         <div class="control">
           <div class="tags has-addons">
             <span class="tag is-dark">Parade/Zielwert (Kämpfen)</span>
@@ -25,7 +25,7 @@
             <span class="tag is-dark">Kapital</span>
             <span class="tag">{{ totalValue }}$</span>
           </div>
-        </div>        
+        </div>
       </div>
     </div>
   </div>
