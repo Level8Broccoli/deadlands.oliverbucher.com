@@ -3,9 +3,9 @@
     <tr>
       <td>{{ roundNumber(gearUpdated.count) }}</td>
       <td>
-        <a v-if="gearUpdated.descr !== ''" @click="show = !show">{{
-          gearUpdated.name
-        }}</a>
+        <a v-if="gearUpdated.descr !== ''" @click="show = !show">
+          {{ gearUpdated.name }}
+        </a>
         <span v-else>
           {{ gearUpdated.name }}
         </span>

@@ -20,6 +20,25 @@
       </div>
     </div>
     <br />
+    <h2 class="subtitle">Fertige Charaktere</h2>
+    <p>
+      <em
+        >Achtung: Das Laden eines Charakters überschreibt die aktuellen Werte.
+        Möchtest du zur Sicherheit den jetztigen Stand speichern, dann
+        exportiere den Charakter im fortgeschrittenen Bereich unten.
+      </em>
+    </p>
+    <div class="buttons">
+      <div v-for="(char, index) in characters" :key="index">
+        <GameButton
+          :button-text="char.label"
+          button-style="is-info is-light"
+          button-icon="plus"
+          @click.native="loadChar(char.data)"
+        />
+      </div>
+    </div>
+    <br />
     <h2 class="subtitle">
       Fortgeschritten
       <GameButton
@@ -156,6 +175,18 @@ export default {
           value
         })
       }
+    },
+    characters() {
+      return this.$store.state.characters.list
+    }
+  },
+  methods: {
+    loadChar(data) {
+      this.$store.commit(
+        'charSave/loadFromSave',
+        JSON.parse(JSON.stringify(data))
+      )
+      this.$store.dispatch('charSave/uniqueId')
     }
   },
   head() {
