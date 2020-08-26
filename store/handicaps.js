@@ -88,13 +88,13 @@ export const state = () => ({
     //   descr:
     //     "Unabhängig davon, ob Ihr Cowboy etwas falsch gemacht hat oder nicht, das Gesetz denkt, er hat es getan! Sein Gesicht ist auf Plakaten in der ganzen Region zu sehen, und vielleicht auch noch weiter weg. Die Art des Verbrechens und der Sinn des Marschalls für 'Sport' bestimmen, wie weit und breit die Anklagen in Umlauf gebracht wurden, aber irgendwo sucht jemand nach Ihnen. Auf Ihren Hombre ist nicht nur jemand hinter ihm her, sondern es ist auch ein Kopfgeld auf ihn ausgesetzt. Für die Minor-Version gibt es eine Belohnung von 1d6 x $100. Bei der Major-Hindernis-Version erhöht sich die Belohnung auf verlockende 1d6 x $1.000. Der Spieler und der Marschall sollten vereinbaren, wo das Kopfgeld eingesammelt werden kann."
     // },
-    {
-      id: 'Alt',
-      name: 'Alt',
-      points: [2],
-      descr:
-        'Dein Abenteurer hat schon einige Jahre auf dem Buckel, ist aber auch noch nicht reif fürs Altersheim. Seine Bewegungsweite sinkt um –1, und er verringert das Ergebnis seines Sprintwürfels um 1 (Minimum 1). Er erleidet ausserdem einen Abzug von –1 auf Proben mit Geschicklichkeit, Konstitution und Stärke, aber nicht bei verknüpften Fertigkeiten. Auf der positiven Seite erhält der Charakter durch die Weisheit des Alters 5 zusätzliche Fertigkeitspunkte, die er für alle Fertigkeiten verwenden kann, die mit Verstand verknüpft sind.'
-    },
+    // {
+    //   id: 'Alt',
+    //   name: 'Alt',
+    //   points: [2],
+    //   descr:
+    //     'Dein Abenteurer hat schon einige Jahre auf dem Buckel, ist aber auch noch nicht reif fürs Altersheim. Seine Bewegungsweite sinkt um –1, und er verringert das Ergebnis seines Sprintwürfels um 1 (Minimum 1). Er erleidet ausserdem einen Abzug von –1 auf Proben mit Geschicklichkeit, Konstitution und Stärke, aber nicht bei verknüpften Fertigkeiten. Auf der positiven Seite erhält der Charakter durch die Weisheit des Alters 5 zusätzliche Fertigkeitspunkte, die er für alle Fertigkeiten verwenden kann, die mit Verstand verknüpft sind.'
+    // },
     {
       id: 'Analphabet',
       name: 'Analphabet',
@@ -102,13 +102,13 @@ export const state = () => ({
       descr:
         'Dein Held kann nicht lesen und schreiben. Er kann unterschreiben und weiss, was ein Stoppschild ist, aber das war es auch schon. Er weiss auch nicht viel über Mathe. Er weiss wahrscheinlich, dass zwei plus zwei gleich vier ist, aber Multiplikation und dergleichen sind ihm zu hoch. Übrigens können Analphabeten in keiner Sprache lesen oder schreiben, egal wie viele sie sprechen können.'
     },
-    {
-      id: 'Angetrieben',
-      name: 'Angetrieben',
-      points: [1, 2],
-      descr:
-        'Ein Schwur ist eine Verpflichtung anderen gegenüber. Angetriebene Charaktere wollen etwas für sich selbst. Vielleicht wollen sie das Reich beschützen, ein hochdekorierter Offizier werden, beweisen, dass sie der beste Gladiator in Rom sind oder der beste Pilot in der galaktischen Flotte. Die leichte Version formt den Charakter und beeinflusst seine Entscheidungen, jedoch eher selten oder auf harmlose Weise. Ein schweres Handicap ist ein starkes Verlangen, das häufig ins Spiel kommt oder grosse Schwierigkeiten für die Heldin und die Leute um sie herum bedeutet.'
-    },
+    // {
+    //   id: 'Angetrieben',
+    //   name: 'Angetrieben',
+    //   points: [1, 2],
+    //   descr:
+    //     'Ein Schwur ist eine Verpflichtung anderen gegenüber. Angetriebene Charaktere wollen etwas für sich selbst. Vielleicht wollen sie das Reich beschützen, ein hochdekorierter Offizier werden, beweisen, dass sie der beste Gladiator in Rom sind oder der beste Pilot in der galaktischen Flotte. Die leichte Version formt den Charakter und beeinflusst seine Entscheidungen, jedoch eher selten oder auf harmlose Weise. Ein schweres Handicap ist ein starkes Verlangen, das häufig ins Spiel kommt oder grosse Schwierigkeiten für die Heldin und die Leute um sie herum bedeutet.'
+    // },
     {
       id: 'Angewohnheit',
       name: 'Angewohnheit',
@@ -116,27 +116,27 @@ export const state = () => ({
       descr:
         'Dein Charakter hat eine nervtötende oder gefährliche Angewohnheit. Eine leichte Angewohnheit irritiert die Leute in seiner Umgebung, ist aber nicht gefährlich. Vielleicht bohrt er in der Nase, kann nicht aufhören, mit seinem Handy herumzuspielen oder beendet jeden Satz mit „Junge!“. Verbündete meiden ihn, falls möglich. Eine schwere Angewohnheit ist eine körperliche oder geistige Abhängigkeit, die verheerend oder sogar tödlich sein kann. Dazu gehören Drogenabhängigkeit, chronischer Alkoholismus oder vielleicht eine Sucht nach virtueller Realität in einem Hightech-Setting. Ein Abhängiger, der seine Dosis nicht bekommt, muss alle 24 stunden, die er ohne auskommen muss, eine Konstitutionsprobe ablegen, um nicht eine Stufe Erschöpfung (siehe Seite 101) zu erleiden. Einmal pro 24 Stunden ist eine Heilungsprobe mit irgendeiner passenden Medizin möglich, die eine Stufe Erschöpfung für vier Stunden aufhebt. Danach kehrt die Erschöpfung zurück und kann nur mit der Substanz, von der der Charakter abhängig ist, wieder geheilt werden.'
     },
-    {
-      id: 'Arm',
-      name: 'Arm',
-      points: [1],
-      descr:
-        'Man sagt, ein Narr und sein Geld sind bald geschieden. Dein Held ist ein solcher Narr. Er beginnt mit der Hälfte des üblichen Startkapitals und scheint auch nach Spielbeginn einfach nicht gut mit seinem Geld umgehen zu können. Grundsätzlich halbiert der Spieler jede Woche sein Gesamtvermögen.'
-    },
-    {
-      id: 'Arrogant',
-      name: 'Arrogant',
-      points: [2],
-      descr:
-        'Dein Held glaubt nicht nur, der beste zu sein – er weiss es. Egal ob es um Schwertkunst geht, um Kung Fu oder Malerei, wenige sind seinem Können gewachsen, und er gibt damit bei jeder sich bietenden Gelegenheit an. Diesem Helden reicht es nicht, zu gewinnen. Er will seinen Gegner dominieren und beweisen, dass niemand besser ist als er. Er ist die Art von Kämpfer, der einen Gegner in einem Duell entwaffnet, nur um das Schwert aufzuheben und zurückzugeben. In einer Schlacht suchen arrogante Individuen nach der grösstmöglichen Gefahr und hacken sich nur durch die niederen Schergen, weil sie im Weg stehen.'
-    },
-    {
-      id: 'Aussenseiter',
-      name: 'Aussenseiter',
-      points: [1, 2],
-      descr:
-        'In einer Gesellschaft, in der bestimmte Gruppen vorherrschen, gehört dein Held nicht dazu. Ein amerikanischer Ureinwohner in einer Westernstadt, ein Alien in einem Sci-Fi-Spiel voller menschlicher Marines oder ein Halbork in einer Gruppe von Elfen, Zwergen und Menschen sind mögliche Beispiele. Die Einheimischen werden vermutlich höhere Preise verlangen, Bitten um Hilfe ignorieren und den Charakter als Bürger zweiter Klasse behandeln. Aussenseiter ziehen –2 von Überredenproben ab, mit denen sie Personen beeinflussen wollen, die nicht zu ihrer Art gehören. Die schwere Version bedeutet zusätzlich, dass der Charakter wenige oder keine Rechte in dem Gebiet hat, in dem die Kampagne stattfindet. Er könnte unter Xenophoben einer anderen Spezies angehören, die Zivilisation könnte Fremden gegenüber grausam und intolerant handeln, oder er ist vielleicht sogar eine künstliche Intelligenz, deren Bewusstsein vom Gesetz nicht anerkannt wird.'
-    },
+    // {
+    //   id: 'Arm',
+    //   name: 'Arm',
+    //   points: [1],
+    //   descr:
+    //     'Man sagt, ein Narr und sein Geld sind bald geschieden. Dein Held ist ein solcher Narr. Er beginnt mit der Hälfte des üblichen Startkapitals und scheint auch nach Spielbeginn einfach nicht gut mit seinem Geld umgehen zu können. Grundsätzlich halbiert der Spieler jede Woche sein Gesamtvermögen.'
+    // },
+    // {
+    //   id: 'Arrogant',
+    //   name: 'Arrogant',
+    //   points: [2],
+    //   descr:
+    //     'Dein Held glaubt nicht nur, der beste zu sein – er weiss es. Egal ob es um Schwertkunst geht, um Kung Fu oder Malerei, wenige sind seinem Können gewachsen, und er gibt damit bei jeder sich bietenden Gelegenheit an. Diesem Helden reicht es nicht, zu gewinnen. Er will seinen Gegner dominieren und beweisen, dass niemand besser ist als er. Er ist die Art von Kämpfer, der einen Gegner in einem Duell entwaffnet, nur um das Schwert aufzuheben und zurückzugeben. In einer Schlacht suchen arrogante Individuen nach der grösstmöglichen Gefahr und hacken sich nur durch die niederen Schergen, weil sie im Weg stehen.'
+    // },
+    // {
+    //   id: 'Aussenseiter',
+    //   name: 'Aussenseiter',
+    //   points: [1, 2],
+    //   descr:
+    //     'In einer Gesellschaft, in der bestimmte Gruppen vorherrschen, gehört dein Held nicht dazu. Ein amerikanischer Ureinwohner in einer Westernstadt, ein Alien in einem Sci-Fi-Spiel voller menschlicher Marines oder ein Halbork in einer Gruppe von Elfen, Zwergen und Menschen sind mögliche Beispiele. Die Einheimischen werden vermutlich höhere Preise verlangen, Bitten um Hilfe ignorieren und den Charakter als Bürger zweiter Klasse behandeln. Aussenseiter ziehen –2 von Überredenproben ab, mit denen sie Personen beeinflussen wollen, die nicht zu ihrer Art gehören. Die schwere Version bedeutet zusätzlich, dass der Charakter wenige oder keine Rechte in dem Gebiet hat, in dem die Kampagne stattfindet. Er könnte unter Xenophoben einer anderen Spezies angehören, die Zivilisation könnte Fremden gegenüber grausam und intolerant handeln, oder er ist vielleicht sogar eine künstliche Intelligenz, deren Bewusstsein vom Gesetz nicht anerkannt wird.'
+    // },
     {
       id: 'Beschaemt',
       name: 'Beschämt',
@@ -144,20 +144,20 @@ export const state = () => ({
       descr:
         'Etwas sucht deinen Abenteurer heim. Vielleicht hat er einen Schwur geleistet und nicht gehalten. Vielleicht wurde er in einem ehrenhaften Kampf besiegt und hat, um einem grösseren Prinzip zu folgen, trotzdem den Tod seines Feindes befohlen. Vielleicht ist er eigentlich kein Feigling, ist aber einmal vor einer Schlacht geflohen und hat andere sterben lassen. Bei einem leichten Handicap ist die beschämende Situation nicht allgemein bekannt – sie sucht nur den Helden selbst heim. Er könnte wider aller Vernunft handeln, um seinen Fehler nicht zu wiederholen. Oder er erliegt seiner Schwäche ein weiteres Mal und hasst sich selbst dafür. Bei einem schweren Handicap ist seine Tat allgemein bekannt – zumindest bei jenen, bei denen es ihm wichtig ist. Die anderen Spielercharaktere sollten die Geschichte so schnell wie möglich erfahren (im Idealfall bei der Charaktererschaffung). Wenn nicht, sollte sie irgendwann von einem Nichtspielercharakter offenbart und gelegentlich gegen den Helden verwendet werden.'
     },
-    {
-      id: 'Blind',
-      name: 'Blind',
-      points: [2],
-      descr:
-        'Der Charakter kann überhaupt nicht sehen. Er erleidet einen Abzug von –6 auf körperliche Aufgaben, die Sicht erfordern (Entscheidung der SL). Andererseits bekommen blinde Charaktere ein freies Talent ihrer Wahl, um dieses besonders schwere Handicap auszugleichen.'
-    },
-    {
-      id: 'Blutruenstig',
-      name: 'Blutrünstig',
-      points: [2],
-      descr:
-        'Dein Held nimmt niemals Gefangene – sofern er nicht unmittelbar von einem Vorgesetzten überwacht wird. Seine kaltblütige Skrupellosigkeit lässt seine Widersacher gleichermassen reagieren, kostet ihn oft wichtige Informationen, sorgt für ständig neue Feinde und bringt ihn in Schwierigkeiten mit seinen Vorgesetzten oder der Obrigkeit, abhängig vom Setting.'
-    },
+    // {
+    //   id: 'Blind',
+    //   name: 'Blind',
+    //   points: [2],
+    //   descr:
+    //     'Der Charakter kann überhaupt nicht sehen. Er erleidet einen Abzug von –6 auf körperliche Aufgaben, die Sicht erfordern (Entscheidung der SL). Andererseits bekommen blinde Charaktere ein freies Talent ihrer Wahl, um dieses besonders schwere Handicap auszugleichen.'
+    // },
+    // {
+    //   id: 'Blutruenstig',
+    //   name: 'Blutrünstig',
+    //   points: [2],
+    //   descr:
+    //     'Dein Held nimmt niemals Gefangene – sofern er nicht unmittelbar von einem Vorgesetzten überwacht wird. Seine kaltblütige Skrupellosigkeit lässt seine Widersacher gleichermassen reagieren, kostet ihn oft wichtige Informationen, sorgt für ständig neue Feinde und bringt ihn in Schwierigkeiten mit seinen Vorgesetzten oder der Obrigkeit, abhängig vom Setting.'
+    // },
     {
       id: 'Duennhauutig',
       name: 'Dünnhäutig',
@@ -179,13 +179,13 @@ export const state = () => ({
       descr:
         'Aus Unsicherheit beneidet der Charakter die Leistungen anderer oder ist übermässig besitzergreifend, wenn es um Sachen geht, die er als seinen Besitz betrachtet. Er beschwert sich oft, schmollt, giert nach den Besitztümern oder Auszeichnungen anderer, beansprucht die Arbeit anderer für sich, gehorcht Anweisungen nicht und sorgt allgemein für Schwierigkeiten. Als leichtes Handicap fokussiert sich die Eifersucht des Charakters auf einen bestimmten Bereich (wie sein „unvergleichliches“ Können als Pilot oder einen geliebten Menschen). Bei einem schweren Handicap ist der Charakter eifersüchtig auf alles und jeden, dem es besser zu ergehen scheint als ihm. Er spricht die ganze Zeit schlecht über seine Rivalen, versucht sie in den Schatten zu stellen oder verfolgt aktiv Pläne, die jene in Verruf bringen sollen, die sein Ego bedrohen.'
     },
-    {
-      id: 'Einarmig',
-      name: 'Einarmig',
-      points: [2],
-      descr:
-        'Dein Charakter hat einen Arm verloren, entweder von Geburt an, im Kampf oder durch einen Unfall. Glücklicherweise ist sein anderer Arm (mittlerweile) sein „guter“ Arm. Aufgaben, die beide Hände erfordern, wie einige Athletikproben (Entscheidung der SL) oder die Verwendung von zweihändig geführten Waffen, erleiden einen Abzug von –4.'
-    },
+    // {
+    //   id: 'Einarmig',
+    //   name: 'Einarmig',
+    //   points: [2],
+    //   descr:
+    //     'Dein Charakter hat einen Arm verloren, entweder von Geburt an, im Kampf oder durch einen Unfall. Glücklicherweise ist sein anderer Arm (mittlerweile) sein „guter“ Arm. Aufgaben, die beide Hände erfordern, wie einige Athletikproben (Entscheidung der SL) oder die Verwendung von zweihändig geführten Waffen, erleiden einen Abzug von –4.'
+    // },
     {
       id: 'Einauugig',
       name: 'Einäugig',
@@ -193,13 +193,13 @@ export const state = () => ({
       descr:
         'Dieser Veteran hat ein Auge verloren, was ihm zum Beispiel bei Tiefenschärfe Probleme bereitet. Er zieht –2 von allen Eigenschaftsproben ab, die von Sicht abhängen und auf mehr als 5“ (10 Meter) Entfernung stattfinden.'
     },
-    {
-      id: 'Feige',
-      name: 'Feige',
-      points: [2],
-      descr:
-        'Nicht jeder hat Eiswasser in den Adern. Dein Held kann kein Blut sehen und hat grosse Angst davor, verletzt zu werden. Er erleidet einen Abzug von –2 auf Furchtproben und wenn er Einschüchtern widersteht.'
-    },
+    // {
+    //   id: 'Feige',
+    //   name: 'Feige',
+    //   points: [2],
+    //   descr:
+    //     'Nicht jeder hat Eiswasser in den Adern. Dein Held kann kein Blut sehen und hat grosse Angst davor, verletzt zu werden. Er erleidet einen Abzug von –2 auf Furchtproben und wenn er Einschüchtern widersteht.'
+    // },
     {
       id: 'Feind',
       name: 'Feind',
@@ -207,27 +207,27 @@ export const state = () => ({
       descr:
         'Irgendjemand da draussen hasst den Charakter und will ihn ruinieren, einsperren oder tot sehen. Die Schwere des Handicaps hängt davon ab, wie mächtig der Feind ist und wie oft er auftaucht. Ein Feind (leicht) könnte ein einsamer Revolverheld sein, der auf Rache aus ist, oder eine verratene Bruderschaft, die zwar tödlich ist, sich aber nur selten zeigt. Ein Feind könnte mächtige Obrigkeiten, eine Bande von Gesetzlosen oder einen einzelnen sehr mächtigen und sehr hartnäckigen Rivalen bedeuten. Wenn der Gegner eines Tages bezwungen wird, sollte der SL nach und nach einen Ersatzfeind ins Spiel bringen, oder der Held wird das Handicap los, indem er einen Aufstieg opfert.'
     },
-    {
-      id: 'Fettleibig',
-      name: 'Fettleibig',
-      points: [1],
-      descr:
-        'Charaktere, die gut mit ihrem Gewicht zurechtkommen, wählen das Talent Kräftig. Andere sind fettleibig. Ein Charakter kann nicht gleichzeitig Kräftig und Fettleibig sein, und dieses Handicap kann deine Grösse nicht über +3 anheben. Die Grösse (und somit Robustheit) eines fettleibigen Helden steigt um + 1. Seine Bewegungsweite sinkt um– 1, und sein Sprintwürfel wird um einen Typ verringert(Minimum W4).Wenn es um getragene Rüstung und Ausrüstung(nicht Waffen) geht, wird seine Stärke als um einen Würfeltyp niedriger behandelt.Er hat auch unter Umständen Schwierigkeiten, Rüstung und Kleidung zu finden, die passt, oder sich an enge Orte zu begeben.'
-    },
-    {
-      id: 'Fies',
-      name: 'Fies',
-      points: [1],
-      descr:
-        'Dieser Griesgram ist übellaunig und streitlustig. Es fällt ihm schwer, etwas Nettes für andere zu tun, er lässt sich für seine Mühen bezahlen, benimmt sich daneben, selbst wenn man ihn belohnt oder ihm einen Gefallen tut. Neben den zu erwartenden rollenspielerischen Problemen ziehen fiese Charaktere –1 von Überredenproben ab.'
-    },
-    {
-      id: 'Geheimnis',
-      name: 'Geheimnis',
-      points: [1, 2],
-      descr:
-        'Dein Held hat ein Geheimnis, das er für sich behält, um sich oder andere zu beschützen. Bei einem leichten Handicap ist das Geheimnis lästig, aber nicht lebensbedrohlich. Die schwere Version würde dem Charakter in wirklich grosse Schwierigkeiten bringen, wenn das Geheimnis je aufgedeckt wird. In diesem Fall sollte der Charakter es gegen Beschämt, Feind, Gesucht oder ein anderes passendes Handicap nach Wahl der SL eintauschen.'
-    },
+    // {
+    //   id: 'Fettleibig',
+    //   name: 'Fettleibig',
+    //   points: [1],
+    //   descr:
+    //     'Charaktere, die gut mit ihrem Gewicht zurechtkommen, wählen das Talent Kräftig. Andere sind fettleibig. Ein Charakter kann nicht gleichzeitig Kräftig und Fettleibig sein, und dieses Handicap kann deine Grösse nicht über +3 anheben. Die Grösse (und somit Robustheit) eines fettleibigen Helden steigt um + 1. Seine Bewegungsweite sinkt um– 1, und sein Sprintwürfel wird um einen Typ verringert(Minimum W4).Wenn es um getragene Rüstung und Ausrüstung(nicht Waffen) geht, wird seine Stärke als um einen Würfeltyp niedriger behandelt.Er hat auch unter Umständen Schwierigkeiten, Rüstung und Kleidung zu finden, die passt, oder sich an enge Orte zu begeben.'
+    // },
+    // {
+    //   id: 'Fies',
+    //   name: 'Fies',
+    //   points: [1],
+    //   descr:
+    //     'Dieser Griesgram ist übellaunig und streitlustig. Es fällt ihm schwer, etwas Nettes für andere zu tun, er lässt sich für seine Mühen bezahlen, benimmt sich daneben, selbst wenn man ihn belohnt oder ihm einen Gefallen tut. Neben den zu erwartenden rollenspielerischen Problemen ziehen fiese Charaktere –1 von Überredenproben ab.'
+    // },
+    // {
+    //   id: 'Geheimnis',
+    //   name: 'Geheimnis',
+    //   points: [1, 2],
+    //   descr:
+    //     'Dein Held hat ein Geheimnis, das er für sich behält, um sich oder andere zu beschützen. Bei einem leichten Handicap ist das Geheimnis lästig, aber nicht lebensbedrohlich. Die schwere Version würde dem Charakter in wirklich grosse Schwierigkeiten bringen, wenn das Geheimnis je aufgedeckt wird. In diesem Fall sollte der Charakter es gegen Beschämt, Feind, Gesucht oder ein anderes passendes Handicap nach Wahl der SL eintauschen.'
+    // },
     {
       id: 'Gesucht',
       name: 'Gesucht',
@@ -256,13 +256,13 @@ export const state = () => ({
       descr:
         'Viele schliessen vom Äusseren aufs Innere. Allerdings ist das für diese unglückselige Person nicht von Vorteil. Sie erleidet einen Abzug von –1 auf Überredenproben, oder –2, wenn sie ein schweres Handicap ausgewählt hat.'
     },
-    {
-      id: 'Heldenhaft',
-      name: 'Heldenhaft',
-      points: [2],
-      descr:
-        'Diese edle Seele sagt niemals nein zu Menschen in Not. Er muss nicht froh darüber sein, aber er kommt immer zur Rettung jener, die sich nicht selbst helfen können. Er ist der erste, der in ein brennendes Gebäude läuft, stimmt normalerweise zu, Monster für wenig oder gar kein Geld zu jagen, und ist sehr empfänglich für eine tränenreich vorgetragene Geschichte.'
-    },
+    // {
+    //   id: 'Heldenhaft',
+    //   name: 'Heldenhaft',
+    //   points: [2],
+    //   descr:
+    //     'Diese edle Seele sagt niemals nein zu Menschen in Not. Er muss nicht froh darüber sein, aber er kommt immer zur Rettung jener, die sich nicht selbst helfen können. Er ist der erste, der in ein brennendes Gebäude läuft, stimmt normalerweise zu, Monster für wenig oder gar kein Geld zu jagen, und ist sehr empfänglich für eine tränenreich vorgetragene Geschichte.'
+    // },
     {
       id: 'Impulsiv',
       name: 'Impulsiv',
@@ -277,27 +277,27 @@ export const state = () => ({
       descr:
         'Der Held ist 12 bis 15 Jahre alt (in menschlichen Jahren – passe dies für andere Völker an). Er hat nur 4 Punkte für seine Attribute anstelle der üblichen 5, und 10 Fertigkeitspunkte anstelle von 12. Er könnte auch unter rechtlichen Einschränkungen leiden, die vom Setting abhängen (er darf nicht Auto fahren, keine Waffe besitzen oder ähnliches). Andererseits haben junge Leute oft ziemlich viel Glück. Sie erhalten zu Beginn einer jeden Spielsitzung einen zusätzlichen Benny (dies ist kumulativ zu anderen Talenten wie Glück oder Grosses Glück). Die meisten jungen Charaktere sollten auch das Handicap Klein wählen, doch dies ist nicht verpflichtend. Bei einem schweren Handicap ist der Charakter sehr jung (8 bis 11 Jahre alt). Er hat nur 3 Punkte für seine Attribute und 10 für Fertigkeiten, sowie das Handicap Klein. Sehr junge Helden ziehen zu Beginn einer jeden Spielsitzung zwei zusätzliche Bennys.'
     },
-    {
-      id: 'Klein',
-      name: 'Klein',
-      points: [1],
-      descr:
-        'Dieser Abenteurer ist ziemlich dürr, klein oder beides. Seine Grösse (siehe Seite 103 wird um –1 verringert, wodurch auch seine Robustheit sinkt. Die Grösse kann nicht unter –1 sinken, doch der Abzug auf Robustheit ist kumulativ. Ein kleiner Halbling hat beispielsweise Grösse –1, verliert aber einen zusätzlichen Punkt Robustheit.'
-    },
-    {
-      id: 'Kraenklich',
-      name: 'Kränklich',
-      points: [1],
-      descr:
-        'Kränkliche Charaktere sind besonders anfällig gegenüber Krankheiten, Infektionen, Umwelteffekten und Erschöpfung. Sie ziehen –2 von Konstitutionsproben ab, um Erschöpfung zu widerstehen (siehe Gefahren, beginnend auf Seite 101).'
-    },
-    {
-      id: 'Langsam',
-      name: 'Langsam',
-      points: [1, 2],
-      descr:
-        'Eine Behinderung oder eine alte Verletzung schränken die Bewegungsfähigkeit des Helden ein. Bei einem leichten Handicap sinkt seine Bewegungsweite um –1, und sein Sprintwürfel verringert sich um einen Würfeltyp (wenn er einen W4 hat, verringere ihn auf W4 – 1). Bei einem schweren Handicap sinkt die Bewegungsweite um 2, der Sprintwürfel verringert sich um einen Würfeltyp und er zieht –2 von Athletikproben und Proben ab, um Athletik zu widerstehen (wie zum Beispiel bei Herausfordern oder Ringen). Langsame Charaktere dürfen nicht gleichzeitig Flink sein. Prothesen: Ein Charakter mit der leichten Version dieses Handicaps könnte eine Prothese haben. Wenn die Prothese verloren geht, erleidet er die Auswirkungen der schweren Version von Langsam. Rollstuhl: Ab dem viktorianischen Zeitalter können langsame Helden ohne Kosten das Spiel mit einem manuellen Rollstuhl beginnen. In der Moderne (1980 und später) kann der Charakter auch einen ultraleichten oder energiebetriebenen Rollstuhl verwenden.Alle Rollstühle erfordern relativ glatten Boden, um sie zu verwenden(Entscheidung der SL).MANUELL: Die Bewegungsweite entspricht dem halben Athletikwert(Maximum 3), und du kannst nicht sprinten.ULTRALEICHT: Die Bewegungsweite entspricht dem Athletikwürfel, und du kannst mit einem W4(leicht) oder einem W4– 1(schwer) sprinten.ENERGIEBETRIEBEN: Bewegungsweite 6 auf flachem Boden, Bewegungsweite 3 auf unebenem Boden, Sprinten ist nicht möglich.Die meisten energiebetriebenen Rollstühle können ungefähr 15 km weit fahren, ehe sie wieder aufgeladen werden müssen.'
-    },
+    // {
+    //   id: 'Klein',
+    //   name: 'Klein',
+    //   points: [1],
+    //   descr:
+    //     'Dieser Abenteurer ist ziemlich dürr, klein oder beides. Seine Grösse (siehe Seite 103 wird um –1 verringert, wodurch auch seine Robustheit sinkt. Die Grösse kann nicht unter –1 sinken, doch der Abzug auf Robustheit ist kumulativ. Ein kleiner Halbling hat beispielsweise Grösse –1, verliert aber einen zusätzlichen Punkt Robustheit.'
+    // },
+    // {
+    //   id: 'Kraenklich',
+    //   name: 'Kränklich',
+    //   points: [1],
+    //   descr:
+    //     'Kränkliche Charaktere sind besonders anfällig gegenüber Krankheiten, Infektionen, Umwelteffekten und Erschöpfung. Sie ziehen –2 von Konstitutionsproben ab, um Erschöpfung zu widerstehen (siehe Gefahren, beginnend auf Seite 101).'
+    // },
+    // {
+    //   id: 'Langsam',
+    //   name: 'Langsam',
+    //   points: [1, 2],
+    //   descr:
+    //     'Eine Behinderung oder eine alte Verletzung schränken die Bewegungsfähigkeit des Helden ein. Bei einem leichten Handicap sinkt seine Bewegungsweite um –1, und sein Sprintwürfel verringert sich um einen Würfeltyp (wenn er einen W4 hat, verringere ihn auf W4 – 1). Bei einem schweren Handicap sinkt die Bewegungsweite um 2, der Sprintwürfel verringert sich um einen Würfeltyp und er zieht –2 von Athletikproben und Proben ab, um Athletik zu widerstehen (wie zum Beispiel bei Herausfordern oder Ringen). Langsame Charaktere dürfen nicht gleichzeitig Flink sein. Prothesen: Ein Charakter mit der leichten Version dieses Handicaps könnte eine Prothese haben. Wenn die Prothese verloren geht, erleidet er die Auswirkungen der schweren Version von Langsam. Rollstuhl: Ab dem viktorianischen Zeitalter können langsame Helden ohne Kosten das Spiel mit einem manuellen Rollstuhl beginnen. In der Moderne (1980 und später) kann der Charakter auch einen ultraleichten oder energiebetriebenen Rollstuhl verwenden.Alle Rollstühle erfordern relativ glatten Boden, um sie zu verwenden(Entscheidung der SL).MANUELL: Die Bewegungsweite entspricht dem halben Athletikwert(Maximum 3), und du kannst nicht sprinten.ULTRALEICHT: Die Bewegungsweite entspricht dem Athletikwürfel, und du kannst mit einem W4(leicht) oder einem W4– 1(schwer) sprinten.ENERGIEBETRIEBEN: Bewegungsweite 6 auf flachem Boden, Bewegungsweite 3 auf unebenem Boden, Sprinten ist nicht möglich.Die meisten energiebetriebenen Rollstühle können ungefähr 15 km weit fahren, ehe sie wieder aufgeladen werden müssen.'
+    // },
     {
       id: 'Lebensaufgabe',
       name: 'Lebensaufgabe',
@@ -312,20 +312,20 @@ export const state = () => ({
       descr:
         'Dieser treue Beschützer riskiert ohne zu zögern sein Leben für seine Freunde. Einige loyale Helden geben das zwar nicht zu, sind aber die ersten, die ihren Freunden zu Hilfe kommen, wenn sie bedroht werden.'
     },
-    {
-      id: 'Misstrauisch',
-      name: 'Misstrauisch',
-      points: [1, 2],
-      descr:
-        'Dein Charakter ist allen Leuten gegenüber misstrauisch. Bei einem leichten Handicap sorgt seine Paranoia häufig für Vertrauensprobleme. Er könnte die volle Bezahlung verlangen, ehe er einen Auftrag annimmt, jede Übereinkunft schriftlich festhalten oder glauben, dass es sogar seine Freunde auf ihn abgesehen haben. Bei einem schweren Handicap werden Unterstützungsproben, die einem misstrauischen Charakter zu Gute kommen sollen, mit –2 abgelegt.'
-    },
-    {
-      id: 'Neugierig',
-      name: 'Neugierig',
-      points: [2],
-      descr:
-        'Wer seine Nase in anderer Leute Angelegenheiten steckt, für den gibt es oft ein böses Erwachen. Neugierige Charaktere wollen alles anschauen und immer wissen, was hinter einem potenziellen Mysterium oder Geheimnis steckt.'
-    },
+    // {
+    //   id: 'Misstrauisch',
+    //   name: 'Misstrauisch',
+    //   points: [1, 2],
+    //   descr:
+    //     'Dein Charakter ist allen Leuten gegenüber misstrauisch. Bei einem leichten Handicap sorgt seine Paranoia häufig für Vertrauensprobleme. Er könnte die volle Bezahlung verlangen, ehe er einen Auftrag annimmt, jede Übereinkunft schriftlich festhalten oder glauben, dass es sogar seine Freunde auf ihn abgesehen haben. Bei einem schweren Handicap werden Unterstützungsproben, die einem misstrauischen Charakter zu Gute kommen sollen, mit –2 abgelegt.'
+    // },
+    // {
+    //   id: 'Neugierig',
+    //   name: 'Neugierig',
+    //   points: [2],
+    //   descr:
+    //     'Wer seine Nase in anderer Leute Angelegenheiten steckt, für den gibt es oft ein böses Erwachen. Neugierige Charaktere wollen alles anschauen und immer wissen, was hinter einem potenziellen Mysterium oder Geheimnis steckt.'
+    // },
 //    {
 //      id: 'Nichtschwimmer',
 //      name: 'Nichtschwimmer',
@@ -333,13 +333,13 @@ export const state = () => ({
 //      descr:
 //        'Dank Schwimmbädern, mühelosen Reisen zu Seen und Stränden oder bewusster Erziehung können die meisten Leute im 21. Jahrhundert schwimmen. Historisch gesehen allerdings konnten Leute, die nicht an einem gemässigten Gewässer aufgewachsen sind, das nicht. Charaktere mit diesem Handicap erleiden einen Abzug von –2 auf Athletikproben, wenn sie schwimmen, und jeder Zoll, den sie sich im Wasser bewegen, kostet sie 3“ Bewegungsweite. Siehe auch Bewegung (Seite 142) für mehr Details und Ertrinken (auf Seite 116).'
 //    },
-    {
-      id: 'Pazifist',
-      name: 'Pazifist',
-      points: [1, 2],
-      descr:
-        'Dein Held verabscheut Gewalt. Die leichte Version bedeutet, dass er nur kämpft, wenn er wirklich keine andere Wahl hat. Ausserdem würde er niemals zulassen, dass Gefangene oder andere wehrlose Opfer getötet werden. Bei der schweren Version kämpfen Pazifisten unter keinen Umständen gegen lebende Charaktere. Sie können sich verteidigen, werden aber nichts tun, das einem denkenden, lebenden Wesen dauerhaft Schaden zufügt. Sie können Betäubungsschaden (siehe Seite 99) verwenden, aber nur zur Selbstverteidigung oder um andere zu beschützen. Beachte dabei, dass Pazifisten (auch wenn sie die schwere Version des Handicaps haben) sehr wohl gegen eindeutig böse Kreaturen, Untote, Dämonen und dergleichen kämpfen können! Pech (schwer) Dein Held hat ein bisschen weniger Glück als die meisten. Er erhält einen Benny weniger pro Spielsitzung als normal. Ein Charakter kann nicht gleichzeitig Pech und Glück haben.'
-    },
+    // {
+    //   id: 'Pazifist',
+    //   name: 'Pazifist',
+    //   points: [1, 2],
+    //   descr:
+    //     'Dein Held verabscheut Gewalt. Die leichte Version bedeutet, dass er nur kämpft, wenn er wirklich keine andere Wahl hat. Ausserdem würde er niemals zulassen, dass Gefangene oder andere wehrlose Opfer getötet werden. Bei der schweren Version kämpfen Pazifisten unter keinen Umständen gegen lebende Charaktere. Sie können sich verteidigen, werden aber nichts tun, das einem denkenden, lebenden Wesen dauerhaft Schaden zufügt. Sie können Betäubungsschaden (siehe Seite 99) verwenden, aber nur zur Selbstverteidigung oder um andere zu beschützen. Beachte dabei, dass Pazifisten (auch wenn sie die schwere Version des Handicaps haben) sehr wohl gegen eindeutig böse Kreaturen, Untote, Dämonen und dergleichen kämpfen können! Pech (schwer) Dein Held hat ein bisschen weniger Glück als die meisten. Er erhält einen Benny weniger pro Spielsitzung als normal. Ein Charakter kann nicht gleichzeitig Pech und Glück haben.'
+    // },
     {
       id: 'Phobie',
       name: 'Phobie',
@@ -361,20 +361,20 @@ export const state = () => ({
       descr:
         'Ein Warmduscher ist einfach nicht besonders bedrohlich. Vielleicht ist er ein bisschen speckig um die Körpermitte, hat ein zu nettes Gesicht oder eine sehr sanfte Stimme. Was auch immer das Problem ist, er hat Schwierigkeiten damit, wie ein harter Kerl auszusehen. Er zieht –2 ab, wenn er Einschüchternproben ablegt.'
     },
-    {
-      id: 'SchlechteAugen',
-      name: 'Schlechte Augen',
-      points: [1, 2],
-      descr:
-        'Die Augen deines Helden sind nicht mehr, was sie einmal waren. Er erleidet einen Abzug von –1 auf alle Eigenschaftswürfe, die von Sicht abhängen (wie Fernkampfangriffe und Wahrnehmungsproben), oder –2, wenn er ein schweres Handicap hat. In Settings, in denen Brillen verfügbar sind, negieren sie den Abzug, solange sie getragen werden. Wenn eine Brille im Kampf verloren geht oder zerbricht (die Wahrscheinlichkeit beträgt 50%, wenn der Charakter eine Wunde einsteckt, stürzt oder ein andere Art von Verletzung erleidet), ist der Charakter bis zum Ende seines nächsten Zugs Abgelenkt (und Verwundbar im Fall eines schweren Handicaps).'
-    },
-    {
-      id: 'Schwerhoerig',
-      name: 'Schwerhörig',
-      points: [1, 2],
-      descr:
-        'Charaktere, die ihr Gehör ganz oder zum Teil verloren haben, besitzen diesen Nachteil. Bei einem leichten Handicap erleidet der Charakter einen Abzug von –4 auf Wahrnehmungsproben, die mit Gehör zu tun haben, zum Beispiel wenn er bei lauten Geräuschen aufwachen soll. Ein schweres Handicap bedeutet, dass der Charakter taub ist. Er kann nicht hören und scheitert automatisch bei allen Wahrnehmungsproben, die auf Gehör basieren. Hörgeräte verringern den Abzug um 2, erfordern aber Batterien, und wenn der Charakter eine Wunde einsteckt, stürzt oder eine andere Art Verletzung erleidet, besteht eine Chance von 50%, dass sie herausfallen.'
-    },
+    // {
+    //   id: 'SchlechteAugen',
+    //   name: 'Schlechte Augen',
+    //   points: [1, 2],
+    //   descr:
+    //     'Die Augen deines Helden sind nicht mehr, was sie einmal waren. Er erleidet einen Abzug von –1 auf alle Eigenschaftswürfe, die von Sicht abhängen (wie Fernkampfangriffe und Wahrnehmungsproben), oder –2, wenn er ein schweres Handicap hat. In Settings, in denen Brillen verfügbar sind, negieren sie den Abzug, solange sie getragen werden. Wenn eine Brille im Kampf verloren geht oder zerbricht (die Wahrscheinlichkeit beträgt 50%, wenn der Charakter eine Wunde einsteckt, stürzt oder ein andere Art von Verletzung erleidet), ist der Charakter bis zum Ende seines nächsten Zugs Abgelenkt (und Verwundbar im Fall eines schweren Handicaps).'
+    // },
+    // {
+    //   id: 'Schwerhoerig',
+    //   name: 'Schwerhörig',
+    //   points: [1, 2],
+    //   descr:
+    //     'Charaktere, die ihr Gehör ganz oder zum Teil verloren haben, besitzen diesen Nachteil. Bei einem leichten Handicap erleidet der Charakter einen Abzug von –4 auf Wahrnehmungsproben, die mit Gehör zu tun haben, zum Beispiel wenn er bei lauten Geräuschen aufwachen soll. Ein schweres Handicap bedeutet, dass der Charakter taub ist. Er kann nicht hören und scheitert automatisch bei allen Wahrnehmungsproben, die auf Gehör basieren. Hörgeräte verringern den Abzug um 2, erfordern aber Batterien, und wenn der Charakter eine Wunde einsteckt, stürzt oder eine andere Art Verletzung erleidet, besteht eine Chance von 50%, dass sie herausfallen.'
+    // },
     {
       id: 'Schwerzüngig',
       name: 'Schwerzüngig',
@@ -389,27 +389,27 @@ export const state = () => ({
       descr:
         'Der Charakter hat jemandem oder etwas, an das er glaubt, einen Eid geschworen. Wie gefährlich es ist, den Schwur zu erfüllen, und wie oft er ins Spiel kommt, bestimmt die Schwere des Handicaps. Ein Schwur (leicht) könnte sein, einem Orden mit breit gefasstem Aufgabengebiet zu dienen, das selten in Konflikt mit den Zielen der Gruppe kommt. Bei einem Schwur (schwer) muss der Charakter oft viel Zeit auf seine Aufgaben verwenden und bringt sich dabei in Gefahr.'
     },
-    {
-      id: 'Skrupellos',
-      name: 'Skrupellos',
-      points: [1, 2],
-      descr:
-        'Dieser Fanatiker wird fast alles tun, um seine Ziele zu erreichen. Bei einem schweren Handicap hat er keine Hemmungen, jedem zu schaden, der ihm in die Quere kommt. Bei einem leichten Handicap wird er nur jenen schaden, die sich ihm direkt in den Weg stellen.'
-    },
-    {
-      id: 'Stumm',
-      name: 'Stumm',
-      points: [2],
-      descr:
-        'Dein Charakter kann nicht sprechen, entweder von Geburt an oder wegen irgendeines Traumas oder einer Verletzung. Er kann bei Bedarf anderen schriftliche Nachrichten zukommen lassen, Zeichensprache oder eine Kombination visueller Kommunikationsmittel verwenden. Auf Sicht basierende Kommunikation erfordert möglicherweise eine Wahrnehmungsprobe, um sie richtig zu sehen (Beleuchtung und ähnliche Abzüge werden eingerechnet).'
-    },
-    {
-      id: 'Stur',
-      name: 'Stur',
-      points: [1],
-      descr:
-        'Sture Personen wollen immer ihren Kopf durchsetzen und geben niemals zu, dass sie Unrecht haben. Selbst wenn es quälend offensichtlich ist, dass sie einen Fehler gemacht haben, versuchen sie ihr Handeln mit Halbwahrheiten und Rationalisierungen zu rechtfertigen.'
-    },
+    // {
+    //   id: 'Skrupellos',
+    //   name: 'Skrupellos',
+    //   points: [1, 2],
+    //   descr:
+    //     'Dieser Fanatiker wird fast alles tun, um seine Ziele zu erreichen. Bei einem schweren Handicap hat er keine Hemmungen, jedem zu schaden, der ihm in die Quere kommt. Bei einem leichten Handicap wird er nur jenen schaden, die sich ihm direkt in den Weg stellen.'
+    // },
+    // {
+    //   id: 'Stumm',
+    //   name: 'Stumm',
+    //   points: [2],
+    //   descr:
+    //     'Dein Charakter kann nicht sprechen, entweder von Geburt an oder wegen irgendeines Traumas oder einer Verletzung. Er kann bei Bedarf anderen schriftliche Nachrichten zukommen lassen, Zeichensprache oder eine Kombination visueller Kommunikationsmittel verwenden. Auf Sicht basierende Kommunikation erfordert möglicherweise eine Wahrnehmungsprobe, um sie richtig zu sehen (Beleuchtung und ähnliche Abzüge werden eingerechnet).'
+    // },
+    // {
+    //   id: 'Stur',
+    //   name: 'Stur',
+    //   points: [1],
+    //   descr:
+    //     'Sture Personen wollen immer ihren Kopf durchsetzen und geben niemals zu, dass sie Unrecht haben. Selbst wenn es quälend offensichtlich ist, dass sie einen Fehler gemacht haben, versuchen sie ihr Handeln mit Halbwahrheiten und Rationalisierungen zu rechtfertigen.'
+    // },
     {
       id: 'Tick',
       name: 'Tick',
@@ -445,13 +445,13 @@ export const state = () => ({
       descr:
         'Dein Held hat eine Verpflichtung, der er täglich oder zumindest regelmässig nachkommen muss. Es könnte ein Job sein, freiwillige Arbeit, vielleicht muss er sich auch um eine Familie oder Freunde kümmern etc. Die Verpflichtung erfordert in den meisten Wochen 20 Stunden, oder 40+ Stunden bei der schweren Version. Was genau die Verpflichtung umfasst sollten Spieler und Spielleiterin gemeinsam besprechen.'
     },
-    {
-      id: 'Vorsichtig',
-      name: 'Vorsichtig',
-      points: [1],
-      descr:
-        'Dieser Planer verkörpert Zurückhaltung und Vorsicht. Er trifft niemals überstürzte Entscheidungen und plant gerne im Voraus.'
-    },
+    // {
+    //   id: 'Vorsichtig',
+    //   name: 'Vorsichtig',
+    //   points: [1],
+    //   descr:
+    //     'Dieser Planer verkörpert Zurückhaltung und Vorsicht. Er trifft niemals überstürzte Entscheidungen und plant gerne im Voraus.'
+    // },
     {
       id: 'Wahnvorstellungen',
       name: 'Wahnvorstellungen',
