@@ -1,28 +1,24 @@
 export const state = () => ({
-  list: [
-    {
+  list: [{
       id: 'Kraenkelnd',
       name: 'Kränkelnd',
       points: [1, 2],
       tags: ['Deadlands'],
-      descr:
-        'Die Medizin ist eine rudimentäre Wissenschaft und es gibt schlimmere Todesarten als einen schweren Fall von Bleivergiftung. Dieses Handicap ist krankheitsbedingten Hombres mit einem kalten Grab in ihrer nahen Zukunft vorbehalten. Wie Doc Holliday hat auch dein Held eine Reservierung beim Leichenbestatter. Sie ist nur noch nicht bestätigt worden. Die Ursache für sein zukünftiges Ableben ist so etwas wie Schwindsucht (Tuberkulose), Diabetes oder Krebs. Wenn ein Cowpoke dieses Hindernis auf dem Leicht-Level hat, zieht er immer 1 von den Müdigkeitswürfen ab, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht die Geschicklichkeitswürfen, um Beulen und Prellungen zu vermeiden). Er befindet sich im frühesten Stadium der Krankheit und kann noch nicht einmal diagnostiziert werden. Wenn es sich um ein schweres Handicap handelt, subtrahiert dein Hombre stattdessen 2. Es ist unmöglich, die Tatsache zu verbergen, dass er krank ist, und jeder kann erkennen, dass der Tod einen Schritt hinter ihm geht.'
+      descr: 'Die Medizin ist eine rudimentäre Wissenschaft und es gibt schlimmere Todesarten als einen schweren Fall von Bleivergiftung. Dieses Handicap ist krankheitsbedingten Hombres mit einem kalten Grab in ihrer nahen Zukunft vorbehalten. Wie Doc Holliday hat auch dein Held eine Reservierung beim Leichenbestatter. Sie ist nur noch nicht bestätigt worden. Die Ursache für sein zukünftiges Ableben ist so etwas wie Schwindsucht (Tuberkulose), Diabetes oder Krebs. Wenn ein Cowpoke dieses Hindernis auf dem Leicht-Level hat, zieht er immer 1 von den Müdigkeitswürfen ab, die gemacht wurden, um körperlicher Anstrengung zu widerstehen (aber nicht die Geschicklichkeitswürfen, um Beulen und Prellungen zu vermeiden). Er befindet sich im frühesten Stadium der Krankheit und kann noch nicht einmal diagnostiziert werden. Wenn es sich um ein schweres Handicap handelt, subtrahiert dein Hombre stattdessen 2. Es ist unmöglich, die Tatsache zu verbergen, dass er krank ist, und jeder kann erkennen, dass der Tod einen Schritt hinter ihm geht.'
     },
     {
       id: 'Verflucht',
       name: 'Verflucht',
       points: [2],
       tags: ['Deadlands'],
-      descr:
-        'Jeder hat Leichen im Keller, aber deine versuchen, sich den Weg freizukratzen! Dein Held hat jemandem Unrecht getan, entweder durch frühere Zugehörigkeit oder dunkle, unausgesprochene Taten. Während die meisten Leute es nicht wissen oder sich nicht darum kümmern, der Kerl da oben tut das sicher - und er ist es nicht zufrieden. Für jeden Spielercharakter mit dem Handicap Verflucht, beginnt der Spielleiter mit einem zusätzlich Chip!'
+      descr: 'Jeder hat Leichen im Keller, aber deine versuchen, sich den Weg freizukratzen! Dein Held hat jemandem Unrecht getan, entweder durch frühere Zugehörigkeit oder dunkle, unausgesprochene Taten. Während die meisten Leute es nicht wissen oder sich nicht darum kümmern, der Kerl da oben tut das sicher - und er ist es nicht zufrieden. Für jeden Spielercharakter mit dem Handicap Verflucht, beginnt der Spielleiter mit einem zusätzlich Chip!'
     },
     {
       id: 'SchlechteTraeume',
       name: 'Schlechte Träume',
       points: [2],
       tags: ['Deadlands'],
-      descr:
-        'Dein Hombre schläft nicht gut. Tatsächlich ist das Land des Nickens für ihn ein ständiger Alptraum. Er wirft und dreht sich wie ein Dämon auf einem Gestell und hält mit seinen nächtlichen Qualen wahrscheinlich jeden im Umkreis von einem Dutzend Meter von ihm wach. Der Held beginnt jede Spielsitzung mit 1 Chip weniger, um seinen ständig müden Zustand zu repräsentieren. Dies ist kumulativ mit Pech verbunden.'
+      descr: 'Dein Hombre schläft nicht gut. Tatsächlich ist das Land des Nickens für ihn ein ständiger Alptraum. Er wirft und dreht sich wie ein Dämon auf einem Gestell und hält mit seinen nächtlichen Qualen wahrscheinlich jeden im Umkreis von einem Dutzend Meter von ihm wach. Der Held beginnt jede Spielsitzung mit 1 Chip weniger, um seinen ständig müden Zustand zu repräsentieren. Dies ist kumulativ mit Pech verbunden.'
     },
     // {
     //   id: 'GrimmigeDienerindesTodes',
@@ -99,8 +95,7 @@ export const state = () => ({
       id: 'Analphabet',
       name: 'Analphabet',
       points: [1],
-      descr:
-        'Dein Held kann nicht lesen und schreiben. Er kann unterschreiben und weiss, was ein Stoppschild ist, aber das war es auch schon. Er weiss auch nicht viel über Mathe. Er weiss wahrscheinlich, dass zwei plus zwei gleich vier ist, aber Multiplikation und dergleichen sind ihm zu hoch. Übrigens können Analphabeten in keiner Sprache lesen oder schreiben, egal wie viele sie sprechen können.'
+      descr: 'Dein Held kann nicht lesen und schreiben. Er kann unterschreiben und weiss, was ein Stoppschild ist, aber das war es auch schon. Er weiss auch nicht viel über Mathe. Er weiss wahrscheinlich, dass zwei plus zwei gleich vier ist, aber Multiplikation und dergleichen sind ihm zu hoch. Übrigens können Analphabeten in keiner Sprache lesen oder schreiben, egal wie viele sie sprechen können.'
     },
     // {
     //   id: 'Angetrieben',
@@ -109,13 +104,13 @@ export const state = () => ({
     //   descr:
     //     'Ein Schwur ist eine Verpflichtung anderen gegenüber. Angetriebene Charaktere wollen etwas für sich selbst. Vielleicht wollen sie das Reich beschützen, ein hochdekorierter Offizier werden, beweisen, dass sie der beste Gladiator in Rom sind oder der beste Pilot in der galaktischen Flotte. Die leichte Version formt den Charakter und beeinflusst seine Entscheidungen, jedoch eher selten oder auf harmlose Weise. Ein schweres Handicap ist ein starkes Verlangen, das häufig ins Spiel kommt oder grosse Schwierigkeiten für die Heldin und die Leute um sie herum bedeutet.'
     // },
-{
-//   id: 'Angewohnheit',
-//   name: 'Angewohnheit',
-//   points: [1, 2],
-//   descr:
-//     'Dein Charakter hat eine nervtötende oder gefährliche Angewohnheit. Eine leichte Angewohnheit irritiert die Leute in seiner Umgebung, ist aber nicht gefährlich. Vielleicht bohrt er in der Nase, kann nicht aufhören, mit seinem Handy herumzuspielen oder beendet jeden Satz mit „Junge!“. Verbündete meiden ihn, falls möglich. Eine schwere Angewohnheit ist eine körperliche oder geistige Abhängigkeit, die verheerend oder sogar tödlich sein kann. Dazu gehören Drogenabhängigkeit, chronischer Alkoholismus oder vielleicht eine Sucht nach virtueller Realität in einem Hightech-Setting. Ein Abhängiger, der seine Dosis nicht bekommt, muss alle 24 stunden, die er ohne auskommen muss, eine Konstitutionsprobe ablegen, um nicht eine Stufe Erschöpfung (siehe Seite 101) zu erleiden. Einmal pro 24 Stunden ist eine Heilungsprobe mit irgendeiner passenden Medizin möglich, die eine Stufe Erschöpfung für vier Stunden aufhebt. Danach kehrt die Erschöpfung zurück und kann nur mit der Substanz, von der der Charakter abhängig ist, wieder geheilt werden.'
-// },
+    // {
+    //   id: 'Angewohnheit',
+    //   name: 'Angewohnheit',
+    //   points: [1, 2],
+    //   descr:
+    //     'Dein Charakter hat eine nervtötende oder gefährliche Angewohnheit. Eine leichte Angewohnheit irritiert die Leute in seiner Umgebung, ist aber nicht gefährlich. Vielleicht bohrt er in der Nase, kann nicht aufhören, mit seinem Handy herumzuspielen oder beendet jeden Satz mit „Junge!“. Verbündete meiden ihn, falls möglich. Eine schwere Angewohnheit ist eine körperliche oder geistige Abhängigkeit, die verheerend oder sogar tödlich sein kann. Dazu gehören Drogenabhängigkeit, chronischer Alkoholismus oder vielleicht eine Sucht nach virtueller Realität in einem Hightech-Setting. Ein Abhängiger, der seine Dosis nicht bekommt, muss alle 24 stunden, die er ohne auskommen muss, eine Konstitutionsprobe ablegen, um nicht eine Stufe Erschöpfung (siehe Seite 101) zu erleiden. Einmal pro 24 Stunden ist eine Heilungsprobe mit irgendeiner passenden Medizin möglich, die eine Stufe Erschöpfung für vier Stunden aufhebt. Danach kehrt die Erschöpfung zurück und kann nur mit der Substanz, von der der Charakter abhängig ist, wieder geheilt werden.'
+    // },
     // {
     //   id: 'Arm',
     //   name: 'Arm',
@@ -141,8 +136,7 @@ export const state = () => ({
       id: 'Beschaemt',
       name: 'Beschämt',
       points: [1, 2],
-      descr:
-        'Etwas sucht deinen Abenteurer heim. Vielleicht hat er einen Schwur geleistet und nicht gehalten. Vielleicht wurde er in einem ehrenhaften Kampf besiegt und hat, um einem grösseren Prinzip zu folgen, trotzdem den Tod seines Feindes befohlen. Vielleicht ist er eigentlich kein Feigling, ist aber einmal vor einer Schlacht geflohen und hat andere sterben lassen. Bei einem leichten Handicap ist die beschämende Situation nicht allgemein bekannt – sie sucht nur den Helden selbst heim. Er könnte wider aller Vernunft handeln, um seinen Fehler nicht zu wiederholen. Oder er erliegt seiner Schwäche ein weiteres Mal und hasst sich selbst dafür. Bei einem schweren Handicap ist seine Tat allgemein bekannt – zumindest bei jenen, bei denen es ihm wichtig ist. Die anderen Spielercharaktere sollten die Geschichte so schnell wie möglich erfahren (im Idealfall bei der Charaktererschaffung). Wenn nicht, sollte sie irgendwann von einem Nichtspielercharakter offenbart und gelegentlich gegen den Helden verwendet werden.'
+      descr: 'Etwas sucht deinen Abenteurer heim. Vielleicht hat er einen Schwur geleistet und nicht gehalten. Vielleicht wurde er in einem ehrenhaften Kampf besiegt und hat, um einem grösseren Prinzip zu folgen, trotzdem den Tod seines Feindes befohlen. Vielleicht ist er eigentlich kein Feigling, ist aber einmal vor einer Schlacht geflohen und hat andere sterben lassen. Bei einem leichten Handicap ist die beschämende Situation nicht allgemein bekannt – sie sucht nur den Helden selbst heim. Er könnte wider aller Vernunft handeln, um seinen Fehler nicht zu wiederholen. Oder er erliegt seiner Schwäche ein weiteres Mal und hasst sich selbst dafür. Bei einem schweren Handicap ist seine Tat allgemein bekannt – zumindest bei jenen, bei denen es ihm wichtig ist. Die anderen Spielercharaktere sollten die Geschichte so schnell wie möglich erfahren (im Idealfall bei der Charaktererschaffung). Wenn nicht, sollte sie irgendwann von einem Nichtspielercharakter offenbart und gelegentlich gegen den Helden verwendet werden.'
     },
     // {
     //   id: 'Blind',
@@ -162,22 +156,20 @@ export const state = () => ({
       id: 'Duennhauutig',
       name: 'Dünnhäutig',
       points: [1, 2],
-      descr:
-        'Persönliche Angriffe gehen dem Charakter wirklich unter die Haut. Bei einem leichten Handicap erleidet er einen Abzug von –2, wenn er Provozieren-Angriffen widerstehen will. Bei einem schweren Handicap beträgt der Abzug –4.'
+      descr: 'Persönliche Angriffe gehen dem Charakter wirklich unter die Haut. Bei einem leichten Handicap erleidet er einen Abzug von –2, wenn er Provozieren-Angriffen widerstehen will. Bei einem schweren Handicap beträgt der Abzug –4.'
     },
-//  {
-//   id: 'Ehrenkodex',
-//   name: 'Ehrenkodex',
-//   points: [2],
-//   descr:
-//     'Ehre ist deinem Charakter sehr wichtig. Er hält sein Wort, misshandelt oder tötet keine Gefangenen, und versucht sich insgesamt im Rahmen dessen zu verhalten, was er einem Gentleman (oder einer Dame) für angemessen erachtet.'
-// },
-   {
+    //  {
+    //   id: 'Ehrenkodex',
+    //   name: 'Ehrenkodex',
+    //   points: [2],
+    //   descr:
+    //     'Ehre ist deinem Charakter sehr wichtig. Er hält sein Wort, misshandelt oder tötet keine Gefangenen, und versucht sich insgesamt im Rahmen dessen zu verhalten, was er einem Gentleman (oder einer Dame) für angemessen erachtet.'
+    // },
+    {
       id: 'Eifersuuechtig',
       name: 'Eifersüchtig',
       points: [1, 2],
-      descr:
-        'Aus Unsicherheit beneidet der Charakter die Leistungen anderer oder ist übermässig besitzergreifend, wenn es um Sachen geht, die er als seinen Besitz betrachtet. Er beschwert sich oft, schmollt, giert nach den Besitztümern oder Auszeichnungen anderer, beansprucht die Arbeit anderer für sich, gehorcht Anweisungen nicht und sorgt allgemein für Schwierigkeiten. Als leichtes Handicap fokussiert sich die Eifersucht des Charakters auf einen bestimmten Bereich (wie sein „unvergleichliches“ Können als Pilot oder einen geliebten Menschen). Bei einem schweren Handicap ist der Charakter eifersüchtig auf alles und jeden, dem es besser zu ergehen scheint als ihm. Er spricht die ganze Zeit schlecht über seine Rivalen, versucht sie in den Schatten zu stellen oder verfolgt aktiv Pläne, die jene in Verruf bringen sollen, die sein Ego bedrohen.'
+      descr: 'Aus Unsicherheit beneidet der Charakter die Leistungen anderer oder ist übermässig besitzergreifend, wenn es um Sachen geht, die er als seinen Besitz betrachtet. Er beschwert sich oft, schmollt, giert nach den Besitztümern oder Auszeichnungen anderer, beansprucht die Arbeit anderer für sich, gehorcht Anweisungen nicht und sorgt allgemein für Schwierigkeiten. Als leichtes Handicap fokussiert sich die Eifersucht des Charakters auf einen bestimmten Bereich (wie sein „unvergleichliches“ Können als Pilot oder einen geliebten Menschen). Bei einem schweren Handicap ist der Charakter eifersüchtig auf alles und jeden, dem es besser zu ergehen scheint als ihm. Er spricht die ganze Zeit schlecht über seine Rivalen, versucht sie in den Schatten zu stellen oder verfolgt aktiv Pläne, die jene in Verruf bringen sollen, die sein Ego bedrohen.'
     },
     // {
     //   id: 'Einarmig',
@@ -190,8 +182,7 @@ export const state = () => ({
       id: 'Einauugig',
       name: 'Einäugig',
       points: [2],
-      descr:
-        'Dieser Veteran hat ein Auge verloren, was ihm zum Beispiel bei Tiefenschärfe Probleme bereitet. Er zieht –2 von allen Eigenschaftsproben ab, die von Sicht abhängen und auf mehr als 5“ (10 Meter) Entfernung stattfinden.'
+      descr: 'Dieser Veteran hat ein Auge verloren, was ihm zum Beispiel bei Tiefenschärfe Probleme bereitet. Er zieht –2 von allen Eigenschaftsproben ab, die von Sicht abhängen und auf mehr als 5“ (10 Meter) Entfernung stattfinden.'
     },
     // {
     //   id: 'Feige',
@@ -204,8 +195,7 @@ export const state = () => ({
       id: 'Feind',
       name: 'Feind',
       points: [1, 2],
-      descr:
-        'Irgendjemand da draussen hasst den Charakter und will ihn ruinieren, einsperren oder tot sehen. Die Schwere des Handicaps hängt davon ab, wie mächtig der Feind ist und wie oft er auftaucht. Ein Feind (leicht) könnte ein einsamer Revolverheld sein, der auf Rache aus ist, oder eine verratene Bruderschaft, die zwar tödlich ist, sich aber nur selten zeigt. Ein Feind könnte mächtige Obrigkeiten, eine Bande von Gesetzlosen oder einen einzelnen sehr mächtigen und sehr hartnäckigen Rivalen bedeuten. Wenn der Gegner eines Tages bezwungen wird, sollte der SL nach und nach einen Ersatzfeind ins Spiel bringen, oder der Held wird das Handicap los, indem er einen Aufstieg opfert.'
+      descr: 'Irgendjemand da draussen hasst den Charakter und will ihn ruinieren, einsperren oder tot sehen. Die Schwere des Handicaps hängt davon ab, wie mächtig der Feind ist und wie oft er auftaucht. Ein Feind (leicht) könnte ein einsamer Revolverheld sein, der auf Rache aus ist, oder eine verratene Bruderschaft, die zwar tödlich ist, sich aber nur selten zeigt. Ein Feind könnte mächtige Obrigkeiten, eine Bande von Gesetzlosen oder einen einzelnen sehr mächtigen und sehr hartnäckigen Rivalen bedeuten. Wenn der Gegner eines Tages bezwungen wird, sollte der SL nach und nach einen Ersatzfeind ins Spiel bringen, oder der Held wird das Handicap los, indem er einen Aufstieg opfert.'
     },
     // {
     //   id: 'Fettleibig',
@@ -232,29 +222,25 @@ export const state = () => ({
       id: 'Gesucht',
       name: 'Gesucht',
       points: [1, 2],
-      descr:
-        'Dein Held hat ein Verbrechen begangen und wird verhaftet, wenn die Obrigkeiten ihn entdecken, vorausgesetzt, das Setting beinhaltet tatsächlich Gesetze und eine Polizei, die diese durchsetzt. Die Schwere des Handicaps hängt davon ab, wie schwer das Verbrechen war und wie aktiv nach dem Charakter gefahndet wird. Ein Held mit vielen unbezahlten Strafzetteln (in einem Spiel, in dem er gelegentlich fahren muss) hat ein leichtes Handicap. Das gleiche gilt für jemanden, der schwerere Verbrechen in einem Land begangen hat, das weit weg vom Hauptstandort der Kampagne liegt. Des Mordes beschuldigt zu werden, ist in den meisten Settings ein schweres Handicap, wenn es jemanden gibt, der Gerechtigkeit (oder Rache) sucht.'
+      descr: 'Dein Held hat ein Verbrechen begangen und wird verhaftet, wenn die Obrigkeiten ihn entdecken, vorausgesetzt, das Setting beinhaltet tatsächlich Gesetze und eine Polizei, die diese durchsetzt. Die Schwere des Handicaps hängt davon ab, wie schwer das Verbrechen war und wie aktiv nach dem Charakter gefahndet wird. Ein Held mit vielen unbezahlten Strafzetteln (in einem Spiel, in dem er gelegentlich fahren muss) hat ein leichtes Handicap. Das gleiche gilt für jemanden, der schwerere Verbrechen in einem Land begangen hat, das weit weg vom Hauptstandort der Kampagne liegt. Des Mordes beschuldigt zu werden, ist in den meisten Settings ein schweres Handicap, wenn es jemanden gibt, der Gerechtigkeit (oder Rache) sucht.'
     },
     {
       id: 'Gierig',
       name: 'Gierig',
       points: [1, 2],
-      descr:
-        'Ein Geizhals sieht den Wert seines Lebens in den materiellen Besitztümern, die er anhäufen kann. Bei einem leichten Handicap argumentiert er erbittert dafür, mehr als seinen gerechten Anteil von jeder Beute oder Belohnung zu erhalten, die die Charaktere bekommen. Bei einem schweren Handicap fängt er Streit an, wenn er die Aufteilung ungerecht findet, und könnte sogar töten, wenn er sich benachteiligt fühlt oder etwas haben will, das er nicht bekommen kann.'
+      descr: 'Ein Geizhals sieht den Wert seines Lebens in den materiellen Besitztümern, die er anhäufen kann. Bei einem leichten Handicap argumentiert er erbittert dafür, mehr als seinen gerechten Anteil von jeder Beute oder Belohnung zu erhalten, die die Charaktere bekommen. Bei einem schweren Handicap fängt er Streit an, wenn er die Aufteilung ungerecht findet, und könnte sogar töten, wenn er sich benachteiligt fühlt oder etwas haben will, das er nicht bekommen kann.'
     },
     {
       id: 'GrosseKlappe',
       name: 'Grosse Klappe',
       points: [1],
-      descr:
-        'Geschwätzigkeit kann tödlich sein. Das Mundwerk dieses Helden könnte Massenmord begehen. Das Plappermaul kann einfach keine Geheimnisse bewahren. Er enthüllt Pläne und verrät Dinge, die am besten unter Freunden bleiben sollten, normalerweise im schlimmstmöglichen Zeitpunkt.'
+      descr: 'Geschwätzigkeit kann tödlich sein. Das Mundwerk dieses Helden könnte Massenmord begehen. Das Plappermaul kann einfach keine Geheimnisse bewahren. Er enthüllt Pläne und verrät Dinge, die am besten unter Freunden bleiben sollten, normalerweise im schlimmstmöglichen Zeitpunkt.'
     },
     {
       id: 'Haesslich',
       name: 'Hässlich',
       points: [1, 2],
-      descr:
-        'Viele schliessen vom Äusseren aufs Innere. Allerdings ist das für diese unglückselige Person nicht von Vorteil. Sie erleidet einen Abzug von –1 auf Überredenproben, oder –2, wenn sie ein schweres Handicap ausgewählt hat.'
+      descr: 'Viele schliessen vom Äusseren aufs Innere. Allerdings ist das für diese unglückselige Person nicht von Vorteil. Sie erleidet einen Abzug von –1 auf Überredenproben, oder –2, wenn sie ein schweres Handicap ausgewählt hat.'
     },
     // {
     //   id: 'Heldenhaft',
@@ -263,19 +249,18 @@ export const state = () => ({
     //   descr:
     //     'Diese edle Seele sagt niemals nein zu Menschen in Not. Er muss nicht froh darüber sein, aber er kommt immer zur Rettung jener, die sich nicht selbst helfen können. Er ist der erste, der in ein brennendes Gebäude läuft, stimmt normalerweise zu, Monster für wenig oder gar kein Geld zu jagen, und ist sehr empfänglich für eine tränenreich vorgetragene Geschichte.'
     // },
-{
-//   id: 'Impulsiv',
-//   name: 'Impulsiv',
-//   points: [2],
-//   descr:
-//     'Dieser Draufgänger wird fast immer erst drauflosstürmen und dann schauen wohin es geht. Er denkt eine Situation selten zu Ende ehe er handelt.'
-// },
+    // {
+    //   id: 'Impulsiv',
+    //   name: 'Impulsiv',
+    //   points: [2],
+    //   descr:
+    //     'Dieser Draufgänger wird fast immer erst drauflosstürmen und dann schauen wohin es geht. Er denkt eine Situation selten zu Ende ehe er handelt.'
+    // },
     {
       id: 'Jung',
       name: 'Jung',
       points: [1, 2],
-      descr:
-        'Der Held ist 12 bis 15 Jahre alt (in menschlichen Jahren – passe dies für andere Völker an). Er hat nur 4 Punkte für seine Attribute anstelle der üblichen 5, und 10 Fertigkeitspunkte anstelle von 12. Er könnte auch unter rechtlichen Einschränkungen leiden, die vom Setting abhängen (er darf nicht Auto fahren, keine Waffe besitzen oder ähnliches). Andererseits haben junge Leute oft ziemlich viel Glück. Sie erhalten zu Beginn einer jeden Spielsitzung einen zusätzlichen Benny (dies ist kumulativ zu anderen Talenten wie Glück oder Grosses Glück). Die meisten jungen Charaktere sollten auch das Handicap Klein wählen, doch dies ist nicht verpflichtend. Bei einem schweren Handicap ist der Charakter sehr jung (8 bis 11 Jahre alt). Er hat nur 3 Punkte für seine Attribute und 10 für Fertigkeiten, sowie das Handicap Klein. Sehr junge Helden ziehen zu Beginn einer jeden Spielsitzung zwei zusätzliche Bennys.'
+      descr: 'Der Held ist 12 bis 15 Jahre alt (in menschlichen Jahren – passe dies für andere Völker an). Er hat nur 4 Punkte für seine Attribute anstelle der üblichen 5, und 10 Fertigkeitspunkte anstelle von 12. Er könnte auch unter rechtlichen Einschränkungen leiden, die vom Setting abhängen (er darf nicht Auto fahren, keine Waffe besitzen oder ähnliches). Andererseits haben junge Leute oft ziemlich viel Glück. Sie erhalten zu Beginn einer jeden Spielsitzung einen zusätzlichen Benny (dies ist kumulativ zu anderen Talenten wie Glück oder Grosses Glück). Die meisten jungen Charaktere sollten auch das Handicap Klein wählen, doch dies ist nicht verpflichtend. Bei einem schweren Handicap ist der Charakter sehr jung (8 bis 11 Jahre alt). Er hat nur 3 Punkte für seine Attribute und 10 für Fertigkeiten, sowie das Handicap Klein. Sehr junge Helden ziehen zu Beginn einer jeden Spielsitzung zwei zusätzliche Bennys.'
     },
     // {
     //   id: 'Klein',
@@ -302,15 +287,13 @@ export const state = () => ({
       id: 'Lebensaufgabe',
       name: 'Lebensaufgabe',
       points: [1],
-      descr:
-        'Eine Lebensaufgabe zu haben, bedeutet nicht, dass dein Held Selbstmord begehen will. Er glaubt vielmehr einfach, dass sein Leben weniger wert ist als ein edles, aber eindeutig tödliches Ziel. Charaktere mit einer Lebensaufgabe werfen ihr Leben nicht grundlos weg, aber wenn eine Chance besteht, ihr Ziel zu erfüllen, tun sie alles, und nehmen jedes Risiko in Kauf, um es zu erreichen.'
+      descr: 'Eine Lebensaufgabe zu haben, bedeutet nicht, dass dein Held Selbstmord begehen will. Er glaubt vielmehr einfach, dass sein Leben weniger wert ist als ein edles, aber eindeutig tödliches Ziel. Charaktere mit einer Lebensaufgabe werfen ihr Leben nicht grundlos weg, aber wenn eine Chance besteht, ihr Ziel zu erfüllen, tun sie alles, und nehmen jedes Risiko in Kauf, um es zu erreichen.'
     },
     {
       id: 'Loyal',
       name: 'Loyal',
       points: [1],
-      descr:
-        'Dieser treue Beschützer riskiert ohne zu zögern sein Leben für seine Freunde. Einige loyale Helden geben das zwar nicht zu, sind aber die ersten, die ihren Freunden zu Hilfe kommen, wenn sie bedroht werden.'
+      descr: 'Dieser treue Beschützer riskiert ohne zu zögern sein Leben für seine Freunde. Einige loyale Helden geben das zwar nicht zu, sind aber die ersten, die ihren Freunden zu Hilfe kommen, wenn sie bedroht werden.'
     },
     // {
     //   id: 'Misstrauisch',
@@ -326,13 +309,13 @@ export const state = () => ({
     //   descr:
     //     'Wer seine Nase in anderer Leute Angelegenheiten steckt, für den gibt es oft ein böses Erwachen. Neugierige Charaktere wollen alles anschauen und immer wissen, was hinter einem potenziellen Mysterium oder Geheimnis steckt.'
     // },
-//    {
-//      id: 'Nichtschwimmer',
-//      name: 'Nichtschwimmer',
-//      points: [1],
-//      descr:
-//        'Dank Schwimmbädern, mühelosen Reisen zu Seen und Stränden oder bewusster Erziehung können die meisten Leute im 21. Jahrhundert schwimmen. Historisch gesehen allerdings konnten Leute, die nicht an einem gemässigten Gewässer aufgewachsen sind, das nicht. Charaktere mit diesem Handicap erleiden einen Abzug von –2 auf Athletikproben, wenn sie schwimmen, und jeder Zoll, den sie sich im Wasser bewegen, kostet sie 3“ Bewegungsweite. Siehe auch Bewegung (Seite 142) für mehr Details und Ertrinken (auf Seite 116).'
-//    },
+    //    {
+    //      id: 'Nichtschwimmer',
+    //      name: 'Nichtschwimmer',
+    //      points: [1],
+    //      descr:
+    //        'Dank Schwimmbädern, mühelosen Reisen zu Seen und Stränden oder bewusster Erziehung können die meisten Leute im 21. Jahrhundert schwimmen. Historisch gesehen allerdings konnten Leute, die nicht an einem gemässigten Gewässer aufgewachsen sind, das nicht. Charaktere mit diesem Handicap erleiden einen Abzug von –2 auf Athletikproben, wenn sie schwimmen, und jeder Zoll, den sie sich im Wasser bewegen, kostet sie 3“ Bewegungsweite. Siehe auch Bewegung (Seite 142) für mehr Details und Ertrinken (auf Seite 116).'
+    //    },
     // {
     //   id: 'Pazifist',
     //   name: 'Pazifist',
@@ -344,22 +327,19 @@ export const state = () => ({
       id: 'Phobie',
       name: 'Phobie',
       points: [1, 2],
-      descr:
-        'Phobien sind überwältigende und irrationale Ängste, die den Verstand eines Helden heimsuchen. Wenn er sich in Gegenwart des Phobie auslösenden Objekts befindet (Entscheidung der SL, aber normalerweise in Sichtweite) zieht er bei einem leichten Handicap –1 von allen Eigenschaftsproben ab, bei einem schweren Handicap –2. Phobien sollten nicht zu offensichtlich sein – jeder sollte beispielsweise Angst vor Vampiren haben, also ist das keine Phobie, sondern gesunder Menschenverstand. Stattdessen sollte sich eine Phobie auf ein zufälliges Element fokussieren, das sein Verstand mit dem verursachenden Ereignis in Verbindung bringt. Denk daran: Phobien sind irrationale Ängste.'
+      descr: 'Phobien sind überwältigende und irrationale Ängste, die den Verstand eines Helden heimsuchen. Wenn er sich in Gegenwart des Phobie auslösenden Objekts befindet (Entscheidung der SL, aber normalerweise in Sichtweite) zieht er bei einem leichten Handicap –1 von allen Eigenschaftsproben ab, bei einem schweren Handicap –2. Phobien sollten nicht zu offensichtlich sein – jeder sollte beispielsweise Angst vor Vampiren haben, also ist das keine Phobie, sondern gesunder Menschenverstand. Stattdessen sollte sich eine Phobie auf ein zufälliges Element fokussieren, das sein Verstand mit dem verursachenden Ereignis in Verbindung bringt. Denk daran: Phobien sind irrationale Ängste.'
     },
     {
       id: 'Rachsuechtig',
       name: 'Rachsüchtig',
       points: [1, 2],
-      descr:
-        'Rache ist Blutwurst, wie man so sagt. Bei einem leichten Handicap sucht ein Charakter seine Rache auf legale Weise. Die Methode hängt von der Situation ab. Einige intrigieren und planen über Monate, während andere sofortige Ergebnisse verlangen. Wer die schwere Version dieses Handicaps hat, wird seiner Abrechnung nichts im Wege stehen lassen. Das bedeutet nicht, dass er sofort gewalttätig wird, doch sein Handeln tendiert immer in Richtung Eskalation, bis seine Rachsucht vollständig befriedigt ist.'
+      descr: 'Rache ist Blutwurst, wie man so sagt. Bei einem leichten Handicap sucht ein Charakter seine Rache auf legale Weise. Die Methode hängt von der Situation ab. Einige intrigieren und planen über Monate, während andere sofortige Ergebnisse verlangen. Wer die schwere Version dieses Handicaps hat, wird seiner Abrechnung nichts im Wege stehen lassen. Das bedeutet nicht, dass er sofort gewalttätig wird, doch sein Handeln tendiert immer in Richtung Eskalation, bis seine Rachsucht vollständig befriedigt ist.'
     },
     {
       id: 'Sanftmuetig',
       name: 'Sanftmütig',
       points: [1],
-      descr:
-        'Ein Warmduscher ist einfach nicht besonders bedrohlich. Vielleicht ist er ein bisschen speckig um die Körpermitte, hat ein zu nettes Gesicht oder eine sehr sanfte Stimme. Was auch immer das Problem ist, er hat Schwierigkeiten damit, wie ein harter Kerl auszusehen. Er zieht –2 ab, wenn er Einschüchternproben ablegt.'
+      descr: 'Ein Warmduscher ist einfach nicht besonders bedrohlich. Vielleicht ist er ein bisschen speckig um die Körpermitte, hat ein zu nettes Gesicht oder eine sehr sanfte Stimme. Was auch immer das Problem ist, er hat Schwierigkeiten damit, wie ein harter Kerl auszusehen. Er zieht –2 ab, wenn er Einschüchternproben ablegt.'
     },
     // {
     //   id: 'SchlechteAugen',
@@ -386,8 +366,7 @@ export const state = () => ({
       id: 'Schwur',
       name: 'Schwur',
       points: [1, 2],
-      descr:
-        'Der Charakter hat jemandem oder etwas, an das er glaubt, einen Eid geschworen. Wie gefährlich es ist, den Schwur zu erfüllen, und wie oft er ins Spiel kommt, bestimmt die Schwere des Handicaps. Ein Schwur (leicht) könnte sein, einem Orden mit breit gefasstem Aufgabengebiet zu dienen, das selten in Konflikt mit den Zielen der Gruppe kommt. Bei einem Schwur (schwer) muss der Charakter oft viel Zeit auf seine Aufgaben verwenden und bringt sich dabei in Gefahr.'
+      descr: 'Der Charakter hat jemandem oder etwas, an das er glaubt, einen Eid geschworen. Wie gefährlich es ist, den Schwur zu erfüllen, und wie oft er ins Spiel kommt, bestimmt die Schwere des Handicaps. Ein Schwur (leicht) könnte sein, einem Orden mit breit gefasstem Aufgabengebiet zu dienen, das selten in Konflikt mit den Zielen der Gruppe kommt. Bei einem Schwur (schwer) muss der Charakter oft viel Zeit auf seine Aufgaben verwenden und bringt sich dabei in Gefahr.'
     },
     // {
     //   id: 'Skrupellos',
@@ -414,36 +393,31 @@ export const state = () => ({
       id: 'Tick',
       name: 'Tick',
       points: [1],
-      descr:
-        'Diese Person hat eine kleinere Macke, die normalerweise amüsant ist, aber ihm manchmal auch wirklich in Schwierigkeiten bringen kann. Ein Fechter versucht vielleicht immer, seine Initialen in seine Feinde zu ritzen, ein Zwerg prahlt die ganze Zeit mit der Überlegenheit seiner Kultur, oder eine versnobte Debütantin weigert sich, mit der Unterschicht zu essen, zu trinken oder sich auch nur mit ihr abzugeben.'
+      descr: 'Diese Person hat eine kleinere Macke, die normalerweise amüsant ist, aber ihm manchmal auch wirklich in Schwierigkeiten bringen kann. Ein Fechter versucht vielleicht immer, seine Initialen in seine Feinde zu ritzen, ein Zwerg prahlt die ganze Zeit mit der Überlegenheit seiner Kultur, oder eine versnobte Debütantin weigert sich, mit der Unterschicht zu essen, zu trinken oder sich auch nur mit ihr abzugeben.'
     },
     {
       id: 'Tollpatschig',
       name: 'Tollpatschig',
       points: [2],
-      descr:
-        'Dein Held ist ein unkoordinierter Tollpatsch, der über Luft stolpert und den im Sportunterricht niemand im Team haben wollte. Er erleidet einen Abzug von –2 bei Proben auf Athletik und Heimlichkeit.'
+      descr: 'Dein Held ist ein unkoordinierter Tollpatsch, der über Luft stolpert und den im Sportunterricht niemand im Team haben wollte. Er erleidet einen Abzug von –2 bei Proben auf Athletik und Heimlichkeit.'
     },
     {
       id: 'Uebermütig',
       name: 'Übermütig',
       points: [2],
-      descr:
-        'Es gibt nichts, was dein Held nicht schaffen kann. Zumindest glaubt er das. Er denkt auch, dass er so gut wie alles leisten kann und würde niemals von einer Herausforderung zurückschrecken. Er ist nicht selbstmörderisch, doch traut er sich ohne Frage mehr zu, als ratsam ist.'
+      descr: 'Es gibt nichts, was dein Held nicht schaffen kann. Zumindest glaubt er das. Er denkt auch, dass er so gut wie alles leisten kann und würde niemals von einer Herausforderung zurückschrecken. Er ist nicht selbstmörderisch, doch traut er sich ohne Frage mehr zu, als ratsam ist.'
     },
     {
       id: 'Verpeilt',
       name: 'Verpeilt',
       points: [2],
-      descr:
-        'Dein Held achtet nicht besonders auf die Welt, die ihn umgibt, und findet nicht einmal einen Heuhaufen in einem Häufchen Nadeln. Er erleidet –1 auf Proben mit Allgemeinwissen und Wahrnehmung.'
+      descr: 'Dein Held achtet nicht besonders auf die Welt, die ihn umgibt, und findet nicht einmal einen Heuhaufen in einem Häufchen Nadeln. Er erleidet –1 auf Proben mit Allgemeinwissen und Wahrnehmung.'
     },
     {
       id: 'Verpflichtung',
       name: 'Verpflichtung',
       points: [1, 2],
-      descr:
-        'Dein Held hat eine Verpflichtung, der er täglich oder zumindest regelmässig nachkommen muss. Es könnte ein Job sein, freiwillige Arbeit, vielleicht muss er sich auch um eine Familie oder Freunde kümmern etc. Die Verpflichtung erfordert in den meisten Wochen 20 Stunden, oder 40+ Stunden bei der schweren Version. Was genau die Verpflichtung umfasst sollten Spieler und Spielleiterin gemeinsam besprechen.'
+      descr: 'Dein Held hat eine Verpflichtung, der er täglich oder zumindest regelmässig nachkommen muss. Es könnte ein Job sein, freiwillige Arbeit, vielleicht muss er sich auch um eine Familie oder Freunde kümmern etc. Die Verpflichtung erfordert in den meisten Wochen 20 Stunden, oder 40+ Stunden bei der schweren Version. Was genau die Verpflichtung umfasst sollten Spieler und Spielleiterin gemeinsam besprechen.'
     },
     // {
     //   id: 'Vorsichtig',
@@ -456,32 +430,30 @@ export const state = () => ({
       id: 'Wahnvorstellungen',
       name: 'Wahnvorstellungen',
       points: [1, 2],
-      descr:
-        'Dein Held glaubt etwas, das alle anderen als seltsam erachten. Leichte Wahnvorstellungen sind harmlos, oder der Charakter behält sie für sich (zum Beispiel: die Regierung gibt Beruhigungsmittel in Softdrinks, Hunde können reden, wir sind alle nur Charaktere in einem bizarren Spiel). Bei einer schweren Wahnvorstellung bringt er seine Ansichten zu der Situation oft zum Ausdruck, und das kann gelegentlich gefährlich werden (zum Beispiel: die Regierung wird von Aliens geleitet, Krankenhäuser sind tödlich, ich bin allergisch gegen Rüstung, Zombies sind meine Freunde).'
+      descr: 'Dein Held glaubt etwas, das alle anderen als seltsam erachten. Leichte Wahnvorstellungen sind harmlos, oder der Charakter behält sie für sich (zum Beispiel: die Regierung gibt Beruhigungsmittel in Softdrinks, Hunde können reden, wir sind alle nur Charaktere in einem bizarren Spiel). Bei einer schweren Wahnvorstellung bringt er seine Ansichten zu der Situation oft zum Ausdruck, und das kann gelegentlich gefährlich werden (zum Beispiel: die Regierung wird von Aliens geleitet, Krankenhäuser sind tödlich, ich bin allergisch gegen Rüstung, Zombies sind meine Freunde).'
     },
-{
-//   id: 'Zoegerlich',
-//   name: 'Zögerlich',
-//   points: [1],
-//   descr:
-//     'Dein Held zögert in Stresssituationen. Ziehe zwei Aktionskarten im Kampf und verwende die schlechtere. Wenn du einen Joker ziehst, kannst du ihn normal verwenden und das Handicap für die Runde ignorieren (deshalb ist es auch nur ein leichtes Handicap, weil es tatsächlich die Chancen erhöht, einen Joker zu ziehen!). Zögerliche Charaktere können nicht die Talente Schnell oder Kühler Kopf wählen.'
-// },
-{
-//   id: 'ZweilinkeHaende',
-//   name: 'Zwei linke Hände',
-//   points: [1],
-//   descr:
-//     'Aufgrund ihrer Erziehung, geringem Kontakt oder einfach Pech haben einige Leute zwei linke Hände, wenn es um mechanische oder technologische Gerätschaften geht. Zwei linke Hände verursacht einen Abzug von –2, wenn der Charakter mechanische oder elektrische Geräte verwendet. Wenn er einen Kritischen Fehlschlag bei der Verwendung eines solchen Geräts würfelt (und das Gerät nicht bereits einen vorgesehen Effekt für einen solchen Fall hat), dann geht es kaputt. Wenn die SL der Meinung ist, dass es passend ist, kann es danach mit einer Reparierenprobe und 1W6 Stunden Zeit wieder einsatzbereit gemacht werden.'
-// },
+    // {
+    //   id: 'Zoegerlich',
+    //   name: 'Zögerlich',
+    //   points: [1],
+    //   descr:
+    //     'Dein Held zögert in Stresssituationen. Ziehe zwei Aktionskarten im Kampf und verwende die schlechtere. Wenn du einen Joker ziehst, kannst du ihn normal verwenden und das Handicap für die Runde ignorieren (deshalb ist es auch nur ein leichtes Handicap, weil es tatsächlich die Chancen erhöht, einen Joker zu ziehen!). Zögerliche Charaktere können nicht die Talente Schnell oder Kühler Kopf wählen.'
+    // },
+    // {
+    //   id: 'ZweilinkeHaende',
+    //   name: 'Zwei linke Hände',
+    //   points: [1],
+    //   descr:
+    //     'Aufgrund ihrer Erziehung, geringem Kontakt oder einfach Pech haben einige Leute zwei linke Hände, wenn es um mechanische oder technologische Gerätschaften geht. Zwei linke Hände verursacht einen Abzug von –2, wenn der Charakter mechanische oder elektrische Geräte verwendet. Wenn er einen Kritischen Fehlschlag bei der Verwendung eines solchen Geräts würfelt (und das Gerät nicht bereits einen vorgesehen Effekt für einen solchen Fall hat), dann geht es kaputt. Wenn die SL der Meinung ist, dass es passend ist, kann es danach mit einer Reparierenprobe und 1W6 Stunden Zeit wieder einsatzbereit gemacht werden.'
+    // },
     {
       id: 'Zweifler',
       name: 'Zweifler',
       points: [1],
-      descr:
-        'Einige Leute glauben nicht an das Übernatürliche – bis sie dann Hals über Kopf im Schlund irgendeiner Kreatur stecken. Zweifler sind Skeptiker, die ihr Bestes geben, um eine rationale Erklärung für übernatürliche Ereignisse zu finden. Sie laufen direkt in die Gefahr, an die sie nicht glauben, und suchen nach Erklärungen für das Unerklärliche. Selbst wenn sie mit der unleugbaren Wahrheit konfrontiert werden, beginnen Zweifler unweigerlich zu hinterfragen, was sie gesehen haben, rationalisieren es weg oder tun die Geschehnisse als „einzigartigen Fall“ ab, um dann das nächste seltsame Ereignis wieder in Frage zu stellen zu können.'
+      descr: 'Einige Leute glauben nicht an das Übernatürliche – bis sie dann Hals über Kopf im Schlund irgendeiner Kreatur stecken. Zweifler sind Skeptiker, die ihr Bestes geben, um eine rationale Erklärung für übernatürliche Ereignisse zu finden. Sie laufen direkt in die Gefahr, an die sie nicht glauben, und suchen nach Erklärungen für das Unerklärliche. Selbst wenn sie mit der unleugbaren Wahrheit konfrontiert werden, beginnen Zweifler unweigerlich zu hinterfragen, was sie gesehen haben, rationalisieren es weg oder tun die Geschehnisse als „einzigartigen Fall“ ab, um dann das nächste seltsame Ereignis wieder in Frage zu stellen zu können.'
     }
   ]
-})
+});
 
 export const getters = {
   getList: (state) => {
