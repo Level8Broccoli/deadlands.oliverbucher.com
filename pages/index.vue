@@ -196,3 +196,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.buttons > * + * {
+  margin-left: 2rem;
+}
+</style>

@@ -193,12 +193,12 @@ export const state = () => ({
     //        'Die Fähigkeit, ein Boot, Schiff oder anderes Wasserfahrzeug zu steuern.',
     //      attr: 'Geschicklichkeit'
     //    },
-    {
-      id: 'Sprache',
-      name: 'Sprache',
-      descr: 'Kenntnisse und Sprachfähigkeiten in einer Fremdsprache.',
-      attr: 'Verstand'
-    },
+    // {
+    //   id: 'Sprache',
+    //   name: 'Sprache',
+    //   descr: 'Kenntnisse und Sprachfähigkeiten in einer Fremdsprache.',
+    //   attr: 'Verstand'
+    // },
     {
       id: 'Ueberleben',
       name: 'Überleben',
